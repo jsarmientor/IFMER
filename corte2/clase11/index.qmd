@@ -1,0 +1,31 @@
+---
+title: "Clase 11: Semana de Receso Académico"
+subtitle: "Semana 11 | Corte 2"
+author: "Prof. Jefferson Sarmiento Rojas"
+date: "2026-07-23"
+format:
+  html:
+    toc: true
+  pdf:
+    toc: true
+---
+
+## 🎯 Objetivos de la Clase
+
+- [ ] Objetivo 1 (En desarrollo)
+- [ ] Objetivo 2 (En desarrollo)
+
+---
+
+## 📖 Materiales y Lecturas
+
+::: {.callout-flipped}
+##### 💡 Preparación Previa
+*Contenido y guía práctica en construcción por el docente.*
+:::
+
+---
+
+## 🧪 Práctica de Laboratorio
+
+*Actividad práctica en desarrollo.*

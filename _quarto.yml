@@ -1,0 +1,103 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Informática Médica - IFMER 2026-II"
+  description: "Plataforma de gestión del curso de Informática Médica, guía docente, clases y presentaciones."
+  site-url: "https://urosario.edu.co/ifmer2026"
+  navbar:
+    background: "#941100"
+    foreground: "#ffffff"
+    logo: "logo_urosario.png"
+    left:
+      - text: "Guía de Asignatura"
+        icon: house-door-fill
+        href: index.qmd
+      - text: "Corte 1"
+        icon: 1-circle-fill
+        href: corte1/index.qmd
+      - text: "Corte 2"
+        icon: 2-circle-fill
+        href: corte2/index.qmd
+      - text: "Corte 3"
+        icon: 3-circle-fill
+        href: corte3/index.qmd
+    right:
+      - icon: envelope-fill
+        href: "mailto:jefferson.sarmiento@urosario.edu.co"
+        aria-label: "Correo Profesor"
+
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "🏠 Guía de Asignatura (Home)"
+        href: index.qmd
+      - section: "🟦 Corte 1: Fundamentos y SIS"
+        contents:
+          - text: "Resumen Corte 1"
+            href: corte1/index.qmd
+          - text: "Clase 01: Fundamentos & DIKW"
+            href: corte1/clase01/index.qmd
+          - text: "Clase 02: HCE / EHR"
+            href: corte1/clase02/index.qmd
+          - text: "Clase 03: HIS, LIS & Procesos"
+            href: corte1/clase03/index.qmd
+          - text: "Clase 04: RIS/PACS & DICOM"
+            href: corte1/clase04/index.qmd
+          - text: "Clase 05: Integración de Sistemas"
+            href: corte1/clase05/index.qmd
+          - text: "Clase 06: Parcial Corte 1"
+            href: corte1/clase06/index.qmd
+      - section: "🟩 Corte 2: Interoperabilidad & Salud"
+        contents:
+          - text: "Resumen Corte 2"
+            href: corte2/index.qmd
+          - text: "Clase 07: HL7, CIE-10 & SNOMED"
+            href: corte2/clase07/index.qmd
+          - text: "Clase 08: HL7 FHIR & APIs"
+            href: corte2/clase08/index.qmd
+          - text: "Clase 09: Telemedicina & PWA"
+            href: corte2/clase09/index.qmd
+          - text: "Clase 10: Receso Académico"
+            href: corte2/clase10/index.qmd
+          - text: "Clase 11: Parcial Corte 2"
+            href: corte2/clase11/index.qmd
+      - section: "🟨 Corte 3: Datos, IA & Ética"
+        contents:
+          - text: "Resumen Corte 3"
+            href: corte3/index.qmd
+          - text: "Clase 12: IoMT & Wearables"
+            href: corte3/clase12/index.qmd
+          - text: "Clase 13: Big Data, ML & CDSS"
+            href: corte3/clase13/index.qmd
+          - text: "Clase 14: Ética & Ciberseguridad"
+            href: corte3/clase14/index.qmd
+          - text: "Clase 15: Proyecto Final / Parcial 3"
+            href: corte3/clase15/index.qmd
+
+  page-footer:
+    left: "© 2026 **Universidad del Rosario** | Escuela de Medicina y Ciencias de la Salud"
+    center: "Informática Médica (IFMER) - Semestre 2026-II"
+    right: "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-title: "En esta página"
+    toc-depth: 3
+    smooth-scroll: true
+    number-sections: false
+    code-annotations: false
+    format-links: true
+  typst:
+    papersize: us-letter
+    margin:
+      x: 2cm
+      y: 2.5cm
+    toc: true
+    toc-title: "Índice de Contenido"
+    number-sections: true

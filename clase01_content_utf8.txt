@@ -1,0 +1,60 @@
+
+--- Slide 1 ---
+Informática Médica
+Jefferson Sarmiento Rojas PhD Lic, Ing, MEng
+
+--- Slide 2 ---
+jefferson.sarmiento@urosario.edu.co
+jefferson.sarmiento@urosario.edu.co 
+CVLAC
+Formación
+ Licenciado en Electrónica: Diseño e implementación de 
+    un controlador Fuzzy para un vehículo UAV (Quadrotor).
+ Ingeniero Electrónico: Sistema IoMT para el Monitoreo 
+        y Trazabilidad de Medicamentos y Vacunas en Bogotá
+Magíster en Ingeniería Electrónica: Diseño De Un Controlador
+   Difuso En Un Vehículo Aéreo No Tripulado Tipo Quadrotor Basado En LMIs
+ Especialización en Gestión de Proyectos: Sistema IoMT para el Monitoreo 
+   y Trazabilidad de Medicamentos y Vacunas en Bogotá
+Doctorado en Ingeniería (C): 	
+Líneas de interés:
+Tiny machine Learning
+Sistemas Embebidos
+Automatización y control robusto.
+Internet de las cosas.
+Desarrollo de software
+
+--- Slide 3 ---
+Presentación 
+Estudiantes
+
+--- Slide 4 ---
+
+--- Slide 5 ---
+
+--- Slide 6 ---
+Jerarquía del conocimiento: Dato, Información, Conocimiento y Sabiduría (DIKW).
+
+--- Slide 7 ---
+Flujos de trabajo clínicos y administrativos
+
+--- Slide 8 ---
+Del registro en papel a la Salud 4.0
+
+--- Slide 9 ---
+Actividad: Programando el Triaje, El Ciclo DIKW
+Problema: Imagina que existe  un dispositivo IoT (como un reloj inteligente) que mide la temperatura de pacientes en una sala de espera. Y Debes decidir automáticamente qué hacer con cada uno.
+
+--- Slide 10 ---
+Actividad: Programando el Triaje, El Ciclo DIKW
+Dato (temperaturas_sensor): "Miren la lista de números [36.5, 39.2...]. Si yo solo les doy eso, no saben si es temperatura, precio del dólar o latidos por minuto. Eso es el Dato."
+
+Información (mensaje_info): "Cuando agregamos '°C', el dato gana contexto. Ahora sabemos qué estamos midiendo."
+
+Conocimiento (if/else): "Aquí entra la medicina. El computador no sabe qué es fiebre. Nosotros, como expertos, le enseñamos las reglas (> 37.5). El if representa el conocimiento médico codificado."
+
+Sabiduría (accion): "El sistema no solo dice 'tiene fiebre', sino que sugiere qué hacer ('Administrar antipirético'). La sabiduría es la aplicación práctica del conocimiento para resolver un problema
+
+--- Slide 11 ---
+Reto: Programando el Triaje, El Ciclo DIKW
+modifiquen el código para agregar una segunda variable, como Saturación de Oxígeno (SpO2). Y describa el ciclo.

@@ -1,0 +1,33 @@
+---
+title: "Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)"
+subtitle: "Semana 2 | Corte 1"
+author: "Prof. Jefferson Sarmiento Rojas"
+date: "2026-07-23"
+format:
+  html:
+    toc: true
+  pdf:
+    toc: true
+---
+
+<a href="slides.html" target="_blank" class="btn-slide">💻 Ver Presentación de Diapositivas</a>
+
+## 🎯 Objetivos de la Clase
+
+- [ ] Objetivo 1 (En desarrollo)
+- [ ] Objetivo 2 (En desarrollo)
+
+---
+
+## 📖 Materiales y Lecturas
+
+::: {.callout-flipped}
+##### 💡 Preparación Previa
+*Contenido y guía práctica en construcción por el docente.*
+:::
+
+---
+
+## 🧪 Práctica de Laboratorio
+
+*Actividad práctica en desarrollo.*

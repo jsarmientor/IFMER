@@ -1,0 +1,59 @@
+---
+title: "Corte 3: Datos, Inteligencia Artificial y Ética"
+subtitle: "Informática Médica - IFMER 2026-II"
+author: "Prof. Jefferson Sarmiento Rojas"
+format:
+  html:
+    toc: true
+  pdf:
+    toc: true
+---
+
+::: {.hero-box}
+# Corte 3: Datos, Inteligencia Artificial y Ética
+**Ponderación total:** 33.3% de la nota final  
+*Semanas 12 a 15 | IoMT, Big Data en Salud, TinyML, Sistemas de Soporte a la Decisión (CDSS) y Ciberseguridad.*
+:::
+
+## 🎯 Objetivos del Corte
+
+En este último corte, se abordará la frontera de la innovación en Salud Digital: la captura continua de señales fisiológicas mediante el **Internet de las Cosas Médicas (IoMT)**, el procesamiento masivo de datos (**Big Data**), la implementación de modelos de **Inteligencia Artificial y TinyML** en dispositivos embebidos de salud, los **Sistemas de Soporte a la Decisión Clínica (CDSS)** y los imperativos de **Ética, Privacidad (Habeas Data / HIPAA)** y **Ciberseguridad**.
+
+---
+
+## 📅 Contenido Semana por Semana
+
+::: {.card .mb-3}
+::: {.card-body}
+### 🟨 [Semana 12 - Clase 12: Internet de las Cosas Médicas (IoMT)](clase12/index.qmd)
+- **Conceptos:** Wearables, sensores fisiológicos remotos, arquitectura IoT médica.
+- **Práctica:** Captura e inspección de datos de bioinstrumentación.
+- **Recursos:** [Ver Guía de Clase](clase12/index.qmd) | [💻 Ver Presentación Diapositivas](clase12/slides.qmd)
+:::
+:::
+
+::: {.card .mb-3}
+::: {.card-body}
+### 🟨 [Semana 13 - Clase 13: Big Data e Inteligencia Artificial en Salud](clase13/index.qmd)
+- **Conceptos:** Las 4 V del Big Data, Machine Learning, TinyML (IA en el dispositivo), CDSS.
+- **Práctica:** Análisis exploratorio de un dataset de salud y clasificación predictiva.
+- **Recursos:** [Ver Guía de Clase](clase13/index.qmd) | [💻 Ver Presentación Diapositivas](clase13/slides.qmd)
+:::
+:::
+
+::: {.card .mb-3}
+::: {.card-body}
+### 🟨 [Semana 14 - Clase 14: Ética, Seguridad y Normativa](clase14/index.qmd)
+- **Conceptos:** Privacidad de datos del paciente, HIPAA/GDPR, Ciberseguridad (Ransomware), Sesgos algorítmicos.
+- **Práctica:** Estudio de caso sobre ataques ransomware y ética en algoritmos diagnósticos.
+- **Recursos:** [Ver Guía de Clase](clase14/index.qmd) | [💻 Ver Presentación Diapositivas](clase14/slides.qmd)
+:::
+:::
+
+::: {.card .mb-3}
+::: {.card-body}
+### 🟨 [Semana 15 - Clase 15: Proyecto Final / Evaluaciones](clase15/index.qmd)
+- **Evaluación Sumativa:** Sustentación del Proyecto Final Integrador (20%) y Evaluación Integradora (13.3%).
+- **Recursos:** [Ver Guía de Evaluación y Proyecto](clase15/index.qmd)
+:::
+:::

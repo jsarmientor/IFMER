@@ -1,0 +1,67 @@
+---
+title: "Clase 01: Jerarquía del Conocimiento y Salud 4.0"
+subtitle: "Semana 1 | Corte 1"
+author: "Prof. Jefferson Sarmiento Rojas"
+date: "2026-07-23"
+format:
+  html:
+    toc: true
+  pdf:
+    toc: true
+filters:
+  - pyodide
+---
+
+<a href="slides.html" target="_blank" class="btn btn-primary mb-4">
+  <i class="bi bi-display"></i> Ver Presentación de la Clase
+</a>
+
+## 🎯 Objetivos de la Clase
+Comprender los conceptos fundamentales de la informática médica, el flujo de trabajo clínico y administrativo, y la aplicación práctica del modelo DIKW.
+
+---
+
+## 📖 Conceptos Fundamentales
+
+### Jerarquía del Conocimiento (Modelo DIKW)
+La base de la informática médica se centra en la transición progresiva desde los datos brutos hasta la toma de decisiones:
+- **Dato:** Símbolos o lecturas aisladas.
+- **Información:** Datos con contexto y significado.
+- **Conocimiento:** Información comprendida y estructurada.
+- **Sabiduría:** Conocimiento aplicado para la acción y resolución de problemas.
+
+### Evolución Clínica
+- **Flujos de trabajo clínicos y administrativos.**
+- **Transición:** Del registro en papel a la **Salud 4.0**.
+
+---
+
+## 🧪 Práctica de Laboratorio: Programando el Triaje
+
+### El Ciclo DIKW Aplicado
+**Problema:** Imagina que existe un dispositivo IoT (como un reloj inteligente) que mide la temperatura de pacientes en una sala de espera y debes decidir automáticamente qué hacer con cada uno.
+
+- **Dato (`temperaturas_sensor`):** "Miren la lista de números `[36.5, 39.2...]`. Si yo solo les doy eso, no saben si es temperatura, precio del dólar o latidos por minuto. Eso es el Dato."
+- **Información (`mensaje_info`):** "Cuando agregamos `°C`, el dato gana contexto. Ahora sabemos qué estamos midiendo."
+- **Conocimiento (`if/else`):** "Aquí entra la medicina. El computador no sabe qué es fiebre. Nosotros, como expertos, le enseñamos las reglas (por ejemplo, `> 37.5`). El `if` representa el conocimiento médico codificado."
+- **Sabiduría (`accion`):** "El sistema no solo dice 'tiene fiebre', sino que sugiere qué hacer ('Administrar antipirético'). La sabiduría es la aplicación práctica del conocimiento para resolver un problema."
+
+#### Ejemplo en Código Python
+A continuación, un ejemplo básico de cómo se estructuran las decisiones (Conocimiento y Sabiduría) en código real. ¡Puedes editar este código y ejecutarlo directamente aquí en tu navegador!
+
+```{pyodide-python}
+# Esto es un programa de prueba para demostrar la jerarquía del conocimiento en python.
+temperatura = 25
+
+if temperatura > 30:
+    print("Hace calor")
+elif temperatura < 15:
+    print("Hace frío")
+else:
+    print("El clima es agradable")
+```
+
+::: {.callout-note}
+#### 💻 Reto Práctico
+Modifiquen el código para agregar una segunda variable, como **Saturación de Oxígeno (SpO2)**, y describan paso a paso el ciclo DIKW para esta nueva variable.
+:::

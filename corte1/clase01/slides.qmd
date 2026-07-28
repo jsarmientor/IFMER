@@ -1,0 +1,60 @@
+---
+title: "Clase 01: Fundamentos de Informática Médica & DIKW"
+subtitle: "Informática Médica - IFMER 2026-II"
+author: "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"
+institute: "Universidad del Rosario"
+date: "2026-07-23"
+format:
+  revealjs:
+    theme: moon
+    transition: slide
+    slide-number: true
+    controls: true
+    footer: "Informática Médica - IFMER 2026-II"
+---
+
+# 👨‍🏫 Información del Docente
+
+## Jefferson Sarmiento Rojas, Ph.D (c)
+![](slide_perfil.png){width="100%"}
+
+# 🏥 Jerarquía del Conocimiento (Modelo DIKW)
+
+## Pirámide DIKW
+![](slide_6_img_2.png){width="80%"}
+
+## Dato
+- Símbolos o lecturas aisladas.
+- Ejemplo: `[36.5, 39.2...]` sin contexto.
+
+## Información
+- Datos con contexto y significado.
+- Ejemplo: `39.2 °C` (Sabemos qué estamos midiendo).
+
+## Conocimiento
+- Información comprendida y estructurada.
+- Ejemplo: `Si temperatura > 37.5, entonces hay fiebre`. El conocimiento médico codificado.
+
+## Sabiduría
+- Conocimiento aplicado para la acción y resolución de problemas.
+- Ejemplo: "El sistema sugiere administrar antipirético y priorizar atención".
+
+# 📈 Evolución Clínica
+
+## Flujos de trabajo
+- Comprender cómo se mueve la información clínica y administrativa dentro de un hospital.
+- ![](slide_4_img_0.png){width="60%"}
+
+## Transición de Tecnologías
+- ![](slide_5_img_0.png){width="80%"}
+
+## Hacia la Salud 4.0
+- Transición del registro en papel a sistemas totalmente digitalizados, inteligentes e interoperables.
+
+# 💻 Práctica de Laboratorio
+
+## Programando el Triaje (Reto DIKW)
+Imagina un dispositivo IoT (como un smartwatch) midiendo pacientes en sala de espera.
+
+**Reto Práctico:** 
+Modifiquen el código del triage para agregar una segunda variable, como **Saturación de Oxígeno (SpO2)**, y describan paso a paso el ciclo DIKW para esta nueva variable de manera automática.

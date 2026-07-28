@@ -1,0 +1,40 @@
+Hoja de Respuestas (Clave para Jefferson)
+1.	c | 2. c | 3. c | 4. b | 5. b | 6. b | 7. b | 8. c | 9. c | 10. b
+2.	b | 12. b | 13. b | 14. b | 15. b | 16. b | 17. b | 18. b | 19. c | 20. B
+
+
+Orden	Bloque	Explicación Técnica
+1	$mysqli = new mysqli(...)	Primero se abre el canal con la base de datos.
+2	if ($mysqli->connect_error)	Se verifica que la conexión sea exitosa antes de seguir.
+3	$sql_listado = "SELECT..."	Se define qué datos queremos ver (Lectura).
+4	$resultado = $mysqli->query(...)	Se extraen los datos de MySQL hacia PHP.
+5	while($row = ...)	Se recorren los registros para mostrarlos en la interfaz.
+6	<a href="eliminar.php?id=..."	El usuario elige qué equipo borrar enviando el ID.
+7	$id_eliminar = $_GET['id'];	El script recibe el ID específico del equipo.
+8	$sql_borrar = "DELETE..."	Se prepara la sentencia de eliminación con filtro (WHERE).
+9	$mysqli->query($sql_borrar);	Se ejecuta la acción definitiva en la base de datos.
+10	header("Location: ...");	Se devuelve al usuario a la tabla actualizada.
+
+
+
+1.c | 2.c | 3.b | 4.a | 5.b | 6.b | 7.a | 8.c | 9.c | 10.b | 11.b | 12.b | 13.b | 14.b | 15.b
+
+$mysqli = new mysqli...
+
+if ($mysqli->connect_error)...
+
+$sql_listado = "SELECT *..."
+
+$resultado = $mysqli->query($sql_listado);
+
+while($row = ...)
+
+<a href="eliminar.php?id=...">
+
+$id = $_GET['id'];
+
+$sql_borrar = "DELETE FROM..."
+
+$mysqli->query($sql_borrar);
+
+header("Location: index.php");

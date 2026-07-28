@@ -1,0 +1,20 @@
+---
+title: "Clase 13: Big Data, Machine Learning & TinyML"
+subtitle: "Informática Médica - IFMER 2026-II"
+author: "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"
+institute: "Universidad del Rosario"
+date: "2026-07-23"
+format:
+  revealjs:
+    theme: moon
+    transition: slide
+    slide-number: true
+    controls: true
+    footer: "Informática Médica - IFMER 2026-II"
+---
+
+# 🚧 Clase 13: Big Data, Machine Learning & TinyML
+
+## Diapositivas en Desarrollo
+
+* Próximamente se publicará el contenido de las diapositivas de esta sesión.

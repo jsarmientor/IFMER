@@ -1,0 +1,139 @@
+/* Custom CSS for Informática Médica - IFMER 2026-II (Universidad del Rosario) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700&display=swap');
+
+:root {
+  --primary-rosario: #941100; /* Color oficial Universidad del Rosario */
+  --primary-navy: #002855;
+  --accent-cyan: #0284c7;
+  --accent-teal: #0d9488;
+  --bg-light: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --border-color: #e2e8f0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  color: var(--primary-rosario);
+  font-weight: 600;
+}
+
+/* Header Logo Image */
+.doc-logo {
+  max-width: 280px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Navbar Customization */
+.navbar {
+  background-color: var(--primary-rosario) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* Hero Banner on Index */
+.hero-box {
+  background: linear-gradient(135deg, #941100 0%, #002855 100%);
+  color: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.hero-box h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-box p {
+  color: #fef2f2;
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+/* Callout Boxes Styling */
+.callout-flipped {
+  border-left: 5px solid #941100;
+  background-color: #fdf2f2;
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.25rem 0;
+}
+
+.callout-flipped h5 {
+  color: #941100;
+  margin-top: 0;
+}
+
+.callout-eval {
+  border-left: 5px solid #0d9488;
+  background-color: #f0fdf4;
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.25rem 0;
+}
+
+.callout-eval h5 {
+  color: #0f766e;
+  margin-top: 0;
+}
+
+/* Buttons for Presentations and Downloads */
+.btn-slide {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-rosario);
+  color: #ffffff !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-slide:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.15);
+}
+
+/* Tables styling matching IFMER_2026.docx */
+table.table {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin: 1.5rem 0;
+}
+
+table.table th {
+  background-color: var(--primary-rosario) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+}
+
+table.table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+table.table tr:nth-child(even) {
+  background-color: #f8fafc;
+}

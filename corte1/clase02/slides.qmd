@@ -1,0 +1,20 @@
+---
+title: "Clase 02: Historia Clínica Electrónica (HCE / EHR)"
+subtitle: "Informática Médica - IFMER 2026-II"
+author: "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"
+institute: "Universidad del Rosario"
+date: "2026-07-23"
+format:
+  revealjs:
+    theme: moon
+    transition: slide
+    slide-number: true
+    controls: true
+    footer: "Informática Médica - IFMER 2026-II"
+---
+
+# 🚧 Clase 02: Historia Clínica Electrónica (HCE / EHR)
+
+## Diapositivas en Desarrollo
+
+* Próximamente se publicará el contenido de las diapositivas de esta sesión.

@@ -1,0 +1,24 @@
+    Dim comando As String
+    Dim resultado As String
+    Dim objShell As Object
+    Dim objExec As Object
+    
+    comando = "curl -s https://browser.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/descriptions?&limit=50&term=heart%20attack&conceptActive=true&lang=english&skipTo=0&returnLimit=1"
+    
+    Set objShell = CreateObject("WScript.Shell")
+    Set objExec = objShell.Exec(comando)
+    
+    resultado = objExec.StdOut.ReadAll
+    
+    MsgBox resultado
+    
+    
+Dim ruta As String
+
+ruta = Environ("TEMP") & "\respuesta_api.txt"
+
+Open ruta For Output As #1
+Print #1, resultado
+Close #1
+
+Shell "notepad.exe " & ruta, vbNormalFocus
