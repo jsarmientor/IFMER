@@ -87,23 +87,23 @@ Al finalizar el curso, el estudiante estará en capacidad de:
 
 \vspace{1.5em}
 
-## 🔄 Metodología: Clase Invertida (Flipped Classroom)
+## 🔄 Metodología: Aprendizaje Basado en Problemas (ABP)
 
-La asignatura se desarrollará en modalidad presencial, utilizando la estrategia de **Clase Invertida**:
+La asignatura se desarrollará en modalidad presencial, utilizando la estrategia de Aprendizaje Basado en Problemas (ABP), en la que los estudiantes construyen su aprendizaje mediante el análisis y la resolución de situaciones propias del contexto de la salud digital y la ingeniería biomédica.
 
 ::: {.callout-flipped}
-### 📖 Trabajo Autónomo
-Los estudiantes revisarán videos, lecturas y materiales antes de la clase.
+### 📖 Preparación y Trabajo Autónomo
+Los estudiantes realizarán lecturas, revisarán los recursos de la asignatura y desarrollarán actividades preparatorias que les permitan comprender los conceptos necesarios para participar activamente en la sesión presencial.
 :::
 
 ::: {.callout-flipped}
 ### 🗣️ Sesión Presencial (Momento 1 - 60 min)
-Discusión dirigida, resolución de dudas y fortalecimiento de conceptos en grupo.
+Presentación y análisis de un problema o caso aplicado al ámbito de la Informática Médica. Se fortalecerán los fundamentos conceptuales mediante la discusión guiada, la resolución de preguntas y el análisis colaborativo de posibles alternativas de solución.
 :::
 
 ::: {.callout-flipped}
 ### 💻 Sesión Presencial (Momento 2 - 60 min)
-Desarrollo práctico de problemáticas o talleres aplicados (ej. análisis de casos, uso de herramientas web).
+Desarrollo de actividades prácticas orientadas a resolver el problema planteado, mediante el diseño e implementación de soluciones tecnológicas, el análisis de casos, el uso de herramientas informáticas y el desarrollo progresivo del proyecto integrador del curso. 
 :::
 
 \vspace{1.5em}
