@@ -1,0 +1,111 @@
+{
+  "index.qmd": {
+    "index.html": "f3e0e720",
+    "index.tex": "53f8c5e7"
+  },
+  "corte1/index.qmd": {
+    "index.html": "893d192c",
+    "index.tex": "6cef851d"
+  },
+  "corte1/clase01/index.qmd": {
+    "index.html": "c2a520c9",
+    "index.tex": "c8fa0104"
+  },
+  "corte1/clase01/slides.qmd": {
+    "slides.html": "ffb5d415"
+  },
+  "corte1/clase02/index.qmd": {
+    "index.html": "f9839598",
+    "index.tex": "e4f1738f"
+  },
+  "corte1/clase02/slides.qmd": {
+    "slides.html": "94190852"
+  },
+  "corte1/clase03/index.qmd": {
+    "index.html": "2cd0c3d5",
+    "index.tex": "134a03fd"
+  },
+  "corte1/clase03/slides.qmd": {
+    "slides.html": "b804c53f"
+  },
+  "corte1/clase04/index.qmd": {
+    "index.html": "2f120512",
+    "index.tex": "1f625c02"
+  },
+  "corte1/clase04/slides.qmd": {
+    "slides.html": "d52980e4"
+  },
+  "corte1/clase05/index.qmd": {
+    "index.html": "009250e9",
+    "index.tex": "baa49e9c"
+  },
+  "corte1/clase05/slides.qmd": {
+    "slides.html": "43d3d26d"
+  },
+  "corte1/clase06/index.qmd": {
+    "index.html": "963c7327",
+    "index.tex": "384ef9c8"
+  },
+  "corte2/index.qmd": {
+    "index.html": "14947105",
+    "index.tex": "1315f673"
+  },
+  "corte2/clase07/index.qmd": {
+    "index.html": "49d37735",
+    "index.tex": "b2b93302"
+  },
+  "corte2/clase07/slides.qmd": {
+    "slides.html": "b8f43e67"
+  },
+  "corte2/clase08/index.qmd": {
+    "index.html": "62710925",
+    "index.tex": "84239ef5"
+  },
+  "corte2/clase08/slides.qmd": {
+    "slides.html": "35ec2456"
+  },
+  "corte2/clase09/index.qmd": {
+    "index.html": "30b9697d",
+    "index.tex": "d0ad2845"
+  },
+  "corte2/clase09/slides.qmd": {
+    "slides.html": "f71d7c29"
+  },
+  "corte2/clase10/index.qmd": {
+    "index.html": "4e5db7aa",
+    "index.tex": "6112114e"
+  },
+  "corte2/clase11/index.qmd": {
+    "index.html": "64048e76",
+    "index.tex": "f3ff5e4d"
+  },
+  "corte3/index.qmd": {
+    "index.html": "b4da3820",
+    "index.tex": "2fdc6c09"
+  },
+  "corte3/clase12/index.qmd": {
+    "index.html": "09079701",
+    "index.tex": "40c48566"
+  },
+  "corte3/clase12/slides.qmd": {
+    "slides.html": "64ecfcd3"
+  },
+  "corte3/clase13/index.qmd": {
+    "index.html": "d31ee36e",
+    "index.tex": "9b56f34e"
+  },
+  "corte3/clase13/slides.qmd": {
+    "slides.html": "7d8b4b02"
+  },
+  "corte3/clase14/index.qmd": {
+    "index.html": "4d517be6",
+    "index.tex": "0b34594f"
+  },
+  "corte3/clase14/slides.qmd": {
+    "slides.html": "8f75045a"
+  },
+  "corte3/clase15/index.qmd": {
+    "index.html": "e291c652",
+    "index.tex": "e1136eac"
+  }
+}
