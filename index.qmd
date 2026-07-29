@@ -7,11 +7,16 @@ format:
   html:
     toc: true
     toc-depth: 3
+    include-before-body: _logo.html
   pdf:
     toc: false
     number-sections: true
     include-in-header: header.tex
 ---
+
+
+
+
 
 ```{=latex}
 \tableofcontents
@@ -49,7 +54,7 @@ format:
 | Campo | Información |
 | :--- | :--- |
 | **Nombre del Profesor** | Jefferson Sarmiento Rojas, Ph.D (c) |
-| **Perfil Profesional** | **Formación:**<br>• Licenciado en Electrónica: Diseño e implementación de un controlador Fuzzy para un vehículo UAV (Quadrotor).<br>• Ingeniero Electrónico: Sistema IoMT para el Monitoreo y Trazabilidad de Medicamentos y Vacunas en Bogotá.<br>• Magíster en Ingeniería Electrónica: Diseño de un Controlador Difuso en un Vehículo Aéreo No Tripulado Tipo Quadrotor Basado en LMIs.<br>• Especialización en Gestión de Proyectos: Sistema IoMT para el Monitoreo y Trazabilidad de Medicamentos y Vacunas en Bogotá.<br>• Doctorado en Ingeniería (C): Información y Telecomunicación, Ingeniería en Medicina.<br><br>**Líneas de Interés:**<br>• Tiny Machine Learning certificado Harvardx (Tiny Machine Learning y Applied TinyML for Scale).<br>• Sistemas Embebidos.<br>• Automatización y control robusto.<br>• Internet de las Cosas Médicas (IoMT).<br>• Desarrollo de Software.<br><br>**Experiencia:**<br>• Maestría y pregrado en Ingeniería Biomédica (8 años).<br>• Maestría en Ciudades Inteligentes y Sostenibles (4 años).<br>• UNAL Beca Extensión de derechos académicos (2 años).<br>• Ingeniero de Sistemas / Desarrollo (4 años).<br><br>![](perfil.png){width="250px"} |
+| **Perfil Profesional** | **Formación:**<br>• Licenciado en Electrónica: Diseño e implementación de un controlador Fuzzy para un vehículo UAV (Quadrotor).<br>• Ingeniero Electrónico: Sistema IoMT para el Monitoreo y Trazabilidad de Medicamentos y Vacunas en Bogotá.<br>• Magíster en Ingeniería Electrónica: Diseño de un Controlador Difuso en un Vehículo Aéreo No Tripulado Tipo Quadrotor Basado en LMIs.<br>• Especialización en Gestión de Proyectos: Sistema IoMT para el Monitoreo y Trazabilidad de Medicamentos y Vacunas en Bogotá.<br>• Doctorado en Ingeniería (C): Información y Telecomunicación, Ingeniería en Medicina.<br><br>**Líneas de Interés:**<br>• Tiny Machine Learning certificado Harvardx (Tiny Machine Learning y Applied TinyML for Scale).<br>• Sistemas Embebidos.<br>• Automatización y control robusto.<br>• Internet de las Cosas Médicas (IoMT).<br>• Desarrollo de Software.<br><br>**Experiencia:**<br>• Maestría y pregrado en Ingeniería Biomédica (8 años).<br>• Maestría en Ciudades Inteligentes y Sostenibles (4 años).<br>• UNAL Beca Extensión de derechos académicos (2 años).<br>• Ingeniero de Sistemas / Desarrollo (4 años) |
 | **Correo Electrónico** | [jefferson.sarmiento@urosario.edu.co](mailto:jefferson.sarmiento@urosario.edu.co) |
 | **Atención a Estudiantes** | Previa cita por correo electrónico. |
 
@@ -174,3 +179,8 @@ Las actividades de evaluación estarán divididas por cortes y en actividades de
 - **Shepherd, Richard.** "Excel VBA Macro Programming". McGraw-Hill Education. 2004.
 - **Haverbeke, Marijn.** "Eloquent JavaScript". No Starch Press. 2018. Disponible en: [https://eloquentjavascript.net/](https://eloquentjavascript.net/)
 - **W3Schools.** Disponible en: [https://www.w3schools.com/](https://www.w3schools.com/)
+- **Murdoch, B.** (2021). Privacy and artificial intelligence: Challenges for protecting health information in a new era. *BMC Medical Ethics*, 22(1), 122. [https://doi.org/10.1186/S12910-021-00687-3](https://doi.org/10.1186/S12910-021-00687-3)
+- **Bathalapalli, V. K. V. V., Mohanty, S. P., Kougianos, E., Iyer, V., & Rout, S. S.** (2024). PUFchain 3.0: Hardware-assisted distributed ledger for robust authentication in healthcare cyber-physical systems. *Sensors*, 24(3), 938. [https://doi.org/10.3390/s24030938](https://doi.org/10.3390/s24030938)
+- **Ueda, D., Kakinuma, T., Fujita, S., Kamagata, K., Fushimi, Y., Ito, R., Matsui, Y., Nozaki, T., Nakaura, T., Fujima, N., Tatsugami, F., Yanagawa, M., Hirata, K., Yamada, A., Tsuboyama, T., Kawamura, M., Fujioka, T., Naganawa, S., & Abe, O.** (2023). Fairness of artificial intelligence in healthcare: Review and recommendations. *Japanese Journal of Radiology*, 41(11), 1324-1335. [https://doi.org/10.1007/s11604-023-01474-3](https://doi.org/10.1007/s11604-023-01474-3)
+- **Li, M., Porter, A. L., Wang, Z., & Chan, C. H.** (2022). Ethics & AI: A systematic review on ethical concerns and related strategies for designing with AI in healthcare. *AI*, 4(1), 28-53. [https://doi.org/10.3390/ai4010003](https://doi.org/10.3390/ai4010003)
+- **Séroussi, B., Bouaud, J., & Darmoni, S.** (2020). Transparency of health informatics processes as the condition of healthcare professionals' and patients' trust and adoption: The rise of ethical requirements. *Yearbook of Medical Informatics*, 29(1), 7-10. [https://doi.org/10.1055/S-0040-1702029](https://doi.org/10.1055/S-0040-1702029)
