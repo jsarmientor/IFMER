@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas">
-<meta name="dcterms.date" content="2026-07-23">
+<meta name="dcterms.date" content="2026-08-05">
 
-<title>Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap) – Informática Médica - IFMER 2026-II</title>
+<title>Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor – Informática Médica - IFMER 2026-II</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -313,17 +313,27 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#objetivos-de-la-clase" id="toc-objetivos-de-la-clase" class="nav-link active" data-scroll-target="#objetivos-de-la-clase">🎯 Objetivos de la Clase</a></li>
-  <li><a href="#materiales-y-lecturas" id="toc-materiales-y-lecturas" class="nav-link" data-scroll-target="#materiales-y-lecturas">📖 Materiales y Lecturas</a></li>
-  <li><a href="#práctica-de-laboratorio" id="toc-práctica-de-laboratorio" class="nav-link" data-scroll-target="#práctica-de-laboratorio">🧪 Práctica de Laboratorio</a></li>
+  <li><a href="#conceptos-fundamentales" id="toc-conceptos-fundamentales" class="nav-link" data-scroll-target="#conceptos-fundamentales">📖 Conceptos Fundamentales</a>
+  <ul class="collapse">
+  <li><a href="#evolución-hacia-la-salud-4.0" id="toc-evolución-hacia-la-salud-4.0" class="nav-link" data-scroll-target="#evolución-hacia-la-salud-4.0">1. Evolución hacia la Salud 4.0</a></li>
+  <li><a href="#metodologías-de-gestión-de-proyectos" id="toc-metodologías-de-gestión-de-proyectos" class="nav-link" data-scroll-target="#metodologías-de-gestión-de-proyectos">2. Metodologías de Gestión de Proyectos</a></li>
+  <li><a href="#paradigma-cliente---servidor" id="toc-paradigma-cliente---servidor" class="nav-link" data-scroll-target="#paradigma-cliente---servidor">3. Paradigma Cliente - Servidor</a></li>
+  <li><a href="#sistemas-crud" id="toc-sistemas-crud" class="nav-link" data-scroll-target="#sistemas-crud">4. Sistemas CRUD</a></li>
+  <li><a href="#historia-clínica-electrónica-hce" id="toc-historia-clínica-electrónica-hce" class="nav-link" data-scroll-target="#historia-clínica-electrónica-hce">5. Historia Clínica Electrónica (HCE)</a></li>
+  </ul></li>
+  <li><a href="#práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866" id="toc-práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866" class="nav-link" data-scroll-target="#práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866">🧪 Práctica de Laboratorio: Diseño de Datos Clínicos (Resolución 866)</a>
+  <ul class="collapse">
+  <li><a href="#objetivo-práctico" id="toc-objetivo-práctico" class="nav-link" data-scroll-target="#objetivo-práctico">Objetivo Práctico</a></li>
+  </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../corte1/index.html">🟦 Corte 1: Fundamentos y SIS</a></li><li class="breadcrumb-item"><a href="../../corte1/clase02/index.html">Clase 02: HCE / EHR</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)</h1>
+<h1 class="title">Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor</h1>
 <p class="subtitle lead">Semana 2 | Corte 1</p>
 </div>
 
@@ -341,7 +351,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 23, 2026</p>
+      <p class="date">August 5, 2026</p>
     </div>
   </div>
   
@@ -353,28 +363,75 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="slides.html" target="_blank" class="btn-slide">💻 Ver Presentación de Diapositivas</a></p>
+<p><a href="slides.html" target="_blank" class="btn btn-primary mb-4"> <i class="bi bi-display"></i> Ver Presentación de la Clase </a></p>
 <section id="objetivos-de-la-clase" class="level2">
 <h2 class="anchored" data-anchor-id="objetivos-de-la-clase">🎯 Objetivos de la Clase</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Objetivo 1 (En desarrollo)</label></li>
-<li><label><input type="checkbox">Objetivo 2 (En desarrollo)</label></li>
-</ul>
+<ol type="1">
+<li>Comprender la evolución de los registros clínicos en papel hacia la Salud 4.0.</li>
+<li>Identificar las diferencias fundamentales entre las metodologías de gestión de proyectos clásicas y las metodologías ágiles (Scrum).</li>
+<li>Entender la arquitectura Cliente-Servidor y los componentes Frontend y Backend en el contexto de un sistema de información en salud.</li>
+<li>Conocer los conceptos básicos de un sistema CRUD y su aplicación en la Historia Clínica Electrónica (HCE).</li>
+</ol>
 <hr>
 </section>
-<section id="materiales-y-lecturas" class="level2">
-<h2 class="anchored" data-anchor-id="materiales-y-lecturas">📖 Materiales y Lecturas</h2>
-<section id="preparación-previa" class="level5 callout-flipped">
-<h5 class="anchored" data-anchor-id="preparación-previa">💡 Preparación Previa</h5>
-<p><em>Contenido y guía práctica en construcción por el docente.</em></p>
+<section id="conceptos-fundamentales" class="level2">
+<h2 class="anchored" data-anchor-id="conceptos-fundamentales">📖 Conceptos Fundamentales</h2>
+<section id="evolución-hacia-la-salud-4.0" class="level3">
+<h3 class="anchored" data-anchor-id="evolución-hacia-la-salud-4.0">1. Evolución hacia la Salud 4.0</h3>
+<p>Los flujos de trabajo clínicos y administrativos han evolucionado drásticamente. Hemos pasado del registro tradicional en papel a un ecosistema digital integrado (Salud 4.0), donde la información médica fluye a través de diversas plataformas para apoyar la toma de decisiones clínicas y mejorar la eficiencia administrativa.</p>
 </section>
+<section id="metodologías-de-gestión-de-proyectos" class="level3">
+<h3 class="anchored" data-anchor-id="metodologías-de-gestión-de-proyectos">2. Metodologías de Gestión de Proyectos</h3>
+<section id="metodologías-clásicas" class="level4">
+<h4 class="anchored" data-anchor-id="metodologías-clásicas">Metodologías Clásicas</h4>
+<p>Se caracterizan por una planificación rigurosa y estática desde el inicio del proyecto (ej. Cascada). - Gestión estricta de cronograma (Gantt), costos y riesgos. - Fases independientes y secuenciales. - Adecuadas para proyectos con requisitos inmutables y un amplio rango de tiempo.</p>
+</section>
+<section id="metodologías-ágiles-scrum" class="level4">
+<h4 class="anchored" data-anchor-id="metodologías-ágiles-scrum">Metodologías Ágiles (Scrum)</h4>
+<p>Ideal para el desarrollo de software y aplicaciones tecnológicas, ya que se adapta a las necesidades cambiantes del cliente. - <strong>Flexibilidad:</strong> Fácil adaptación y seguimiento rápido de entregas. - <strong>Trabajo Iterativo:</strong> El trabajo se divide en <strong>Sprints</strong> (etapas interrelacionadas y cortas). - <strong>Roles en Scrum:</strong> - <strong>Product Owner (Dueño del Producto):</strong> Representa a los <em>Stakeholders</em> (interesados: gerentes, CEO, médicos). Conoce de primera mano las necesidades del cliente y define los requisitos. - <strong>Scrum Master:</strong> Líder facilitador del equipo (no un jefe). Garantiza la aplicación de la metodología y actúa como moderador entre el equipo y el Product Owner. - <strong>Equipo de Desarrollo (Developers):</strong> Ejecutan el trabajo. Participan en reuniones diarias (“Dailys”) respondiendo: ¿Qué hice ayer?, ¿Qué haré hoy?, ¿Qué problemas tuve? - <strong>Herramientas:</strong> Aplicaciones como <strong>Trello</strong> facilitan la administración visual de proyectos ágiles.</p>
+</section>
+</section>
+<section id="paradigma-cliente---servidor" class="level3">
+<h3 class="anchored" data-anchor-id="paradigma-cliente---servidor">3. Paradigma Cliente - Servidor</h3>
+<p>Las soluciones tecnológicas modernas en salud se dividen en dos instancias principales: - <strong>Frontend (Cliente):</strong> La interfaz visual con la que interactúan los profesionales de la salud o los pacientes. - <strong>Backend (Servidor):</strong> La lógica de negocio y la base de datos donde se procesa y almacena de forma segura la información médica.</p>
+</section>
+<section id="sistemas-crud" class="level3">
+<h3 class="anchored" data-anchor-id="sistemas-crud">4. Sistemas CRUD</h3>
+<p>La base de la mayoría de los sistemas de información en salud es el modelo <strong>CRUD</strong>, que define las cuatro operaciones fundamentales sobre una base de datos: - <strong>C</strong>reate (Crear registros médicos) - <strong>R</strong>ead (Consultar el historial del paciente) - <strong>U</strong>pdate (Actualizar datos o evolución) - <strong>D</strong>elete (Eliminar o archivar registros, bajo estrictas normativas)</p>
+</section>
+<section id="historia-clínica-electrónica-hce" class="level3">
+<h3 class="anchored" data-anchor-id="historia-clínica-electrónica-hce">5. Historia Clínica Electrónica (HCE)</h3>
+<p>La Historia Clínica Electrónica centraliza la gestión de los datos de los pacientes e implementa transversalmente el modelo CRUD. En Colombia, la interoperabilidad y reglamentación de la Historia Clínica Electrónica está liderada por el Ministerio de Salud. Puedes consultar más información en el sitio oficial: - 🔗 <a href="https://www.minsalud.gov.co/ihce/Paginas/default.aspx">Ministerio de Salud: Interoperabilidad de la Historia Clínica Electrónica (IHCE)</a></p>
 <hr>
 </section>
-<section id="práctica-de-laboratorio" class="level2">
-<h2 class="anchored" data-anchor-id="práctica-de-laboratorio">🧪 Práctica de Laboratorio</h2>
-<p><em>Actividad práctica en desarrollo.</em></p>
+</section>
+<section id="práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866" class="level2">
+<h2 class="anchored" data-anchor-id="práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866">🧪 Práctica de Laboratorio: Diseño de Datos Clínicos (Resolución 866)</h2>
+<section id="objetivo-práctico" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo-práctico">Objetivo Práctico</h3>
+<p>Identificar y estructurar los datos mínimos requeridos para la tabla <code>pacientes</code> de un sistema CRUD, asegurando el cumplimiento de la normativa colombiana de interoperabilidad (Resolución 866 de 2021).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💻 Actividad: Construyendo el Diccionario de Datos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Consulta Normativa:</strong> Ingrese a la web oficial del Ministerio de Salud y consulte el Anexo Técnico de la <strong>Resolución 866 de 2021</strong>. Ubique la sección referida al <em>Conjunto de Datos de Identificación del Paciente</em>.</li>
+<li><strong>Estructura de la Tabla:</strong> En una hoja de cálculo (Excel, Google Sheets), cree una tabla que servirá como su “Diccionario de Datos” para el diseño del sistema.</li>
+<li><strong>Selección de Variables:</strong> Extraiga <strong>todas</strong> las variables exigidas por la normatividad (por ejemplo: Tipo de Identificación, Número de Identificación, Nombres, Apellidos, Sexo Biológico, Fecha de Nacimiento, Código DANE del municipio de residencia, etc.).</li>
+<li><strong>Tipificación de Datos:</strong> Por cada variable seleccionada, añada una columna definiendo qué <strong>tipo de dato</strong> utilizará en la base de datos (Ej: <code>VARCHAR</code> para texto, <code>DATE</code> para fechas, <code>INT</code> para números enteros).</li>
+</ol>
+<p><em>Guarde este documento, ya que será la base técnica para la programación de la base de datos en las próximas clases.</em></p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

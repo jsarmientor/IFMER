@@ -81,7 +81,7 @@
     "href": "index.html#calendarización-del-curso-clase-a-clase",
     "title": "Informática Médica",
     "section": "📅 Calendarización del Curso (Clase a Clase)",
-    "text": "📅 Calendarización del Curso (Clase a Clase)\n\n🟦 CORTE 1: Aplicaciones Web (33%)\n\nSemana 1: Clase 01: Jerarquía del Conocimiento y Salud 4.0\nSemana 2: Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)\nSemana 3: Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)\nSemana 4: Clase 04: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar)\nSemana 5: Clase 05: PARCIAL CORTE 1\nSemana 6: Clase 06: Consolidación de Conceptos: Integración y Despliegue\n\n\n\n🟩 CORTE 2: Interoperabilidad y Salud Conectada (33%)\n\nSemana 7: Clase 07: Interoperabilidad y Estándares Clásicos (HL7, CIE-10, SNOMED)\nSemana 8: Clase 08: Estándares Modernos (FHIR): Arquitectura RESTful y APIs\nSemana 9: Clase 09: Salud Digital y Telemedicina\nSemana 10: Clase 10: PARCIAL CORTE 2\nSemana 11: Clase 11: Semana de Receso\n\n\n\n🟨 CORTE 3: Datos, Inteligencia Artificial y Ética (33%)\n\nSemana 12: Clase 12: Internet de las Cosas Médicas (IoMT)\nSemana 13: Clase 13: Inteligencia Artificial, Big Data y TinyML\nSemana 14: Clase 14: Ética, Seguridad y Normativa\nSemana 15: Clase 15: PARCIAL CORTE 3 / Proyecto Final",
+    "text": "📅 Calendarización del Curso (Clase a Clase)\n\n🟦 CORTE 1: Aplicaciones Web (33%)\n\nSemana 1: Clase 01: Jerarquía del Conocimiento y Salud 4.0\nSemana 2: Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor en Salud\nSemana 3: Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)\nSemana 4: Clase 04: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar)\nSemana 5: Clase 05: PARCIAL CORTE 1\nSemana 6: Clase 06: Consolidación de Conceptos: Integración y Despliegue\n\n\n\n🟩 CORTE 2: Interoperabilidad y Salud Conectada (33%)\n\nSemana 7: Clase 07: Interoperabilidad y Estándares Clásicos (HL7, CIE-10, SNOMED)\nSemana 8: Clase 08: Estándares Modernos (FHIR): Arquitectura RESTful y APIs\nSemana 9: Clase 09: Salud Digital y Telemedicina\nSemana 10: Clase 10: PARCIAL CORTE 2\nSemana 11: Clase 11: Semana de Receso\n\n\n\n🟨 CORTE 3: Datos, Inteligencia Artificial y Ética (33%)\n\nSemana 12: Clase 12: Internet de las Cosas Médicas (IoMT)\nSemana 13: Clase 13: Inteligencia Artificial, Big Data y TinyML\nSemana 14: Clase 14: Ética, Seguridad y Normativa\nSemana 15: Clase 15: PARCIAL CORTE 3 / Proyecto Final",
     "crumbs": [
       "Guía de Asignatura",
       "🏠 Guía de Asignatura (Home)"
@@ -399,7 +399,7 @@
     "href": "corte1/index.html#contenido-semana-por-semana",
     "title": "Corte 1: Fundamentos y Sistemas de Información en Salud",
     "section": "📅 Contenido Semana por Semana",
-    "text": "📅 Contenido Semana por Semana\n\n\n🟦 Semana 1 - Clase 01: Jerarquía del Conocimiento y Salud 4.0\n\nConceptos: Jerarquía del conocimiento (Modelo DIKW), Salud 4.0 y fundamentos básicos de programación.\nPráctica: Programando el triaje (El Ciclo DIKW Aplicado en código).\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 2 - Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)\n\nConceptos: Estructura con HTML5, estilos con CSS3 y diseño responsivo con Bootstrap.\nPráctica: Creación de interfaces de usuario para la aplicación web.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 3 - Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)\n\nConceptos: Programación del lado del servidor con PHP y modelado de bases de datos relacionales.\nPráctica: Conexión de la aplicación a MySQL (conexion.php).\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 4 - Clase 04: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar)\n\nConceptos: Implementación de acciones CRUD (actualizar.php, eliminar.php, etc.).\nPráctica: Integración final del Backend con la interfaz Frontend.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 5 - Clase 05: Consolidación de Conceptos: Integración y Despliegue\n\nConceptos: Integración completa de la aplicación, pruebas y despliegue local.\nPráctica: Taller integrador de desarrollo web.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 6 - Clase 06: Evaluación Corte 1\n\nEvaluación Sumativa: Entrega de la aplicación web desarrollada y evaluación teórica.\nRecursos: Ver Guía de Evaluación",
+    "text": "📅 Contenido Semana por Semana\n\n\n🟦 Semana 1 - Clase 01: Jerarquía del Conocimiento y Salud 4.0\n\nConceptos: Jerarquía del conocimiento (Modelo DIKW), Salud 4.0 y fundamentos básicos de programación.\nPráctica: Programando el triaje (El Ciclo DIKW Aplicado en código).\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 2 - Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor en Salud\n\nConceptos: Metodologías ágiles (Scrum), roles, paradigma cliente-servidor, conceptos de Frontend/Backend y CRUD.\nPráctica: Diseño del diccionario de datos clínicos basado en la Resolución 866 de 2021.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 3 - Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)\n\nConceptos: Programación del lado del servidor con PHP y modelado de bases de datos relacionales.\nPráctica: Conexión de la aplicación a MySQL (conexion.php).\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 4 - Clase 04: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar)\n\nConceptos: Implementación de acciones CRUD (actualizar.php, eliminar.php, etc.).\nPráctica: Integración final del Backend con la interfaz Frontend.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 5 - Clase 05: Consolidación de Conceptos: Integración y Despliegue\n\nConceptos: Integración completa de la aplicación, pruebas y despliegue local.\nPráctica: Taller integrador de desarrollo web.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 6 - Clase 06: Evaluación Corte 1\n\nEvaluación Sumativa: Entrega de la aplicación web desarrollada y evaluación teórica.\nRecursos: Ver Guía de Evaluación",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Fundamentos y SIS",
@@ -428,11 +428,95 @@
     "text": "Diapositivas en Desarrollo\n\nPróximamente se publicará el contenido de las diapositivas de esta sesión."
   },
   {
-    "objectID": "corte1/clase02/slides.html#diapositivas-en-desarrollo",
-    "href": "corte1/clase02/slides.html#diapositivas-en-desarrollo",
-    "title": "Clase 02: Historia Clínica Electrónica (HCE / EHR)",
-    "section": "Diapositivas en Desarrollo",
-    "text": "Diapositivas en Desarrollo\n\nPróximamente se publicará el contenido de las diapositivas de esta sesión."
+    "objectID": "corte1/clase02/slides.html#flujos-de-trabajo-clínicos-y-administrativos",
+    "href": "corte1/clase02/slides.html#flujos-de-trabajo-clínicos-y-administrativos",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Flujos de trabajo clínicos y administrativos",
+    "text": "Flujos de trabajo clínicos y administrativos\n\nEvolución constante de los procesos en las instituciones de salud.\nOptimización de recursos y tiempos de atención."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#del-registro-en-papel-a-la-salud-4.0",
+    "href": "corte1/clase02/slides.html#del-registro-en-papel-a-la-salud-4.0",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Del registro en papel a la Salud 4.0",
+    "text": "Del registro en papel a la Salud 4.0\n\nTransición del papel a los medios digitales.\nIntegración de tecnologías IoT, Big Data e IA.\nInteroperabilidad de los datos médicos."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#paradigma-cliente---servidor",
+    "href": "corte1/clase02/slides.html#paradigma-cliente---servidor",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Paradigma Cliente - Servidor",
+    "text": "Paradigma Cliente - Servidor\n\nCliente (Frontend): Interfaz visual donde interactúa el usuario.\nServidor (Backend): Lógica y base de datos donde se procesa la información de manera segura."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#proceso-para-la-planeación-y-ejecución",
+    "href": "corte1/clase02/slides.html#proceso-para-la-planeación-y-ejecución",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Proceso para la planeación y ejecución",
+    "text": "Proceso para la planeación y ejecución\n\nAntes de desarrollar cualquier sistema de información en salud, se requiere una planificación rigurosa.\nExisten dos grandes caminos: Metodologías Clásicas y Metodologías Ágiles."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#metodologías-clásicas",
+    "href": "corte1/clase02/slides.html#metodologías-clásicas",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Metodologías Clásicas",
+    "text": "Metodologías Clásicas\n\nGestión estricta y organizada del cronograma (Gantt).\nGestión de costos (directos, indirectos) y stakeholders.\nGestión rigurosa de riesgos.\nFases independientes.\nAdecuada para proyectos estáticos con un amplio rango de tiempo."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#metodologías-ágiles",
+    "href": "corte1/clase02/slides.html#metodologías-ágiles",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Metodologías Ágiles",
+    "text": "Metodologías Ágiles\n\nGestión organizada pero orientada a un estado cambiante.\nFácil adaptación a las necesidades del cliente (Iterativo).\nRetroalimentación constante.\nEntregas rápidas (Sprints).\nIdeal para el desarrollo de herramientas digitales y software."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#scrum",
+    "href": "corte1/clase02/slides.html#scrum",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Scrum",
+    "text": "Scrum\n\nMetodología ágil altamente adaptable y de fácil implementación.\nEspecialmente diseñada para proyectos tecnológicos.\nDivide el proyecto en ciclos cortos llamados Sprints."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#roles-en-scrum-product-owner",
+    "href": "corte1/clase02/slides.html#roles-en-scrum-product-owner",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Roles en Scrum: Product Owner",
+    "text": "Roles en Scrum: Product Owner\n\nInterlocutor entre el equipo y el cliente.\nConoce todas las necesidades (Dueño del Producto).\nRepresenta a los Stakeholders (gerentes, médicos, pacientes)."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#roles-en-scrum-scrum-master",
+    "href": "corte1/clase02/slides.html#roles-en-scrum-scrum-master",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Roles en Scrum: Scrum Master",
+    "text": "Roles en Scrum: Scrum Master\n\nLíder facilitador del equipo de trabajo.\nNO es un jefe tradicional.\nGarantiza que la metodología Scrum se aplique correctamente.\nModerador entre las necesidades y el equipo."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#roles-en-scrum-equipo-de-desarrollo",
+    "href": "corte1/clase02/slides.html#roles-en-scrum-equipo-de-desarrollo",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Roles en Scrum: Equipo de Desarrollo",
+    "text": "Roles en Scrum: Equipo de Desarrollo\n\nEjecutan las tareas técnicas del proyecto.\nTienen reuniones diarias (Dailys):\n\n¿Qué se hizo ayer?\n¿Qué se está haciendo hoy?\n¿Qué problemas se presentaron?"
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#herramientas-scrum-trello",
+    "href": "corte1/clase02/slides.html#herramientas-scrum-trello",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Herramientas Scrum (Trello)",
+    "text": "Herramientas Scrum (Trello)\n\nSoftware de administración de proyectos con interfaz web y móvil.\nUtiliza tableros, listas y tarjetas (Sistema Kanban) para organizar las tareas de los Sprints."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#sistemas-crud",
+    "href": "corte1/clase02/slides.html#sistemas-crud",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Sistemas CRUD",
+    "text": "Sistemas CRUD\n\nCRUD: Operaciones fundamentales en sistemas de información en salud.\n\nCreate (Crear registros médicos)\nRead (Consultar el historial)\nUpdate (Actualizar datos o evolución)\nDelete (Eliminar o archivar bajo normativas)"
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#historia-clínica-electrónica",
+    "href": "corte1/clase02/slides.html#historia-clínica-electrónica",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Historia Clínica Electrónica",
+    "text": "Historia Clínica Electrónica\n\nHistoria Clínica Electrónica (HCE/EHR): Sistema centralizado para gestionar la información de los pacientes.\nRegistra transversalmente todos los datos clínicos."
   },
   {
     "objectID": "corte1/clase01/slides.html#jefferson-sarmiento-rojas-ph.d-c",
@@ -555,9 +639,9 @@
   {
     "objectID": "corte1/clase02/index.html",
     "href": "corte1/clase02/index.html",
-    "title": "Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
     "section": "",
-    "text": "💻 Ver Presentación de Diapositivas",
+    "text": "Ver Presentación de la Clase",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Fundamentos y SIS",
@@ -567,9 +651,9 @@
   {
     "objectID": "corte1/clase02/index.html#objetivos-de-la-clase",
     "href": "corte1/clase02/index.html#objetivos-de-la-clase",
-    "title": "Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
     "section": "🎯 Objetivos de la Clase",
-    "text": "🎯 Objetivos de la Clase\n\nObjetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "text": "🎯 Objetivos de la Clase\n\nComprender la evolución de los registros clínicos en papel hacia la Salud 4.0.\nIdentificar las diferencias fundamentales entre las metodologías de gestión de proyectos clásicas y las metodologías ágiles (Scrum).\nEntender la arquitectura Cliente-Servidor y los componentes Frontend y Backend en el contexto de un sistema de información en salud.\nConocer los conceptos básicos de un sistema CRUD y su aplicación en la Historia Clínica Electrónica (HCE).",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Fundamentos y SIS",
@@ -577,11 +661,11 @@
     ]
   },
   {
-    "objectID": "corte1/clase02/index.html#materiales-y-lecturas",
-    "href": "corte1/clase02/index.html#materiales-y-lecturas",
-    "title": "Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)",
-    "section": "📖 Materiales y Lecturas",
-    "text": "📖 Materiales y Lecturas\n\n💡 Preparación Previa\nContenido y guía práctica en construcción por el docente.",
+    "objectID": "corte1/clase02/index.html#conceptos-fundamentales",
+    "href": "corte1/clase02/index.html#conceptos-fundamentales",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "📖 Conceptos Fundamentales",
+    "text": "📖 Conceptos Fundamentales\n\n1. Evolución hacia la Salud 4.0\nLos flujos de trabajo clínicos y administrativos han evolucionado drásticamente. Hemos pasado del registro tradicional en papel a un ecosistema digital integrado (Salud 4.0), donde la información médica fluye a través de diversas plataformas para apoyar la toma de decisiones clínicas y mejorar la eficiencia administrativa.\n\n\n2. Metodologías de Gestión de Proyectos\n\nMetodologías Clásicas\nSe caracterizan por una planificación rigurosa y estática desde el inicio del proyecto (ej. Cascada). - Gestión estricta de cronograma (Gantt), costos y riesgos. - Fases independientes y secuenciales. - Adecuadas para proyectos con requisitos inmutables y un amplio rango de tiempo.\n\n\nMetodologías Ágiles (Scrum)\nIdeal para el desarrollo de software y aplicaciones tecnológicas, ya que se adapta a las necesidades cambiantes del cliente. - Flexibilidad: Fácil adaptación y seguimiento rápido de entregas. - Trabajo Iterativo: El trabajo se divide en Sprints (etapas interrelacionadas y cortas). - Roles en Scrum: - Product Owner (Dueño del Producto): Representa a los Stakeholders (interesados: gerentes, CEO, médicos). Conoce de primera mano las necesidades del cliente y define los requisitos. - Scrum Master: Líder facilitador del equipo (no un jefe). Garantiza la aplicación de la metodología y actúa como moderador entre el equipo y el Product Owner. - Equipo de Desarrollo (Developers): Ejecutan el trabajo. Participan en reuniones diarias (“Dailys”) respondiendo: ¿Qué hice ayer?, ¿Qué haré hoy?, ¿Qué problemas tuve? - Herramientas: Aplicaciones como Trello facilitan la administración visual de proyectos ágiles.\n\n\n\n3. Paradigma Cliente - Servidor\nLas soluciones tecnológicas modernas en salud se dividen en dos instancias principales: - Frontend (Cliente): La interfaz visual con la que interactúan los profesionales de la salud o los pacientes. - Backend (Servidor): La lógica de negocio y la base de datos donde se procesa y almacena de forma segura la información médica.\n\n\n4. Sistemas CRUD\nLa base de la mayoría de los sistemas de información en salud es el modelo CRUD, que define las cuatro operaciones fundamentales sobre una base de datos: - Create (Crear registros médicos) - Read (Consultar el historial del paciente) - Update (Actualizar datos o evolución) - Delete (Eliminar o archivar registros, bajo estrictas normativas)\n\n\n5. Historia Clínica Electrónica (HCE)\nLa Historia Clínica Electrónica centraliza la gestión de los datos de los pacientes e implementa transversalmente el modelo CRUD. En Colombia, la interoperabilidad y reglamentación de la Historia Clínica Electrónica está liderada por el Ministerio de Salud. Puedes consultar más información en el sitio oficial: - 🔗 Ministerio de Salud: Interoperabilidad de la Historia Clínica Electrónica (IHCE)",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Fundamentos y SIS",
@@ -589,11 +673,11 @@
     ]
   },
   {
-    "objectID": "corte1/clase02/index.html#práctica-de-laboratorio",
-    "href": "corte1/clase02/index.html#práctica-de-laboratorio",
-    "title": "Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)",
-    "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\nActividad práctica en desarrollo.",
+    "objectID": "corte1/clase02/index.html#práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866",
+    "href": "corte1/clase02/index.html#práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "🧪 Práctica de Laboratorio: Diseño de Datos Clínicos (Resolución 866)",
+    "text": "🧪 Práctica de Laboratorio: Diseño de Datos Clínicos (Resolución 866)\n\nObjetivo Práctico\nIdentificar y estructurar los datos mínimos requeridos para la tabla pacientes de un sistema CRUD, asegurando el cumplimiento de la normativa colombiana de interoperabilidad (Resolución 866 de 2021).\n\n\n\n\n\n\nNote💻 Actividad: Construyendo el Diccionario de Datos\n\n\n\n\nConsulta Normativa: Ingrese a la web oficial del Ministerio de Salud y consulte el Anexo Técnico de la Resolución 866 de 2021. Ubique la sección referida al Conjunto de Datos de Identificación del Paciente.\nEstructura de la Tabla: En una hoja de cálculo (Excel, Google Sheets), cree una tabla que servirá como su “Diccionario de Datos” para el diseño del sistema.\nSelección de Variables: Extraiga todas las variables exigidas por la normatividad (por ejemplo: Tipo de Identificación, Número de Identificación, Nombres, Apellidos, Sexo Biológico, Fecha de Nacimiento, Código DANE del municipio de residencia, etc.).\nTipificación de Datos: Por cada variable seleccionada, añada una columna definiendo qué tipo de dato utilizará en la base de datos (Ej: VARCHAR para texto, DATE para fechas, INT para números enteros).\n\nGuarde este documento, ya que será la base técnica para la programación de la base de datos en las próximas clases.",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Fundamentos y SIS",
