@@ -399,7 +399,7 @@
     "href": "corte1/index.html#entregable-final-del-corte-1",
     "title": "Corte 1: Fundamentos y Sistemas de Información en Salud",
     "section": "🚀 Entregable Final del Corte 1",
-    "text": "🚀 Entregable Final del Corte 1\nComo proyecto final del primer corte, los estudiantes deberán entregar una Gestión de Inventario (CRUD) completamente funcional utilizando tecnologías web (Frontend y Backend). Este sistema deberá permitir el registro, consulta, actualización y eliminación de productos o pacientes en la base de datos.\nPara apoyar el desarrollo del entregable, descargue los siguientes recursos obligatorios:\n\n📄 Guía de Desarrollo WEB (PDF) - Instructivo paso a paso para la construcción del aplicativo web.\n📊 Base de Datos Base (Excel) - Datos iniciales para la estructuración y migración de la base de datos a MySQL.\n\nEstos documentos serán fundamentales para las clases prácticas y la evaluación de la Semana 6.",
+    "text": "🚀 Entregable Final del Corte 1\nComo proyecto final del primer corte, los estudiantes deberán entregar una Gestión de Inventario (CRUD) completamente funcional utilizando tecnologías web (Frontend y Backend). Este sistema deberá permitir el registro, consulta, actualización y eliminación de equipos médicos en la base de datos.\nPara apoyar el desarrollo del entregable, descargue los siguientes recursos obligatorios:\n\n📄 Guía de Desarrollo WEB (PDF) - Instructivo paso a paso para la construcción del aplicativo web.\n📊 Base de Datos Base (Excel) - Datos iniciales para la estructuración y migración de la base de datos a MySQL.\n\nEstos documentos serán fundamentales para las clases prácticas y la evaluación de la Semana 6.",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Fundamentos y SIS",
