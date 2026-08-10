@@ -21,22 +21,35 @@ Durante este primer corte, el estudiante aprenderá a desarrollar aplicaciones w
 
 ---
 
+## 🚀 Entregable Final del Corte 1
+
+Como proyecto final del primer corte, los estudiantes deberán entregar una **Gestión de Inventario (CRUD)** completamente funcional utilizando tecnologías web (Frontend y Backend). Este sistema deberá permitir el registro, consulta, actualización y eliminación de equipos médicos en la base de datos.
+
+Para apoyar el desarrollo del entregable, descargue los siguientes recursos obligatorios:
+
+- 📄 [Guía de Desarrollo WEB (PDF)](recursos/Guia%20WEB.pdf) - Instructivo paso a paso para la construcción del aplicativo web.
+- 📊 [Base de Datos Base (Excel)](recursos/BD.xlsx) - Datos iniciales para la estructuración y migración de la base de datos a MySQL.
+
+*Estos documentos serán fundamentales para las clases prácticas y la evaluación de la Semana 6.*
+
+---
+
 ## 📅 Contenido Semana por Semana
 
 ::: {.card .mb-3}
 ::: {.card-body}
-### 🟦 [Semana 1 - Clase 01: Introducción a Aplicaciones Web y Entorno de Desarrollo](clase01/index.qmd)
-- **Conceptos:** Arquitectura web, entorno XAMPP, estructura básica de proyectos.
-- **Práctica:** Configuración del entorno y primeros pasos.
+### 🟦 [Semana 1 - Clase 01: Jerarquía del Conocimiento y Salud 4.0](clase01/index.qmd)
+- **Conceptos:** Jerarquía del conocimiento (Modelo DIKW), Salud 4.0 y fundamentos básicos de programación.
+- **Práctica:** Programando el triaje (El Ciclo DIKW Aplicado en código).
 - **Recursos:** [Ver Guía de Clase](clase01/index.qmd) | [💻 Ver Presentación Diapositivas](clase01/slides.qmd)
 :::
 :::
 
 ::: {.card .mb-3}
 ::: {.card-body}
-### 🟦 [Semana 2 - Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)](clase02/index.qmd)
-- **Conceptos:** Estructura con HTML5, estilos con CSS3 y diseño responsivo con Bootstrap.
-- **Práctica:** Creación de interfaces de usuario para la aplicación web.
+### 🟦 [Semana 2 - Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor en Salud](clase02/index.qmd)
+- **Conceptos:** Metodologías ágiles (Scrum), roles, paradigma cliente-servidor, conceptos de Frontend/Backend y CRUD.
+- **Práctica:** Diseño del diccionario de datos clínicos basado en la Resolución 866 de 2021.
 - **Recursos:** [Ver Guía de Clase](clase02/index.qmd) | [💻 Ver Presentación Diapositivas](clase02/slides.qmd)
 :::
 :::

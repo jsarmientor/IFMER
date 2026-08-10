@@ -1,5 +1,5 @@
 ---
-title: "Clase 03: Sistemas Hospitalarios (HIS) y Laboratorio (LIS)"
+title: "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)"
 subtitle: "Informática Médica - IFMER 2026-II"
 author: "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"
 institute: "Universidad del Rosario"
@@ -13,8 +13,120 @@ format:
     footer: "Informática Médica - IFMER 2026-II"
 ---
 
-# 🚧 Clase 03: Sistemas Hospitalarios (HIS) y Laboratorio (LIS)
+# Desarrollo Backend y Base de Datos
 
-## Diapositivas en Desarrollo
+## Herramientas Digitales y Aplicaciones Web
+![](img/slide_1_img_0.jpg)
 
-* Próximamente se publicará el contenido de las diapositivas de esta sesión.
+---
+
+![](img/slide_2_img_5.png)
+
+---
+
+![](img/slide_3_img_0.png)
+
+---
+
+![](img/slide_4_img_0.png)
+
+---
+
+![](img/slide_5_img_0.png)
+
+## HTML
+![](img/slide_6_img_0.jpg)
+
+---
+
+### Partes de una página web
+:::: {.columns}
+::: {.column width="33%"}
+![](img/slide_7_img_1.png)
+:::
+::: {.column width="33%"}
+![](img/slide_7_img_2.jpg)
+:::
+::: {.column width="33%"}
+![](img/slide_7_img_3.png)
+:::
+::::
+
+---
+
+### Estructura del código
+:::: {.columns}
+::: {.column width="50%"}
+![](img/slide_8_img_1.png)
+:::
+::: {.column width="50%"}
+![](img/slide_8_img_2.png)
+:::
+::::
+
+## CSS
+* **Cascading Style Sheets**: Lenguaje que maneja el diseño y presentación de páginas web.
+* Funciona junto con HTML (encargado del contenido).
+* "En cascada": se pueden tener varias hojas con propiedades heredadas.
+
+---
+
+### Propiedades de CSS
+![](img/slide_11_img_1.png)
+
+## PHP
+* **Hypertext Preprocessor**: Lenguaje para desarrollar aplicaciones web.
+* Favorece la conexión entre servidores y la interfaz de usuario.
+* Principalmente backend (lado del servidor), pero con utilidades frontend.
+
+---
+
+### Funcionamiento de PHP
+![](img/slide_13_img_1.png)
+
+---
+
+### Estructura del código
+![](img/slide_14_img_1.jpg)
+
+## JavaScript
+* Añade interactividad y permite crear aplicaciones web complejas.
+* Lenguaje de alto nivel, dinámico, interpretado y orientado a objetos.
+* Basado en prototipos, imperativo y débilmente tipado.
+* Tecnología esencial junto a HTML y CSS.
+
+---
+
+### Funcionamiento de JavaScript
+![](img/slide_16_img_1.png)
+
+## ¿Qué es SQL?
+* **Structured Query Language** (desarrollado por IBM).
+* Lenguaje de Consulta Estructurado para comunicarse con BD (editar, seleccionar, filtrar).
+* Estándar y motor de las bases de datos.
+* Motores comunes: MySQL (rápido), PostgreSQL (robusto), MS SQL Server, DB2, Oracle.
+
+---
+
+![](img/slide_17_img_2.jpg)
+
+---
+
+### Características
+![](img/slide_19_img_1.png)
+
+## Bases de Datos
+* **Tipos de datos SQL** y Características.
+* **Composición**: Tablas (Nombre, Columnas/Atributos, Filas/Registros).
+* Creación de tabla y consulta `DESC nombreTabla;`
+* Bases de Datos **CRUD** (Create, Read, Update, Delete)
+
+---
+
+### Bases de Datos CRUD
+![](img/slide_22_img_1.jpg)
+
+## 🧪 Práctica de Laboratorio
+
+**Actividad:**
+Replicar el login visto en clase utilizando todas las tecnologías vistas en clase.

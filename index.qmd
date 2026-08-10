@@ -119,26 +119,57 @@ Las actividades de evaluación estarán divididas por cortes y en actividades de
 
 | Propósito de evaluación | Corte del Semestre | Actividad de evaluación | RAE asociado | Porcentaje |
 | :--- | :--- | :--- | :---: | :---: |
-| **Diagnóstica** | Primero | Charla inicial | i, iv | 0% |
-| **Formativa** | Todos | Preguntas integradoras | i, ii | 0% |
-| **Formativa** | Todos | Quiz Clase invertida | i | 0% |
-| **Evaluación sumativa** | Primero 33% | Parcial | i | 20% |
-| **Evaluación sumativa** | Primero 33% | Parcial | i, iii | 20% |
-| **Evaluación sumativa** | Primero 33% | Quiz | iii | 13% |
-| **Evaluación sumativa** | Segundo 33% | Parcial | i | 20% |
-| **Evaluación sumativa** | Segundo 33% | Parcial | i, iii | 20% |
-| **Evaluación sumativa** | Segundo 33% | Quiz | iii | 13% |
-| **Evaluación sumativa** | Tercero 33% | Parcial | i | 33% |
-| **Evaluación sumativa** | Tercero 33% | Parcial | i, iii | 33% |
-| **Evaluación sumativa** | Tercero 33% | Quiz | iii,iv,v | 13% |
+| **Evaluación sumativa** | Primero 33% | Parcial | i, ii | 20% |
+| **Evaluación sumativa** | Primero 33% | Quiz | iii, iv | 13% |
+| **Evaluación sumativa** | Segundo 33% | Proyecto (Video) | i, ii, iii | 20% |
+| **Evaluación sumativa** | Segundo 33% | Quiz | iv | 13% |
+| **Evaluación sumativa** | Tercero 34% | Proyecto Final | i, ii, iii | 21% |
+| **Evaluación sumativa** | Tercero 34% | Quiz | iv | 13% |
+
+\vspace{1.5em}
+
+::: {.callout-tip collapse="true"}
+## 📋 Rúbrica de Evaluación: Proyecto (Video)
+
+::: {style="overflow-x: auto;"}
+
+| Dimensión | Criterio | 5 | 3 | 1 | 0 | Puntaje |
+| :--- | :--- | :--- | :--- | :--- | :--- | :---: |
+| **Presentación** | Claridad de la explicación | Explica de forma clara y ordenada. | Explicación aceptable con algunas dudas. | Explicación confusa. | No presenta. | |
+| **Contenido** | Funcionamiento del CRUD | Demuestra correctamente Crear, Consultar, Actualizar y Eliminar. | Demuestra parcialmente las funciones. | Solo funciona una parte del CRUD. | No funciona. | |
+| **Desarrollo** | Implementación técnica | Integra correctamente interfaz, PHP y base de datos. | Presenta algunos errores menores. | Presenta errores importantes. | No implementa. | |
+| **Evidencia** | Demostración del sistema | El video muestra claramente el funcionamiento del sistema. | La demostración es parcial. | La demostración es poco clara. | No presenta evidencia. | |
+| **Calidad** | Organización y presentación | Video ordenado, buena calidad y dentro del tiempo. | Presentación aceptable. | Presentación desordenada o difícil de seguir. | No presenta. | |
+
+:::
+:::
+
+\vspace{1.5em}
+
+::: {.callout-tip collapse="true"}
+## 📋 Rúbrica de Evaluación: Proyecto Final
+
+::: {style="overflow-x: auto;"}
+
+| Dimensión | Criterio | Nivel 5 | Nivel 4 | Nivel 3 | Nivel 2 | Nivel 1 | Nivel 0 | Puntaje |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :---: |
+| **Presentación oral** | Fluidez, pronunciación y claridad | Discurso siempre claro, fluido y profesional. | Discurso mayormente claro y comprensible. | Claridad adecuada pero con interrupciones o pausas frecuentes. | Dificultades frecuentes; partes del mensaje no se entienden. | Muy difícil de entender la mayor parte del tiempo. | No demuestra dominio o no presenta. | |
+| **Presentación oral** | Volumen y proyección | Control excelente del volumen, siempre audible. | Volumen adecuado y estable. | Volumen irregular; a veces muy bajo o muy alto. | Volumen frecuentemente inadecuado. | No se escucha correctamente. | No presenta. | |
+| **Presentación oral** | Seguridad, muletillas y ritmo | Seguridad total, sin muletillas ni titubeos. | Pocas muletillas, buena seguridad. | Muletillas moderadas y ritmo irregular. | Muchas muletillas, lectura excesiva. | Nerviosismo extremo; discurso muy afectado. | No presenta. | |
+| **Apoyos técnicos** | Uso de ayudas (diapositivas + demo) | Ayudas claras, estéticas, bien dominadas e incluye demo. | Ayudas relevantes y bien usadas. | Ayudas adecuadas pero podrían aprovecharse mejor. | Ayudas poco útiles o mal diseñadas. | Ayudas confusas, recargadas o irrelevantes. | No presenta ayudas. | |
+| **Apoyos técnicos** | Balance texto–gráfico | Predominan gráficos, capturas y elementos visuales claros. | Buen balance entre texto e imágenes. | Balance aceptable, con espacios recargados. | Exceso de texto o pocas ayudas visuales. | Diapositivas saturadas, poco legibles o pobres. | No presenta material. | |
+| **Apoyos técnicos** | Ortografía y estética | Presentación cuidada, sin errores ortográficos. | Mínimos errores ortográficos o de estilo. | Varios errores ortográficos o de formato. | Muchos errores que distraen. | Descuidada, ilegible o poco profesional. | No presenta. | |
+
+:::
+:::
 
 \vspace{1.5em}
 
 ## 📅 Calendarización del Curso (Clase a Clase)
 
 ### 🟦 CORTE 1: Aplicaciones Web (33%)
-- **Semana 1:** [Clase 01: Introducción a Aplicaciones Web y Entorno de Desarrollo](corte1/clase01/index.qmd)
-- **Semana 2:** [Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)](corte1/clase02/index.qmd)
+- **Semana 1:** [Clase 01: Jerarquía del Conocimiento y Salud 4.0](corte1/clase01/index.qmd)
+- **Semana 2:** [Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor en Salud](corte1/clase02/index.qmd)
 - **Semana 3:** [Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)](corte1/clase03/index.qmd)
 - **Semana 4:** [Clase 04: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar)](corte1/clase04/index.qmd)
 - **Semana 5:** [Clase 05: PARCIAL CORTE 1](corte1/clase05/index.qmd)

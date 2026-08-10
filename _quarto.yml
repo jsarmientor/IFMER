@@ -34,21 +34,21 @@ website:
     contents:
       - text: "🏠 Guía de Asignatura (Home)"
         href: index.qmd
-      - section: "🟦 Corte 1: Fundamentos y SIS"
+      - section: "🟦 Corte 1: Aplicaciones Web y SIS"
         contents:
           - text: "Resumen Corte 1"
             href: corte1/index.qmd
-          - text: "Clase 01: Fundamentos & DIKW"
+          - text: "Clase 01: Salud 4.0 & DIKW"
             href: corte1/clase01/index.qmd
-          - text: "Clase 02: HCE / EHR"
+          - text: "Clase 02: Cliente-Servidor & Ágiles"
             href: corte1/clase02/index.qmd
-          - text: "Clase 03: HIS, LIS & Procesos"
+          - text: "Clase 03: Backend, PHP y MySQL"
             href: corte1/clase03/index.qmd
           - text: "Clase 04: RIS/PACS & DICOM"
             href: corte1/clase04/index.qmd
-          - text: "Clase 05: Integración de Sistemas"
+          - text: "Clase 05: Parcial Corte 1"
             href: corte1/clase05/index.qmd
-          - text: "Clase 06: Parcial Corte 1"
+          - text: "Clase 06: Integración de Sistemas"
             href: corte1/clase06/index.qmd
       - section: "🟩 Corte 2: Interoperabilidad & Salud"
         contents:
@@ -93,6 +93,7 @@ format:
     number-sections: false
     code-annotations: false
     format-links: true
+    lightbox: true
   typst:
     papersize: us-letter
     margin:

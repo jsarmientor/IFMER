@@ -1,33 +1,114 @@
 ---
-title: "Clase 02: Desarrollo Frontend (HTML, CSS y Bootstrap)"
+title: "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor"
 subtitle: "Semana 2 | Corte 1"
 author: "Prof. Jefferson Sarmiento Rojas"
-date: "2026-07-23"
+date: "today"
+filters:
+  - pyodide
 format:
   html:
     toc: true
-  pdf:
-    toc: true
 ---
 
-<a href="slides.html" target="_blank" class="btn-slide">💻 Ver Presentación de Diapositivas</a>
+<a href="slides.html" target="_blank" class="btn btn-primary mb-4">
+  <i class="bi bi-display"></i> Ver Presentación de la Clase
+</a>
 
 ## 🎯 Objetivos de la Clase
 
-- [ ] Objetivo 1 (En desarrollo)
-- [ ] Objetivo 2 (En desarrollo)
+1. Comprender la evolución de los registros clínicos en papel hacia la Salud 4.0.
+2. Identificar las diferencias fundamentales entre las metodologías de gestión de proyectos clásicas y las metodologías ágiles (Scrum).
+3. Entender la arquitectura Cliente-Servidor y los componentes Frontend y Backend en el contexto de un sistema de información en salud.
+4. Conocer los conceptos básicos de un sistema CRUD y su aplicación en la Historia Clínica Electrónica (HCE).
 
 ---
 
-## 📖 Materiales y Lecturas
+## 📖 Conceptos Fundamentales
 
-::: {.callout-flipped}
-##### 💡 Preparación Previa
-*Contenido y guía práctica en construcción por el docente.*
+### 1. Evolución hacia la Salud 4.0
+Los flujos de trabajo clínicos y administrativos han evolucionado drásticamente. Hemos pasado del registro tradicional en papel a un ecosistema digital integrado (Salud 4.0), donde la información médica fluye a través de diversas plataformas para apoyar la toma de decisiones clínicas y mejorar la eficiencia administrativa.
+
+### 2. Metodologías de Gestión de Proyectos
+
+#### Metodologías Clásicas
+Se caracterizan por una planificación rigurosa y estática desde el inicio del proyecto (ej. Cascada). 
+- Gestión estricta de cronograma (Gantt), costos y riesgos.
+- Fases independientes y secuenciales.
+- Adecuadas para proyectos con requisitos inmutables y un amplio rango de tiempo.
+
+#### Metodologías Ágiles (Scrum)
+Ideal para el desarrollo de software y aplicaciones tecnológicas, ya que se adapta a las necesidades cambiantes del cliente.
+- **Flexibilidad:** Fácil adaptación y seguimiento rápido de entregas.
+- **Trabajo Iterativo:** El trabajo se divide en **Sprints** (etapas interrelacionadas y cortas).
+- **Roles en Scrum:**
+  - **Product Owner (Dueño del Producto):** Representa a los *Stakeholders* (interesados: gerentes, CEO, médicos). Conoce de primera mano las necesidades del cliente y define los requisitos.
+  - **Scrum Master:** Líder facilitador del equipo (no un jefe). Garantiza la aplicación de la metodología y actúa como moderador entre el equipo y el Product Owner.
+  - **Equipo de Desarrollo (Developers):** Ejecutan el trabajo. Participan en reuniones diarias ("Dailys") respondiendo: ¿Qué hice ayer?, ¿Qué haré hoy?, ¿Qué problemas tuve?
+- **Herramientas:** Aplicaciones como **Trello** facilitan la administración visual de proyectos ágiles.
+
+### 3. Paradigma Cliente - Servidor
+Las soluciones tecnológicas modernas en salud se dividen en dos instancias principales:
+- **Frontend (Cliente):** La interfaz visual con la que interactúan los profesionales de la salud o los pacientes.
+- **Backend (Servidor):** La lógica de negocio y la base de datos donde se procesa y almacena de forma segura la información médica.
+
+### 4. Sistemas CRUD
+La base de la mayoría de los sistemas de información en salud es el modelo **CRUD**, que define las cuatro operaciones fundamentales sobre una base de datos:
+- **C**reate (Crear registros médicos)
+- **R**ead (Consultar el historial del paciente)
+- **U**pdate (Actualizar datos o evolución)
+- **D**elete (Eliminar o archivar registros, bajo estrictas normativas)
+
+### 5. Historia Clínica Electrónica (HCE)
+La Historia Clínica Electrónica centraliza la gestión de los datos de los pacientes e implementa transversalmente el modelo CRUD. 
+En Colombia, la interoperabilidad y reglamentación de la Historia Clínica Electrónica está liderada por el Ministerio de Salud. Puedes consultar más información en el sitio oficial:
+- 🔗 [Ministerio de Salud: Interoperabilidad de la Historia Clínica Electrónica (IHCE)](https://www.minsalud.gov.co/ihce/Paginas/default.aspx)
+
+---
+
+### Ejemplo en Vivo: Consumiendo una API desde el Cliente (Frontend)
+
+El siguiente bloque de código se ejecuta directamente en su navegador gracias a **Pyodide**. Hace una petición a un servidor externo (Backend) para obtener el clima actual, demostrando en la práctica el paradigma **Cliente-Servidor**. Puede presionar el botón de "Run" para probarlo en tiempo real.
+
+```{pyodide-python}
+import requests
+import json
+
+url = "https://api.open-meteo.com/v1/forecast"
+params = {
+    "latitude": 4.6097,
+    "longitude": -74.0817,
+    "current_weather": "true"
+}
+
+response = requests.get(url, params=params)
+
+if response.status_code == 200:
+    data = response.json()
+    current = data.get("current_weather", {})
+    
+    print("--- Clima Actual ---")
+    print(f"Temperatura: {current.get('temperature')} °C")
+    print(f"Velocidad del viento: {current.get('windspeed')} km/h")
+    
+    # Para ver la estructura completa devuelta por la API:
+    # print(json.dumps(data, indent=2))
+else:
+    print(f"Error en la petición HTTP: {response.status_code}")
+```
+
+---
+
+## 🧪 Práctica de Laboratorio: Diseño de Datos Clínicos (Resolución 866)
+
+### Objetivo Práctico
+Identificar y estructurar los datos mínimos requeridos para la tabla `pacientes` de un sistema CRUD, asegurando el cumplimiento de la normativa colombiana de interoperabilidad (Resolución 866 de 2021).
+
+::: {.callout-note}
+#### 💻 Actividad: Construyendo el Diccionario de Datos
+1. **Consulta Normativa:** Ingrese a la web oficial del Ministerio de Salud y consulte el Anexo Técnico de la **Resolución 866 de 2021**. Ubique la sección referida al *Conjunto de Datos de Identificación del Paciente*.
+2. **Estructura de la Tabla:** En una hoja de cálculo (Excel, Google Sheets), cree una tabla que servirá como su "Diccionario de Datos" para el diseño del sistema.
+3. **Selección de Variables:** Extraiga **todas** las variables exigidas por la normatividad (por ejemplo: Tipo de Identificación, Número de Identificación, Nombres, Apellidos, Sexo Biológico, Fecha de Nacimiento, Código DANE del municipio de residencia, etc.).
+4. **Tipificación de Datos:** Por cada variable seleccionada, añada una columna definiendo qué **tipo de dato** utilizará en la base de datos (Ej: `VARCHAR` para texto, `DATE` para fechas, `INT` para números enteros). 
+
+*Guarde este documento, ya que será la base técnica para la programación de la base de datos en las próximas clases.*
 :::
-
----
-
-## 🧪 Práctica de Laboratorio
-
-*Actividad práctica en desarrollo.*

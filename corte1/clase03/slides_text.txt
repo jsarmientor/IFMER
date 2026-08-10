@@ -1,0 +1,87 @@
+
+--- Slide 1 ---
+Herramientas digitales
+Aplicaciones web
+
+--- Slide 2 ---
+
+--- Slide 3 ---
+
+--- Slide 4 ---
+
+--- Slide 5 ---
+
+--- Slide 6 ---
+HTML
+
+--- Slide 7 ---
+Partes de una página web
+
+--- Slide 8 ---
+Estructura del código
+
+--- Slide 9 ---
+Principales Etiquetas
+
+--- Slide 10 ---
+CSS
+CSS son las siglas en inglés para «hojas de estilo en cascada» (Cascading Style Sheets). Básicamente, es un lenguaje que maneja el diseño y presentación de las páginas web, es decir, cómo lucen cuando un usuario las visita. Funciona junto con el lenguaje HTML que se encarga del contenido básico de las páginas.
+
+Se les denomina hojas de estilo «en cascada» porque puedes tener varias hojas y una de ellas con las propiedades heredadas (o «en cascada») de otras.
+
+--- Slide 11 ---
+Propiedades de CSS
+
+--- Slide 12 ---
+PHP
+PHP (Hypertext Preprocessor) es un lenguaje de programación destinado a desarrollar aplicaciones para la web y crear páginas web, favoreciendo la conexión entre los servidores y la interfaz de usuario.
+
+Este lenguaje se utiliza generalmente para desarrollar el backend de una web, del lado del servidor. Aun así, tiene numerosas utilidades en frontend. Es por esto que es uno de los principales lenguajes de programación en el mundo de la programación web.
+
+--- Slide 13 ---
+Funcionamiento de PHP
+
+--- Slide 14 ---
+Estructura del código
+
+--- Slide 15 ---
+JavaScript
+JavaScript es un lenguaje de programación diseñado en un principio para añadir interactividad a las páginas webs y crear aplicaciones web. 
+
+JavaScript es un lenguaje de alto nivel, dinámico e interpretado. Se define como orientado a objetos, basado en prototipos, imperativo y débilmente tipado. Junto al HTML y a CSS, es una de las tres tecnologías esenciales en la producción mundial webs
+
+--- Slide 16 ---
+Funcionamiento de JavaScript
+
+--- Slide 17 ---
+¿Qué es SQL?
+Lenguaje desarrollado por IMB SQL Structured Query Language
+1- Lenguaje de Consulta Estructurado: Lenguaje de comunicación con bases de datos editar seleccionar  y filtrar datos.
+Estándar para Bases de Datos
+Motor de Nuestra Bases de Datos
+Que Bases de Datos utilizan el lenguaje SQL
+Mysql (extremadamente rápida éro no es tan robusta)
+postgeSQl(robusta)
+Ms sql Server(base de datos basada en Acces)
+DB2 (IBM)
+ORACLE sql y plsql.
+
+--- Slide 18 ---
+Tipos de datos SQL
+
+--- Slide 19 ---
+Características
+
+--- Slide 20 ---
+Cómo esta compuesta una base de Datos
+1-Tablas : son el componente que le da estructura a nuestra base de datos:
+Nombre campo
+Columnas (Atributos)
+Filas (Registros )
+
+--- Slide 21 ---
+Creación  de una tabla en una Base de datos
+DESC nombre Tabla; descripción de la tabla
+
+--- Slide 22 ---
+Bases de Datos CRUD

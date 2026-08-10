@@ -14,20 +14,345 @@ format:
 
 ## 🎯 Objetivos de la Clase
 
-- [ ] Objetivo 1 (En desarrollo)
-- [ ] Objetivo 2 (En desarrollo)
+- [ ] Comprender los fundamentos de las aplicaciones web (HTML, CSS, JavaScript).
+- [ ] Entender el rol de PHP en el desarrollo backend.
+- [ ] Conocer los conceptos básicos de Bases de Datos y el lenguaje SQL.
+
+---
+
+## 💻 Código de Referencia: Sistema de Registro y Login
+
+A continuación se presentan los archivos separados necesarios para construir el sistema cliente-servidor visto en clase.
+
+### 1. Estructura HTML (`index.html`)
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Registro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Formulario de Login -->
+        <div class="form-container" id="login-container">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Correo Electrónico" required>
+                <input type="password" id="login-password" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+                <p>¿No tienes cuenta? <a href="#" id="show-register">Regístrate aquí</a></p>
+            </form>
+            <div id="login-message"></div>
+        </div>
+
+        <!-- Formulario de Registro -->
+        <div class="form-container hidden" id="register-container">
+            <h2>Registro</h2>
+            <form id="register-form">
+                <input type="text" id="register-name" placeholder="Nombre Completo" required>
+                <input type="email" id="register-email" placeholder="Correo Electrónico" required>
+                <input type="password" id="register-password" placeholder="Contraseña" required>
+                <button type="submit">Registrarse</button>
+                <p>¿Ya tienes cuenta? <a href="#" id="show-login">Inicia sesión</a></p>
+            </form>
+            <div id="register-message"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+### 2. Estilos CSS (`style.css`)
+
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+#login-message, #register-message {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.success { color: green; }
+.error { color: red; }
+```
+
+### 3. Lógica JavaScript (`script.js`)
+
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+    const loginContainer = document.getElementById('login-container');
+    const registerContainer = document.getElementById('register-container');
+    const showRegisterBtn = document.getElementById('show-register');
+    const showLoginBtn = document.getElementById('show-login');
+
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+
+    // Alternar vistas
+    showRegisterBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginContainer.classList.add('hidden');
+        registerContainer.classList.remove('hidden');
+    });
+
+    showLoginBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerContainer.classList.add('hidden');
+        loginContainer.classList.remove('hidden');
+    });
+
+    // Envío de Registro (Método POST)
+    registerForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('register-name').value;
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+        const messageDiv = document.getElementById('register-message');
+
+        try {
+            const response = await fetch('api.php?action=register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ nombre, email, password })
+            });
+            const data = await response.json();
+            
+            if(data.success) {
+                messageDiv.textContent = 'Registro exitoso. Ya puedes iniciar sesión.';
+                messageDiv.className = 'success';
+                registerForm.reset();
+            } else {
+                messageDiv.textContent = data.error || 'Error en el registro.';
+                messageDiv.className = 'error';
+            }
+        } catch (error) {
+            messageDiv.textContent = 'Error de conexión.';
+            messageDiv.className = 'error';
+        }
+    });
+
+    // Envío de Login (Método POST)
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        const messageDiv = document.getElementById('login-message');
+
+        try {
+            const response = await fetch('api.php?action=login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ email, password })
+            });
+            const data = await response.json();
+            
+            if(data.success) {
+                messageDiv.textContent = '¡Bienvenido ' + data.user.nombre + '!';
+                messageDiv.className = 'success';
+            } else {
+                messageDiv.textContent = data.error || 'Credenciales incorrectas.';
+                messageDiv.className = 'error';
+            }
+        } catch (error) {
+            messageDiv.textContent = 'Error de conexión.';
+            messageDiv.className = 'error';
+        }
+    });
+});
+```
+
+### 4. Base de Datos SQL (`database.sql`)
+
+```sql
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS sistema_login;
+USE sistema_login;
+
+-- Crear la tabla de usuarios
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### 5. Backend PHP (API de Conexión y CRUD) (`api.php`)
+
+```php
+<?php
+header('Content-Type: application/json');
+
+// 1. Configuración de Conexión a Base de Datos
+$host = 'localhost';
+$dbname = 'sistema_login';
+$user = 'root'; // Ajustar según servidor
+$pass = '';     // Ajustar según servidor
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo json_encode(["success" => false, "error" => "Error de conexión a BD"]);
+    exit;
+}
+
+// 2. Procesamiento de Solicitudes (Create & Read)
+$action = $_GET['action'] ?? '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    // CRUD: CREATE (Registro)
+    if ($action === 'register') {
+        $nombre = $_POST['nombre'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+        
+        if (empty($nombre) || empty($email) || empty($password)) {
+            echo json_encode(["success" => false, "error" => "Todos los campos son obligatorios"]);
+            exit;
+        }
+
+        // Hash de contraseña por seguridad
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        try {
+            $stmt = $pdo->prepare("INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)");
+            $stmt->execute([$nombre, $email, $hashed_password]);
+            echo json_encode(["success" => true]);
+        } catch (PDOException $e) {
+            if ($e->getCode() == 23000) {
+                echo json_encode(["success" => false, "error" => "El correo ya está registrado"]);
+            } else {
+                echo json_encode(["success" => false, "error" => "Error al registrar usuario"]);
+            }
+        }
+    } 
+    
+    // CRUD: READ (Login)
+    elseif ($action === 'login') {
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        if (empty($email) || empty($password)) {
+            echo json_encode(["success" => false, "error" => "Correo y contraseña son obligatorios"]);
+            exit;
+        }
+
+        $stmt = $pdo->prepare("SELECT id, nombre, password FROM usuarios WHERE email = ?");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && password_verify($password, $user['password'])) {
+            echo json_encode([
+                "success" => true, 
+                "user" => [
+                    "id" => $user['id'],
+                    "nombre" => $user['nombre']
+                ]
+            ]);
+        } else {
+            echo json_encode(["success" => false, "error" => "Credenciales incorrectas"]);
+        }
+    }
+}
+?>
+```
 
 ---
 
 ## 📖 Materiales y Lecturas
 
-::: {.callout-flipped}
-##### 💡 Preparación Previa
-*Contenido y guía práctica en construcción por el docente.*
+::: {.callout-note}
+##### 💡 Material de Clase
+* [Guía docente MySQL (Documento Word)](Guia_docente_Mysql.docx)
 :::
 
 ---
 
 ## 🧪 Práctica de Laboratorio
 
-*Actividad práctica en desarrollo.*
+* **Actividad:** Replicar el login visto en clase utilizando todas las tecnologías vistas en clase.

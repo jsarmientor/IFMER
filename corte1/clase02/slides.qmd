@@ -1,20 +1,99 @@
 ---
-title: "Clase 02: Historia Clínica Electrónica (HCE / EHR)"
-subtitle: "Informática Médica - IFMER 2026-II"
-author: "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"
-institute: "Universidad del Rosario"
-date: "2026-07-23"
+title: "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor"
+subtitle: "Salud 4.0 y Gestión de Proyectos en Informática Médica"
+author: "Prof. Jefferson Sarmiento Rojas"
+date: "today"
 format:
   revealjs:
-    theme: moon
-    transition: slide
+    theme: default
     slide-number: true
-    controls: true
-    footer: "Informática Médica - IFMER 2026-II"
+    transition: fade
+    lightbox: true
 ---
 
-# 🚧 Clase 02: Historia Clínica Electrónica (HCE / EHR)
+## Flujos de trabajo clínicos y administrativos
+- Evolución constante de los procesos en las instituciones de salud.
+- Optimización de recursos y tiempos de atención.
 
-## Diapositivas en Desarrollo
+![](img/slide_4_img_1.png){width="70%" fig-align="center"}
 
-* Próximamente se publicará el contenido de las diapositivas de esta sesión.
+## Del registro en papel a la Salud 4.0
+- Transición del papel a los medios digitales.
+- Integración de tecnologías IoT, Big Data e IA.
+- Interoperabilidad de los datos médicos.
+
+![](img/slide_5_img_3.png){width="70%" fig-align="center"}
+
+## Paradigma Cliente - Servidor
+- **Cliente (Frontend):** Interfaz visual donde interactúa el usuario.
+- **Servidor (Backend):** Lógica y base de datos donde se procesa la información de manera segura.
+
+![](img/slide_6_img_1.png){width="70%" fig-align="center"}
+
+## Proceso para la planeación y ejecución
+- Antes de desarrollar cualquier sistema de información en salud, se requiere una planificación rigurosa.
+- Existen dos grandes caminos: Metodologías Clásicas y Metodologías Ágiles.
+
+## Metodologías Clásicas
+- Gestión estricta y organizada del cronograma (Gantt).
+- Gestión de costos (directos, indirectos) y stakeholders.
+- Gestión rigurosa de riesgos.
+- Fases independientes.
+- Adecuada para proyectos estáticos con un amplio rango de tiempo.
+
+## Metodologías Ágiles
+- Gestión organizada pero orientada a un estado cambiante.
+- Fácil adaptación a las necesidades del cliente (Iterativo).
+- Retroalimentación constante.
+- Entregas rápidas (Sprints).
+- Ideal para el desarrollo de herramientas digitales y software.
+
+## Scrum
+- Metodología ágil altamente adaptable y de fácil implementación.
+- Especialmente diseñada para proyectos tecnológicos.
+- Divide el proyecto en ciclos cortos llamados **Sprints**.
+
+![](img/slide_9_img_2.png){width="70%" fig-align="center"}
+
+## Roles en Scrum: Product Owner
+- Interlocutor entre el equipo y el cliente.
+- Conoce todas las necesidades (Dueño del Producto).
+- Representa a los *Stakeholders* (gerentes, médicos, pacientes).
+
+![](img/slide_11_img_1.jpg){width="50%" fig-align="center"}
+
+## Roles en Scrum: Scrum Master
+- Líder facilitador del equipo de trabajo.
+- NO es un jefe tradicional.
+- Garantiza que la metodología Scrum se aplique correctamente.
+- Moderador entre las necesidades y el equipo.
+
+![](img/slide_12_img_1.png){width="50%" fig-align="center"}
+
+## Roles en Scrum: Equipo de Desarrollo
+- Ejecutan las tareas técnicas del proyecto.
+- Tienen reuniones diarias (Dailys):
+  - ¿Qué se hizo ayer?
+  - ¿Qué se está haciendo hoy?
+  - ¿Qué problemas se presentaron?
+
+## Herramientas Scrum (Trello)
+- Software de administración de proyectos con interfaz web y móvil.
+- Utiliza tableros, listas y tarjetas (Sistema Kanban) para organizar las tareas de los Sprints.
+
+![](img/slide_16_img_1.png){width="70%" fig-align="center"}
+
+## Sistemas CRUD
+- **CRUD**: Operaciones fundamentales en sistemas de información en salud.
+  - **C**reate (Crear registros médicos)
+  - **R**ead (Consultar el historial)
+  - **U**pdate (Actualizar datos o evolución)
+  - **D**elete (Eliminar o archivar bajo normativas)
+
+![](img/slide_18_img_2.png){width="50%" fig-align="center"}
+
+## Historia Clínica Electrónica
+- **Historia Clínica Electrónica (HCE/EHR)**: Sistema centralizado para gestionar la información de los pacientes.
+- Registra transversalmente todos los datos clínicos.
+
+![](img/slide_19_img_1.png){width="50%" fig-align="center"}

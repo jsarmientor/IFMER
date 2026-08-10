@@ -1,0 +1,123 @@
+
+--- Slide 1 ---
+Informática Médica
+Jefferson Sarmiento Rojas PhD Lic, Ing, MEng
+
+--- Slide 2 ---
+
+--- Slide 3 ---
+
+--- Slide 4 ---
+Flujos de trabajo clínicos y administrativos
+
+--- Slide 5 ---
+Del registro en papel a la Salud 4.0
+
+--- Slide 6 ---
+Paradigma Cliente Servidor
+
+--- Slide 7 ---
+Proceso para la planeación y ejecución de aplicaciones digitales en salud
+Jefferson Sarmiento Rojas PhD © Lic, Ing, MEng
+
+--- Slide 8 ---
+Metodologías Agiles
+Metodologías para la gestión de proyectos clásicas.
+
+
+Gestión organizada del proyecto
+
+Gestión del cronograma (Gantt)
+
+Gestión de los costos (Directos, indirectos)
+
+Gestión de los usuarios(Stalkeholders)
+
+Gestión de los riesgos del proyecto (nivel de riesgos)
+
+Independencia de cada una de las fases
+
+Organización con una planeación rigurosa y estática del proyecto teniendo en cuenta posibles riesgos desde el inicio del proyecto. 
+
+Proyectos amplio rango de tiempo.
+Metodologías agiles para la gestión de proyectos.
+
+Gestión Organizada del proyecto teniendo en cuenta su estado cambiante. 
+Fácil adaptación a las necesidades del cliente
+Innovadora forma de trabajo en grupos de trabajo. 
+Retroalimentación constante por parte del cliente.
+Seguimiento a Entregas de forma rápida y constante
+Etapas interrelacionadas (Sprint)
+Organización con una planificación flexible teniendo en cuenta los cambios constantes en este tipo de proyectos.
+Proyectos reducido rango de tiempo.
+
+--- Slide 9 ---
+Scrum
+Metodología ágil para el desarrollo de proyectos. 
+Se enfoca a proyectos de desarrollo de Software, Aplicaciones y Desarrollos tecnológicos.
+ 
+Pero es adaptable a todo tipo de proyectos con características cambiantes en el tiempo.
+Características:
+
+	Fácil implementación 
+	Adaptable
+	Apropiado para el desarrollo de 
+	herramientas digitales
+Esta foto de Autor desconocido está bajo licencia CC BY-SA
+
+--- Slide 10 ---
+Ciclo de Vida SCRUM
+Esta foto de Autor desconocido está bajo licencia CC BY-SA
+
+--- Slide 11 ---
+Stakeholders Product Owner
+Esta foto de Autor desconocido está bajo licencia CC BY-SA
+Esta foto de Autor desconocido está bajo licencia CC BY
+Esta foto de Autor desconocido está bajo licencia CC BY
+Son los interesados del proyecto
+Dolientes del proyecto
+Gerentes 
+CEO
+Juntas Directivas
+Comités de compra
+Dueño del Producto
+Interlocutor entre el equipo de trabajo y el cliente,
+Ingeniero de requisitos
+Conoce de primera mano todas las necesidades del cliente.  
+Puede ser parte de la organización contratante o la organización desarrolladora.
+
+--- Slide 12 ---
+SCRUM Master
+Líder del equipo de trabajo
+Garantizar la metodología Scrum en el equipo de trabajo,
+No es un Jefe
+Moderador entre las necesidades del proyecto y el equipo de desarrollo.
+Interlocutor entre .el dueño del producto y el equipo de trabajo.
+
+--- Slide 13 ---
+Equipo de trabajo  y Sprints
+Desarrolladores
+¿Que se hizo ayer?
+¿Que se está haciendo hoy? 
+¿Qué se va a hacer mañana?
+Problemas presentados
+
+--- Slide 14 ---
+Ciclo de Vida SCRUM
+Esta foto de Autor desconocido está bajo licencia CC BY-SA
+
+--- Slide 15 ---
+Herramientas Scrum…Trello: es un software de administración de proyectos con interfaz web y con cliente para iOS y android para organizar proyectos.
+
+--- Slide 16 ---
+Herramientas Scrum
+
+--- Slide 17 ---
+Backend y Frontend
+En general  las aplicaciones o soluciones tecnológicas están representadas de esta manera, en algunos casos las dos instancias pueden funcionar en el mismo entorno de ejecución.
+
+--- Slide 18 ---
+Sistemas CRUD
+
+--- Slide 19 ---
+Historia Clínica Electrónica (HCE/EHR).
