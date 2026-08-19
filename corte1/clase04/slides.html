@@ -9,9 +9,9 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
-  <meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)">
-  <meta name="dcterms.date" content="2026-07-23">
-  <title>Informática Médica - IFMER 2026-II – Clase 04: Imágenes Médicas (RIS/PACS) &amp; DICOM</title>
+  <meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas, Pedro Antonio Aya">
+  <meta name="dcterms.date" content="2026-08-19">
+  <title>Informática Médica - IFMER 2026-II – Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -128,13 +128,13 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Clase 04: Imágenes Médicas (RIS/PACS) &amp; DICOM</h1>
+  <h1 class="title">Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL</h1>
   <p class="subtitle">Informática Médica - IFMER 2026-II</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c) 
+Prof.&nbsp;Jefferson Sarmiento Rojas, Pedro Antonio Aya 
 </div>
         <p class="quarto-title-affiliation">
             Universidad del Rosario
@@ -142,18 +142,99 @@ Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)
     </div>
 </div>
 
-  <p class="date">2026-07-23</p>
+  <p class="date">2026-08-19</p>
 </section>
 <section>
-<section id="clase-04-imágenes-médicas-rispacs-dicom" class="title-slide slide level1 center">
-<h1>🚧 Clase 04: Imágenes Médicas (RIS/PACS) &amp; DICOM</h1>
+<section id="servicios-web-y-bases-de-datos-no-relacionales" class="title-slide slide level1 center">
+<h1>Servicios Web y Bases de Datos No Relacionales</h1>
 
 </section>
-<section id="diapositivas-en-desarrollo" class="slide level2">
-<h2>Diapositivas en Desarrollo</h2>
+<section id="servicios-web" class="slide level2">
+<h2>Servicios Web</h2>
 <ul>
-<li>Próximamente se publicará el contenido de las diapositivas de esta sesión.</li>
+<li>Software o pieza de software que utiliza protocolos y estándares para el intercambio de datos a través de internet.</li>
 </ul>
+</section>
+<section class="slide level2">
+
+<h3 id="paradigma-de-los-servicios-web">Paradigma de los servicios Web</h3>
+<ul>
+<li><strong>Request</strong> (Peticiones)</li>
+<li><strong>Response</strong> (Respuestas)</li>
+<li><strong>Hypermedia</strong></li>
+<li>Arquitectura Cliente-Servidor</li>
+</ul>
+</section>
+<section id="protocolo-http" class="slide level2">
+<h2>Protocolo HTTP</h2>
+<ul>
+<li><strong>Hypertext Transfer Protocol</strong></li>
+<li>Protocolo estándar para la transferencia de información en internet.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="métodos-http">Métodos HTTP</h3>
+<ul>
+<li><strong>POST</strong>: Crear Recursos.</li>
+<li><strong>GET</strong>: Consultar Recursos.</li>
+<li><strong>PUT</strong>: Modificar Recursos.</li>
+<li><strong>DELETE</strong>: Eliminar Recursos.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="códigos-de-respuesta-http">Códigos de Respuesta HTTP</h3>
+<ul>
+<li>Indican el estado de la petición realizada al servidor.</li>
+<li><strong>Ejemplos:</strong>
+<ul>
+<li>200 (OK)</li>
+<li>201 (Created)</li>
+<li>404 (Not Found)</li>
+<li>500 (Internal Server Error).</li>
+</ul></li>
+</ul>
+</section>
+<section id="rest-api" class="slide level2">
+<h2>REST-API</h2>
+<ul>
+<li>Interfaz basada en HTTP.</li>
+<li>Permite obtener y modificar datos.</li>
+<li>Operación con datos entre sistemas de manera estandarizada e independiente de lenguaje.</li>
+</ul>
+</section>
+<section id="bases-de-datos-no-relacionales-nosql" class="slide level2">
+<h2>Bases de Datos No Relacionales (NoSQL)</h2>
+<ul>
+<li>Alternativa a las bases de datos SQL tradicionales (no utilizan tablas estrictas).</li>
+<li>Estructura flexible, escalable y rápida para grandes volúmenes de datos o esquemas dinámicos.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="formato-json">Formato JSON</h3>
+<ul>
+<li><strong>JavaScript Object Notation</strong></li>
+<li>Formato ligero de intercambio de datos.</li>
+<li>Estructura basada en pares <code>clave: valor</code>.</li>
+<li>Ideal y estándar para comunicación en APIs REST y bases de datos NoSQL.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="bases-de-datos-crud">Bases de Datos CRUD</h3>
+<p>Operaciones fundamentales para interactuar con sistemas de datos:</p>
+<ul>
+<li><strong>C</strong>reate (Crear)</li>
+<li><strong>R</strong>ead (Leer / Consultar)</li>
+<li><strong>U</strong>pdate (Actualizar)</li>
+<li><strong>D</strong>elete (Eliminar)</li>
+</ul>
+</section>
+<section id="práctica-de-laboratorio" class="slide level2">
+<h2>🧪 Práctica de Laboratorio</h2>
+<p><strong>Actividad:</strong> Replicar el sistema de Login y CRUD de la sesión consumiendo una base de datos NoSQL mediante Firebase y su API REST.</p>
 
 
 </section></section>
