@@ -1,9 +1,9 @@
 ---
-title: "Clase 04: Imágenes Médicas (RIS/PACS) & DICOM"
+title: "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL"
 subtitle: "Informática Médica - IFMER 2026-II"
-author: "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"
+author: "Prof. Jefferson Sarmiento Rojas, Pedro Antonio Aya"
 institute: "Universidad del Rosario"
-date: "2026-07-23"
+date: "2026-08-19"
 format:
   revealjs:
     theme: moon
@@ -13,8 +13,121 @@ format:
     footer: "Informática Médica - IFMER 2026-II"
 ---
 
-# 🚧 Clase 04: Imágenes Médicas (RIS/PACS) & DICOM
+# Servicios Web y Bases de Datos No Relacionales
+::: {layout-ncol=2}
+![](img/image1.jpg)
 
-## Diapositivas en Desarrollo
+![](img/image2.jpg)
+:::
 
-* Próximamente se publicará el contenido de las diapositivas de esta sesión.
+## Servicios Web
+* Software o pieza de software que utiliza protocolos y estándares para el intercambio de datos a través de internet.
+::: {layout-ncol=2}
+![](img/image3.png)
+
+![](img/image4.png)
+:::
+
+---
+
+### Paradigma de los servicios Web
+* **Request** (Peticiones)
+* **Response** (Respuestas)
+* **Hypermedia**
+* Arquitectura Cliente-Servidor
+::: {layout-ncol=2}
+![](img/image5.png)
+
+![](img/image6.png)
+:::
+
+## Protocolo HTTP
+* **Hypertext Transfer Protocol**
+* Protocolo estándar para la transferencia de información en internet.
+::: {layout-ncol=2}
+![](img/image7.png)
+
+![](img/image8.png)
+:::
+
+---
+
+### Métodos HTTP
+* **POST**: Crear Recursos.
+* **GET**: Consultar Recursos.
+* **PUT**: Modificar Recursos.
+* **DELETE**: Eliminar Recursos.
+::: {layout-ncol=2}
+![](img/image9.png)
+
+![](img/image10.png)
+:::
+
+---
+
+### Códigos de Respuesta HTTP
+* Indican el estado de la petición realizada al servidor.
+* **Ejemplos:** 
+  * 200 (OK)
+  * 201 (Created)
+  * 404 (Not Found)
+  * 500 (Internal Server Error).
+::: {layout-ncol=2}
+![](img/image11.png)
+
+![](img/image12.png)
+:::
+
+## REST-API
+* Interfaz basada en HTTP.
+* Permite obtener y modificar datos.
+* Operación con datos entre sistemas de manera estandarizada e independiente de lenguaje.
+::: {layout-ncol=2}
+![](img/image13.png)
+
+![](img/image14.png)
+:::
+
+## Bases de Datos No Relacionales (NoSQL)
+* Alternativa a las bases de datos SQL tradicionales (no utilizan tablas estrictas).
+* Estructura flexible, escalable y rápida para grandes volúmenes de datos o esquemas dinámicos.
+::: {layout-ncol=2}
+![](img/image15.png)
+
+![](img/image16.png)
+:::
+
+---
+
+### Formato JSON
+* **JavaScript Object Notation**
+* Formato ligero de intercambio de datos.
+* Estructura basada en pares `clave: valor`.
+* Ideal y estándar para comunicación en APIs REST y bases de datos NoSQL.
+::: {layout-ncol=2}
+![](img/image17.png)
+
+![](img/image18.png)
+:::
+
+---
+
+### Bases de Datos CRUD
+Operaciones fundamentales para interactuar con sistemas de datos:
+
+* **C**reate (Crear)
+* **R**ead (Leer / Consultar)
+* **U**pdate (Actualizar)
+* **D**elete (Eliminar)
+::: {layout-ncol=3}
+![](img/image19.png)
+
+![](img/image20.png)
+
+![](img/image21.jpg)
+:::
+
+## 🧪 Práctica de Laboratorio
+
+**Actividad:**
+Replicar el sistema de Login y CRUD de la sesión consumiendo una base de datos NoSQL mediante Firebase y su API REST.
