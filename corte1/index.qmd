@@ -65,26 +65,26 @@ Para apoyar el desarrollo del entregable, descargue los siguientes recursos obli
 
 ::: {.card .mb-3}
 ::: {.card-body}
-### 🟦 [Semana 4 - Clase 04: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar)](clase04/index.qmd)
-- **Conceptos:** Implementación de acciones CRUD (actualizar.php, eliminar.php, etc.).
-- **Práctica:** Integración final del Backend con la interfaz Frontend.
+### 🟦 [Semana 4 - Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL](clase04/index.qmd)
+- **Conceptos:** Servicios Web, Protocolo HTTP, Arquitectura REST, formato JSON y Bases de Datos No Relacionales.
+- **Práctica:** Implementación de Login y operaciones CRUD con Firebase NoSQL.
 - **Recursos:** [Ver Guía de Clase](clase04/index.qmd) | [💻 Ver Presentación Diapositivas](clase04/slides.qmd)
 :::
 :::
 
 ::: {.card .mb-3}
 ::: {.card-body}
-### 🟦 [Semana 5 - Clase 05: Consolidación de Conceptos: Integración y Despliegue](clase05/index.qmd)
-- **Conceptos:** Integración completa de la aplicación, pruebas y despliegue local.
-- **Práctica:** Taller integrador de desarrollo web.
-- **Recursos:** [Ver Guía de Clase](clase05/index.qmd) | [💻 Ver Presentación Diapositivas](clase05/slides.qmd)
+### 🟦 [Semana 5 - Clase 05: Evaluación Corte 1 (Parcial 1)](clase05/index.qmd)
+- **Evaluación Sumativa:** Parcial teórico y/o práctico.
+- **Recursos:** [Ver Guía de Evaluación](clase05/index.qmd)
 :::
 :::
 
 ::: {.card .mb-3}
 ::: {.card-body}
-### 🟦 [Semana 6 - Clase 06: Evaluación Corte 1](clase06/index.qmd)
-- **Evaluación Sumativa:** Entrega de la aplicación web desarrollada y evaluación teórica.
-- **Recursos:** [Ver Guía de Evaluación](clase06/index.qmd)
+### 🟦 [Semana 6 - Clase 06: Consolidación e Integración de Sistemas](clase06/index.qmd)
+- **Conceptos:** Integración completa de la aplicación, pruebas y despliegue local.
+- **Práctica:** Taller integrador de desarrollo web.
+- **Recursos:** [Ver Guía de Clase](clase06/index.qmd)
 :::
 :::

@@ -171,9 +171,9 @@ Las actividades de evaluación estarán divididas por cortes y en actividades de
 - **Semana 1:** [Clase 01: Jerarquía del Conocimiento y Salud 4.0](corte1/clase01/index.qmd)
 - **Semana 2:** [Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor en Salud](corte1/clase02/index.qmd)
 - **Semana 3:** [Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)](corte1/clase03/index.qmd)
-- **Semana 4:** [Clase 04: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar)](corte1/clase04/index.qmd)
-- **Semana 5:** [Clase 05: PARCIAL CORTE 1](corte1/clase05/index.qmd)
-- **Semana 6:** [Clase 06: Consolidación de Conceptos: Integración y Despliegue](corte1/clase06/index.qmd)
+- **Semana 4:** [Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL](corte1/clase04/index.qmd)
+- **Semana 5:** [Clase 05: Evaluación Corte 1 (Parcial 1)](corte1/clase05/index.qmd)
+- **Semana 6:** [Clase 06: Consolidación e Integración de Sistemas](corte1/clase06/index.qmd)
 
 ### 🟩 CORTE 2: Interoperabilidad y Salud Conectada (33%)
 - **Semana 7:** [Clase 07: Interoperabilidad y Estándares Clásicos (HL7, CIE-10, SNOMED)](corte2/clase07/index.qmd)

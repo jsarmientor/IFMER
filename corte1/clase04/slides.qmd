@@ -14,118 +14,119 @@ format:
 ---
 
 # Servicios Web y Bases de Datos No Relacionales
-::: {layout-ncol=2}
-![](img/image1.jpg)
 
-![](img/image2.jpg)
-:::
+## 
+![](img/image1.jpg){.r-stretch}
+
+## 
+![](img/image2.jpg){.r-stretch}
 
 ## Servicios Web
 * Software o pieza de software que utiliza protocolos y estándares para el intercambio de datos a través de internet.
-::: {layout-ncol=2}
-![](img/image3.png)
 
-![](img/image4.png)
-:::
+## 
+![](img/image3.png){.r-stretch}
 
----
+## 
+![](img/image4.png){.r-stretch}
 
-### Paradigma de los servicios Web
+## Paradigma de los servicios Web
 * **Request** (Peticiones)
 * **Response** (Respuestas)
 * **Hypermedia**
 * Arquitectura Cliente-Servidor
-::: {layout-ncol=2}
-![](img/image5.png)
 
-![](img/image6.png)
-:::
+## 
+![](img/image5.png){.r-stretch}
+
+## 
+![](img/image6.png){.r-stretch}
 
 ## Protocolo HTTP
 * **Hypertext Transfer Protocol**
 * Protocolo estándar para la transferencia de información en internet.
-::: {layout-ncol=2}
-![](img/image7.png)
 
-![](img/image8.png)
-:::
+## 
+![](img/image7.png){.r-stretch}
 
----
+## 
+![](img/image8.png){.r-stretch}
 
-### Métodos HTTP
+## Métodos HTTP
 * **POST**: Crear Recursos.
 * **GET**: Consultar Recursos.
 * **PUT**: Modificar Recursos.
 * **DELETE**: Eliminar Recursos.
-::: {layout-ncol=2}
-![](img/image9.png)
 
-![](img/image10.png)
-:::
+## 
+![](img/image9.png){.r-stretch}
 
----
+## 
+![](img/image10.png){.r-stretch}
 
-### Códigos de Respuesta HTTP
+## Códigos de Respuesta HTTP
 * Indican el estado de la petición realizada al servidor.
 * **Ejemplos:** 
   * 200 (OK)
   * 201 (Created)
   * 404 (Not Found)
   * 500 (Internal Server Error).
-::: {layout-ncol=2}
-![](img/image11.png)
 
-![](img/image12.png)
-:::
+## 
+![](img/image11.png){.r-stretch}
+
+## 
+![](img/image12.png){.r-stretch}
 
 ## REST-API
 * Interfaz basada en HTTP.
 * Permite obtener y modificar datos.
 * Operación con datos entre sistemas de manera estandarizada e independiente de lenguaje.
-::: {layout-ncol=2}
-![](img/image13.png)
 
-![](img/image14.png)
-:::
+## 
+![](img/image13.png){.r-stretch}
+
+## 
+![](img/image14.png){.r-stretch}
 
 ## Bases de Datos No Relacionales (NoSQL)
 * Alternativa a las bases de datos SQL tradicionales (no utilizan tablas estrictas).
 * Estructura flexible, escalable y rápida para grandes volúmenes de datos o esquemas dinámicos.
-::: {layout-ncol=2}
-![](img/image15.png)
 
-![](img/image16.png)
-:::
+## 
+![](img/image15.png){.r-stretch}
 
----
+## 
+![](img/image16.png){.r-stretch}
 
-### Formato JSON
+## Formato JSON
 * **JavaScript Object Notation**
 * Formato ligero de intercambio de datos.
 * Estructura basada en pares `clave: valor`.
 * Ideal y estándar para comunicación en APIs REST y bases de datos NoSQL.
-::: {layout-ncol=2}
-![](img/image17.png)
 
-![](img/image18.png)
-:::
+## 
+![](img/image17.png){.r-stretch}
 
----
+## 
+![](img/image18.png){.r-stretch}
 
-### Bases de Datos CRUD
+## Bases de Datos CRUD
 Operaciones fundamentales para interactuar con sistemas de datos:
 
 * **C**reate (Crear)
 * **R**ead (Leer / Consultar)
 * **U**pdate (Actualizar)
 * **D**elete (Eliminar)
-::: {layout-ncol=3}
-![](img/image19.png)
 
-![](img/image20.png)
+## 
+![](img/image19.png){.r-stretch}
 
-![](img/image21.jpg)
-:::
+## 
+![](img/image20.png){.r-stretch}
+
+## 
+![](img/image21.jpg){.r-stretch}
 
 ## 🧪 Práctica de Laboratorio
 
