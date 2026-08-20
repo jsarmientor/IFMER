@@ -64,4 +64,5 @@ else:
 ::: {.callout-note}
 #### 💻 Reto Práctico
 Modifiquen el código para agregar una segunda variable, como **Saturación de Oxígeno (SpO2)**, y describan paso a paso el ciclo DIKW para esta nueva variable.
+
 :::

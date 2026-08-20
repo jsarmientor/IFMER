@@ -22,6 +22,7 @@ format:
 ::: {.callout-flipped}
 ##### 💡 Preparación Previa
 *Contenido y guía práctica en construcción por el docente.*
+
 :::
 
 ---

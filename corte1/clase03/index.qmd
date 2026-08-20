@@ -349,6 +349,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ::: {.callout-note}
 ##### 💡 Material de Clase
 * [Guía docente MySQL (Documento Word)](Guia_docente_Mysql.docx)
+* [Proyecto completo: Código fuente Login y Registro (ZIP)](ifmer.zip)
+
 :::
 
 ---

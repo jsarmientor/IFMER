@@ -40,27 +40,34 @@ format:
 ---
 
 ### Partes de una página web
+
 :::: {.columns}
 ::: {.column width="33%"}
 ![](img/slide_7_img_1.png)
+
 :::
 ::: {.column width="33%"}
 ![](img/slide_7_img_2.jpg)
+
 :::
 ::: {.column width="33%"}
 ![](img/slide_7_img_3.png)
+
 :::
 ::::
 
 ---
 
 ### Estructura del código
+
 :::: {.columns}
 ::: {.column width="50%"}
 ![](img/slide_8_img_1.png)
+
 :::
 ::: {.column width="50%"}
 ![](img/slide_8_img_2.png)
+
 :::
 ::::
 

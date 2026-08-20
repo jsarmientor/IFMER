@@ -13,6 +13,7 @@ format:
 # Corte 2: Interoperabilidad y Salud Conectada
 **Ponderación total:** 33.3% de la nota final  
 *Semanas 7 a 11 | Estándares HL7, HL7 FHIR, Terminologías Clínicas y Telemedicina.*
+
 :::
 
 ## 🎯 Objetivos del Corte
@@ -29,6 +30,7 @@ En este segundo corte, se profundizará en el reto de la fragmentación de la in
 - **Conceptos:** Problema de silos de datos, HL7 v2/v3, Terminologías (CIE-10, SNOMED CT).
 - **Práctica:** Codificación diagnóstica con CIE-10.
 - **Recursos:** [Ver Guía de Clase](clase07/index.qmd) | [💻 Ver Presentación Diapositivas](clase07/slides.qmd)
+
 :::
 :::
 
@@ -38,6 +40,7 @@ En este segundo corte, se profundizará en el reto de la fragmentación de la in
 - **Conceptos:** HL7 FHIR, Recursos (`Patient`, `Observation`), APIs RESTful (JSON/XML).
 - **Práctica:** Consulta y creación de recursos en servidor FHIR público (HAPI FHIR).
 - **Recursos:** [Ver Guía de Clase](clase08/index.qmd) | [💻 Ver Presentación Diapositivas](clase08/slides.qmd)
+
 :::
 :::
 
@@ -47,6 +50,7 @@ En este segundo corte, se profundizará en el reto de la fragmentación de la in
 - **Conceptos:** Teleconsulta síncrona/asíncrona, marco legal, Aplicaciones Web Progresivas (PWA).
 - **Práctica:** Simulación de requerimientos para plataforma de teleconsulta.
 - **Recursos:** [Ver Guía de Clase](clase09/index.qmd) | [💻 Ver Presentación Diapositivas](clase09/slides.qmd)
+
 :::
 :::
 
@@ -55,6 +59,7 @@ En este segundo corte, se profundizará en el reto de la fragmentación de la in
 ### 🟩 [Semana 10 - Clase 10: Receso Académico](clase10/index.qmd)
 - **Trabajo Autónomo:** Repaso de estándares y práctica autónoma FHIR.
 - **Recursos:** [Ver Guía de Receso](clase10/index.qmd)
+
 :::
 :::
 
@@ -63,5 +68,6 @@ En este segundo corte, se profundizará en el reto de la fragmentación de la in
 ### 🟩 [Semana 11 - Clase 11: Evaluación Corte 2](clase11/index.qmd)
 - **Evaluación Sumativa:** Parcial 2 (20%) y Evaluación Formativa/Quiz FHIR (13.3%).
 - **Recursos:** [Ver Guía de Evaluación](clase11/index.qmd)
+
 :::
 :::

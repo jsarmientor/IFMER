@@ -111,4 +111,5 @@ Identificar y estructurar los datos mínimos requeridos para la tabla `pacientes
 4. **Tipificación de Datos:** Por cada variable seleccionada, añada una columna definiendo qué **tipo de dato** utilizará en la base de datos (Ej: `VARCHAR` para texto, `DATE` para fechas, `INT` para números enteros). 
 
 *Guarde este documento, ya que será la base técnica para la programación de la base de datos en las próximas clases.*
+
 :::

@@ -18,164 +18,165 @@ format:
 :::: {.columns}
 ::: {.column width="50%"}
 ![](img/image1.jpg)
+
 :::
 ::: {.column width="50%"}
 ![](img/image2.jpg)
-:::
 
+:::
 ::::
 
 ## Servicios Web
-* Software o pieza de software que utiliza protocolos y estándares para el intercambio de datos a través de internet.
+
+Software o pieza de software que utiliza protocolos y estándares para el intercambio de datos a través de internet.
 
 :::: {.columns}
 ::: {.column width="50%"}
 ![](img/image3.png)
+
 :::
 ::: {.column width="50%"}
 ![](img/image4.png)
-:::
 
+:::
 ::::
 
 ---
 
 ### Paradigma de los servicios Web
-* **Request** (Peticiones)
-* **Response** (Respuestas)
-* **Hypermedia**
-* Arquitectura Cliente-Servidor
+
+**Request** (Peticiones), **Response** (Respuestas), **Hypermedia**, Arquitectura Cliente-Servidor.
 
 :::: {.columns}
 ::: {.column width="50%"}
 ![](img/image5.png)
+
 :::
 ::: {.column width="50%"}
 ![](img/image6.png)
-:::
 
+:::
 ::::
 
 ## Protocolo HTTP
-* **Hypertext Transfer Protocol**
-* Protocolo estándar para la transferencia de información en internet.
+
+**Hypertext Transfer Protocol**
+Protocolo estándar para la transferencia de información en internet.
 
 :::: {.columns}
 ::: {.column width="50%"}
 ![](img/image7.png)
+
 :::
 ::: {.column width="50%"}
 ![](img/image8.png)
-:::
 
+:::
 ::::
 
 ---
 
 ### Métodos HTTP
-* **POST**: Crear Recursos.
-* **GET**: Consultar Recursos.
-* **PUT**: Modificar Recursos.
-* **DELETE**: Eliminar Recursos.
+
+**POST**: Crear Recursos. **GET**: Consultar Recursos. **PUT**: Modificar Recursos. **DELETE**: Eliminar Recursos.
 
 :::: {.columns}
 ::: {.column width="50%"}
 ![](img/image9.png)
+
 :::
 ::: {.column width="50%"}
 ![](img/image10.png)
-:::
 
+:::
 ::::
 
 ---
 
 ### Códigos de Respuesta HTTP
-* Indican el estado de la petición realizada al servidor.
-* **Ejemplos:** 
-  * 200 (OK)
-  * 201 (Created)
-  * 404 (Not Found)
-  * 500 (Internal Server Error).
+
+Indican el estado de la petición realizada al servidor.
+Ejemplos: 200 (OK), 201 (Created), 404 (Not Found), 500 (Internal Server Error).
 
 :::: {.columns}
 ::: {.column width="50%"}
 ![](img/image11.png)
+
 :::
 ::: {.column width="50%"}
 ![](img/image12.png)
-:::
 
+:::
 ::::
 
 ## REST-API
-* Interfaz basada en HTTP.
-* Permite obtener y modificar datos.
-* Operación con datos entre sistemas de manera estandarizada e independiente de lenguaje.
+
+Interfaz basada en HTTP. Permite obtener y modificar datos. Operación con datos entre sistemas de manera estandarizada e independiente de lenguaje.
 
 :::: {.columns}
 ::: {.column width="50%"}
 ![](img/image13.png)
+
 :::
 ::: {.column width="50%"}
 ![](img/image14.png)
-:::
 
+:::
 ::::
 
 ## Bases de Datos No Relacionales (NoSQL)
-* Alternativa a las bases de datos SQL tradicionales (no utilizan tablas estrictas).
-* Estructura flexible, escalable y rápida para grandes volúmenes de datos o esquemas dinámicos.
+
+Alternativa a las bases de datos SQL tradicionales (no utilizan tablas estrictas). Estructura flexible, escalable y rápida para grandes volúmenes de datos o esquemas dinámicos.
 
 :::: {.columns}
 ::: {.column width="50%"}
 ![](img/image15.png)
+
 :::
 ::: {.column width="50%"}
 ![](img/image16.png)
-:::
 
+:::
 ::::
 
 ---
 
 ### Formato JSON
-* **JavaScript Object Notation**
-* Formato ligero de intercambio de datos.
-* Estructura basada en pares `clave: valor`.
-* Ideal y estándar para comunicación en APIs REST y bases de datos NoSQL.
+
+**JavaScript Object Notation**
+Formato ligero de intercambio de datos. Estructura basada en pares `clave: valor`. Ideal y estándar para comunicación en APIs REST y bases de datos NoSQL.
 
 :::: {.columns}
 ::: {.column width="50%"}
 ![](img/image17.png)
+
 :::
 ::: {.column width="50%"}
 ![](img/image18.png)
-:::
 
+:::
 ::::
 
 ---
 
 ### Bases de Datos CRUD
-Operaciones fundamentales para interactuar con sistemas de datos:
 
-* **C**reate (Crear)
-* **R**ead (Leer / Consultar)
-* **U**pdate (Actualizar)
-* **D**elete (Eliminar)
+Operaciones fundamentales para interactuar con sistemas de datos:
+**C**reate (Crear), **R**ead (Leer / Consultar), **U**pdate (Actualizar), **D**elete (Eliminar).
 
 :::: {.columns}
 ::: {.column width="33%"}
 ![](img/image19.png)
+
 :::
 ::: {.column width="33%"}
 ![](img/image20.png)
+
 :::
 ::: {.column width="33%"}
 ![](img/image21.jpg)
-:::
 
+:::
 ::::
 
 ## 🧪 Práctica de Laboratorio
