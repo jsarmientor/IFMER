@@ -81,7 +81,7 @@
     "href": "index.html#calendarización-del-curso-clase-a-clase",
     "title": "Informática Médica",
     "section": "📅 Calendarización del Curso (Clase a Clase)",
-    "text": "📅 Calendarización del Curso (Clase a Clase)\n\n🟦 CORTE 1: Aplicaciones Web (33%)\n\nSemana 1: Clase 01: Jerarquía del Conocimiento y Salud 4.0\nSemana 2: Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor en Salud\nSemana 3: Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)\nSemana 4: Clase 04: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar)\nSemana 5: Clase 05: PARCIAL CORTE 1\nSemana 6: Clase 06: Consolidación de Conceptos: Integración y Despliegue\n\n\n\n🟩 CORTE 2: Interoperabilidad y Salud Conectada (33%)\n\nSemana 7: Clase 07: Interoperabilidad y Estándares Clásicos (HL7, CIE-10, SNOMED)\nSemana 8: Clase 08: Estándares Modernos (FHIR): Arquitectura RESTful y APIs\nSemana 9: Clase 09: Salud Digital y Telemedicina\nSemana 10: Clase 10: PARCIAL CORTE 2\nSemana 11: Clase 11: Semana de Receso\n\n\n\n🟨 CORTE 3: Datos, Inteligencia Artificial y Ética (33%)\n\nSemana 12: Clase 12: Internet de las Cosas Médicas (IoMT)\nSemana 13: Clase 13: Inteligencia Artificial, Big Data y TinyML\nSemana 14: Clase 14: Ética, Seguridad y Normativa\nSemana 15: Clase 15: PARCIAL CORTE 3 / Proyecto Final",
+    "text": "📅 Calendarización del Curso (Clase a Clase)\n\n🟦 CORTE 1: Aplicaciones Web (33%)\n\nSemana 1: Clase 01: Jerarquía del Conocimiento y Salud 4.0\nSemana 2: Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor en Salud\nSemana 3: Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)\nSemana 4: Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL\nSemana 5: Clase 05: Evaluación Corte 1 (Parcial 1)\nSemana 6: Clase 06: Consolidación e Integración de Sistemas\n\n\n\n🟩 CORTE 2: Interoperabilidad y Salud Conectada (33%)\n\nSemana 7: Clase 07: Interoperabilidad y Estándares Clásicos (HL7, CIE-10, SNOMED)\nSemana 8: Clase 08: Estándares Modernos (FHIR): Arquitectura RESTful y APIs\nSemana 9: Clase 09: Salud Digital y Telemedicina\nSemana 10: Clase 10: PARCIAL CORTE 2\nSemana 11: Clase 11: Semana de Receso\n\n\n\n🟨 CORTE 3: Datos, Inteligencia Artificial y Ética (33%)\n\nSemana 12: Clase 12: Internet de las Cosas Médicas (IoMT)\nSemana 13: Clase 13: Inteligencia Artificial, Big Data y TinyML\nSemana 14: Clase 14: Ética, Seguridad y Normativa\nSemana 15: Clase 15: PARCIAL CORTE 3 / Proyecto Final",
     "crumbs": [
       "Guía de Asignatura",
       "🏠 Guía de Asignatura (Home)"
@@ -411,7 +411,7 @@
     "href": "corte1/index.html#contenido-semana-por-semana",
     "title": "Corte 1: Fundamentos y Sistemas de Información en Salud",
     "section": "📅 Contenido Semana por Semana",
-    "text": "📅 Contenido Semana por Semana\n\n\n🟦 Semana 1 - Clase 01: Jerarquía del Conocimiento y Salud 4.0\n\nConceptos: Jerarquía del conocimiento (Modelo DIKW), Salud 4.0 y fundamentos básicos de programación.\nPráctica: Programando el triaje (El Ciclo DIKW Aplicado en código).\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 2 - Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor en Salud\n\nConceptos: Metodologías ágiles (Scrum), roles, paradigma cliente-servidor, conceptos de Frontend/Backend y CRUD.\nPráctica: Diseño del diccionario de datos clínicos basado en la Resolución 866 de 2021.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 3 - Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)\n\nConceptos: Programación del lado del servidor con PHP y modelado de bases de datos relacionales.\nPráctica: Conexión de la aplicación a MySQL (conexion.php).\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 4 - Clase 04: Operaciones CRUD (Crear, Leer, Actualizar, Eliminar)\n\nConceptos: Implementación de acciones CRUD (actualizar.php, eliminar.php, etc.).\nPráctica: Integración final del Backend con la interfaz Frontend.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 5 - Clase 05: Consolidación de Conceptos: Integración y Despliegue\n\nConceptos: Integración completa de la aplicación, pruebas y despliegue local.\nPráctica: Taller integrador de desarrollo web.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 6 - Clase 06: Evaluación Corte 1\n\nEvaluación Sumativa: Entrega de la aplicación web desarrollada y evaluación teórica.\nRecursos: Ver Guía de Evaluación",
+    "text": "📅 Contenido Semana por Semana\n\n\n🟦 Semana 1 - Clase 01: Jerarquía del Conocimiento y Salud 4.0\n\nConceptos: Jerarquía del conocimiento (Modelo DIKW), Salud 4.0 y fundamentos básicos de programación.\nPráctica: Programando el triaje (El Ciclo DIKW Aplicado en código).\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 2 - Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor en Salud\n\nConceptos: Metodologías ágiles (Scrum), roles, paradigma cliente-servidor, conceptos de Frontend/Backend y CRUD.\nPráctica: Diseño del diccionario de datos clínicos basado en la Resolución 866 de 2021.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 3 - Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)\n\nConceptos: Programación del lado del servidor con PHP y modelado de bases de datos relacionales.\nPráctica: Conexión de la aplicación a MySQL (conexion.php).\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 4 - Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL\n\nConceptos: Servicios Web, Protocolo HTTP, Arquitectura REST, formato JSON y Bases de Datos No Relacionales.\nPráctica: Implementación de Login y operaciones CRUD con Firebase NoSQL.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟦 Semana 5 - Clase 05: Evaluación Corte 1 (Parcial 1)\n\nEvaluación Sumativa: Parcial teórico y/o práctico.\nRecursos: Ver Guía de Evaluación\n\n\n\n\n\n🟦 Semana 6 - Clase 06: Consolidación e Integración de Sistemas\n\nConceptos: Integración completa de la aplicación, pruebas y despliegue local.\nPráctica: Taller integrador de desarrollo web.\nRecursos: Ver Guía de Clase",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
@@ -430,28 +430,63 @@
     "href": "corte1/clase04/slides.html#servicios-web",
     "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
     "section": "Servicios Web",
-    "text": "Servicios Web\n\nSoftware o pieza de software que utiliza protocolos y estándares para el intercambio de datos a través de internet."
+    "text": "Servicios Web\nSoftware o pieza de software el cual utiliza protocolos y estándares para el intercambio de datos a través de internet."
   },
   {
-    "objectID": "corte1/clase04/slides.html#protocolo-http",
-    "href": "corte1/clase04/slides.html#protocolo-http",
+    "objectID": "corte1/clase04/slides.html#paradigma-de-los-servicios-web",
+    "href": "corte1/clase04/slides.html#paradigma-de-los-servicios-web",
     "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "Protocolo HTTP",
-    "text": "Protocolo HTTP\n\nHypertext Transfer Protocol\nProtocolo estándar para la transferencia de información en internet."
+    "section": "Paradigma de los servicios Web",
+    "text": "Paradigma de los servicios Web\nRequest, Response, Hypermedia, Server"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#bases-de-datos",
+    "href": "corte1/clase04/slides.html#bases-de-datos",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Bases de Datos",
+    "text": "Bases de Datos"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#características",
+    "href": "corte1/clase04/slides.html#características",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Características",
+    "text": "Características"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#bases-de-datos-no-relacionales",
+    "href": "corte1/clase04/slides.html#bases-de-datos-no-relacionales",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Bases de Datos No Relacionales",
+    "text": "Bases de Datos No Relacionales"
   },
   {
     "objectID": "corte1/clase04/slides.html#rest-api",
     "href": "corte1/clase04/slides.html#rest-api",
     "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
     "section": "REST-API",
-    "text": "REST-API\n\nInterfaz basada en HTTP.\nPermite obtener y modificar datos.\nOperación con datos entre sistemas de manera estandarizada e independiente de lenguaje."
+    "text": "REST-API"
   },
   {
-    "objectID": "corte1/clase04/slides.html#bases-de-datos-no-relacionales-nosql",
-    "href": "corte1/clase04/slides.html#bases-de-datos-no-relacionales-nosql",
+    "objectID": "corte1/clase04/slides.html#protocolo-http",
+    "href": "corte1/clase04/slides.html#protocolo-http",
     "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "Bases de Datos No Relacionales (NoSQL)",
-    "text": "Bases de Datos No Relacionales (NoSQL)\n\nAlternativa a las bases de datos SQL tradicionales (no utilizan tablas estrictas).\nEstructura flexible, escalable y rápida para grandes volúmenes de datos o esquemas dinámicos."
+    "section": "Protocolo HTTP",
+    "text": "Protocolo HTTP"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#códigos-de-respuesta-http",
+    "href": "corte1/clase04/slides.html#códigos-de-respuesta-http",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Códigos de Respuesta HTTP",
+    "text": "Códigos de Respuesta HTTP"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#bases-de-datos-crud",
+    "href": "corte1/clase04/slides.html#bases-de-datos-crud",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Bases de Datos CRUD",
+    "text": "Bases de Datos CRUD"
   },
   {
     "objectID": "corte1/clase04/slides.html#práctica-de-laboratorio",
@@ -842,7 +877,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 04: RIS/PACS & DICOM"
+      "Clase 04: API REST & NoSQL"
     ]
   },
   {
@@ -854,7 +889,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 04: RIS/PACS & DICOM"
+      "Clase 04: API REST & NoSQL"
     ]
   },
   {
@@ -866,7 +901,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 04: RIS/PACS & DICOM"
+      "Clase 04: API REST & NoSQL"
     ]
   },
   {
@@ -878,7 +913,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 04: RIS/PACS & DICOM"
+      "Clase 04: API REST & NoSQL"
     ]
   },
   {
@@ -890,7 +925,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 04: RIS/PACS & DICOM"
+      "Clase 04: API REST & NoSQL"
     ]
   },
   {
@@ -902,7 +937,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 04: RIS/PACS & DICOM"
+      "Clase 04: API REST & NoSQL"
     ]
   },
   {
@@ -914,7 +949,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 04: RIS/PACS & DICOM"
+      "Clase 04: API REST & NoSQL"
     ]
   },
   {
@@ -926,7 +961,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 04: RIS/PACS & DICOM"
+      "Clase 04: API REST & NoSQL"
     ]
   },
   {
@@ -938,7 +973,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 05: Parcial Corte 1"
+      "Clase 05: Evaluación Corte 1"
     ]
   },
   {
@@ -950,7 +985,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 05: Parcial Corte 1"
+      "Clase 05: Evaluación Corte 1"
     ]
   },
   {
@@ -962,7 +997,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 05: Parcial Corte 1"
+      "Clase 05: Evaluación Corte 1"
     ]
   },
   {
@@ -974,7 +1009,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 05: Parcial Corte 1"
+      "Clase 05: Evaluación Corte 1"
     ]
   },
   {
@@ -986,7 +1021,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 06: Integración de Sistemas"
+      "Clase 06: Integración"
     ]
   },
   {
@@ -998,7 +1033,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 06: Integración de Sistemas"
+      "Clase 06: Integración"
     ]
   },
   {
@@ -1010,7 +1045,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 06: Integración de Sistemas"
+      "Clase 06: Integración"
     ]
   },
   {
@@ -1022,7 +1057,7 @@
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 06: Integración de Sistemas"
+      "Clase 06: Integración"
     ]
   },
   {
