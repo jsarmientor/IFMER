@@ -13,6 +13,7 @@ format:
 # Corte 1: Aplicaciones Web
 **Ponderación total:** 33.3% de la nota final  
 *Semanas 1 a 6 | Desarrollo de aplicaciones web, Frontend, Backend y Bases de Datos.*
+
 :::
 
 ## 🎯 Objetivos del Corte
@@ -42,6 +43,7 @@ Para apoyar el desarrollo del entregable, descargue los siguientes recursos obli
 - **Conceptos:** Jerarquía del conocimiento (Modelo DIKW), Salud 4.0 y fundamentos básicos de programación.
 - **Práctica:** Programando el triaje (El Ciclo DIKW Aplicado en código).
 - **Recursos:** [Ver Guía de Clase](clase01/index.qmd) | [💻 Ver Presentación Diapositivas](clase01/slides.qmd)
+
 :::
 :::
 
@@ -51,6 +53,7 @@ Para apoyar el desarrollo del entregable, descargue los siguientes recursos obli
 - **Conceptos:** Metodologías ágiles (Scrum), roles, paradigma cliente-servidor, conceptos de Frontend/Backend y CRUD.
 - **Práctica:** Diseño del diccionario de datos clínicos basado en la Resolución 866 de 2021.
 - **Recursos:** [Ver Guía de Clase](clase02/index.qmd) | [💻 Ver Presentación Diapositivas](clase02/slides.qmd)
+
 :::
 :::
 
@@ -60,6 +63,7 @@ Para apoyar el desarrollo del entregable, descargue los siguientes recursos obli
 - **Conceptos:** Programación del lado del servidor con PHP y modelado de bases de datos relacionales.
 - **Práctica:** Conexión de la aplicación a MySQL (conexion.php).
 - **Recursos:** [Ver Guía de Clase](clase03/index.qmd) | [💻 Ver Presentación Diapositivas](clase03/slides.qmd)
+
 :::
 :::
 
@@ -69,6 +73,7 @@ Para apoyar el desarrollo del entregable, descargue los siguientes recursos obli
 - **Conceptos:** Servicios Web, Protocolo HTTP, Arquitectura REST, formato JSON y Bases de Datos No Relacionales.
 - **Práctica:** Implementación de Login y operaciones CRUD con Firebase NoSQL.
 - **Recursos:** [Ver Guía de Clase](clase04/index.qmd) | [💻 Ver Presentación Diapositivas](clase04/slides.qmd)
+
 :::
 :::
 
@@ -77,6 +82,7 @@ Para apoyar el desarrollo del entregable, descargue los siguientes recursos obli
 ### 🟦 [Semana 5 - Clase 05: Evaluación Corte 1 (Parcial 1)](clase05/index.qmd)
 - **Evaluación Sumativa:** Parcial teórico y/o práctico.
 - **Recursos:** [Ver Guía de Evaluación](clase05/index.qmd)
+
 :::
 :::
 
@@ -86,5 +92,6 @@ Para apoyar el desarrollo del entregable, descargue los siguientes recursos obli
 - **Conceptos:** Integración completa de la aplicación, pruebas y despliegue local.
 - **Práctica:** Taller integrador de desarrollo web.
 - **Recursos:** [Ver Guía de Clase](clase06/index.qmd)
+
 :::
 :::

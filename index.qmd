@@ -99,16 +99,19 @@ La asignatura se desarrollará en modalidad presencial, utilizando la estrategia
 ::: {.callout-flipped}
 ### 📖 Preparación y Trabajo Autónomo
 Los estudiantes realizarán lecturas, revisarán los recursos de la asignatura y desarrollarán actividades preparatorias que les permitan comprender los conceptos necesarios para participar activamente en la sesión presencial.
+
 :::
 
 ::: {.callout-flipped}
 ### 🗣️ Sesión Presencial (Momento 1 - 60 min)
 Presentación y análisis de un problema o caso aplicado al ámbito de la Informática Médica. Se fortalecerán los fundamentos conceptuales mediante la discusión guiada, la resolución de preguntas y el análisis colaborativo de posibles alternativas de solución.
+
 :::
 
 ::: {.callout-flipped}
 ### 💻 Sesión Presencial (Momento 2 - 60 min)
 Desarrollo de actividades prácticas orientadas a resolver el problema planteado, mediante el diseño e implementación de soluciones tecnológicas, el análisis de casos, el uso de herramientas informáticas y el desarrollo progresivo del proyecto integrador del curso. 
+
 :::
 
 \vspace{1.5em}
