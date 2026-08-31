@@ -1,0 +1,45 @@
+
+--- Slide 1 ---
+Internet de la Cosas: Aplicaciones en la industria
+Profesores: 
+Jefferson Sarmiento Rojas
+Pedro Antonio Aya 
+Bogotá, 2025
+
+--- Slide 2 ---
+Servicios Web
+Software  o pieza de software el  cual utiliza protocolos y estándares para el intercambio de datos a través de internet.
+
+--- Slide 3 ---
+Paradigma de los servicios Web
+Request
+Response
+Request
+Response
+Hypermedia
+Hypermedia
+Server
+
+--- Slide 4 ---
+Bases de Datos
+
+--- Slide 5 ---
+Características
+
+--- Slide 6 ---
+Bases de Datos No Relacionales
+
+--- Slide 7 ---
+REST-API
+
+--- Slide 8 ---
+Protocolo HTTP
+
+--- Slide 9 ---
+Códigos de Respuesta HTTP
+
+--- Slide 10 ---
+Bases de Datos CRUD
+
+--- Slide 11 ---
+Gracias.

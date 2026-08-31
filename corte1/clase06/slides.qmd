@@ -1,0 +1,282 @@
+---
+title: "Clase 06: CRUD de Inventario de Equipos Biomédicos"
+subtitle: "Informática Médica - IFMER 2026-II"
+author: "Prof. Jefferson Sarmiento Rojas"
+institute: "Universidad del Rosario"
+date: "2026-09-02"
+format:
+  revealjs:
+    theme: moon
+    transition: slide
+    slide-number: true
+    controls: true
+    footer: "Informática Médica - IFMER 2026-II | Clase 06"
+---
+
+# Taller 100% práctico {background-color="#941100"}
+
+De un Excel del hospital a una aplicación web con CRUD
+
+---
+
+## La cadena de hoy
+
+**Excel real** → **Auditoría** → **Diccionario** → **Tabla MySQL** → **CRUD en PHP**
+
+::: {.fragment}
+El Excel **no se copia**: se audita, se decide y se diseña.
+:::
+
+::: {.fragment}
+Si el diccionario está mal, la aplicación está mal.
+:::
+
+---
+
+## La fuente: `BD.xlsx`
+
+Inventario del **Hospital Universitario Nivel III**
+*(institución de alta complejidad)*
+
+- **67 equipos** × **31 columnas**
+- Salas de cirugía, UCI adulto y coronaria, imagenología, unidad renal
+- Hojas: `Listado Equipos`, `Ficha Tecnica`, `MPP`, `Predicitivo`
+
+::: {.fragment}
+Y viene con todos los problemas de un archivo real.
+:::
+
+---
+
+## Lo que esconde ese archivo
+
+::: {.incremental}
+- Dos columnas se llaman **igual**: `UBICACIÓN` y `UBICACIÓN`
+- `PLACA NUEVA` está llena en **17 de 67** equipos
+- `FECHA DE INSTALACION` y `FECHA DE COMPRA`: **100 % vacías**
+- `FECHA DE FABRICACION` solo trae el **año**
+- `PESO`: `120gr`, `12Kg`, `1,7Tn` — tres unidades
+- `CORRIENTE`: `0,5A`, `2.2A`, `300mA` — coma y punto
+- `Diagnostico` vs `diagnostico` vs `DIAGNOSTICO`
+- `CONDICIONES DE TRABAJO`: **un solo valor** en las 67 filas
+:::
+
+---
+
+## Las 4 decisiones posibles
+
+| | Cuándo | Ejemplo |
+|:--|:--|:--|
+| 🗑️ **Descartar** | Vacía o constante | `FRECUENCIA DE ALIMENTACION` |
+| ✅ **Conservar** | Atómico, texto libre | `MARCA` |
+| ✂️ **Dividir** | Valor + unidad, rango | `0 - 43°C` |
+| 🔗 **Normalizar** | Lista cerrada | `CLASIFICACION BIOMEDICA` |
+
+---
+
+## La pregunta que decide todo
+
+> **"¿Qué consulta quiero poder hacer con este dato?"**
+
+::: {.fragment}
+*"¿Cuántos equipos de soporte de vida hay en la UCI?"*
+→ hay que **normalizar**
+:::
+
+::: {.fragment}
+*"¿Cuáles equipos pesan más de 100 kg?"*
+→ hay que **dividir** y unificar unidades
+:::
+
+::: {.fragment}
+*"¿Cuántos equipos trabajan a 60 Hz?"*
+→ nadie la hace, y todos son iguales → **descartar**
+:::
+
+---
+
+## Tipificar no es cosmético
+
+::: {.fragment}
+`ActivoFijo` como `INT`
+:::
+
+::: {.fragment}
+El equipo **`E000774`** no se puede registrar.
+:::
+
+::: {.fragment}
+**Perdimos un equipo del hospital por elegir mal un tipo de dato.**
+:::
+
+---
+
+## Del diccionario al SQL
+
+```sql
+CREATE TABLE inventario (
+  IdEquipo          INT AUTO_INCREMENT PRIMARY KEY,
+  ActivoFijo        VARCHAR(15) NOT NULL,
+  NombreEquipo      VARCHAR(80) NOT NULL,
+  AnioFabricacion   YEAR        NULL,
+  PesoKg            DECIMAL(8,3) NULL,
+  IdServicio        INT         NOT NULL,
+  IdClasifRiesgo    INT         NOT NULL,
+  EstadoEquipo      TINYINT(1)  NOT NULL DEFAULT 1,
+  CONSTRAINT uq_activo UNIQUE (ActivoFijo),
+  CONSTRAINT fk_serv FOREIGN KEY (IdServicio)
+      REFERENCES servicios(IdServicio)
+);
+```
+
+---
+
+## 8 tablas, no 1
+
+**Dominio:** `servicios` · `areas` · `clasif_biomedica` ·
+`clasif_riesgo` · `clasif_electrica` · `tecnologias` · `frecuencias_mpp`
+
+**Principal:** `inventario`
+
+::: {.fragment}
+Eso es lo que impide que existan `Trimestral` y `trimestral` como cosas distintas.
+:::
+
+---
+
+## El esquema en una imagen
+
+```{=html}
+<svg viewBox="0 0 960 520" style="width:100%;height:auto;" role="img"
+     aria-label="Esquema de inventarioequipos: siete tablas de dominio conectadas por llave foranea a inventario, mas criticidad y la vista v_cronograma_mpp"
+     font-family="system-ui, sans-serif">
+  <defs>
+    <marker id="sl-flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5eead4"/>
+    </marker>
+  </defs>
+
+  <g fill="#0f172a">
+    <rect x="30" y="30" width="200" height="46" rx="6" fill="#ccfbf1" stroke="#14b8a6" stroke-width="1.5"/>
+    <text x="44" y="59" font-size="13" font-weight="700">servicios</text>
+    <rect x="30" y="94" width="200" height="46" rx="6" fill="#ccfbf1" stroke="#14b8a6" stroke-width="1.5"/>
+    <text x="44" y="123" font-size="13" font-weight="700">areas</text>
+    <rect x="30" y="158" width="200" height="46" rx="6" fill="#ccfbf1" stroke="#14b8a6" stroke-width="1.5"/>
+    <text x="44" y="187" font-size="13" font-weight="700">clasif_biomedica</text>
+    <rect x="30" y="222" width="200" height="46" rx="6" fill="#ccfbf1" stroke="#14b8a6" stroke-width="1.5"/>
+    <text x="44" y="251" font-size="13" font-weight="700">clasif_riesgo</text>
+
+    <rect x="730" y="62" width="200" height="46" rx="6" fill="#ccfbf1" stroke="#14b8a6" stroke-width="1.5"/>
+    <text x="744" y="91" font-size="13" font-weight="700">clasif_electrica</text>
+    <rect x="730" y="126" width="200" height="46" rx="6" fill="#ccfbf1" stroke="#14b8a6" stroke-width="1.5"/>
+    <text x="744" y="155" font-size="13" font-weight="700">tecnologias</text>
+    <rect x="730" y="190" width="200" height="46" rx="6" fill="#ccfbf1" stroke="#14b8a6" stroke-width="1.5"/>
+    <text x="744" y="219" font-size="13" font-weight="700">frecuencias_mpp</text>
+  </g>
+
+  <g stroke="#fca5a5" stroke-width="2" fill="none">
+    <path d="M 230 53  L 370 130"/>
+    <path d="M 230 117 L 370 150"/>
+    <path d="M 230 181 L 370 170"/>
+    <path d="M 230 245 L 370 190"/>
+    <path d="M 730 85  L 590 140"/>
+    <path d="M 730 149 L 590 165"/>
+    <path d="M 730 213 L 590 190"/>
+  </g>
+
+  <rect x="370" y="90" width="220" height="170" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+  <rect x="370" y="90" width="220" height="30" rx="8" fill="#dc2626"/>
+  <rect x="370" y="110" width="220" height="10" fill="#dc2626"/>
+  <text x="386" y="111" font-size="14" font-weight="700" fill="#ffffff">inventario</text>
+  <text x="386" y="145" font-size="12" fill="#7f1d1d">IdEquipo &#183; PRIMARY KEY</text>
+  <text x="386" y="167" font-size="12" fill="#7f1d1d">UNIQUE (ActivoFijo)</text>
+  <text x="386" y="196" font-size="12" fill="#991b1b">7 FOREIGN KEY</text>
+  <text x="386" y="224" font-size="12" fill="#991b1b">EstadoEquipo &#8594; baja lógica</text>
+
+  <path d="M 480 260 L 480 320" stroke="#fca5a5" stroke-width="2.5" fill="none"/>
+  <text x="492" y="282" font-size="12" font-weight="700" fill="#fca5a5">1</text>
+  <text x="492" y="314" font-size="12" font-weight="700" fill="#fca5a5">N</text>
+
+  <rect x="370" y="320" width="220" height="96" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <rect x="370" y="320" width="220" height="28" rx="8" fill="#0284c7"/>
+  <rect x="370" y="338" width="220" height="10" fill="#0284c7"/>
+  <text x="386" y="340" font-size="13" font-weight="700" fill="#ffffff">criticidad</text>
+  <text x="386" y="372" font-size="12" fill="#0c4a6e">4 variables de 1 a 5</text>
+  <text x="386" y="396" font-size="12" font-weight="700" fill="#0f766e">PuntajeTotal &#8594; GENERATED</text>
+
+  <path d="M 700 368 L 594 368" stroke="#5eead4" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#sl-flecha)"/>
+  <rect x="700" y="320" width="230" height="96" rx="8" fill="#f0fdfa" stroke="#14b8a6" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="716" y="348" font-size="13" font-weight="700" fill="#115e59">v_cronograma_mpp</text>
+  <text x="716" y="372" font-size="12" fill="#134e4a">VISTA: no almacena datos</text>
+  <text x="716" y="396" font-size="12" fill="#134e4a">18&#8211;20 &#8594; BIMESTRAL</text>
+
+  <line x1="30" y1="450" x2="70" y2="450" stroke="#fca5a5" stroke-width="2"/>
+  <text x="80" y="455" font-size="12" fill="#cbd5e1">FOREIGN KEY: 1 dominio &#8594; N equipos</text>
+  <line x1="400" y1="450" x2="440" y2="450" stroke="#5eead4" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="450" y="455" font-size="12" fill="#cbd5e1">la vista lee, no duplica</text>
+</svg>
+```
+
+---
+
+## Bonus: lo que se calcula no se escribe
+
+Hoja `MPP`: 4 variables de 1 a 5 → puntaje → período
+
+```sql
+PuntajeTotal TINYINT AS
+  (FrecuenciaUso + FormaUso + ExactitudReq + ImportanciaEco) STORED
+```
+
+18–20 → **BIMESTRAL** · 14–17 → **TRIMESTRAL**
+9–13 → **SEMESTRAL** · 4–8 → **ANUAL**
+
+---
+
+## CRUD y los archivos del proyecto
+
+| CRUD | SQL | Archivo |
+|:--|:--|:--|
+| **C**reate | `INSERT` | `api/guardar.php` |
+| **R**ead | `SELECT` + `JOIN` | `index.php` |
+| **U**pdate | `UPDATE` | `modificar.php` → `api/actualizar.php` |
+| **D**elete | `UPDATE EstadoEquipo=0` | `api/eliminar.php` |
+
+---
+
+## Dos reglas no negociables
+
+::: {.fragment}
+**1. Consultas preparadas**
+`prepare()` + `bind_param()`.
+Pruebe a buscar `' OR '1'='1` en la versión concatenada.
+:::
+
+::: {.fragment}
+**2. En salud no se borra: se da de baja**
+`EstadoEquipo = 0`. Los mantenimientos y la tecnovigilancia dependen de ese historial.
+:::
+
+---
+
+## El reto del Corte 2
+
+Misma cadena. **Otra fuente de verdad.**
+
+| Hoy | Corte 2 |
+|:--|:--|
+| `BD.xlsx` del hospital | **Resolución 866 de 2021** |
+| `inventario` | `pacientes` |
+| "está en el Excel" | "está en el anexo técnico" |
+| Equipo mal inventariado | **Paciente mal identificado** |
+
+---
+
+## 🧪 Práctica de Laboratorio
+
+**Actividad:**
+Auditar `BD.xlsx`, construir el diccionario de datos del inventario
+e implementar el CRUD completo con **HTML + PHP + MySQL**.
+
+**Entrega:** `.zip` con auditoría + diccionario, `database.sql`,
+`ProyectoInventario/` y las 10 pruebas.

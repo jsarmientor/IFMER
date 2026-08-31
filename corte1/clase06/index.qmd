@@ -1,8 +1,8 @@
 ---
-title: "Clase 06: Consolidación e Integración de Sistemas"
-subtitle: "Semana 6 | Corte 1"
+title: "Clase 06: CRUD de Inventario de Equipos Biomédicos"
+subtitle: "Semana 6 | Corte 1 — Taller 100% práctico con HTML, PHP y MySQL"
 author: "Prof. Jefferson Sarmiento Rojas"
-date: "2026-07-23"
+date: "2026-09-02"
 format:
   html:
     toc: true
@@ -10,23 +10,2113 @@ format:
     toc: true
 ---
 
+```{=html}
+<style>
+/* Las tablas anchas de esta guia se desplazan dentro de su propio marco
+   en lugar de invadir la tabla de contenidos de la derecha. */
+main table.table {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  table-layout: auto;
+}
+/* Anula los anchos fijos que Pandoc calcula a partir del ancho del texto
+   en el .qmd: deja que el navegador reparta las columnas segun su contenido. */
+main table.table col { width: auto !important; }
+main table.table th,
+main table.table td {
+  white-space: normal;
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+main table.table th { white-space: nowrap; padding: .6rem .7rem; }
+main table.table td { padding: .5rem .7rem; font-size: .92rem; }
+main table.table code { white-space: nowrap; font-size: .88em; }
+</style>
+```
+
+<a href="slides.html" target="_blank" class="btn-slide">💻 Ver Presentación de Diapositivas</a>
+
 ## 🎯 Objetivos de la Clase
 
-- [ ] Objetivo 1 (En desarrollo)
-- [ ] Objetivo 2 (En desarrollo)
+- [ ] **Auditar** una fuente de datos real (`BD.xlsx`, 67 equipos × 31 columnas) y detectar sus problemas de calidad.
+- [ ] **Seleccionar y tipificar** las variables que sí deben entrar a la base de datos, justificando cada decisión.
+- [ ] Construir la base **`inventarioequipos`** en MySQL con tablas de dominio y llaves foráneas.
+- [ ] Implementar el **CRUD completo** (Create, Read, Update, Delete) con **HTML + Bootstrap + PHP + MySQL**,
+      siguiendo la *Guía WEB* del curso.
+- [ ] Dejar **planteado** el reto del Corte 2: el mismo método aplicado a datos de pacientes.
+
+::: {.callout-flipped}
+##### 💡 Idea central de la sesión
+La `BD.xlsx` del Hospital Universitario Nivel III **no se copia tal cual** a MySQL.
+Un Excel real trae encabezados duplicados, columnas vacías, `N/A`, mayúsculas inconsistentes
+y campos que mezclan número con unidad. **Decidir qué entra, qué se descarta, qué se divide
+y qué se normaliza — eso es diseñar una base de datos.** Hoy hacemos exactamente eso y luego
+lo convertimos en una aplicación web funcional.
+:::
 
 ---
 
-## 📖 Materiales y Lecturas
+## 🧰 Antes de empezar (5 minutos)
+
+::: {.callout-note}
+##### Requisitos de la sesión
+1. **XAMPP** instalado, con **Apache** y **MySQL** en verde.
+2. **Visual Studio Code** abierto.
+3. El archivo **`BD.xlsx`** descargado y abierto en Excel.
+4. La **Guía WEB** del curso a la mano (misma arquitectura que usaremos hoy).
+5. Navegador en `http://127.0.0.1/phpmyadmin/`.
+:::
+
+**Estructura de carpetas (la misma de la Guía WEB):**
+
+```txt
+C:\xampp\htdocs\ProyectoInventario\
+├── index.php              ← READ  (listado + búsqueda + formulario)
+├── modificar.php          ← formulario de edición
+├── css/
+├── js/
+└── api/
+    ├── conexion.php       ← conexión mysqli
+    ├── guardar.php        ← CREATE
+    ├── actualizar.php     ← UPDATE
+    └── eliminar.php       ← DELETE
+```
+
+---
+
+## 🧭 Ruta de la clase
+
+| Paso | Actividad | Herramienta | Tiempo |
+|:----:|:----------|:------------|:------:|
+| 1 | Auditoría de `BD.xlsx` (31 columnas) | Excel | 15 min |
+| 2 | Las 4 decisiones de diseño | Excel | 10 min |
+| 3 | **Selector interactivo de variables** | Widget en esta página | 20 min |
+| 4 | Diccionario de datos final | Excel | 10 min |
+| 5 | Crear la base de datos | phpMyAdmin | 20 min |
+| 6 | Conexión PHP | VS Code | 10 min |
+| 7 | READ — `index.php` | VS Code | 25 min |
+| 8 | CREATE — `api/guardar.php` | VS Code | 15 min |
+| 9 | UPDATE — `modificar.php` + `api/actualizar.php` | VS Code | 15 min |
+| 10 | DELETE — `api/eliminar.php` | VS Code | 10 min |
+| 11 | Mejorar la seguridad del código | VS Code | 10 min |
+| 12 | Pruebas | Navegador | 10 min |
+| 13 | Planteamiento del reto de Corte 2 | — | 5 min |
+
+---
+
+## Paso 1 · Auditoría de la Fuente 🔎
+
+**Objetivo:** antes de escribir una sola línea de SQL, hay que saber **qué trae realmente** el archivo.
+
+::: {.callout-note}
+##### 🏥 El contexto del caso
+`BD.xlsx` es el inventario del **Hospital Universitario Nivel III**, una institución de
+**alta complejidad**: salas de cirugía, UCI adulto y coronaria, imagenología, unidad renal,
+terapia respiratoria y laboratorio clínico.
+
+Eso importa para el diseño: un hospital de tercer nivel concentra equipos de **soporte de vida**
+y de **riesgo IIB y III** (ventiladores, máquinas de anestesia, arco en C, hemodiálisis),
+con mantenimiento preventivo bimestral y trimestral. Por eso las clasificaciones biomédica
+y de riesgo **no** pueden quedar como texto libre: de ellas depende el cronograma de mantenimiento
+y la respuesta ante tecnovigilancia.
+
+*(Nombre institucional ficticio, con fines académicos.)*
+:::
+
+Abra `BD.xlsx`, hoja **`Listado Equipos`**: **67 filas × 31 columnas**.
+Para cada columna hay que responder tres preguntas: *¿qué tan llena está?*, *¿cuántos valores distintos tiene?*,
+*¿qué problema esconde?*
+
+### 1.1 Perfil real de las 31 columnas
+
+| # | Columna en Excel | Llenado | Distintos | Problema detectado |
+|:-:|:--|:-:|:-:|:--|
+| 1 | `ACTIVO` | 93 % | 60 | Mezcla `3393` con `E000774` |
+| 2 | `PLACA NUEVA` | **25 %** | 17 | Casi vacía: no sirve como llave |
+| 3 | `UBICACIÓN` | 100 % | 14 | Es el **servicio** |
+| 4 | `UBICACIÓN` | 100 % | 23 | ⚠️ Encabezado duplicado: es el **área** |
+| 5 | `NOMBRE DEL EQUIPO` | 100 % | 42 | Texto libre |
+| 6 | `MARCA` | 100 % | 43 | Texto libre |
+| 7 | `MODELO` | 99 % | 56 | 5 registros dicen `N/A` |
+| 8 | `SERIE` | 99 % | 53 | 13 dicen `N/A`: no sirve como `UNIQUE` |
+| 9 | `FECHA DE FABRICACION` | 100 % | 20 | Solo trae el año (1994–2013) |
+| 10 | `FECHA DE INSTALACION` | **0 %** | 0 | Columna vacía |
+| 11 | `FECHA DE COMPRA` | **0 %** | 0 | Columna vacía |
+| 12 | `ACCESORIOS DEL EQUIPO` | 76 % | 11 | Multivalor en una sola celda |
+| 13 | `VOLTAJE DE ALIMENTACION` | 76 % | 5 | Número + unidad: `110 VAC` |
+| 14 | `CORRIENTE DE ALIMENTACION` | 70 % | 14 | Coma y punto: `0,5A`, `2.2A`, `300mA` |
+| 15 | `PESO` | 69 % | 17 | Tres unidades: `120gr`, `12Kg`, `1,7Tn` |
+| 16 | `POTENCIA` | 69 % | 16 | Número + `W` |
+| 17 | `DIMENSIONES` | 70 % | 18 | `cm` y `mm` mezclados |
+| 18 | `FUENTE DE ALIMENTACION` | 76 % | 2 | Dominio cerrado |
+| 19 | `FRECUENCIA DE ALIMENTACION` | 75 % | **1** | Siempre `60 Hz`: cero información |
+| 20 | `CARACTERISTICAS BATERIA` | 73 % | 8 | Texto libre: `12V 500mA` |
+| 21 | `CONDICIONES DE TRABAJO` | 73 % | **1** | Un solo valor: cero información |
+| 22 | `TEMPERATURA` | 72 % | 16 | Es un rango: `0 - 43°C` |
+| 23 | `HUMEDAD` | 76 % | 2 | Es un rango: `30 - 60 %` |
+| 24 | `CLASIFICACION ELECTRICA` | 72 % | 9 → **7** | `B Clase II` vs `B clase II` |
+| 25 | `MANEJO DE SOFTWARE` | 72 % | 3 → **2** | `SI`/`si`/`NO`: es booleano |
+| 26 | `CLASIFICACION BIOMEDICA` | 72 % | 6 → **5** | `Diagnostico` vs `diagnostico` |
+| 27 | `CALIBRACION` | 70 % | 2 | `SI`/`NO`: booleano |
+| 28 | `CLASIFICACION SEGÚN RIESGO` | 72 % | 3 | Falta `III` del INVIMA |
+| 29 | `RESPONSABLE MANTENIMIENTO` | 72 % | **1** | Siempre el mismo: cero información |
+| 30 | `TECNOLOGIA PREDOMINANTE` | 72 % | 7 → **5** | `Electrica` vs `electrico` |
+| 31 | `FRECUENCIA MPP` | 72 % | 4 → **3** | Mayúsculas; además es derivable |
+
+::: {.callout-eval}
+##### 🧪 Micro-reto 1 (3 minutos)
+Mire las columnas **3 y 4**: las dos se llaman `UBICACIÓN`.
+**¿Qué pasa si intenta crear una tabla con dos columnas del mismo nombre en MySQL?**
+Escriba el nombre que le va a dar a cada una. *(Sugerencia: `Servicio` y `Area`.)*
+:::
+
+::: {.callout-eval}
+##### 🧪 Micro-reto 2 (3 minutos)
+La columna `PLACA NUEVA` solo está llena en **17 de 67** equipos.
+Un compañero propone usarla como `PRIMARY KEY`. **Dé dos razones técnicas para rechazar esa propuesta.**
+:::
+
+### ✅ Entregable del Paso 1
+Hoja de cálculo nueva llamada `auditoria` con las 31 filas y su problema detectado.
+
+---
+
+## Paso 2 · Las Cuatro Decisiones de Diseño ⚖️
+
+Frente a cada columna del Excel solo existen **cuatro** decisiones posibles:
+
+::: {.callout-note}
+##### 🗑️ 1. DESCARTAR
+La columna no aporta información. Casos: **100 % vacía** (`FECHA DE INSTALACION`)
+o **un solo valor repetido en todas las filas** (`CONDICIONES DE TRABAJO`, `FRECUENCIA DE ALIMENTACION`,
+`RESPONSABLE MANTENIMIENTO`).
+Un campo constante ocupa espacio, no permite filtrar y no responde ninguna pregunta.
+:::
+
+::: {.callout-note}
+##### ✅ 2. CONSERVAR TAL CUAL
+El dato es atómico y no tiene dominio cerrado. Casos: `NOMBRE DEL EQUIPO`, `MARCA`, `MODELO`, `SERIE`.
+Se tipifican como `VARCHAR(n)` con una longitud justificada.
+:::
+
+::: {.callout-note}
+##### ✂️ 3. DIVIDIR (una columna → dos o más)
+El dato **no es atómico**: mezcla valor y unidad, o es un rango.
+`TEMPERATURA` = `0 - 43°C` se convierte en `TempMin` y `TempMax`.
+`VOLTAJE` = `110 VAC` se convierte en `VoltajeValor` (INT) y `VoltajeTipo` (`VAC`/`VDC`).
+**Regla:** si no puede ordenar, filtrar ni promediar el campo, es porque no está dividido.
+:::
+
+::: {.callout-note}
+##### 🔗 4. NORMALIZAR (columna → tabla de dominio + `FOREIGN KEY`)
+El dato pertenece a una **lista cerrada** que se repite. Casos: `CLASIFICACION BIOMEDICA`,
+`CLASIFICACION SEGÚN RIESGO`, `TECNOLOGIA PREDOMINANTE`, `FRECUENCIA MPP`, `UBICACIÓN`(servicio).
+Se crea una tabla aparte y en `inventario` queda solo el código.
+**Esto es lo que impide que existan `Diagnostico`, `diagnostico` y `DIAGNOSTICO` como si fueran tres cosas distintas.**
+:::
+
+::: {.callout-important}
+##### ⚠️ La pregunta que decide todo
+Para cada columna pregúntese: **"¿qué consulta quiero poder hacer con este dato?"**
+
+* *"¿Cuántos equipos de soporte de vida hay en la UCI?"* → `CLASIFICACION BIOMEDICA` y `SERVICIO` deben estar **normalizados**.
+* *"¿Cuáles equipos pesan más de 100 kg?"* → `PESO` debe estar **dividido** y en una sola unidad.
+* *"¿Cuántos equipos trabajan a 60 Hz?"* → nadie hace esa consulta, y además todos son iguales → **descartar**.
+:::
+
+### ✅ Entregable del Paso 2
+Columna `Decisión` en su hoja `auditoria`, con uno de los cuatro valores para cada una de las 31 columnas.
+
+---
+
+## Paso 3 · Selector Interactivo de Variables 🎛️
+
+**Objetivo:** tomar las 31 decisiones y ver cómo se convierten, automáticamente, en el `CREATE TABLE`.
+
+Para cada columna elija una decisión. Cuando termine, pulse **Generar diccionario + SQL**.
+Después puede comparar sus decisiones con la solución sugerida.
+
+```{=html}
+<div id="sel-var" style="border:1px solid #e2e8f0;border-radius:10px;padding:1rem 1.25rem;background:#f8fafc;margin:1.5rem 0;">
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:.8rem;">
+    <button id="sv-run" style="background:#941100;color:#fff;border:0;padding:.5rem 1rem;border-radius:6px;font-weight:600;cursor:pointer;">&#9881;&#65039; Generar diccionario + SQL</button>
+    <button id="sv-sol" style="background:#0d9488;color:#fff;border:0;padding:.5rem 1rem;border-radius:6px;font-weight:600;cursor:pointer;">&#128269; Comparar con la solución sugerida</button>
+    <button id="sv-reset" style="background:#64748b;color:#fff;border:0;padding:.5rem 1rem;border-radius:6px;font-weight:600;cursor:pointer;">&#8634; Reiniciar</button>
+    <span id="sv-score" style="font-weight:700;color:#002855;font-size:.9rem;"></span>
+  </div>
+  <div id="sv-wrap" style="overflow-x:auto;max-height:460px;overflow-y:auto;border:1px solid #e2e8f0;border-radius:8px;background:#fff;"></div>
+  <p style="margin:.9rem 0 .25rem;font-weight:600;color:#002855;">Diccionario resultante:</p>
+  <div id="sv-dic" style="overflow-x:auto;"></div>
+  <p style="margin:.9rem 0 .25rem;font-weight:600;color:#002855;">Script SQL generado:</p>
+  <pre id="sv-sql" style="background:#0f172a;color:#e2e8f0;padding:1rem;border-radius:8px;overflow-x:auto;font-size:.8rem;line-height:1.45;margin:0;max-height:420px;">-- Tome sus decisiones y pulse "Generar diccionario + SQL"</pre>
+  <p id="sv-msg" style="margin:.6rem 0 0;font-size:.85rem;font-weight:600;"></p>
+</div>
+
+<script>
+(function(){
+  // [n, columna, llenado %, distintos, decision sugerida, campos resultantes, nota]
+  var COLS = [
+   [1,"ACTIVO",93,60,"conservar",[["ActivoFijo","VARCHAR(15)",false]],"Mezcla números y códigos: VARCHAR, no INT"],
+   [2,"PLACA NUEVA",25,17,"conservar",[["Placa","VARCHAR(15)",true]],"Solo 25 % llena: admite NULL, jamás PK"],
+   [3,"UBICACIÓN (servicio)",100,14,"normalizar",[["IdServicio","INT",false]],"Tabla servicios + FOREIGN KEY"],
+   [4,"UBICACIÓN (área)",100,23,"normalizar",[["IdArea","INT",true]],"Encabezado duplicado: renombrar a Área"],
+   [5,"NOMBRE DEL EQUIPO",100,42,"conservar",[["NombreEquipo","VARCHAR(80)",false]],"Dato principal del inventario"],
+   [6,"MARCA",100,43,"conservar",[["Marca","VARCHAR(60)",false]],"Texto libre"],
+   [7,"MODELO",99,56,"conservar",[["Modelo","VARCHAR(40)",true]],"5 registros con N/A"],
+   [8,"SERIE",99,53,"conservar",[["Serie","VARCHAR(40)",true]],"13 con N/A: no puede ser UNIQUE"],
+   [9,"FECHA DE FABRICACION",100,20,"conservar",[["AnioFabricacion","YEAR",true]],"Solo trae el año: YEAR, no DATE"],
+   [10,"FECHA DE INSTALACION",0,0,"descartar",[],"Columna 100 % vacía"],
+   [11,"FECHA DE COMPRA",0,0,"descartar",[],"Columna 100 % vacía"],
+   [12,"ACCESORIOS DEL EQUIPO",76,11,"conservar",[["Accesorios","TEXT",true]],"Multivalor: lo ideal sería una tabla 1:N"],
+   [13,"VOLTAJE DE ALIMENTACION",76,5,"dividir",[["VoltajeValor","SMALLINT",true],["VoltajeTipo","CHAR(3)",true]],"110 VAC se parte en 110 y VAC"],
+   [14,"CORRIENTE DE ALIMENTACION",70,14,"dividir",[["CorrienteValor","DECIMAL(7,3)",true],["CorrienteUnidad","CHAR(2)",true]],"0,5A y 300mA: valor + unidad"],
+   [15,"PESO",69,17,"dividir",[["PesoKg","DECIMAL(8,3)",true]],"gr, Kg y Tn: todo a kg"],
+   [16,"POTENCIA",69,16,"dividir",[["PotenciaW","INT",true]],"Quitar la W y guardar el numero"],
+   [17,"DIMENSIONES",70,18,"dividir",[["AltoMm","INT",true],["AnchoMm","INT",true],["ProfundoMm","INT",true]],"cm y mm: todo a mm"],
+   [18,"FUENTE DE ALIMENTACION",76,2,"normalizar",[["FuenteAlimentacion","ENUM(Electrica,Bateria)",true]],"Dominio de 2 valores"],
+   [19,"FRECUENCIA DE ALIMENTACION",75,1,"descartar",[],"Siempre 60 Hz: cero información"],
+   [20,"CARACTERISTICAS BATERIA",73,8,"conservar",[["CaracteristicasBateria","VARCHAR(30)",true]],"Texto libre corto"],
+   [21,"CONDICIONES DE TRABAJO",73,1,"descartar",[],"Un solo valor en las 67 filas: cero información"],
+   [22,"TEMPERATURA",72,16,"dividir",[["TempMinC","SMALLINT",true],["TempMaxC","SMALLINT",true]],"Rango 0 - 43 °C"],
+   [23,"HUMEDAD",76,2,"dividir",[["HumMinPct","TINYINT",true],["HumMaxPct","TINYINT",true]],"Rango 30 - 60 %"],
+   [24,"CLASIFICACION ELECTRICA",72,7,"normalizar",[["IdClasifElectrica","INT",true]],"B/BF/CF + Clase I/II/III"],
+   [25,"MANEJO DE SOFTWARE",72,2,"conservar",[["ManejaSoftware","TINYINT(1)",true]],"SI/si/NO: es un booleano"],
+   [26,"CLASIFICACION BIOMEDICA",72,5,"normalizar",[["IdClasifBiomedica","INT",false]],"Diagnóstico, Tratamiento, Soporte de vida"],
+   [27,"CALIBRACION",70,2,"conservar",[["RequiereCalibracion","TINYINT(1)",true]],"SI/NO: es un booleano"],
+   [28,"CLASIFICACIÓN SEGÚN RIESGO",72,3,"normalizar",[["IdClasifRiesgo","INT",false]],"I, IIA, IIB, III (INVIMA)"],
+   [29,"RESPONSABLE MANTENIMIENTO",72,1,"descartar",[],"Siempre Ingeniería biomédica"],
+   [30,"TECNOLOGIA PREDOMINANTE",72,5,"normalizar",[["IdTecnologia","INT",true]],"Eléctrica, Electrónica, Mecánica"],
+   [31,"FRECUENCIA MPP",72,3,"normalizar",[["IdFrecuenciaMpp","INT",true]],"Además es derivable del puntaje de criticidad"]
+  ];
+  var OPC = [["","— decidir —"],["descartar","Descartar"],["conservar","Conservar"],
+             ["dividir","Dividir"],["normalizar","Normalizar"]];
+
+  function el(tag, css, txt){
+    var e = document.createElement(tag);
+    if(css) e.style.cssText = css;
+    if(txt !== undefined && txt !== null) e.textContent = txt;
+    return e;
+  }
+
+  var wrap = document.getElementById("sv-wrap");
+  var out  = document.getElementById("sv-sql");
+  var msg  = document.getElementById("sv-msg");
+  var dic  = document.getElementById("sv-dic");
+  var score= document.getElementById("sv-score");
+  var body;
+
+  // ---------- Tabla de decisiones (construida por DOM, sin HTML literal) ----------
+  function construirTabla(){
+    wrap.innerHTML = "";
+    var t = el("table","width:100%;border-collapse:collapse;font-size:.8rem;background:#fff;");
+    var thead = el("thead");
+    var trh = el("tr","background:#941100;color:#fff;");
+    ["#","Columna en Excel","Llenado","Distintos","Su decisión"].forEach(function(h, k){
+      var th = el("th","padding:.45rem;text-align:"+(k===2||k===3||k===0?"center":"left")+";position:sticky;top:0;background:#941100;", h);
+      trh.appendChild(th);
+    });
+    thead.appendChild(trh); t.appendChild(thead);
+    body = el("tbody"); t.appendChild(body); wrap.appendChild(t);
+    pintarFilas();
+  }
+
+  function pintarFilas(){
+    body.innerHTML = "";
+    COLS.forEach(function(c, i){
+      var tr = el("tr","border-bottom:1px solid #e2e8f0;" + (i%2 ? "background:#f8fafc;" : ""));
+      tr.appendChild(el("td","padding:.35rem .45rem;text-align:center;", c[0]));
+      tr.appendChild(el("td","padding:.35rem .45rem;font-weight:600;", c[1]));
+      var col = c[2]===0 ? "#dc2626" : (c[2]<40 ? "#d97706" : "inherit");
+      tr.appendChild(el("td","padding:.35rem .45rem;text-align:center;color:"+col+";", c[2] + " %"));
+      tr.appendChild(el("td","padding:.35rem .45rem;text-align:center;color:"+(c[3]<=1?"#dc2626":"inherit")+";", c[3]));
+      var tds = el("td","padding:.25rem .45rem;");
+      var sel = document.createElement("select");
+      sel.style.cssText = "padding:.3rem;border:1px solid #cbd5e1;border-radius:5px;font-size:.8rem;width:100%;";
+      OPC.forEach(function(o){
+        var op = document.createElement("option");
+        op.value = o[0]; op.textContent = o[1];
+        sel.appendChild(op);
+      });
+      tds.appendChild(sel); tr.appendChild(tds);
+      body.appendChild(tr);
+    });
+  }
+
+  function decisiones(){
+    return Array.prototype.map.call(body.querySelectorAll("select"), function(s){ return s.value; });
+  }
+
+  // ---------- Generar diccionario + SQL ----------
+  document.getElementById("sv-run").onclick = function(){
+    var dec = decisiones(), campos = [], dominios = [], sinDecidir = 0, descartadas = 0;
+
+    COLS.forEach(function(c, i){
+      var d = dec[i];
+      if(d === ""){ sinDecidir++; return; }
+      if(d === "descartar"){ descartadas++; return; }
+      var limpio = c[1].replace(/[^A-Za-z]/g, "");
+      if(d === c[4]){
+        c[5].forEach(function(f){ campos.push([f[0], f[1], f[2], c[1]]); });
+        if(d === "normalizar" && c[5][0][1] === "INT") dominios.push(c[5][0][0].replace(/^Id/, ""));
+      } else if(d === "conservar"){
+        campos.push([limpio, "VARCHAR(60)", true, c[1] + " (conservada tal cual)"]);
+      } else if(d === "dividir"){
+        campos.push([limpio + "1", "VARCHAR(30)", true, c[1] + " (parte 1)"]);
+        campos.push([limpio + "2", "VARCHAR(30)", true, c[1] + " (parte 2)"]);
+      } else if(d === "normalizar"){
+        campos.push(["Id" + limpio, "INT", true, c[1] + " (normalizada)"]);
+        dominios.push(limpio);
+      }
+    });
+
+    // Tabla del diccionario, tambien por DOM
+    dic.innerHTML = "";
+    if(!campos.length){
+      dic.appendChild(el("p","color:#64748b;","Sin campos seleccionados."));
+    } else {
+      var t = el("table","width:100%;border-collapse:collapse;font-size:.8rem;background:#fff;");
+      var th = el("thead"), trh = el("tr","background:#002855;color:#fff;");
+      ["Campo BD","Tipo","Nulo","Origen"].forEach(function(h){
+        trh.appendChild(el("th","padding:.4rem;text-align:left;", h));
+      });
+      th.appendChild(trh); t.appendChild(th);
+      var tb = el("tbody");
+      campos.forEach(function(f, i){
+        var tr = el("tr","border-bottom:1px solid #e2e8f0;" + (i%2 ? "background:#f8fafc;" : ""));
+        tr.appendChild(el("td","padding:.35rem;font-family:monospace;", f[0]));
+        tr.appendChild(el("td","padding:.35rem;font-family:monospace;", f[1]));
+        tr.appendChild(el("td","padding:.35rem;text-align:center;", f[2] ? "SÍ" : "NO"));
+        tr.appendChild(el("td","padding:.35rem;color:#64748b;", f[3]));
+        tb.appendChild(tr);
+      });
+      t.appendChild(tb); dic.appendChild(t);
+    }
+
+    // Script SQL
+    var sql = "CREATE DATABASE IF NOT EXISTS inventarioequipos;\nUSE inventarioequipos;\n\n";
+    sql += "CREATE TABLE inventario (\n  IdEquipo INT AUTO_INCREMENT PRIMARY KEY,\n";
+    sql += campos.map(function(f){ return "  " + f[0] + " " + f[1] + (f[2] ? " NULL" : " NOT NULL"); }).join(",\n");
+    sql += ",\n  EstadoEquipo TINYINT(1) NOT NULL DEFAULT 1\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+    if(dominios.length){
+      sql += "\n\n-- Tablas de dominio que debe crear ANTES de inventario:\n";
+      dominios.forEach(function(d){ sql += "--   " + d + "\n"; });
+    }
+    out.textContent = campos.length ? sql : "-- No hay columnas seleccionadas todavía.";
+
+    msg.style.color = sinDecidir ? "#d97706" : "#0f766e";
+    msg.textContent = (sinDecidir ? "Faltan " + sinDecidir + " columnas por decidir. " : "Listo: ")
+      + campos.length + " campos generados, " + descartadas + " columnas descartadas, "
+      + dominios.length + " tablas de dominio requeridas.";
+  };
+
+  // ---------- Comparar con la solución sugerida ----------
+  document.getElementById("sv-sol").onclick = function(){
+    var sels = body.querySelectorAll("select"), ok = 0;
+    Array.prototype.forEach.call(sels, function(s, i){
+      var fila = s.parentNode.parentNode, correcta = COLS[i][4];
+      if(s.value === correcta){ ok++; fila.style.background = "#f0fdf4"; }
+      else if(s.value === ""){ fila.style.background = "#fefce8"; }
+      else { fila.style.background = "#fef2f2"; }
+      var nota = s.parentNode.querySelector(".sv-nota");
+      if(!nota){
+        nota = el("div","font-size:.72rem;color:#475569;margin-top:.2rem;");
+        nota.className = "sv-nota";
+        s.parentNode.appendChild(nota);
+      }
+      nota.textContent = "Sugerida: " + correcta + " — " + COLS[i][6];
+    });
+    score.textContent = "Coincidencias: " + ok + " / " + COLS.length;
+  };
+
+  // ---------- Reiniciar ----------
+  document.getElementById("sv-reset").onclick = function(){
+    pintarFilas();
+    dic.innerHTML = "";
+    out.textContent = '-- Tome sus decisiones y pulse "Generar diccionario + SQL"';
+    score.textContent = "";
+    msg.textContent = "";
+  };
+
+  construirTabla();
+})();
+</script>
+```
+
+::: {.callout-eval}
+##### 🧪 Micro-reto 3 (5 minutos)
+Marque **todas** las columnas como *Conservar* y genere el SQL.
+Luego marque las 4 columnas sin información como *Descartar* y vuelva a generarlo.
+**Cuente cuántos campos se ahorró** y explique qué consulta se volvió posible al normalizar
+`CLASIFICACION BIOMEDICA` que antes no lo era.
+:::
+
+### ✅ Entregable del Paso 3
+Captura del diccionario generado con sus decisiones y el puntaje de coincidencias.
+
+---
+
+## Paso 4 · Diccionario de Datos Final 📋
+
+Esta es la tabla `inventario` que vamos a construir. **Cópiela a su hoja de cálculo**: es el entregable formal del taller.
+
+| # | Campo BD | Tipo de dato | Origen | Por qué así |
+|:-:|:--|:--|:--|:--|
+| 0 | `IdEquipo` | `INT AUTO_INCREMENT` · PK | *(nuevo)* | Ninguna columna del Excel sirve de llave |
+| 1 | `ActivoFijo` | `VARCHAR(15)` · NOT NULL | `ACTIVO` | Con `INT` se pierde `E000774` |
+| 2 | `Placa` | `VARCHAR(15)` · NULL | `PLACA NUEVA` | Solo la tiene el 25 % |
+| 3 | `IdServicio` | `INT` · FK · NOT NULL | `UBICACIÓN` (1ª) | 14 servicios repetidos → `servicios` |
+| 4 | `IdArea` | `INT` · FK · NULL | `UBICACIÓN` (2ª) | Encabezado duplicado → `areas` |
+| 5 | `NombreEquipo` | `VARCHAR(80)` · NOT NULL | `NOMBRE EQUIPO` | Dato principal |
+| 6 | `Marca` | `VARCHAR(60)` · NOT NULL | `MARCA` | Texto libre |
+| 7 | `Modelo` | `VARCHAR(40)` · NULL | `MODELO` | Los `N/A` se guardan como `NULL` |
+| 8 | `Serie` | `VARCHAR(40)` · NULL | `SERIE` | 13 `N/A`: no puede ser `UNIQUE` |
+| 9 | `AnioFabricacion` | `YEAR` · NULL | `FECHA FABRIC.` | La fuente solo trae el año |
+| 10 | `VoltajeValor` | `SMALLINT` · NULL | `VOLTAJE` | `110 VAC` → `110` |
+| 11 | `VoltajeTipo` | `CHAR(3)` · NULL | `VOLTAJE` | `110 VAC` → `VAC` |
+| 12 | `CorrienteValor` | `DECIMAL(7,3)` · NULL | `CORRIENTE` | `0,5A` → `0.500` |
+| 13 | `CorrienteUnidad` | `CHAR(2)` · NULL | `CORRIENTE` | `A` o `mA` |
+| 14 | `PesoKg` | `DECIMAL(8,3)` · NULL | `PESO` | `gr`, `Kg` y `Tn` → todo a **kg** |
+| 15 | `PotenciaW` | `INT` · NULL | `POTENCIA` | `3600W` → `3600` |
+| 16 | `AltoMm` | `INT` · NULL | `DIMENSIONES` | `cm` y `mm` → todo a **mm** |
+| 17 | `AnchoMm` | `INT` · NULL | `DIMENSIONES` | Idem |
+| 18 | `ProfundoMm` | `INT` · NULL | `DIMENSIONES` | A veces solo hay 2 medidas |
+| 19 | `FuenteAlimentacion` | `ENUM` · NULL | `FUENTE ALIM.` | Dominio de 2 valores |
+| 20 | `CaracteristicasBateria` | `VARCHAR(30)` · NULL | `CARACT. BATERIA` | Texto libre corto |
+| 21 | `TempMinC` | `SMALLINT` · NULL | `TEMPERATURA` | `0 - 43°C` → `0` |
+| 22 | `TempMaxC` | `SMALLINT` · NULL | `TEMPERATURA` | `0 - 43°C` → `43` |
+| 23 | `HumMinPct` | `TINYINT` · NULL | `HUMEDAD` | `30 - 60 %` → `30` |
+| 24 | `HumMaxPct` | `TINYINT` · NULL | `HUMEDAD` | `30 - 60 %` → `60` |
+| 25 | `IdClasifElectrica` | `INT` · FK · NULL | `CLASIF. ELECTRICA` | Unifica mayúsculas |
+| 26 | `ManejaSoftware` | `TINYINT(1)` · NULL | `MANEJO SOFTWARE` | `SI`/`NO` → `1`/`0` |
+| 27 | `RequiereCalibracion` | `TINYINT(1)` · NULL | `CALIBRACION` | `SI`/`NO` → `1`/`0` |
+| 28 | `IdClasifBiomedica` | `INT` · FK · NOT NULL | `CLASIF. BIOMEDICA` | Dominio cerrado |
+| 29 | `IdClasifRiesgo` | `INT` · FK · NOT NULL | `CLASIF. RIESGO` | Dominio INVIMA |
+| 30 | `IdTecnologia` | `INT` · FK · NULL | `TECNOLOGIA` | Dominio cerrado |
+| 31 | `IdFrecuenciaMpp` | `INT` · FK · NULL | `FRECUENCIA MPP` | Dominio cerrado |
+| 32 | `Accesorios` | `TEXT` · NULL | `ACCESORIOS` | Multivalor: deuda técnica |
+| 33 | `EstadoEquipo` | `TINYINT(1)` · NOT NULL | *(nuevo)* | Permite el **borrado lógico** |
+
+**Columnas descartadas y por qué:** `FECHA DE INSTALACION` y `FECHA DE COMPRA` (0 % de datos),
+`FRECUENCIA DE ALIMENTACION` (siempre `60 Hz`), `CONDICIONES DE TRABAJO` (un solo valor),
+`RESPONSABLE MANTENIMIENTO` (siempre `Ingenieria biomedica`).
+
+::: {.callout-important}
+##### 📝 Documente la deuda técnica
+En su diccionario agregue una hoja `decisiones_pendientes` con al menos estas tres:
+1. `Accesorios` debería ser una tabla `1:N` (`equipo_accesorio`), no un `TEXT`.
+2. `NombreEquipo` debería normalizarse contra un catálogo de nomenclatura de dispositivos médicos.
+3. Las columnas descartadas por estar vacías **se documentan**, no se borran del diccionario:
+   mañana el hospital puede tener esos datos.
+:::
+
+### ✅ Entregable del Paso 4
+Hoja `diccionario` con los 34 campos, sus tipos y su justificación.
+
+---
+
+## Paso 5 · Crear la Base de Datos 🗄️
+
+**Objetivo:** materializar el diccionario en MySQL.
+
+Abra `http://127.0.0.1/phpmyadmin/`, pestaña **SQL**, pegue el script completo y ejecute.
+
+::: {.callout-tip}
+##### Dos caminos, el mismo resultado
+La *Guía WEB* crea la base y la tabla **a mano** desde la interfaz de phpMyAdmin (Database → nombre → crear tabla → columnas).
+Hágalo así la primera vez para entender la interfaz. Después use el script: es reproducible, se versiona y **se entrega**.
+:::
+
+### 5.0 Cómo se pasa del Excel plano al esquema relacional
+
+Antes de escribir el script, veamos **el mecanismo**. Use los controles para avanzar paso a paso.
+
+```{=html}
+<style>
+#erd-box{border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc;padding:1rem 1.25rem;margin:1.5rem 0;}
+#erd-box figure{margin:0;}
+#erd-svg{width:100%;height:auto;display:block;color:#334155;}
+#erd-box .ent{opacity:0;transition:opacity .5s ease;}
+#erd-box .ent.on{opacity:1;}
+#erd-box .rel{opacity:0;transition:opacity .4s ease;}
+#erd-box .rel.on{opacity:1;}
+#erd-box .glow{filter:drop-shadow(0 0 6px rgba(148,17,0,.55));}
+#erd-ctrl{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.75rem;}
+#erd-ctrl button{border:0;border-radius:6px;padding:.45rem .9rem;font-weight:600;cursor:pointer;color:#fff;}
+#erd-prev,#erd-next{background:#002855;}
+#erd-play{background:#941100;}
+#erd-reset{background:#64748b;}
+#erd-dots{display:flex;gap:.35rem;margin-left:.25rem;}
+#erd-dots span{width:11px;height:11px;border-radius:50%;background:#cbd5e1;display:inline-block;cursor:pointer;}
+#erd-dots span.on{background:#941100;}
+#erd-nar{background:#fff;border-left:5px solid #941100;border-radius:0 8px 8px 0;padding:.8rem 1rem;margin-top:.9rem;font-size:.92rem;line-height:1.5;min-height:4.5rem;}
+#erd-nar b{color:#941100;}
+@media (prefers-reduced-motion: reduce){#erd-box .ent,#erd-box .rel{transition:none;}}
+@media print{#erd-ctrl{display:none;}#erd-box .ent,#erd-box .rel{opacity:1 !important;}}
+</style>
+
+<div id="erd-box">
+  <div id="erd-ctrl">
+    <button id="erd-prev">&#9664; Anterior</button>
+    <button id="erd-play">&#9654; Reproducir</button>
+    <button id="erd-next">Siguiente &#9654;</button>
+    <button id="erd-reset">&#8634; Reiniciar</button>
+    <span id="erd-dots"></span>
+    <span id="erd-paso" style="font-weight:700;color:#002855;font-size:.9rem;"></span>
+  </div>
+
+  <figure>
+  <svg id="erd-svg" viewBox="0 0 960 560" role="img"
+       aria-label="Diagrama entidad-relacion: una columna de texto repetido de BD.xlsx se convierte en una tabla de dominio con llave foranea, y ese mismo mecanismo se repite hasta formar el esquema completo de inventarioequipos"
+       font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+    <defs>
+      <marker id="erd-flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+      </marker>
+    </defs>
+
+    <!-- ============ ESCENA A: el mecanismo de cerca ============ -->
+    <g id="escena-a" transform="translate(0,55)">
+
+      <!-- Columna del Excel -->
+      <g class="ent" data-desde="1" data-hasta="3">
+        <rect x="40" y="120" width="300" height="215" rx="8" fill="#fff7ed" stroke="#d97706" stroke-width="1.5"/>
+        <text x="56" y="145" font-size="12.5" font-weight="700" fill="#9a3412">BD.xlsx &#183; CLASIFICACIÓN BIOMÉDICA</text>
+        <line x1="56" y1="156" x2="324" y2="156" stroke="#fed7aa" stroke-width="1.5"/>
+        <text x="56" y="180" font-size="12.5" fill="#dc2626">Diagnostico</text>
+        <text x="56" y="204" font-size="12.5" fill="#dc2626">diagnostico</text>
+        <text x="56" y="228" font-size="12.5" fill="#334155">Soporte de Vida</text>
+        <text x="56" y="252" font-size="12.5" fill="#dc2626">Diagnostico</text>
+        <text x="56" y="276" font-size="12.5" fill="#334155">Tratamiento</text>
+        <text x="56" y="300" font-size="12.5" fill="#334155">Soporte de Vida</text>
+        <text x="56" y="324" font-size="11.5" font-style="italic" fill="#9a3412">3 escrituras del mismo concepto</text>
+      </g>
+
+      <!-- Flecha normalizar -->
+      <g class="ent" data-desde="2" data-hasta="3">
+        <text x="400" y="215" font-size="12" font-weight="700" text-anchor="middle" fill="#0d9488">normalizar</text>
+        <line x1="352" y1="228" x2="448" y2="228" stroke="#0d9488" stroke-width="2" marker-end="url(#erd-flecha)"/>
+      </g>
+
+      <!-- Tabla de dominio -->
+      <g class="ent" data-desde="2" data-hasta="3">
+        <rect x="470" y="70" width="280" height="130" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+        <rect x="470" y="70" width="280" height="26" rx="8" fill="#0d9488"/>
+        <rect x="470" y="86" width="280" height="10" fill="#0d9488"/>
+        <text x="484" y="88" font-size="12.5" font-weight="700" fill="#ffffff">clasif_biomedica</text>
+        <text x="484" y="118" font-size="12" fill="#0f766e" font-weight="700">IdClasifBiomedica &#183; PK</text>
+        <text x="484" y="140" font-size="12" fill="#334155">1  Diagnostico</text>
+        <text x="484" y="162" font-size="12" fill="#334155">2  Tratamiento</text>
+        <text x="484" y="184" font-size="12" fill="#334155">3  Soporte de Vida</text>
+        <text x="760" y="140" font-size="11.5" font-style="italic" fill="#0f766e">cada valor</text>
+        <text x="760" y="156" font-size="11.5" font-style="italic" fill="#0f766e">existe una vez</text>
+      </g>
+
+      <!-- Inventario (extracto) -->
+      <g class="ent" data-desde="2" data-hasta="3">
+        <rect x="470" y="300" width="280" height="106" rx="8" fill="#ffffff" stroke="#941100" stroke-width="1.5"/>
+        <rect x="470" y="300" width="280" height="26" rx="8" fill="#941100"/>
+        <rect x="470" y="316" width="280" height="10" fill="#941100"/>
+        <text x="484" y="318" font-size="12.5" font-weight="700" fill="#ffffff">inventario</text>
+        <text x="484" y="348" font-size="12" fill="#334155">NombreEquipo   VARCHAR(80)</text>
+        <text x="484" y="372" font-size="12" fill="#941100" font-weight="700">IdClasifBiomedica   INT   &#8594; FK</text>
+        <text x="484" y="394" font-size="11.5" font-style="italic" fill="#64748b">ya no guarda el texto, guarda el código</text>
+      </g>
+
+      <!-- Relacion FK de la escena A -->
+      <g class="rel" data-desde="3" data-hasta="3">
+        <path d="M 610 200 L 610 300" stroke="#941100" stroke-width="2.5" fill="none"/>
+        <text x="596" y="222" font-size="13" font-weight="700" text-anchor="end" fill="#941100">1</text>
+        <text x="596" y="292" font-size="13" font-weight="700" text-anchor="end" fill="#941100">N</text>
+        <text x="624" y="256" font-size="12" font-weight="700" fill="#941100">FOREIGN KEY</text>
+        <text x="624" y="272" font-size="11.5" fill="#64748b">MySQL rechaza un código inexistente</text>
+      </g>
+    </g>
+
+    <!-- ============ ESCENA B: el esquema completo ============ -->
+    <g id="escena-b">
+
+      <!-- Dominios izquierda -->
+      <g class="ent" data-desde="4" data-hasta="7">
+        <rect x="30" y="46" width="215" height="52" rx="7" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+        <text x="44" y="68" font-size="12.5" font-weight="700" fill="#0f766e">servicios</text>
+        <text x="44" y="86" font-size="11.5" fill="#475569">IdServicio &#183; Nombre</text>
+
+        <rect x="30" y="118" width="215" height="52" rx="7" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+        <text x="44" y="140" font-size="12.5" font-weight="700" fill="#0f766e">areas</text>
+        <text x="44" y="158" font-size="11.5" fill="#475569">IdArea &#183; IdServicio</text>
+
+        <rect x="30" y="190" width="215" height="52" rx="7" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+        <text x="44" y="212" font-size="12.5" font-weight="700" fill="#0f766e">clasif_biomedica</text>
+        <text x="44" y="230" font-size="11.5" fill="#475569">5 valores</text>
+
+        <rect x="30" y="262" width="215" height="52" rx="7" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+        <text x="44" y="284" font-size="12.5" font-weight="700" fill="#0f766e">clasif_riesgo</text>
+        <text x="44" y="302" font-size="11.5" fill="#475569">I &#183; IIA &#183; IIB &#183; III</text>
+      </g>
+
+      <!-- Dominios derecha -->
+      <g class="ent" data-desde="4" data-hasta="7">
+        <rect x="715" y="82" width="215" height="52" rx="7" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+        <text x="729" y="104" font-size="12.5" font-weight="700" fill="#0f766e">clasif_electrica</text>
+        <text x="729" y="122" font-size="11.5" fill="#475569">B &#183; BF &#183; CF</text>
+
+        <rect x="715" y="154" width="215" height="52" rx="7" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+        <text x="729" y="176" font-size="12.5" font-weight="700" fill="#0f766e">tecnologias</text>
+        <text x="729" y="194" font-size="11.5" fill="#475569">6 valores</text>
+
+        <rect x="715" y="226" width="215" height="52" rx="7" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+        <text x="729" y="248" font-size="12.5" font-weight="700" fill="#0f766e">frecuencias_mpp</text>
+        <text x="729" y="266" font-size="11.5" fill="#475569">Bimestral &#8230; Anual</text>
+      </g>
+
+      <!-- Tabla principal -->
+      <g class="ent" data-desde="4" data-hasta="7">
+        <rect x="350" y="120" width="260" height="200" rx="8" fill="#ffffff" stroke="#941100" stroke-width="2"/>
+        <rect x="350" y="120" width="260" height="28" rx="8" fill="#941100"/>
+        <rect x="350" y="138" width="260" height="10" fill="#941100"/>
+        <text x="364" y="139" font-size="13" font-weight="700" fill="#ffffff">inventario</text>
+        <text x="364" y="170" font-size="11.5" fill="#475569">NombreEquipo &#183; Marca &#183; Modelo</text>
+        <text x="364" y="190" font-size="11.5" fill="#475569">AnioFabricacion &#183; PesoKg &#183; PotenciaW</text>
+        <text x="364" y="210" font-size="11.5" fill="#475569">TempMinC &#183; TempMaxC &#183; HumMinPct</text>
+        <text x="364" y="298" font-size="11.5" fill="#475569">EstadoEquipo &#8594; baja lógica</text>
+      </g>
+
+      <!-- Llaves resaltadas (paso 5) -->
+      <g class="ent" data-desde="5" data-hasta="7">
+        <rect x="358" y="222" width="244" height="26" rx="5" fill="#fef2f2" stroke="#941100" stroke-width="1.2"/>
+        <text x="368" y="240" font-size="11.5" font-weight="700" fill="#941100">IdEquipo &#183; PRIMARY KEY (artificial)</text>
+        <rect x="358" y="254" width="244" height="26" rx="5" fill="#fef2f2" stroke="#941100" stroke-width="1.2"/>
+        <text x="368" y="272" font-size="11.5" font-weight="700" fill="#941100">UNIQUE (ActivoFijo)</text>
+      </g>
+
+      <!-- Relaciones FK -->
+      <g class="rel" data-desde="4" data-hasta="7">
+        <path d="M 245 72  L 350 172" stroke="#941100" stroke-width="1.6" fill="none"/>
+        <path d="M 245 144 L 350 188" stroke="#941100" stroke-width="1.6" fill="none"/>
+        <path d="M 245 216 L 350 204" stroke="#941100" stroke-width="1.6" fill="none"/>
+        <path d="M 245 288 L 350 220" stroke="#941100" stroke-width="1.6" fill="none"/>
+        <path d="M 715 108 L 610 176" stroke="#941100" stroke-width="1.6" fill="none"/>
+        <path d="M 715 180 L 610 196" stroke="#941100" stroke-width="1.6" fill="none"/>
+        <path d="M 715 252 L 610 216" stroke="#941100" stroke-width="1.6" fill="none"/>
+        <text x="252" y="66" font-size="11" font-weight="700" fill="#941100">1</text>
+        <text x="330" y="162" font-size="11" font-weight="700" fill="#941100" text-anchor="end">N</text>
+      </g>
+
+      <!-- criticidad -->
+      <g class="ent" data-desde="6" data-hasta="7">
+        <rect x="350" y="392" width="260" height="104" rx="8" fill="#ffffff" stroke="#002855" stroke-width="1.8"/>
+        <rect x="350" y="392" width="260" height="26" rx="8" fill="#002855"/>
+        <rect x="350" y="408" width="260" height="10" fill="#002855"/>
+        <text x="364" y="410" font-size="12.5" font-weight="700" fill="#ffffff">criticidad</text>
+        <text x="364" y="440" font-size="11.5" fill="#475569">FrecuenciaUso &#183; FormaUso</text>
+        <text x="364" y="458" font-size="11.5" fill="#475569">ExactitudReq &#183; ImportanciaEco</text>
+        <text x="364" y="482" font-size="11.5" font-weight="700" fill="#0f766e">PuntajeTotal &#8594; GENERATED</text>
+      </g>
+      <g class="rel" data-desde="6" data-hasta="7">
+        <path d="M 480 320 L 480 392" stroke="#002855" stroke-width="2" fill="none"/>
+        <text x="490" y="342" font-size="11" font-weight="700" fill="#002855">1</text>
+        <text x="490" y="384" font-size="11" font-weight="700" fill="#002855">N</text>
+      </g>
+
+      <!-- vista -->
+      <g class="ent" data-desde="7" data-hasta="7">
+        <rect x="690" y="392" width="240" height="104" rx="8" fill="#f8fafc" stroke="#0d9488" stroke-width="1.8" stroke-dasharray="6 4"/>
+        <text x="704" y="418" font-size="12.5" font-weight="700" fill="#0f766e">v_cronograma_mpp</text>
+        <text x="704" y="440" font-size="11.5" font-style="italic" fill="#64748b">VISTA &#183; JOIN criticidad + inventario</text>
+        <text x="704" y="462" font-size="11.5" fill="#475569">18&#8211;20 &#8594; BIMESTRAL</text>
+        <text x="704" y="480" font-size="11.5" fill="#475569">4&#8211;8 &#8594; ANUAL</text>
+      </g>
+      <g class="rel" data-desde="7" data-hasta="7">
+        <path d="M 690 430 L 610 430" stroke="#0d9488" stroke-width="1.8" stroke-dasharray="6 4" fill="none" marker-end="url(#erd-flecha)"/>
+        <text x="648" y="422" font-size="11" fill="#0f766e" text-anchor="middle">lee</text>
+      </g>
+
+      <!-- Leyenda -->
+      <g class="ent" data-desde="4" data-hasta="7">
+        <line x1="30" y1="470" x2="70" y2="470" stroke="#941100" stroke-width="1.8"/>
+        <text x="78" y="474" font-size="11.5" fill="#475569">FOREIGN KEY &#183; 1 dominio &#8594; N equipos</text>
+        <line x1="30" y1="494" x2="70" y2="494" stroke="#0d9488" stroke-width="1.8" stroke-dasharray="6 4"/>
+        <text x="78" y="498" font-size="11.5" fill="#475569">la vista lee de esas tablas, no las duplica</text>
+      </g>
+    </g>
+  </svg>
+  <figcaption style="font-size:.85rem;color:#64748b;margin-top:.5rem;">
+    De una columna de texto repetido a un esquema con dominios, llaves foráneas y una vista que calcula el período de mantenimiento.
+  </figcaption>
+  </figure>
+
+  <div id="erd-nar"></div>
+</div>
+
+<script>
+(function(){
+  var NAR = [
+    ["El problema de origen",
+     "En <b>BD.xlsx</b> la clasificación biomédica es texto libre. El mismo concepto aparece escrito de tres formas distintas. Para la base de datos son <b>tres valores diferentes</b>: cualquier conteo por clasificación sale mal."],
+    ["Normalizar = separar el catálogo",
+     "Los valores únicos se llevan a su propia tabla <b>clasif_biomedica</b>, donde cada uno existe <b>una sola vez</b> y recibe un código. En inventario ya no se guarda el texto sino ese código."],
+    ["La FOREIGN KEY cierra el mecanismo",
+     "La llave foránea obliga a que el código exista en el catálogo: MySQL <b>rechaza</b> cualquier otro valor. Cardinalidad: un equipo tiene <b>una</b> clasificación (1), una clasificación agrupa <b>muchos</b> equipos (N)."],
+    ["Lo mismo, siete veces",
+     "Cada columna del Excel con lista cerrada recibe el mismo tratamiento: servicios, áreas, clasificación biomédica, riesgo, clasificación eléctrica, tecnología y frecuencia de MPP. Siete tablas de dominio, siete llaves foráneas."],
+    ["Las llaves de la tabla principal",
+     "<b>IdEquipo</b> es la llave primaria artificial: ninguna columna del Excel servía. <b>UNIQUE (ActivoFijo)</b> impide registrar dos veces el mismo equipo. Y <b>EstadoEquipo</b> permite dar de baja sin borrar."],
+    ["criticidad y la columna generada",
+     "La hoja <b>MPP</b> califica cada equipo con 4 variables de 1 a 5. <b>PuntajeTotal</b> es una columna <b>GENERATED</b>: la calcula MySQL, nadie la puede desincronizar escribiendo un valor a mano."],
+    ["La vista traduce el puntaje",
+     "<b>v_cronograma_mpp</b> no almacena nada: lee criticidad e inventario y traduce el puntaje al período (18–20 bimestral, 4–8 anual). La regla vive en <b>un solo lugar</b>, no repetida en cada consulta."]
+  ];
+  var TOTAL = NAR.length;
+  var paso = 1, timer = null;
+
+  var caja  = document.getElementById("erd-box");
+  var nar   = document.getElementById("erd-nar");
+  var dots  = document.getElementById("erd-dots");
+  var lbl   = document.getElementById("erd-paso");
+  var play  = document.getElementById("erd-play");
+  var grupos= caja.querySelectorAll(".ent, .rel");
+
+  for(var k=1;k<=TOTAL;k++){
+    (function(n){
+      var d = document.createElement("span");
+      d.title = "Paso " + n;
+      d.onclick = function(){ detener(); ir(n); };
+      dots.appendChild(d);
+    })(k);
+  }
+  var puntos = dots.querySelectorAll("span");
+
+  function ir(n){
+    paso = n;
+    Array.prototype.forEach.call(grupos, function(g){
+      var d = parseInt(g.getAttribute("data-desde"), 10);
+      var h = parseInt(g.getAttribute("data-hasta"), 10);
+      if(paso >= d && paso <= h) g.classList.add("on"); else g.classList.remove("on");
+    });
+    Array.prototype.forEach.call(puntos, function(p, i){
+      if(i + 1 === paso) p.classList.add("on"); else p.classList.remove("on");
+    });
+    nar.innerHTML = "<b>" + NAR[paso-1][0] + ".</b> " + NAR[paso-1][1];
+    lbl.textContent = "Paso " + paso + " de " + TOTAL;
+  }
+
+  function detener(){
+    if(timer){ clearInterval(timer); timer = null; }
+    play.innerHTML = "▶ Reproducir";
+  }
+
+  document.getElementById("erd-next").onclick  = function(){ detener(); ir(paso < TOTAL ? paso + 1 : 1); };
+  document.getElementById("erd-prev").onclick  = function(){ detener(); ir(paso > 1 ? paso - 1 : TOTAL); };
+  document.getElementById("erd-reset").onclick = function(){ detener(); ir(1); };
+  play.onclick = function(){
+    if(timer){ detener(); return; }
+    play.innerHTML = "⏸ Pausa";
+    timer = setInterval(function(){
+      if(paso >= TOTAL){ detener(); return; }
+      ir(paso + 1);
+    }, 4200);
+  };
+
+  ir(1);
+})();
+</script>
+```
+
+::: {.callout-eval}
+##### 🧪 Micro-reto 4 (3 minutos)
+Avance hasta el paso 3 del diagrama y responda: si en `inventario` guardáramos el **texto**
+`"Soporte de Vida"` en vez del código, ¿qué pasa el día en que alguien escriba `"soporte de vida"`?
+Nombre la consulta del Paso 5.2 que dejaría de funcionar.
+:::
+
+### 5.1 `database.sql`
+
+```sql
+-- =========================================================
+--  IFMER 2026-II | Clase 06
+--  Inventario de equipos biomedicos - Hospital Universitario Nivel III
+--  Fuente: BD.xlsx, hoja "Listado Equipos"
+-- =========================================================
+CREATE DATABASE IF NOT EXISTS inventarioequipos
+  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE inventarioequipos;
+
+-- Sin esta linea, las tildes y la N con virgulilla se guardan mal
+SET NAMES utf8mb4;
+
+-- ---------------- TABLAS DE DOMINIO ----------------
+CREATE TABLE IF NOT EXISTS servicios (
+  IdServicio INT AUTO_INCREMENT PRIMARY KEY,
+  Nombre     VARCHAR(60) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+INSERT IGNORE INTO servicios (Nombre) VALUES
+('SALAS DE CIRUGIA'), ('UCI 2 PISO'), ('UCI 4 PISO'), ('UCI CORONARIA'),
+('LABORATORIO CLINICO'), ('RADIOLOGIA'), ('URGENCIAS'), ('FISIOTERAPIA'),
+('TERAPIA FISICA'), ('DEPARTAMENTO ENFERMERIA'), ('HOSPITALIZACION 3 SUR'),
+('HOSPITALIZACION 6 SUR'), ('HOSPITALIZACION 7 SUR'), ('CONSULTA EXTERNA');
+
+CREATE TABLE IF NOT EXISTS areas (
+  IdArea     INT AUTO_INCREMENT PRIMARY KEY,
+  IdServicio INT NOT NULL,
+  Nombre     VARCHAR(60) NOT NULL,
+  CONSTRAINT fk_area_servicio FOREIGN KEY (IdServicio) REFERENCES servicios(IdServicio)
+) ENGINE=InnoDB;
+
+INSERT IGNORE INTO areas (IdServicio, Nombre) VALUES
+(1,'SALA'), (1,'ESTERILIZACION'), (2,'CUBICULO'), (3,'CUBICULO'),
+(4,'CARRO DE PARO'), (5,'CENTRIFUGACION'), (5,'COAGULACION'),
+(5,'UNIDAD TRANSFUCIONAL'), (6,'ECOGRAFIAS'), (6,'RADIOLOGIA'),
+(7,'CONSULTORIO'), (7,'CONSULTORIO Nº 2'), (8,'CONSULTORIO Nº 4'), (11,'HABITACION');
+
+CREATE TABLE IF NOT EXISTS clasif_biomedica (
+  IdClasifBiomedica INT AUTO_INCREMENT PRIMARY KEY,
+  Nombre            VARCHAR(40) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+INSERT IGNORE INTO clasif_biomedica (Nombre) VALUES
+('Diagnostico'), ('Tratamiento'), ('Soporte de Vida'),
+('Laboratorio Clinico'), ('Apoyo y Tratamiento'), ('Prevencion'), ('Rehabilitacion');
+
+CREATE TABLE IF NOT EXISTS clasif_riesgo (
+  IdClasifRiesgo INT AUTO_INCREMENT PRIMARY KEY,
+  Codigo         VARCHAR(4)  NOT NULL UNIQUE,
+  Descripcion    VARCHAR(80) NOT NULL
+) ENGINE=InnoDB;
+
+-- Clasificacion INVIMA. Nota: BD.xlsx solo trae I, IIA y IIB,
+-- pero el dominio normativo incluye III: se registra completo.
+INSERT IGNORE INTO clasif_riesgo (Codigo, Descripcion) VALUES
+('I',   'Riesgo bajo'),
+('IIA', 'Riesgo moderado'),
+('IIB', 'Riesgo alto'),
+('III', 'Riesgo muy alto');
+
+CREATE TABLE IF NOT EXISTS clasif_electrica (
+  IdClasifElectrica INT AUTO_INCREMENT PRIMARY KEY,
+  Codigo            VARCHAR(15) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+INSERT IGNORE INTO clasif_electrica (Codigo) VALUES
+('B Clase I'), ('B Clase II'), ('BF Clase I'), ('BF Clase II'),
+('CF Clase I'), ('CF Clase II'), ('Clase III');
+
+CREATE TABLE IF NOT EXISTS tecnologias (
+  IdTecnologia INT AUTO_INCREMENT PRIMARY KEY,
+  Nombre       VARCHAR(30) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+INSERT IGNORE INTO tecnologias (Nombre) VALUES
+('Electrica'), ('Electronica'), ('Mecanica'),
+('Electromecanica'), ('Electroneumatica'), ('Electrohidraulica');
+
+CREATE TABLE IF NOT EXISTS frecuencias_mpp (
+  IdFrecuenciaMpp INT AUTO_INCREMENT PRIMARY KEY,
+  Nombre          VARCHAR(20) NOT NULL UNIQUE,
+  MesesIntervalo  TINYINT     NOT NULL
+) ENGINE=InnoDB;
+
+INSERT IGNORE INTO frecuencias_mpp (Nombre, MesesIntervalo) VALUES
+('Bimestral', 2), ('Trimestral', 3), ('Semestral', 6), ('Anual', 12);
+
+-- ---------------- TABLA PRINCIPAL ----------------
+CREATE TABLE IF NOT EXISTS inventario (
+  IdEquipo               INT AUTO_INCREMENT PRIMARY KEY,
+
+  -- Identificacion del equipo
+  ActivoFijo             VARCHAR(15)  NOT NULL,
+  Placa                  VARCHAR(15)  NULL,
+  NombreEquipo           VARCHAR(80)  NOT NULL,
+  Marca                  VARCHAR(60)  NOT NULL,
+  Modelo                 VARCHAR(40)  NULL,
+  Serie                  VARCHAR(40)  NULL,
+  AnioFabricacion        YEAR         NULL,
+
+  -- Localizacion
+  IdServicio             INT          NOT NULL,
+  IdArea                 INT          NULL,
+
+  -- Caracteristicas electricas (columnas DIVIDIDAS)
+  VoltajeValor           SMALLINT     NULL,
+  VoltajeTipo            CHAR(3)      NULL,
+  CorrienteValor         DECIMAL(7,3) NULL,
+  CorrienteUnidad        CHAR(2)      NULL,
+  PotenciaW              INT          NULL,
+  FuenteAlimentacion     ENUM('Electrica','Bateria') NULL,
+  CaracteristicasBateria VARCHAR(30)  NULL,
+
+  -- Caracteristicas fisicas
+  PesoKg                 DECIMAL(8,3) NULL,
+  AltoMm                 INT          NULL,
+  AnchoMm                INT          NULL,
+  ProfundoMm             INT          NULL,
+
+  -- Condiciones de operacion (rangos DIVIDIDOS)
+  TempMinC               SMALLINT     NULL,
+  TempMaxC               SMALLINT     NULL,
+  HumMinPct              TINYINT      NULL,
+  HumMaxPct              TINYINT      NULL,
+
+  -- Clasificaciones (columnas NORMALIZADAS)
+  IdClasifElectrica      INT          NULL,
+  IdClasifBiomedica      INT          NOT NULL,
+  IdClasifRiesgo         INT          NOT NULL,
+  IdTecnologia           INT          NULL,
+  IdFrecuenciaMpp        INT          NULL,
+
+  -- Booleanos
+  ManejaSoftware         TINYINT(1)   NULL,
+  RequiereCalibracion    TINYINT(1)   NULL,
+
+  -- Texto libre y trazabilidad
+  Accesorios             TEXT         NULL,
+  EstadoEquipo           TINYINT(1)   NOT NULL DEFAULT 1,
+  FechaRegistro          TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+
+  -- Integridad
+  CONSTRAINT uq_activo    UNIQUE (ActivoFijo),
+  CONSTRAINT fk_inv_serv  FOREIGN KEY (IdServicio)        REFERENCES servicios(IdServicio),
+  CONSTRAINT fk_inv_area  FOREIGN KEY (IdArea)            REFERENCES areas(IdArea),
+  CONSTRAINT fk_inv_bio   FOREIGN KEY (IdClasifBiomedica) REFERENCES clasif_biomedica(IdClasifBiomedica),
+  CONSTRAINT fk_inv_ries  FOREIGN KEY (IdClasifRiesgo)    REFERENCES clasif_riesgo(IdClasifRiesgo),
+  CONSTRAINT fk_inv_elec  FOREIGN KEY (IdClasifElectrica) REFERENCES clasif_electrica(IdClasifElectrica),
+  CONSTRAINT fk_inv_tec   FOREIGN KEY (IdTecnologia)      REFERENCES tecnologias(IdTecnologia),
+  CONSTRAINT fk_inv_mpp   FOREIGN KEY (IdFrecuenciaMpp)   REFERENCES frecuencias_mpp(IdFrecuenciaMpp),
+  CONSTRAINT ck_anio      CHECK (AnioFabricacion IS NULL OR AnioFabricacion BETWEEN 1950 AND 2100),
+  CONSTRAINT ck_temp      CHECK (TempMinC IS NULL OR TempMaxC IS NULL OR TempMinC <= TempMaxC)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE INDEX idx_inv_nombre ON inventario (NombreEquipo);
+
+-- ---------------- DATOS DE PRUEBA (tomados de BD.xlsx) ----------------
+INSERT INTO inventario
+(ActivoFijo, Placa, NombreEquipo, Marca, Modelo, Serie, AnioFabricacion,
+ IdServicio, IdArea, VoltajeValor, VoltajeTipo, CorrienteValor, CorrienteUnidad,
+ PotenciaW, FuenteAlimentacion, PesoKg, AltoMm, AnchoMm, ProfundoMm,
+ TempMinC, TempMaxC, HumMinPct, HumMaxPct,
+ IdClasifElectrica, IdClasifBiomedica, IdClasifRiesgo, IdTecnologia, IdFrecuenciaMpp,
+ ManejaSoftware, RequiereCalibracion, Accesorios)
+VALUES
+('3393','E000355','AUTOCLAVE','ARAWELL',NULL,NULL,2006,
+ 1,2,380,'VAC',10.000,'A',3600,'Electrica',450.000,1000,1850,580,
+ 0,150,30,80, 2,3,3,5,2, 0,1,NULL),
+('1146',NULL,'BASCULA ANALOGA','HEALTH O METER','233KG',NULL,2013,
+ 7,12,NULL,NULL,NULL,NULL,NULL,NULL,15.000,280,1470,560,
+ 0,58,30,60, NULL,1,1,3,2, 0,1,NULL),
+('E000774',NULL,'AGITADOR DE PLAQUETAS','HELMER','PF151','1011960',2013,
+ 5,8,110,'VAC',NULL,NULL,NULL,'Electrica',NULL,NULL,NULL,NULL,
+ NULL,NULL,30,60, NULL,4,1,1,3, 0,0,NULL);
+```
 
 ::: {.callout-flipped}
-##### 💡 Preparación Previa
-*Contenido y guía práctica en construcción por el docente.*
+##### 💡 Fíjese en el tercer registro
+`E000774` viene del Excel **en la columna `ACTIVO`**, no en `PLACA NUEVA`.
+Si hubiéramos tipificado `ActivoFijo` como `INT`, ese equipo **no se podría registrar**.
+Ese es el costo real de una mala tipificación: pérdida de datos.
+:::
 
+### 5.2 Bonus: la criticidad que define la frecuencia de mantenimiento
+
+La hoja **`MPP`** de `BD.xlsx` califica cada equipo con 4 variables de 1 a 5
+(frecuencia de uso, forma de uso, exactitud requerida, importancia económica).
+La suma define el período: **4–8 anual · 9–13 semestral · 14–17 trimestral · 18–20 bimestral**.
+
+Eso **no se escribe a mano**: se calcula.
+
+```sql
+CREATE TABLE IF NOT EXISTS criticidad (
+  IdCriticidad   INT AUTO_INCREMENT PRIMARY KEY,
+  IdEquipo       INT NOT NULL,
+  FrecuenciaUso  TINYINT NOT NULL,
+  FormaUso       TINYINT NOT NULL,
+  ExactitudReq   TINYINT NOT NULL,
+  ImportanciaEco TINYINT NOT NULL,
+  -- Columna generada: MySQL la calcula sola, nadie la puede desincronizar
+  PuntajeTotal   TINYINT AS (FrecuenciaUso + FormaUso + ExactitudReq + ImportanciaEco) STORED,
+  CONSTRAINT fk_crit_equipo FOREIGN KEY (IdEquipo) REFERENCES inventario(IdEquipo),
+  CONSTRAINT ck_rangos CHECK (
+       FrecuenciaUso  BETWEEN 1 AND 5
+   AND FormaUso       BETWEEN 1 AND 5
+   AND ExactitudReq   BETWEEN 1 AND 5
+   AND ImportanciaEco BETWEEN 1 AND 5)
+) ENGINE=InnoDB;
+
+-- Vista que traduce el puntaje al periodo de mantenimiento
+CREATE OR REPLACE VIEW v_cronograma_mpp AS
+SELECT i.IdEquipo, i.NombreEquipo, s.Nombre AS Servicio, c.PuntajeTotal,
+       CASE
+         WHEN c.PuntajeTotal BETWEEN 18 AND 20 THEN 'BIMESTRAL'
+         WHEN c.PuntajeTotal BETWEEN 14 AND 17 THEN 'TRIMESTRAL'
+         WHEN c.PuntajeTotal BETWEEN  9 AND 13 THEN 'SEMESTRAL'
+         ELSE 'ANUAL'
+       END AS PeriodoMpp
+FROM criticidad c
+JOIN inventario i ON i.IdEquipo = c.IdEquipo
+JOIN servicios  s ON s.IdServicio = i.IdServicio;
+
+-- Ejemplo: MONITOR MULTIPARAMETROS de la hoja MPP -> 5+5+5+4 = 19 -> BIMESTRAL
+INSERT INTO criticidad (IdEquipo, FrecuenciaUso, FormaUso, ExactitudReq, ImportanciaEco)
+VALUES (1, 5, 4, 4, 4);
+
+SELECT * FROM v_cronograma_mpp;
+```
+
+::: {.callout-eval}
+##### 🧪 Verificación obligatoria (3 consultas que debe ejecutar)
+```sql
+-- 1) El UNIQUE funciona: esto DEBE fallar
+INSERT INTO inventario (ActivoFijo, NombreEquipo, Marca, IdServicio, IdClasifBiomedica, IdClasifRiesgo)
+VALUES ('3393','EQUIPO REPETIDO','X',1,1,1);
+
+-- 2) La FOREIGN KEY funciona: esto DEBE fallar (no existe el servicio 99)
+INSERT INTO inventario (ActivoFijo, NombreEquipo, Marca, IdServicio, IdClasifBiomedica, IdClasifRiesgo)
+VALUES ('9999','EQUIPO FANTASMA','X',99,1,1);
+
+-- 3) La consulta que ANTES del diseno era imposible:
+--    "cuantos equipos de soporte de vida hay por servicio"
+SELECT s.Nombre AS Servicio, cb.Nombre AS Clasificacion, COUNT(*) AS Total
+FROM inventario i
+JOIN servicios s         ON s.IdServicio = i.IdServicio
+JOIN clasif_biomedica cb ON cb.IdClasifBiomedica = i.IdClasifBiomedica
+WHERE i.EstadoEquipo = 1
+GROUP BY s.Nombre, cb.Nombre
+ORDER BY Total DESC;
+```
+Si las dos primeras **fallan** y la tercera **agrupa correctamente**, su base cumple el diccionario. ✅
+:::
+
+### ✅ Entregable del Paso 5
+`database.sql` ejecutable + captura de phpMyAdmin con las 8 tablas creadas.
+
+---
+
+## Paso 6 · Conexión PHP 🔌
+
+Cree la carpeta `C:\xampp\htdocs\ProyectoInventario\api\` y dentro el archivo `conexion.php`
+(el mismo de la *Guía WEB*, apuntando a nuestra base):
+
+```php
+<?php
+// api/conexion.php
+$mysqli = new mysqli('localhost', 'root', '', 'inventarioequipos');
+
+if ($mysqli->connect_error) {
+    die('Error en la conexion: ' . $mysqli->connect_error);
+}
+
+// Necesario para que las tildes y la Ñ se guarden bien
+$mysqli->set_charset('utf8mb4');
+```
+
+::: {.callout-important}
+##### ⚠️ Diferencia con la Guía WEB
+La guía incluye `echo("conexion exitosa");` para probar el archivo. **Úselo solo para probar y luego bórrelo**:
+si lo deja, ese texto se imprime en **todas** las páginas que hagan `require 'conexion.php'` y le va a dañar el HTML.
+:::
+
+Pruebe abriendo `http://127.0.0.1/ProyectoInventario/api/conexion.php`.
+Si la página queda en blanco **sin errores**, la conexión funciona.
+
+---
+
+## Paso 7 · READ — `index.php` 👀
+
+**Objetivo:** listar el inventario, buscarlo y mostrar el formulario de registro.
+
+Cree `C:\xampp\htdocs\ProyectoInventario\index.php`.
+
+::: {.panel-tabset}
+
+## 7.1 Consulta (arriba del HTML)
+
+Todo esto va **antes** de `<!DOCTYPE html>`:
+
+```php
+<?php
+require 'api/conexion.php';
+
+// ---------- Busqueda ----------
+$busqueda = $_POST['campo'] ?? '';
+$where = "WHERE i.EstadoEquipo = 1";
+
+if ($busqueda !== '') {
+    $b = $mysqli->real_escape_string($busqueda);
+    $where .= " AND (i.ActivoFijo LIKE '%$b%'
+                  OR i.NombreEquipo LIKE '%$b%'
+                  OR i.Marca LIKE '%$b%'
+                  OR i.Serie LIKE '%$b%')";
+}
+
+// ---------- Listado con los nombres de las tablas de dominio ----------
+$sql = "SELECT i.IdEquipo, i.ActivoFijo, i.Placa, i.NombreEquipo, i.Marca,
+               i.Modelo, i.Serie, i.AnioFabricacion,
+               s.Nombre  AS Servicio,
+               a.Nombre  AS Area,
+               cb.Nombre AS ClasifBiomedica,
+               cr.Codigo AS Riesgo,
+               f.Nombre  AS FrecuenciaMpp
+        FROM inventario i
+        JOIN servicios s          ON s.IdServicio = i.IdServicio
+        LEFT JOIN areas a         ON a.IdArea = i.IdArea
+        JOIN clasif_biomedica cb  ON cb.IdClasifBiomedica = i.IdClasifBiomedica
+        JOIN clasif_riesgo cr     ON cr.IdClasifRiesgo = i.IdClasifRiesgo
+        LEFT JOIN frecuencias_mpp f ON f.IdFrecuenciaMpp = i.IdFrecuenciaMpp
+        $where
+        ORDER BY i.NombreEquipo";
+$resultado = $mysqli->query($sql);
+
+// ---------- Listas para los <select> del formulario ----------
+$servicios = $mysqli->query("SELECT IdServicio, Nombre FROM servicios ORDER BY Nombre");
+$areas     = $mysqli->query("SELECT IdArea, Nombre FROM areas ORDER BY Nombre");
+$biomed    = $mysqli->query("SELECT IdClasifBiomedica, Nombre FROM clasif_biomedica ORDER BY Nombre");
+$riesgos   = $mysqli->query("SELECT IdClasifRiesgo, Codigo, Descripcion FROM clasif_riesgo ORDER BY IdClasifRiesgo");
+$tecno     = $mysqli->query("SELECT IdTecnologia, Nombre FROM tecnologias ORDER BY Nombre");
+$frecs     = $mysqli->query("SELECT IdFrecuenciaMpp, Nombre FROM frecuencias_mpp ORDER BY MesesIntervalo");
+?>
+```
+
+::: {.callout-flipped}
+##### 💡 Por qué los `JOIN`
+En la tabla `inventario` el servicio está guardado como `IdServicio = 1`.
+Un número no le sirve al usuario. El `JOIN` con `servicios` es lo que convierte ese `1`
+en `SALAS DE CIRUGIA` en la pantalla. **Normalizar no significa mostrar códigos: significa guardarlos bien.**
+:::
+
+## 7.2 Cabecera HTML
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario de Equipos Biomédicos</title>
+
+  <!-- Estilos Bootstrap (igual que en la Guía WEB) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+<body>
+
+<div class="jumbotron jumbotron-fluid py-4 mb-4" style="background:#941100;color:#fff;">
+  <div class="container">
+    <h1 class="display-5">Inventario de Equipos Biomédicos</h1>
+    <p class="lead mb-0">Hospital Universitario Nivel III — Informática Médica IFMER 2026-II</p>
+  </div>
+</div>
+
+<div class="container">
+```
+
+## 7.3 Formulario de registro
+
+```html
+<h3 class="mb-3">Registrar equipo</h3>
+<form method="POST" action="api/guardar.php">
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="ActivoFijo">Activo fijo *</label>
+      <input type="text" class="form-control" name="ActivoFijo" id="ActivoFijo"
+             maxlength="15" required>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="Placa">Placa nueva</label>
+      <input type="text" class="form-control" name="Placa" id="Placa" maxlength="15">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="NombreEquipo">Nombre del equipo *</label>
+      <input type="text" class="form-control" name="NombreEquipo" id="NombreEquipo"
+             maxlength="80" required>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="Marca">Marca *</label>
+      <input type="text" class="form-control" name="Marca" id="Marca" maxlength="60" required>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="Modelo">Modelo</label>
+      <input type="text" class="form-control" name="Modelo" id="Modelo" maxlength="40">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="Serie">Serie</label>
+      <input type="text" class="form-control" name="Serie" id="Serie" maxlength="40">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="AnioFabricacion">Año de fabricación</label>
+      <input type="number" class="form-control" name="AnioFabricacion" id="AnioFabricacion"
+             min="1950" max="2100" placeholder="2013">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="IdServicio">Servicio *</label>
+      <select name="IdServicio" id="IdServicio" class="form-control" required>
+        <option value="">Seleccione…</option>
+        <?php while ($s = $servicios->fetch_assoc()) { ?>
+          <option value="<?php echo $s['IdServicio']; ?>"><?php echo $s['Nombre']; ?></option>
+        <?php } ?>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="IdArea">Área</label>
+      <select name="IdArea" id="IdArea" class="form-control">
+        <option value="">Seleccione…</option>
+        <?php while ($a = $areas->fetch_assoc()) { ?>
+          <option value="<?php echo $a['IdArea']; ?>"><?php echo $a['Nombre']; ?></option>
+        <?php } ?>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="IdClasifBiomedica">Clasificación biomédica *</label>
+      <select name="IdClasifBiomedica" id="IdClasifBiomedica" class="form-control" required>
+        <option value="">Seleccione…</option>
+        <?php while ($c = $biomed->fetch_assoc()) { ?>
+          <option value="<?php echo $c['IdClasifBiomedica']; ?>"><?php echo $c['Nombre']; ?></option>
+        <?php } ?>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="IdClasifRiesgo">Riesgo (INVIMA) *</label>
+      <select name="IdClasifRiesgo" id="IdClasifRiesgo" class="form-control" required>
+        <option value="">Seleccione…</option>
+        <?php while ($r = $riesgos->fetch_assoc()) { ?>
+          <option value="<?php echo $r['IdClasifRiesgo']; ?>">
+            <?php echo $r['Codigo'] . ' — ' . $r['Descripcion']; ?>
+          </option>
+        <?php } ?>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="IdTecnologia">Tecnología predominante</label>
+      <select name="IdTecnologia" id="IdTecnologia" class="form-control">
+        <option value="">Seleccione…</option>
+        <?php while ($t = $tecno->fetch_assoc()) { ?>
+          <option value="<?php echo $t['IdTecnologia']; ?>"><?php echo $t['Nombre']; ?></option>
+        <?php } ?>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="IdFrecuenciaMpp">Frecuencia de MPP</label>
+      <select name="IdFrecuenciaMpp" id="IdFrecuenciaMpp" class="form-control">
+        <option value="">Seleccione…</option>
+        <?php while ($f = $frecs->fetch_assoc()) { ?>
+          <option value="<?php echo $f['IdFrecuenciaMpp']; ?>"><?php echo $f['Nombre']; ?></option>
+        <?php } ?>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="FuenteAlimentacion">Fuente de alimentación</label>
+      <select name="FuenteAlimentacion" id="FuenteAlimentacion" class="form-control">
+        <option value="">Seleccione…</option>
+        <option value="Electrica">Eléctrica</option>
+        <option value="Bateria">Batería</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="VoltajeValor">Voltaje</label>
+      <input type="number" class="form-control" name="VoltajeValor" id="VoltajeValor" placeholder="110">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="VoltajeTipo">Tipo</label>
+      <select name="VoltajeTipo" id="VoltajeTipo" class="form-control">
+        <option value="">—</option>
+        <option value="VAC">VAC</option>
+        <option value="VDC">VDC</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="CorrienteValor">Corriente</label>
+      <input type="number" step="0.001" class="form-control" name="CorrienteValor" id="CorrienteValor">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="CorrienteUnidad">Unidad</label>
+      <select name="CorrienteUnidad" id="CorrienteUnidad" class="form-control">
+        <option value="">—</option>
+        <option value="A">A</option>
+        <option value="mA">mA</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="PotenciaW">Potencia (W)</label>
+      <input type="number" class="form-control" name="PotenciaW" id="PotenciaW">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="PesoKg">Peso (kg)</label>
+      <input type="number" step="0.001" class="form-control" name="PesoKg" id="PesoKg">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label>¿Maneja software?</label>
+      <select name="ManejaSoftware" class="form-control">
+        <option value="0">No</option>
+        <option value="1">Sí</option>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+      <label>¿Requiere calibración?</label>
+      <select name="RequiereCalibracion" class="form-control">
+        <option value="0">No</option>
+        <option value="1">Sí</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="Accesorios">Accesorios</label>
+      <input type="text" class="form-control" name="Accesorios" id="Accesorios"
+             placeholder="Cable AC, Cable ECG, Palas">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-danger mb-4">Guardar equipo</button>
+</form>
+```
+
+## 7.4 Búsqueda y tabla
+
+```html
+<hr>
+<h3 class="mb-3">Consultar inventario</h3>
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="form-inline mb-3">
+  <input type="text" class="form-control mr-2" id="campo" name="campo"
+         placeholder="Activo, nombre, marca o serie"
+         value="<?php echo htmlspecialchars($busqueda); ?>">
+  <input type="submit" value="Buscar" class="btn btn-info mr-2">
+  <a href="index.php" class="btn btn-secondary">Limpiar</a>
+</form>
+
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead class="thead-dark">
+      <tr>
+        <th>Activo</th><th>Equipo</th><th>Marca</th><th>Modelo</th>
+        <th>Serie</th><th>Año</th><th>Servicio</th><th>Área</th>
+        <th>Clasificación</th><th>Riesgo</th><th>MPP</th><th colspan="2">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php while ($row = $resultado->fetch_assoc()) { ?>
+        <tr>
+          <td><?php echo $row['ActivoFijo']; ?></td>
+          <td><?php echo $row['NombreEquipo']; ?></td>
+          <td><?php echo $row['Marca']; ?></td>
+          <td><?php echo $row['Modelo'] ?? '—'; ?></td>
+          <td><?php echo $row['Serie'] ?? '—'; ?></td>
+          <td><?php echo $row['AnioFabricacion'] ?? '—'; ?></td>
+          <td><?php echo $row['Servicio']; ?></td>
+          <td><?php echo $row['Area'] ?? '—'; ?></td>
+          <td><?php echo $row['ClasifBiomedica']; ?></td>
+          <td><span class="badge badge-warning"><?php echo $row['Riesgo']; ?></span></td>
+          <td><?php echo $row['FrecuenciaMpp'] ?? '—'; ?></td>
+          <td>
+            <a class="btn btn-sm btn-primary"
+               href="modificar.php?id=<?php echo $row['IdEquipo']; ?>">Editar</a>
+          </td>
+          <td>
+            <a class="btn btn-sm btn-danger" href="#"
+               data-href="api/eliminar.php?id=<?php echo $row['IdEquipo']; ?>"
+               data-toggle="modal" data-target="#confirm-delete">Dar de baja</a>
+          </td>
+        </tr>
+      <?php } ?>
+    </tbody>
+  </table>
+</div>
+</div><!-- /container -->
+```
+
+## 7.5 Modal y scripts
+
+```html
+<!-- Modal de confirmación (igual que en la Guía WEB) -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Dar de baja el equipo</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        ¿Confirma dar de baja este equipo? El registro <b>no se borra</b>: queda inactivo
+        para conservar la trazabilidad del inventario.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn-ok">Confirmar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<script>
+  $('#confirm-delete').on('show.bs.modal', function (e) {
+    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+  });
+</script>
+
+</body>
+</html>
+```
+
+:::
+
+Abra `http://127.0.0.1/ProyectoInventario/index.php`: debe ver los 3 equipos de prueba
+con el **nombre** del servicio y la clasificación, no con sus códigos.
+
+### ✅ Entregable del Paso 7
+Captura del listado funcionando con la búsqueda aplicada.
+
+---
+
+## Paso 8 · CREATE — `api/guardar.php` 💾
+
+```php
+<?php
+// api/guardar.php
+require 'conexion.php';
+
+// ---------- Campos que acepta el formulario (= diccionario de datos) ----------
+$campos = ['ActivoFijo','Placa','NombreEquipo','Marca','Modelo','Serie','AnioFabricacion',
+           'IdServicio','IdArea','IdClasifBiomedica','IdClasifRiesgo','IdTecnologia',
+           'IdFrecuenciaMpp','FuenteAlimentacion','VoltajeValor','VoltajeTipo',
+           'CorrienteValor','CorrienteUnidad','PotenciaW','PesoKg',
+           'ManejaSoftware','RequiereCalibracion','Accesorios'];
+
+$datos = [];
+foreach ($campos as $c) {
+    $v = $_POST[$c] ?? '';
+    $datos[$c] = ($v === '') ? null : $v;   // vacio en el formulario = NULL en la BD
+}
+
+// ---------- Validaciones minimas (las que exige el diccionario) ----------
+$errores = [];
+if (empty($datos['ActivoFijo']))        $errores[] = 'El activo fijo es obligatorio.';
+if (empty($datos['NombreEquipo']))      $errores[] = 'El nombre del equipo es obligatorio.';
+if (empty($datos['Marca']))             $errores[] = 'La marca es obligatoria.';
+if (empty($datos['IdServicio']))        $errores[] = 'Debe seleccionar el servicio.';
+if (empty($datos['IdClasifBiomedica'])) $errores[] = 'Debe seleccionar la clasificacion biomedica.';
+if (empty($datos['IdClasifRiesgo']))    $errores[] = 'Debe seleccionar la clasificacion de riesgo.';
+
+if (!empty($datos['AnioFabricacion'])) {
+    $anio = (int)$datos['AnioFabricacion'];
+    if ($anio < 1950 || $anio > (int)date('Y')) {
+        $errores[] = 'El anio de fabricacion debe estar entre 1950 y ' . date('Y') . '.';
+    }
+}
+
+// ---------- Insercion con CONSULTA PREPARADA ----------
+$guardado = false;
+$mensajeError = '';
+
+if (empty($errores)) {
+    $cols   = implode(', ', $campos);
+    $marcas = implode(', ', array_fill(0, count($campos), '?'));
+    $tipos  = str_repeat('s', count($campos));   // mysqli castea segun la columna
+
+    // En PHP 8 mysqli LANZA EXCEPCIONES: el error se atrapa con try/catch,
+    // no comprobando el valor que devuelve execute().
+    try {
+        $stmt = $mysqli->prepare("INSERT INTO inventario ($cols) VALUES ($marcas)");
+        $stmt->bind_param($tipos, ...array_values($datos));
+        $stmt->execute();
+        $stmt->close();
+        $guardado = true;
+    } catch (mysqli_sql_exception $e) {
+        if ($e->getCode() == 1062) {                 // viola UNIQUE
+            $mensajeError = 'Ya existe un equipo con ese numero de activo fijo.';
+        } elseif ($e->getCode() == 1452) {           // viola FOREIGN KEY
+            $mensajeError = 'El servicio o la clasificacion seleccionada no existe en la tabla de dominio.';
+        } else {
+            $mensajeError = 'Error al guardar: ' . $e->getMessage();
+        }
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guardar equipo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5 text-center">
+  <?php if ($guardado) { ?>
+    <div class="alert alert-success"><h3>EQUIPO REGISTRADO</h3></div>
+  <?php } else { ?>
+    <div class="alert alert-danger">
+      <h3>NO SE PUDO REGISTRAR</h3>
+      <ul class="list-unstyled mb-0">
+        <?php foreach ($errores as $e) { echo "<li>$e</li>"; } ?>
+        <?php if ($mensajeError) { echo "<li>$mensajeError</li>"; } ?>
+      </ul>
+    </div>
+  <?php } ?>
+  <a href="../index.php" class="btn btn-primary">Regresar</a>
+</div>
+</body>
+</html>
+```
+
+::: {.callout-important}
+##### ⚠️ PHP 8 cambió cómo se reportan los errores de MySQL
+XAMPP hoy trae **PHP 8**, y ahí `mysqli` **lanza excepciones** en lugar de devolver `false`.
+Por eso el `INSERT` va dentro de un `try / catch`.
+
+Si copia el patrón antiguo `if ($stmt->execute()) { ... } else { ... }`, el bloque `else`
+**nunca se ejecuta**: al registrar un activo fijo repetido el estudiante no verá su mensaje,
+verá una pantalla blanca con *Fatal error: Uncaught mysqli_sql_exception*.
+Es el error más frecuente de esta práctica.
+:::
+
+::: {.callout-important}
+##### 🔐 Diferencia clave con la Guía WEB
+La guía arma el `INSERT` **concatenando** las variables:
+`"... VALUES ('$Placa', '$NombreEquipo', ...)"`.
+Eso funciona, pero permite **inyección SQL**: si alguien escribe `'; DROP TABLE inventario; --`
+en el formulario, la base se destruye.
+
+Aquí usamos `prepare()` + `bind_param()`: los datos viajan **separados** de la sentencia SQL
+y esa clase de ataque deja de ser posible. En un sistema hospitalario esto **no es opcional**.
+:::
+
+::: {.callout-eval}
+##### 🧪 Micro-reto 5 (5 minutos)
+Registre un equipo dejando vacío el campo **Serie**. Consulte la tabla en phpMyAdmin.
+**¿Quedó guardado como `NULL` o como cadena vacía `''`?**
+Explique por qué la línea `$datos[$c] = ($v === '') ? null : $v;` importa.
+:::
+
+### ✅ Entregable del Paso 8
+Captura de un equipo registrado desde el formulario y visible en el listado.
+
+---
+
+## Paso 9 · UPDATE — `modificar.php` + `api/actualizar.php` ✏️
+
+### 9.1 `modificar.php` (en la carpeta principal)
+
+Carga el equipo seleccionado y lo muestra en un formulario **pre-diligenciado**.
+
+```php
+<?php
+require 'api/conexion.php';
+
+$id = (int)($_GET['id'] ?? 0);
+
+$stmt = $mysqli->prepare("SELECT * FROM inventario WHERE IdEquipo = ?");
+$stmt->bind_param('i', $id);
+$stmt->execute();
+$row = $stmt->get_result()->fetch_assoc();
+$stmt->close();
+
+if (!$row) {
+    die('<div style="font-family:sans-serif;padding:2rem">Equipo no encontrado.
+         <a href="index.php">Regresar</a></div>');
+}
+
+// Listas de dominio para los <select>
+$servicios = $mysqli->query("SELECT IdServicio, Nombre FROM servicios ORDER BY Nombre");
+$biomed    = $mysqli->query("SELECT IdClasifBiomedica, Nombre FROM clasif_biomedica ORDER BY Nombre");
+$riesgos   = $mysqli->query("SELECT IdClasifRiesgo, Codigo FROM clasif_riesgo ORDER BY IdClasifRiesgo");
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modificar equipo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+  <h2>Modificar equipo #<?php echo $row['IdEquipo']; ?></h2>
+
+  <form method="POST" action="api/actualizar.php?id=<?php echo $row['IdEquipo']; ?>">
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label>Activo fijo *</label>
+        <input type="text" class="form-control" name="mActivoFijo" required
+               value="<?php echo htmlspecialchars($row['ActivoFijo']); ?>">
+      </div>
+      <div class="form-group col-md-3">
+        <label>Placa</label>
+        <input type="text" class="form-control" name="mPlaca"
+               value="<?php echo htmlspecialchars($row['Placa'] ?? ''); ?>">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Nombre del equipo *</label>
+        <input type="text" class="form-control" name="mNombreEquipo" required
+               value="<?php echo htmlspecialchars($row['NombreEquipo']); ?>">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label>Marca *</label>
+        <input type="text" class="form-control" name="mMarca" required
+               value="<?php echo htmlspecialchars($row['Marca']); ?>">
+      </div>
+      <div class="form-group col-md-3">
+        <label>Modelo</label>
+        <input type="text" class="form-control" name="mModelo"
+               value="<?php echo htmlspecialchars($row['Modelo'] ?? ''); ?>">
+      </div>
+      <div class="form-group col-md-3">
+        <label>Serie</label>
+        <input type="text" class="form-control" name="mSerie"
+               value="<?php echo htmlspecialchars($row['Serie'] ?? ''); ?>">
+      </div>
+      <div class="form-group col-md-3">
+        <label>Año de fabricación</label>
+        <input type="number" class="form-control" name="mAnioFabricacion" min="1950" max="2100"
+               value="<?php echo $row['AnioFabricacion']; ?>">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label>Servicio *</label>
+        <select name="mIdServicio" class="form-control" required>
+          <?php while ($s = $servicios->fetch_assoc()) { ?>
+            <option value="<?php echo $s['IdServicio']; ?>"
+              <?php if ($row['IdServicio'] == $s['IdServicio']) echo 'selected'; ?>>
+              <?php echo $s['Nombre']; ?>
+            </option>
+          <?php } ?>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label>Clasificación biomédica *</label>
+        <select name="mIdClasifBiomedica" class="form-control" required>
+          <?php while ($c = $biomed->fetch_assoc()) { ?>
+            <option value="<?php echo $c['IdClasifBiomedica']; ?>"
+              <?php if ($row['IdClasifBiomedica'] == $c['IdClasifBiomedica']) echo 'selected'; ?>>
+              <?php echo $c['Nombre']; ?>
+            </option>
+          <?php } ?>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label>Riesgo *</label>
+        <select name="mIdClasifRiesgo" class="form-control" required>
+          <?php while ($r = $riesgos->fetch_assoc()) { ?>
+            <option value="<?php echo $r['IdClasifRiesgo']; ?>"
+              <?php if ($row['IdClasifRiesgo'] == $r['IdClasifRiesgo']) echo 'selected'; ?>>
+              <?php echo $r['Codigo']; ?>
+            </option>
+          <?php } ?>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Actualizar</button>
+    <a href="index.php" class="btn btn-secondary">Regresar</a>
+  </form>
+</div>
+</body>
+</html>
+```
+
+::: {.callout-flipped}
+##### 💡 El detalle que hace funcionar la edición
+`<?php if ($row['IdServicio'] == $s['IdServicio']) echo 'selected'; ?>`
+
+Sin esa línea, el `<select>` siempre abre en la primera opción y, al guardar,
+**le cambia el servicio al equipo sin que nadie lo pidiera**. Es el error más común de esta clase.
+:::
+
+### 9.2 `api/actualizar.php`
+
+```php
+<?php
+// api/actualizar.php
+require 'conexion.php';
+
+$id = (int)($_GET['id'] ?? 0);
+
+$campos = ['ActivoFijo','Placa','NombreEquipo','Marca','Modelo','Serie',
+           'AnioFabricacion','IdServicio','IdClasifBiomedica','IdClasifRiesgo'];
+
+$datos = [];
+foreach ($campos as $c) {
+    $v = $_POST['m' . $c] ?? '';       // el formulario usa el prefijo "m"
+    $datos[$c] = ($v === '') ? null : $v;
+}
+
+$sets    = implode(' = ?, ', $campos) . ' = ?';
+$tipos   = str_repeat('s', count($campos)) . 'i';
+$valores = array_values($datos);
+$valores[] = $id;
+
+$ok = false; $filas = 0; $mensajeError = '';
+
+try {
+    $stmt = $mysqli->prepare("UPDATE inventario SET $sets WHERE IdEquipo = ?");
+    $stmt->bind_param($tipos, ...$valores);
+    $stmt->execute();
+    $filas = $stmt->affected_rows;
+    $stmt->close();
+    $ok = true;
+} catch (mysqli_sql_exception $e) {
+    $mensajeError = ($e->getCode() == 1062)
+        ? 'Ya existe otro equipo con ese numero de activo fijo.'
+        : 'Error al actualizar: ' . $e->getMessage();
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actualizar</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5 text-center">
+  <?php if ($ok) { ?>
+    <div class="alert alert-success">
+      <h3>REGISTRO MODIFICADO</h3>
+      <p class="mb-0">Filas afectadas: <?php echo $filas; ?></p>
+    </div>
+  <?php } else { ?>
+    <div class="alert alert-danger"><h3>ERROR AL MODIFICAR</h3>
+      <p class="mb-0"><?php echo $mensajeError; ?></p></div>
+  <?php } ?>
+  <a href="../index.php" class="btn btn-primary">Regresar</a>
+</div>
+</body>
+</html>
+```
+
+::: {.callout-eval}
+##### 🧪 Micro-reto 6 (3 minutos)
+Edite un equipo **sin cambiar nada** y pulse Actualizar.
+`affected_rows` va a devolver **0**. ¿Es un error? Explique la diferencia entre
+*"la consulta falló"* y *"la consulta no modificó ninguna fila"*.
+:::
+
+### ✅ Entregable del Paso 9
+Captura de un equipo antes y después de editarlo.
+
+---
+
+## Paso 10 · DELETE — `api/eliminar.php` 🗑️
+
+```php
+<?php
+// api/eliminar.php
+require 'conexion.php';
+
+$id = (int)($_GET['id'] ?? 0);
+
+// BORRADO LOGICO: el equipo no se borra, se marca como dado de baja.
+$stmt = $mysqli->prepare("UPDATE inventario SET EstadoEquipo = 0 WHERE IdEquipo = ?");
+$stmt->bind_param('i', $id);
+$ok = $stmt->execute();
+$filas = $stmt->affected_rows;
+$stmt->close();
+
+// --- Version con borrado FISICO (NO recomendada, solo para comparar en clase) ---
+// $stmt = $mysqli->prepare("DELETE FROM inventario WHERE IdEquipo = ?");
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dar de baja</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5 text-center">
+  <?php if ($ok && $filas > 0) { ?>
+    <div class="alert alert-warning"><h3>EQUIPO DADO DE BAJA</h3>
+      <p class="mb-0">El registro sigue en la base de datos con <code>EstadoEquipo = 0</code>.</p>
+    </div>
+  <?php } else { ?>
+    <div class="alert alert-danger"><h3>NO SE PUDO DAR DE BAJA</h3></div>
+  <?php } ?>
+  <a href="../index.php" class="btn btn-primary">Regresar</a>
+</div>
+</body>
+</html>
+```
+
+::: {.callout-important}
+##### ⚠️ Por qué NO usamos `DELETE FROM`
+La *Guía WEB* usa `DELETE FROM inventario WHERE id = '$id'`. Es correcto como ejercicio de SQL,
+pero en un hospital un equipo biomédico tiene **historia**: mantenimientos, calibraciones, eventos adversos.
+Si borra el equipo, se rompen todas esas referencias (`FOREIGN KEY`) y se pierde la trazabilidad
+que exige la resolución de tecnovigilancia.
+
+**Regla:** en sistemas de salud se da de baja, no se borra.
+:::
+
+::: {.callout-eval}
+##### 🧪 Micro-reto 7 (3 minutos)
+Dé de baja un equipo y verifique en phpMyAdmin que **sigue existiendo** con `EstadoEquipo = 0`.
+Luego escriba la consulta que lista **solo los equipos dados de baja**.
+:::
+
+### ✅ Entregable del Paso 10
+Captura del modal de confirmación y del registro con `EstadoEquipo = 0`.
+
+---
+
+## Paso 11 · Mejorar la Seguridad del Código 🛡️
+
+El código de los pasos anteriores **funciona**, pero todavía tiene tres agujeros de seguridad.
+Corregirlos es lo que separa un ejercicio de clase de una aplicación que se puede entregar:
+
+| # | Problema en el código base | Solución | Dónde aplicarla |
+|:-:|:---------------------------|:---------|:----------------|
+| 1 | SQL armado con concatenación → **inyección SQL** | `prepare()` + `bind_param()` | `guardar.php`, `actualizar.php`, `eliminar.php` |
+| 2 | Datos impresos sin filtrar → **XSS** | `htmlspecialchars($valor)` al imprimir | `index.php`, `modificar.php` |
+| 3 | Credenciales de BD en el código | Archivo de configuración fuera de `htdocs` | `conexion.php` |
+
+::: {.callout-flipped}
+##### 💡 Qué significa cada ataque, en palabras sencillas
+**Inyección SQL.** Si el `INSERT` se arma pegando texto (`"... '$Marca' ..."`), el usuario puede
+escribir en el formulario algo que **el servidor confunde con instrucciones SQL** en vez de con un dato.
+Con eso puede leer toda la base, cambiarla o borrarla. La consulta preparada lo evita porque
+el dato viaja por un canal separado y nunca se interpreta como instrucción.
+
+**XSS (*Cross-Site Scripting*).** Si usted imprime en la tabla lo que alguien guardó, y esa persona
+guardó `<script>…</script>` en el campo Marca, **ese código se ejecuta en el navegador de quien
+consulte el inventario**. `htmlspecialchars()` lo convierte en texto visible e inofensivo.
+:::
+
+```php
+// 1. Inyección SQL — la búsqueda de index.php, con consulta preparada
+$sql = "SELECT ... FROM inventario i ... WHERE i.EstadoEquipo = 1
+        AND (i.ActivoFijo LIKE ? OR i.NombreEquipo LIKE ? OR i.Marca LIKE ?)";
+$stmt = $mysqli->prepare($sql);
+$like = '%' . $busqueda . '%';
+$stmt->bind_param('sss', $like, $like, $like);
+$stmt->execute();
+$resultado = $stmt->get_result();
+
+// 2. XSS — al imprimir cualquier dato que venga de la base
+<td><?php echo htmlspecialchars($row['NombreEquipo']); ?></td>
+```
+
+::: {.callout-eval}
+##### 🧪 Micro-reto 8 — demuestre la vulnerabilidad (5 minutos)
+En la versión **concatenada** de la búsqueda, escriba en el buscador:
+
+`' OR '1'='1`
+
+y observe que devuelve **todos** los equipos, incluidos los dados de baja.
+Luego cambie a la versión preparada y repita: no devuelve nada.
+**Esa es la diferencia, en una sola prueba.**
+:::
+
+---
+
+## Paso 12 · Pruebas ✅
+
+| # | Caso de prueba | Entrada | Resultado esperado |
+|:-:|:---------------|:--------|:-------------------|
+| 1 | Registro válido | Todos los obligatorios diligenciados | "EQUIPO REGISTRADO" y aparece en la tabla |
+| 2 | Activo fijo duplicado | `ActivoFijo` = `3393` | Error de `UNIQUE`: "Ya existe un equipo con ese activo" |
+| 3 | Obligatorio vacío | Sin `NombreEquipo` | El navegador bloquea el envío (`required`) |
+| 4 | Servicio inexistente | Forzar `IdServicio = 99` | Error de `FOREIGN KEY` |
+| 5 | Año inválido | `AnioFabricacion` = `1800` | "El año debe estar entre 1950 y 2026" |
+| 6 | Campo opcional vacío | Sin `Serie` | Se guarda `NULL`, no `''` |
+| 7 | Edición | Cambiar la marca | "REGISTRO MODIFICADO", filas afectadas: 1 |
+| 8 | Baja lógica | Botón *Dar de baja* | Desaparece del listado, sigue en la BD con `EstadoEquipo = 0` |
+| 9 | Búsqueda | Buscar `AUTOCLAVE` | Solo los equipos que coinciden |
+| 10 | Inyección SQL | `' OR '1'='1` | Con consulta preparada: **cero resultados** |
+
+### ✅ Entregable del Paso 12
+Tabla de los 10 casos con el resultado obtenido y captura de al menos 4.
+
+---
+
+## 🎬 Video: así debe quedar su aplicación
+
+Este video de 90 segundos muestra la aplicación **funcionando de verdad**, con la base
+`inventarioequipos` cargada desde el `database.sql` de esta guía. **Es el criterio de aceptación
+del taller:** si su pantalla se comporta como este video, el trabajo está completo.
+
+```{=html}
+<video controls preload="metadata" playsinline
+       style="width:100%;max-width:900px;border-radius:10px;border:1px solid #e2e8f0;box-shadow:0 4px 12px rgba(0,0,0,.12);display:block;margin:1.25rem auto;">
+  <source src="demo_crud_equipos.mp4" type="video/mp4">
+  Su navegador no reproduce video HTML5.
+  <a href="demo_crud_equipos.mp4">Descargue el archivo aquí</a>.
+</video>
+```
+
+### Lo que aparece en el video, en orden
+
+| Tiempo | Qué se ve | Qué demuestra |
+|:--:|:--|:--|
+| 0:05 | La aplicación en `http://localhost/ProyectoInventario/index.php` | El proyecto corre en XAMPP |
+| 0:12 | El listado con **nombres** de servicio y clasificación | El `SELECT` con `JOIN` a las tablas de dominio |
+| 0:20 | Se diligencia el formulario; los desplegables traen los dominios | Los `<select>` se llenan desde la base, no a mano |
+| 0:38 | **EQUIPO REGISTRADO** y el equipo aparece en la tabla | `CREATE` con consulta preparada |
+| 0:48 | Se repite el activo fijo → *"Ya existe un equipo con ese número de activo fijo"* | La restricción `UNIQUE` y el `try/catch` funcionando |
+| 0:58 | Búsqueda por `VENTILADOR` | `READ` con filtro |
+| 1:06 | El formulario de edición llega **prellenado** | `modificar.php` con los `selected` correctos |
+| 1:14 | **REGISTRO MODIFICADO · Filas afectadas: 1** | `UPDATE ... WHERE IdEquipo = ?` |
+| 1:22 | Modal de confirmación y **EQUIPO DADO DE BAJA** | Borrado **lógico**: `EstadoEquipo = 0` |
+| 1:28 | El equipo desaparece del listado pero sigue en la base | El `SELECT` filtra por `EstadoEquipo = 1` |
+
+::: {.callout-eval}
+##### ✅ Autoevaluación: compare su pantalla con el video
+Marque cada punto solo si lo logró **en su propio computador**:
+
+- [ ] La cabecera roja y el formulario se ven con Bootstrap (los estilos cargan).
+- [ ] Los desplegables de **Servicio**, **Clasificación biomédica** y **Riesgo** traen valores de la base de datos.
+- [ ] Al guardar aparece **EQUIPO REGISTRADO** y el equipo entra en la tabla.
+- [ ] Al repetir el activo fijo sale un **mensaje**, no una pantalla de error fatal de PHP.
+- [ ] La búsqueda filtra el listado.
+- [ ] El formulario de edición abre con los datos del equipo y el servicio correcto ya seleccionado.
+- [ ] Al actualizar dice **Filas afectadas: 1**.
+- [ ] Dar de baja saca el equipo del listado, y en phpMyAdmin el registro **sigue** con `EstadoEquipo = 0`.
+:::
+
+::: {.callout-important}
+##### ⚠️ Si algo no le funciona, revise en este orden
+1. **Página en blanco** → falta `require`, o hay un error de PHP. Active la vista de errores o revise el log de Apache.
+2. **"Error en la conexion"** → el nombre de la base en `conexion.php` no coincide con el del `database.sql`.
+3. **Los desplegables salen vacíos** → no ejecutó los `INSERT` de las tablas de dominio.
+4. **La página se ve sin estilos** → sin internet no carga el CDN de Bootstrap; descargue el `.css` a la carpeta `css/`.
+5. **Fatal error: mysqli_sql_exception** → le faltó el `try/catch` del Paso 8.
+:::
+
+---
+
+## Paso 13 · Planteamiento del Reto — Proyecto de Corte 2 🌉
+
+::: {.callout-important}
+##### 📌 Esto NO se desarrolla hoy
+Lo que sigue es el **enunciado** del proyecto que ustedes construirán durante el Corte 2.
+Hoy solo lo leemos para entender hacia dónde va el curso. El método ya lo aprendieron:
+es exactamente el mismo que acabamos de aplicar al inventario de equipos.
+:::
+
+### El reto
+
+Hoy la fuente de verdad fue un **Excel del hospital**. En el Corte 2 la fuente de verdad será **la ley**.
+
+Deberán construir un sistema de **registro e identificación de pacientes** cuyo modelo de datos
+no lo decide el programador, sino el **Anexo Técnico de la Resolución 866 de 2021** del Ministerio
+de Salud y Protección Social, que define el conjunto de datos relevantes para la
+**interoperabilidad de la Historia Clínica Electrónica**.
+
+**Las tres actividades del reto:**
+
+1. **Consulta normativa.** Ingresar a la web del Ministerio de Salud y ubicar, en el Anexo Técnico
+   de la Resolución 866 de 2021, la sección referida al **Conjunto de Datos de Identificación del Paciente**.
+   📄 [resolucion-866-de-2021.pdf](https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-866-de-2021.pdf)
+2. **Diccionario de Datos.** Construir, en hoja de cálculo, la misma tabla que hicimos hoy
+   (variable, campo BD, descripción, tipo, longitud, obligatorio, dominio, ejemplo, **fuente normativa**),
+   extrayendo **todas** las variables exigidas por la norma: tipo y número de identificación, nombres,
+   apellidos, sexo biológico, fecha de nacimiento, código DANE del municipio de residencia, etc.
+3. **Sistema CRUD.** Implementar el registro de pacientes en HTML + PHP + MySQL sobre ese diccionario.
+
+### Lo que cambia y lo que no
+
+| | Taller de hoy (Clase 06) | Reto de Corte 2 |
+|:--|:--|:--|
+| **Fuente** | `BD.xlsx` — Listado de Equipos | Resolución 866 de 2021 — Anexo Técnico |
+| **Entidad** | `inventario` (equipos) | `pacientes` (personas) |
+| **Dominios** | Servicio, clasificación de riesgo, tecnología | Tipo de documento, sexo, etnia, **DIVIPOLA – DANE** |
+| **Cómo se justifica un campo** | "está en el Excel del hospital" | "está en el artículo/anexo tal de la norma" |
+| **Riesgo de un error** | Un equipo mal inventariado | Un paciente **mal identificado** |
+| **Método** | Auditar → decidir → tipificar → crear → CRUD | **Idéntico** |
+
+::: {.callout-flipped}
+##### 💡 La diferencia que importa
+En el inventario, si tipifica mal `PESO` obtiene un reporte feo.
+En pacientes, si tipifica `NumeroDocumento` como `INT`, el documento `0012345` se vuelve `12345`
+y **usted acaba de crear un paciente que no existe**. La misma técnica, con consecuencias clínicas.
+:::
+
+::: {.callout-eval}
+##### 🧪 Para pensar antes de la próxima clase
+Sin abrir todavía la norma, escriba **tres variables** que usted cree que exige la Resolución 866
+para identificar a un paciente, y **una** que usted incluiría por costumbre pero que probablemente
+la norma **no** pide. En la primera clase del Corte 2 verificamos quién acertó.
+:::
+
+---
+
+## 📦 Entregables de la Clase 06
+
+Suba un solo archivo **`.zip`** con:
+
+1. `Auditoria_Diccionario_Equipos.xlsx` — hojas `auditoria` (31 columnas con su decisión),
+   `diccionario` (los 34 campos tipificados) y `decisiones_pendientes`.
+2. `database.sql` — script ejecutable con las tablas de dominio, `inventario`, `criticidad` y la vista.
+3. Carpeta `ProyectoInventario/` con `index.php`, `modificar.php` y `api/` (`conexion.php`,
+   `guardar.php`, `actualizar.php`, `eliminar.php`).
+4. `pruebas.pdf` — los 10 casos del Paso 12 con capturas.
+
+### 📊 Rúbrica
+
+| Criterio | Peso | Excelente (5.0) |
+|:---------|:----:|:----------------|
+| Auditoría y selección de variables | 25 % | Las 31 columnas auditadas; cada decisión (descartar/conservar/dividir/normalizar) justificada con datos |
+| Tipificación y diseño de la BD | 25 % | Tipos correctos; `PK`, `UNIQUE` y `FOREIGN KEY` implementadas; dominios normalizados |
+| CRUD funcional | 25 % | Las 4 operaciones funcionan desde la interfaz; los `<select>` cargan desde las tablas de dominio |
+| Seguridad y buenas prácticas | 15 % | Consultas preparadas, `htmlspecialchars`, borrado lógico |
+| Pruebas y documentación | 10 % | Los 10 casos ejecutados con evidencia |
+
+---
+
+## 📖 Materiales y Referencias
+
+::: {.callout-note}
+##### 💡 Material de la sesión
+* Base de datos fuente: [`BD.xlsx`](../recursos/BD.xlsx) — hoja `Listado Equipos`
+* Guía del proyecto web: [`Guía WEB`](../recursos/Guia%20WEB.pdf)
+* Plantilla de trabajo: [`Auditoria_Diccionario_Equipos_PLANTILLA.xlsx`](Auditoria_Diccionario_Equipos_PLANTILLA.xlsx)
+* Documentación oficial: [MySQL — Tipos de datos](https://dev.mysql.com/doc/refman/8.0/en/data-types.html) ·
+  [PHP — `mysqli::prepare`](https://www.php.net/manual/es/mysqli.prepare.php) ·
+  [Bootstrap 4 — Formularios](https://getbootstrap.com/docs/4.3/components/forms/)
+* Para el reto de Corte 2: [Resolución 866 de 2021 (MinSalud)](https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-866-de-2021.pdf)
 :::
 
 ---
 
 ## 🧪 Práctica de Laboratorio
 
-*Actividad práctica en desarrollo.*
+* **Actividad:** Auditar `BD.xlsx`, construir el diccionario de datos del inventario de equipos
+  biomédicos e implementar su CRUD completo con HTML, PHP y MySQL.
+* **Modalidad:** Individual en clase, entrega por parejas.
+* **Producto:** `.zip` con los 4 entregables listados arriba.

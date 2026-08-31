@@ -48,7 +48,7 @@ website:
             href: corte1/clase04/index.qmd
           - text: "Clase 05: Evaluación Corte 1"
             href: corte1/clase05/index.qmd
-          - text: "Clase 06: Integración"
+          - text: "Clase 06: CRUD de Inventario de Equipos"
             href: corte1/clase06/index.qmd
       - section: "🟩 Corte 2: Interoperabilidad & Salud"
         contents:

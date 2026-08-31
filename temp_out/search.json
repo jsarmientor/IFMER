@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "corte1/clase04/slides.html#servicios-web",
+    "href": "corte1/clase04/slides.html#servicios-web",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Servicios Web",
+    "text": "Servicios Web\nSoftware o pieza de software el cual utiliza protocolos y estándares para el intercambio de datos a través de internet."
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#protocolo-http",
+    "href": "corte1/clase04/slides.html#protocolo-http",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Protocolo HTTP",
+    "text": "Protocolo HTTP"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#rest-api",
+    "href": "corte1/clase04/slides.html#rest-api",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "REST-API",
+    "text": "REST-API"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#bases-de-datos-no-relacionales-nosql",
+    "href": "corte1/clase04/slides.html#bases-de-datos-no-relacionales-nosql",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Bases de Datos No Relacionales (NoSQL)",
+    "text": "Bases de Datos No Relacionales (NoSQL)\nAlternativa a las bases de datos SQL tradicionales (no utilizan tablas estrictas). Estructura flexible, escalable y rápida para grandes volúmenes de datos o esquemas dinámicos."
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#práctica-de-laboratorio",
+    "href": "corte1/clase04/slides.html#práctica-de-laboratorio",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "🧪 Práctica de Laboratorio",
+    "text": "🧪 Práctica de Laboratorio\nActividad: Replicar el sistema de Login y CRUD de la sesión consumiendo una base de datos NoSQL mediante Firebase y su API REST."
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#paradigma-de-los-servicios-web",
+    "href": "corte1/clase04/slides.html#paradigma-de-los-servicios-web",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Paradigma de los servicios Web",
+    "text": "Paradigma de los servicios Web\nRequest, Response, Hypermedia, Server"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#bases-de-datos",
+    "href": "corte1/clase04/slides.html#bases-de-datos",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Bases de Datos",
+    "text": "Bases de Datos"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#características",
+    "href": "corte1/clase04/slides.html#características",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Características",
+    "text": "Características"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#bases-de-datos-no-relacionales",
+    "href": "corte1/clase04/slides.html#bases-de-datos-no-relacionales",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Bases de Datos No Relacionales",
+    "text": "Bases de Datos No Relacionales"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#códigos-de-respuesta-http",
+    "href": "corte1/clase04/slides.html#códigos-de-respuesta-http",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Códigos de Respuesta HTTP",
+    "text": "Códigos de Respuesta HTTP"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#bases-de-datos-crud",
+    "href": "corte1/clase04/slides.html#bases-de-datos-crud",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Bases de Datos CRUD",
+    "text": "Bases de Datos CRUD"
+  }
+]

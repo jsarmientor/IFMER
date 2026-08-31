@@ -12,23 +12,50 @@ format:
 
 <a href="slides.html" target="_blank" class="btn-slide">💻 Ver Presentación de Diapositivas</a>
 
-## 🎯 Objetivos de la Clase
+## 📝 Enlace al Examen
 
-- [ ] Objetivo 1 (En desarrollo)
-- [ ] Objetivo 2 (En desarrollo)
+::: {.callout-important}
+**Atención:** El siguiente enlace es **exclusivamente para acceder durante la Clase 5** (sesión del parcial).
 
----
-
-## 📖 Materiales y Lecturas
-
-::: {.callout-flipped}
-##### 💡 Preparación Previa
-*Contenido y guía práctica en construcción por el docente.*
-
+🔗 **[Acceder al Examen (Plataforma IoT Urosario)](https://iot.urosario.edu.co/ifmer-examen/)**
 :::
 
 ---
 
-## 🧪 Práctica de Laboratorio
+## 📚 Temas de Estudio para el Parcial
 
-*Actividad práctica en desarrollo.*
+A continuación se presenta un resumen de los temas clave que deben estudiarse, basados en el banco de preguntas:
+
+### 1. Modelo DIKW (Dato, Información, Conocimiento, Sabiduría)
+- Diferencia conceptual entre Dato, Información, Conocimiento y Sabiduría.
+- Interpretación de ejemplos médicos (ej. señales de oximetría, registros de presión, reglas de software en monitores).
+- Aplicación de DIKW en tableros de control y bases de datos.
+
+### 2. Metodología Ágil (Scrum)
+- **Roles:** Funciones y diferencias entre el *Product Owner* y el *Scrum Master*.
+- **Eventos y Artefactos:** Concepto y duración de un *Sprint*, propósito del *Daily Scrum*, e interpretación del *Product Backlog*.
+- **Resolución de problemas:** Manejo de bloqueos (ej. falta de acceso a servidores) e interrupciones urgentes durante un Sprint.
+
+### 3. Bases de Datos Relacionales (SQL) y CRUD
+- **CRUD:** Relación de las operaciones Crear, Leer, Actualizar, Eliminar con las sentencias `INSERT`, `SELECT`, `UPDATE`, `DELETE`.
+- **Estructura:** Importancia de la `PRIMARY KEY` (y `AUTO_INCREMENT`) y `FOREIGN KEY` (relación entre tablas). Tipos de datos como `VARCHAR`.
+- **Aplicación:** Escribir e interpretar consultas SQL para el sistema de inventario (ej. mover un equipo de servicio, eliminar, o listar).
+
+### 4. Desarrollo Web (PHP y HTML)
+- **Frontend (HTML):** Enlaces (`<a href>`), estructura de formularios y validaciones (`type`, `required`).
+- **Backend (PHP):** Dónde se ejecuta el código, uso de variables superglobales (`$_GET` y `$_POST`), sesiones (`session_start()`).
+- **Seguridad y BD:** Uso de consultas preparadas (`$mysqli->prepare`) para evitar inyección SQL, conexión básica a MySQL.
+
+### 5. Arquitectura Web General
+- **Cliente-Servidor:** Roles de cada parte en una aplicación médica (navegador vs. servidor/backend).
+- **Protocolo HTTP/HTTPS:** Diferencias entre GET y POST. La importancia de HTTPS para la seguridad de datos de pacientes.
+- **Códigos de Estado y JSON:** Interpretación de respuestas del servidor (ej. HTTP 200, HTTP 404).
+
+### 6. API REST
+- **Principios:** Concepto de API REST y por qué es "sin estado" (stateless).
+- **Métodos HTTP:** Correspondencia con CRUD (`GET`, `POST`, `PUT`, `DELETE`).
+- **Intercambio de datos:** Consumo y envío de JSON (`php://input`, `json_decode`, envío de encabezados adecuados).
+
+### 7. Bases de Datos NoSQL
+- **Conceptos:** Diferencia frente a bases relacionales, ventajas y riesgos de no tener un esquema fijo.
+- **Casos de Uso en Salud:** Almacenamiento de flujos de datos continuos (monitores de UCI) o documentos con campos variables (historias clínicas, informes de imagenología).
