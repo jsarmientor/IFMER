@@ -419,453 +419,291 @@
     ]
   },
   {
-    "objectID": "corte1/clase05/slides.html#diapositivas-en-desarrollo",
-    "href": "corte1/clase05/slides.html#diapositivas-en-desarrollo",
-    "title": "Clase 05: Consolidación e Integración de Sistemas",
-    "section": "Diapositivas en Desarrollo",
-    "text": "Diapositivas en Desarrollo\n\nPróximamente se publicará el contenido de las diapositivas de esta sesión."
-  },
-  {
-    "objectID": "corte1/clase04/slides.html#servicios-web",
-    "href": "corte1/clase04/slides.html#servicios-web",
-    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "Servicios Web",
-    "text": "Servicios Web\nSoftware o pieza de software el cual utiliza protocolos y estándares para el intercambio de datos a través de internet."
-  },
-  {
-    "objectID": "corte1/clase04/slides.html#paradigma-de-los-servicios-web",
-    "href": "corte1/clase04/slides.html#paradigma-de-los-servicios-web",
-    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "Paradigma de los servicios Web",
-    "text": "Paradigma de los servicios Web\nRequest, Response, Hypermedia, Server"
-  },
-  {
-    "objectID": "corte1/clase04/slides.html#bases-de-datos",
-    "href": "corte1/clase04/slides.html#bases-de-datos",
-    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "Bases de Datos",
-    "text": "Bases de Datos"
-  },
-  {
-    "objectID": "corte1/clase04/slides.html#características",
-    "href": "corte1/clase04/slides.html#características",
-    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "Características",
-    "text": "Características"
-  },
-  {
-    "objectID": "corte1/clase04/slides.html#bases-de-datos-no-relacionales",
-    "href": "corte1/clase04/slides.html#bases-de-datos-no-relacionales",
-    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "Bases de Datos No Relacionales",
-    "text": "Bases de Datos No Relacionales"
-  },
-  {
-    "objectID": "corte1/clase04/slides.html#rest-api",
-    "href": "corte1/clase04/slides.html#rest-api",
-    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "REST-API",
-    "text": "REST-API"
-  },
-  {
-    "objectID": "corte1/clase04/slides.html#protocolo-http",
-    "href": "corte1/clase04/slides.html#protocolo-http",
-    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "Protocolo HTTP",
-    "text": "Protocolo HTTP"
-  },
-  {
-    "objectID": "corte1/clase04/slides.html#códigos-de-respuesta-http",
-    "href": "corte1/clase04/slides.html#códigos-de-respuesta-http",
-    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "Códigos de Respuesta HTTP",
-    "text": "Códigos de Respuesta HTTP"
-  },
-  {
-    "objectID": "corte1/clase04/slides.html#bases-de-datos-crud",
-    "href": "corte1/clase04/slides.html#bases-de-datos-crud",
-    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "Bases de Datos CRUD",
-    "text": "Bases de Datos CRUD"
-  },
-  {
-    "objectID": "corte1/clase04/slides.html#práctica-de-laboratorio",
-    "href": "corte1/clase04/slides.html#práctica-de-laboratorio",
-    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
-    "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\nActividad: Replicar el sistema de Login y CRUD de la sesión consumiendo una base de datos NoSQL mediante Firebase y su API REST."
-  },
-  {
-    "objectID": "corte1/clase03/slides.html#herramientas-digitales-y-aplicaciones-web",
-    "href": "corte1/clase03/slides.html#herramientas-digitales-y-aplicaciones-web",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
-    "section": "Herramientas Digitales y Aplicaciones Web",
-    "text": "Herramientas Digitales y Aplicaciones Web"
-  },
-  {
-    "objectID": "corte1/clase03/slides.html#html",
-    "href": "corte1/clase03/slides.html#html",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
-    "section": "HTML",
-    "text": "HTML"
-  },
-  {
-    "objectID": "corte1/clase03/slides.html#css",
-    "href": "corte1/clase03/slides.html#css",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
-    "section": "CSS",
-    "text": "CSS\n\nCascading Style Sheets: Lenguaje que maneja el diseño y presentación de páginas web.\nFunciona junto con HTML (encargado del contenido).\n“En cascada”: se pueden tener varias hojas con propiedades heredadas."
-  },
-  {
-    "objectID": "corte1/clase03/slides.html#php",
-    "href": "corte1/clase03/slides.html#php",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
-    "section": "PHP",
-    "text": "PHP\n\nHypertext Preprocessor: Lenguaje para desarrollar aplicaciones web.\nFavorece la conexión entre servidores y la interfaz de usuario.\nPrincipalmente backend (lado del servidor), pero con utilidades frontend."
-  },
-  {
-    "objectID": "corte1/clase03/slides.html#javascript",
-    "href": "corte1/clase03/slides.html#javascript",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
-    "section": "JavaScript",
-    "text": "JavaScript\n\nAñade interactividad y permite crear aplicaciones web complejas.\nLenguaje de alto nivel, dinámico, interpretado y orientado a objetos.\nBasado en prototipos, imperativo y débilmente tipado.\nTecnología esencial junto a HTML y CSS."
-  },
-  {
-    "objectID": "corte1/clase03/slides.html#qué-es-sql",
-    "href": "corte1/clase03/slides.html#qué-es-sql",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
-    "section": "¿Qué es SQL?",
-    "text": "¿Qué es SQL?\n\nStructured Query Language (desarrollado por IBM).\nLenguaje de Consulta Estructurado para comunicarse con BD (editar, seleccionar, filtrar).\nEstándar y motor de las bases de datos.\nMotores comunes: MySQL (rápido), PostgreSQL (robusto), MS SQL Server, DB2, Oracle."
-  },
-  {
-    "objectID": "corte1/clase03/slides.html#bases-de-datos",
-    "href": "corte1/clase03/slides.html#bases-de-datos",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
-    "section": "Bases de Datos",
-    "text": "Bases de Datos\n\nTipos de datos SQL y Características.\nComposición: Tablas (Nombre, Columnas/Atributos, Filas/Registros).\nCreación de tabla y consulta DESC nombreTabla;\nBases de Datos CRUD (Create, Read, Update, Delete)"
-  },
-  {
-    "objectID": "corte1/clase03/slides.html#práctica-de-laboratorio",
-    "href": "corte1/clase03/slides.html#práctica-de-laboratorio",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
-    "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\nActividad: Replicar el login visto en clase utilizando todas las tecnologías vistas en clase."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#flujos-de-trabajo-clínicos-y-administrativos",
-    "href": "corte1/clase02/slides.html#flujos-de-trabajo-clínicos-y-administrativos",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Flujos de trabajo clínicos y administrativos",
-    "text": "Flujos de trabajo clínicos y administrativos\n\nEvolución constante de los procesos en las instituciones de salud.\nOptimización de recursos y tiempos de atención."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#del-registro-en-papel-a-la-salud-4.0",
-    "href": "corte1/clase02/slides.html#del-registro-en-papel-a-la-salud-4.0",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Del registro en papel a la Salud 4.0",
-    "text": "Del registro en papel a la Salud 4.0\n\nTransición del papel a los medios digitales.\nIntegración de tecnologías IoT, Big Data e IA.\nInteroperabilidad de los datos médicos."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#paradigma-cliente---servidor",
-    "href": "corte1/clase02/slides.html#paradigma-cliente---servidor",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Paradigma Cliente - Servidor",
-    "text": "Paradigma Cliente - Servidor\n\nCliente (Frontend): Interfaz visual donde interactúa el usuario.\nServidor (Backend): Lógica y base de datos donde se procesa la información de manera segura."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#proceso-para-la-planeación-y-ejecución",
-    "href": "corte1/clase02/slides.html#proceso-para-la-planeación-y-ejecución",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Proceso para la planeación y ejecución",
-    "text": "Proceso para la planeación y ejecución\n\nAntes de desarrollar cualquier sistema de información en salud, se requiere una planificación rigurosa.\nExisten dos grandes caminos: Metodologías Clásicas y Metodologías Ágiles."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#metodologías-clásicas",
-    "href": "corte1/clase02/slides.html#metodologías-clásicas",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Metodologías Clásicas",
-    "text": "Metodologías Clásicas\n\nGestión estricta y organizada del cronograma (Gantt).\nGestión de costos (directos, indirectos) y stakeholders.\nGestión rigurosa de riesgos.\nFases independientes.\nAdecuada para proyectos estáticos con un amplio rango de tiempo."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#metodologías-ágiles",
-    "href": "corte1/clase02/slides.html#metodologías-ágiles",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Metodologías Ágiles",
-    "text": "Metodologías Ágiles\n\nGestión organizada pero orientada a un estado cambiante.\nFácil adaptación a las necesidades del cliente (Iterativo).\nRetroalimentación constante.\nEntregas rápidas (Sprints).\nIdeal para el desarrollo de herramientas digitales y software."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#scrum",
-    "href": "corte1/clase02/slides.html#scrum",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Scrum",
-    "text": "Scrum\n\nMetodología ágil altamente adaptable y de fácil implementación.\nEspecialmente diseñada para proyectos tecnológicos.\nDivide el proyecto en ciclos cortos llamados Sprints."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#roles-en-scrum-product-owner",
-    "href": "corte1/clase02/slides.html#roles-en-scrum-product-owner",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Roles en Scrum: Product Owner",
-    "text": "Roles en Scrum: Product Owner\n\nInterlocutor entre el equipo y el cliente.\nConoce todas las necesidades (Dueño del Producto).\nRepresenta a los Stakeholders (gerentes, médicos, pacientes)."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#roles-en-scrum-scrum-master",
-    "href": "corte1/clase02/slides.html#roles-en-scrum-scrum-master",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Roles en Scrum: Scrum Master",
-    "text": "Roles en Scrum: Scrum Master\n\nLíder facilitador del equipo de trabajo.\nNO es un jefe tradicional.\nGarantiza que la metodología Scrum se aplique correctamente.\nModerador entre las necesidades y el equipo."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#roles-en-scrum-equipo-de-desarrollo",
-    "href": "corte1/clase02/slides.html#roles-en-scrum-equipo-de-desarrollo",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Roles en Scrum: Equipo de Desarrollo",
-    "text": "Roles en Scrum: Equipo de Desarrollo\n\nEjecutan las tareas técnicas del proyecto.\nTienen reuniones diarias (Dailys):\n\n¿Qué se hizo ayer?\n¿Qué se está haciendo hoy?\n¿Qué problemas se presentaron?"
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#herramientas-scrum-trello",
-    "href": "corte1/clase02/slides.html#herramientas-scrum-trello",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Herramientas Scrum (Trello)",
-    "text": "Herramientas Scrum (Trello)\n\nSoftware de administración de proyectos con interfaz web y móvil.\nUtiliza tableros, listas y tarjetas (Sistema Kanban) para organizar las tareas de los Sprints."
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#sistemas-crud",
-    "href": "corte1/clase02/slides.html#sistemas-crud",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Sistemas CRUD",
-    "text": "Sistemas CRUD\n\nCRUD: Operaciones fundamentales en sistemas de información en salud.\n\nCreate (Crear registros médicos)\nRead (Consultar el historial)\nUpdate (Actualizar datos o evolución)\nDelete (Eliminar o archivar bajo normativas)"
-  },
-  {
-    "objectID": "corte1/clase02/slides.html#historia-clínica-electrónica",
-    "href": "corte1/clase02/slides.html#historia-clínica-electrónica",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "Historia Clínica Electrónica",
-    "text": "Historia Clínica Electrónica\n\nHistoria Clínica Electrónica (HCE/EHR): Sistema centralizado para gestionar la información de los pacientes.\nRegistra transversalmente todos los datos clínicos."
-  },
-  {
-    "objectID": "corte1/clase01/slides.html#jefferson-sarmiento-rojas-ph.d-c",
-    "href": "corte1/clase01/slides.html#jefferson-sarmiento-rojas-ph.d-c",
-    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
-    "section": "Jefferson Sarmiento Rojas, Ph.D (c)",
-    "text": "Jefferson Sarmiento Rojas, Ph.D (c)"
-  },
-  {
-    "objectID": "corte1/clase01/slides.html#pirámide-dikw",
-    "href": "corte1/clase01/slides.html#pirámide-dikw",
-    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
-    "section": "Pirámide DIKW",
-    "text": "Pirámide DIKW"
-  },
-  {
-    "objectID": "corte1/clase01/slides.html#dato",
-    "href": "corte1/clase01/slides.html#dato",
-    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
-    "section": "Dato",
-    "text": "Dato\n\nSímbolos o lecturas aisladas.\nEjemplo: [36.5, 39.2...] sin contexto."
-  },
-  {
-    "objectID": "corte1/clase01/slides.html#información",
-    "href": "corte1/clase01/slides.html#información",
-    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
-    "section": "Información",
-    "text": "Información\n\nDatos con contexto y significado.\nEjemplo: 39.2 °C (Sabemos qué estamos midiendo)."
-  },
-  {
-    "objectID": "corte1/clase01/slides.html#conocimiento",
-    "href": "corte1/clase01/slides.html#conocimiento",
-    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
-    "section": "Conocimiento",
-    "text": "Conocimiento\n\nInformación comprendida y estructurada.\nEjemplo: Si temperatura &gt; 37.5, entonces hay fiebre. El conocimiento médico codificado."
-  },
-  {
-    "objectID": "corte1/clase01/slides.html#sabiduría",
-    "href": "corte1/clase01/slides.html#sabiduría",
-    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
-    "section": "Sabiduría",
-    "text": "Sabiduría\n\nConocimiento aplicado para la acción y resolución de problemas.\nEjemplo: “El sistema sugiere administrar antipirético y priorizar atención”."
-  },
-  {
-    "objectID": "corte1/clase01/slides.html#flujos-de-trabajo",
-    "href": "corte1/clase01/slides.html#flujos-de-trabajo",
-    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
-    "section": "Flujos de trabajo",
-    "text": "Flujos de trabajo\n\nComprender cómo se mueve la información clínica y administrativa dentro de un hospital."
-  },
-  {
-    "objectID": "corte1/clase01/slides.html#transición-de-tecnologías",
-    "href": "corte1/clase01/slides.html#transición-de-tecnologías",
-    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
-    "section": "Transición de Tecnologías",
-    "text": "Transición de Tecnologías"
-  },
-  {
-    "objectID": "corte1/clase01/slides.html#hacia-la-salud-4.0",
-    "href": "corte1/clase01/slides.html#hacia-la-salud-4.0",
-    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
-    "section": "Hacia la Salud 4.0",
-    "text": "Hacia la Salud 4.0\n\nTransición del registro en papel a sistemas totalmente digitalizados, inteligentes e interoperables."
-  },
-  {
-    "objectID": "corte1/clase01/slides.html#programando-el-triaje-reto-dikw",
-    "href": "corte1/clase01/slides.html#programando-el-triaje-reto-dikw",
-    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
-    "section": "Programando el Triaje (Reto DIKW)",
-    "text": "Programando el Triaje (Reto DIKW)\nImagina un dispositivo IoT (como un smartwatch) midiendo pacientes en sala de espera.\nReto Práctico: Modifiquen el código del triage para agregar una segunda variable, como Saturación de Oxígeno (SpO2), y describan paso a paso el ciclo DIKW para esta nueva variable de manera automática."
-  },
-  {
-    "objectID": "corte1/clase01/index.html",
-    "href": "corte1/clase01/index.html",
-    "title": "Clase 01: Jerarquía del Conocimiento y Salud 4.0",
-    "section": "",
-    "text": "Ver Presentación de la Clase",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 01: Salud 4.0 & DIKW"
-    ]
-  },
-  {
-    "objectID": "corte1/clase01/index.html#objetivos-de-la-clase",
-    "href": "corte1/clase01/index.html#objetivos-de-la-clase",
-    "title": "Clase 01: Jerarquía del Conocimiento y Salud 4.0",
-    "section": "🎯 Objetivos de la Clase",
-    "text": "🎯 Objetivos de la Clase\nComprender los conceptos fundamentales de la informática médica, el flujo de trabajo clínico y administrativo, y la aplicación práctica del modelo DIKW.",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 01: Salud 4.0 & DIKW"
-    ]
-  },
-  {
-    "objectID": "corte1/clase01/index.html#conceptos-fundamentales",
-    "href": "corte1/clase01/index.html#conceptos-fundamentales",
-    "title": "Clase 01: Jerarquía del Conocimiento y Salud 4.0",
-    "section": "📖 Conceptos Fundamentales",
-    "text": "📖 Conceptos Fundamentales\n\nJerarquía del Conocimiento (Modelo DIKW)\nLa base de la informática médica se centra en la transición progresiva desde los datos brutos hasta la toma de decisiones: - Dato: Símbolos o lecturas aisladas. - Información: Datos con contexto y significado. - Conocimiento: Información comprendida y estructurada. - Sabiduría: Conocimiento aplicado para la acción y resolución de problemas.\n\n\nEvolución Clínica\n\nFlujos de trabajo clínicos y administrativos.\nTransición: Del registro en papel a la Salud 4.0.",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 01: Salud 4.0 & DIKW"
-    ]
-  },
-  {
-    "objectID": "corte1/clase01/index.html#práctica-de-laboratorio-programando-el-triaje",
-    "href": "corte1/clase01/index.html#práctica-de-laboratorio-programando-el-triaje",
-    "title": "Clase 01: Jerarquía del Conocimiento y Salud 4.0",
-    "section": "🧪 Práctica de Laboratorio: Programando el Triaje",
-    "text": "🧪 Práctica de Laboratorio: Programando el Triaje\n\nEl Ciclo DIKW Aplicado\nProblema: Imagina que existe un dispositivo IoT (como un reloj inteligente) que mide la temperatura de pacientes en una sala de espera y debes decidir automáticamente qué hacer con cada uno.\n\nDato (temperaturas_sensor): “Miren la lista de números [36.5, 39.2...]. Si yo solo les doy eso, no saben si es temperatura, precio del dólar o latidos por minuto. Eso es el Dato.”\nInformación (mensaje_info): “Cuando agregamos °C, el dato gana contexto. Ahora sabemos qué estamos midiendo.”\nConocimiento (if/else): “Aquí entra la medicina. El computador no sabe qué es fiebre. Nosotros, como expertos, le enseñamos las reglas (por ejemplo, &gt; 37.5). El if representa el conocimiento médico codificado.”\nSabiduría (accion): “El sistema no solo dice ‘tiene fiebre’, sino que sugiere qué hacer (‘Administrar antipirético’). La sabiduría es la aplicación práctica del conocimiento para resolver un problema.”\n\n\nEjemplo en Código Python\nA continuación, un ejemplo básico de cómo se estructuran las decisiones (Conocimiento y Sabiduría) en código real. ¡Puedes editar este código y ejecutarlo directamente aquí en tu navegador!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote💻 Reto Práctico\n\n\n\nModifiquen el código para agregar una segunda variable, como Saturación de Oxígeno (SpO2), y describan paso a paso el ciclo DIKW para esta nueva variable.",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 01: Salud 4.0 & DIKW"
-    ]
-  },
-  {
-    "objectID": "corte1/clase02/index.html",
-    "href": "corte1/clase02/index.html",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "",
-    "text": "Ver Presentación de la Clase",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 02: Cliente-Servidor & Ágiles"
-    ]
-  },
-  {
-    "objectID": "corte1/clase02/index.html#objetivos-de-la-clase",
-    "href": "corte1/clase02/index.html#objetivos-de-la-clase",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "🎯 Objetivos de la Clase",
-    "text": "🎯 Objetivos de la Clase\n\nComprender la evolución de los registros clínicos en papel hacia la Salud 4.0.\nIdentificar las diferencias fundamentales entre las metodologías de gestión de proyectos clásicas y las metodologías ágiles (Scrum).\nEntender la arquitectura Cliente-Servidor y los componentes Frontend y Backend en el contexto de un sistema de información en salud.\nConocer los conceptos básicos de un sistema CRUD y su aplicación en la Historia Clínica Electrónica (HCE).",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 02: Cliente-Servidor & Ágiles"
-    ]
-  },
-  {
-    "objectID": "corte1/clase02/index.html#conceptos-fundamentales",
-    "href": "corte1/clase02/index.html#conceptos-fundamentales",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "📖 Conceptos Fundamentales",
-    "text": "📖 Conceptos Fundamentales\n\n1. Evolución hacia la Salud 4.0\nLos flujos de trabajo clínicos y administrativos han evolucionado drásticamente. Hemos pasado del registro tradicional en papel a un ecosistema digital integrado (Salud 4.0), donde la información médica fluye a través de diversas plataformas para apoyar la toma de decisiones clínicas y mejorar la eficiencia administrativa.\n\n\n2. Metodologías de Gestión de Proyectos\n\nMetodologías Clásicas\nSe caracterizan por una planificación rigurosa y estática desde el inicio del proyecto (ej. Cascada). - Gestión estricta de cronograma (Gantt), costos y riesgos. - Fases independientes y secuenciales. - Adecuadas para proyectos con requisitos inmutables y un amplio rango de tiempo.\n\n\nMetodologías Ágiles (Scrum)\nIdeal para el desarrollo de software y aplicaciones tecnológicas, ya que se adapta a las necesidades cambiantes del cliente. - Flexibilidad: Fácil adaptación y seguimiento rápido de entregas. - Trabajo Iterativo: El trabajo se divide en Sprints (etapas interrelacionadas y cortas). - Roles en Scrum: - Product Owner (Dueño del Producto): Representa a los Stakeholders (interesados: gerentes, CEO, médicos). Conoce de primera mano las necesidades del cliente y define los requisitos. - Scrum Master: Líder facilitador del equipo (no un jefe). Garantiza la aplicación de la metodología y actúa como moderador entre el equipo y el Product Owner. - Equipo de Desarrollo (Developers): Ejecutan el trabajo. Participan en reuniones diarias (“Dailys”) respondiendo: ¿Qué hice ayer?, ¿Qué haré hoy?, ¿Qué problemas tuve? - Herramientas: Aplicaciones como Trello facilitan la administración visual de proyectos ágiles.\n\n\n\n3. Paradigma Cliente - Servidor\nLas soluciones tecnológicas modernas en salud se dividen en dos instancias principales: - Frontend (Cliente): La interfaz visual con la que interactúan los profesionales de la salud o los pacientes. - Backend (Servidor): La lógica de negocio y la base de datos donde se procesa y almacena de forma segura la información médica.\n\n\n4. Sistemas CRUD\nLa base de la mayoría de los sistemas de información en salud es el modelo CRUD, que define las cuatro operaciones fundamentales sobre una base de datos: - Create (Crear registros médicos) - Read (Consultar el historial del paciente) - Update (Actualizar datos o evolución) - Delete (Eliminar o archivar registros, bajo estrictas normativas)\n\n\n5. Historia Clínica Electrónica (HCE)\nLa Historia Clínica Electrónica centraliza la gestión de los datos de los pacientes e implementa transversalmente el modelo CRUD. En Colombia, la interoperabilidad y reglamentación de la Historia Clínica Electrónica está liderada por el Ministerio de Salud. Puedes consultar más información en el sitio oficial: - 🔗 Ministerio de Salud: Interoperabilidad de la Historia Clínica Electrónica (IHCE)\n\n\n\nEjemplo en Vivo: Consumiendo una API desde el Cliente (Frontend)\nEl siguiente bloque de código se ejecuta directamente en su navegador gracias a Pyodide. Hace una petición a un servidor externo (Backend) para obtener el clima actual, demostrando en la práctica el paradigma Cliente-Servidor. Puede presionar el botón de “Run” para probarlo en tiempo real.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 02: Cliente-Servidor & Ágiles"
-    ]
-  },
-  {
-    "objectID": "corte1/clase02/index.html#práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866",
-    "href": "corte1/clase02/index.html#práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866",
-    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
-    "section": "🧪 Práctica de Laboratorio: Diseño de Datos Clínicos (Resolución 866)",
-    "text": "🧪 Práctica de Laboratorio: Diseño de Datos Clínicos (Resolución 866)\n\nObjetivo Práctico\nIdentificar y estructurar los datos mínimos requeridos para la tabla pacientes de un sistema CRUD, asegurando el cumplimiento de la normativa colombiana de interoperabilidad (Resolución 866 de 2021).\n\n\n\n\n\n\nNote💻 Actividad: Construyendo el Diccionario de Datos\n\n\n\n\nConsulta Normativa: Ingrese a la web oficial del Ministerio de Salud y consulte el Anexo Técnico de la Resolución 866 de 2021. Ubique la sección referida al Conjunto de Datos de Identificación del Paciente.\nEstructura de la Tabla: En una hoja de cálculo (Excel, Google Sheets), cree una tabla que servirá como su “Diccionario de Datos” para el diseño del sistema.\nSelección de Variables: Extraiga todas las variables exigidas por la normatividad (por ejemplo: Tipo de Identificación, Número de Identificación, Nombres, Apellidos, Sexo Biológico, Fecha de Nacimiento, Código DANE del municipio de residencia, etc.).\nTipificación de Datos: Por cada variable seleccionada, añada una columna definiendo qué tipo de dato utilizará en la base de datos (Ej: VARCHAR para texto, DATE para fechas, INT para números enteros).\n\nGuarde este documento, ya que será la base técnica para la programación de la base de datos en las próximas clases.",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 02: Cliente-Servidor & Ágiles"
-    ]
-  },
-  {
-    "objectID": "corte1/clase03/index.html",
-    "href": "corte1/clase03/index.html",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "objectID": "corte1/clase06/index.html",
+    "href": "corte1/clase06/index.html",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
     "section": "",
     "text": "💻 Ver Presentación de Diapositivas",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 03: Backend, PHP y MySQL"
+      "Clase 06: CRUD de Inventario de Equipos"
     ]
   },
   {
-    "objectID": "corte1/clase03/index.html#objetivos-de-la-clase",
-    "href": "corte1/clase03/index.html#objetivos-de-la-clase",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "objectID": "corte1/clase06/index.html#objetivos-de-la-clase",
+    "href": "corte1/clase06/index.html#objetivos-de-la-clase",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
     "section": "🎯 Objetivos de la Clase",
-    "text": "🎯 Objetivos de la Clase\n\nComprender los fundamentos de las aplicaciones web (HTML, CSS, JavaScript).\nEntender el rol de PHP en el desarrollo backend.\nConocer los conceptos básicos de Bases de Datos y el lenguaje SQL.",
+    "text": "🎯 Objetivos de la Clase\n\nAuditar una fuente de datos real (BD.xlsx, 67 equipos × 31 columnas) y detectar sus problemas de calidad.\nSeleccionar y tipificar las variables que sí deben entrar a la base de datos, justificando cada decisión.\nConstruir la base inventarioequipos en MySQL con tablas de dominio y llaves foráneas.\nImplementar el CRUD completo (Create, Read, Update, Delete) con HTML + Bootstrap + PHP + MySQL, siguiendo la Guía WEB del curso.\nDejar planteado el reto del Corte 2: el mismo método aplicado a datos de pacientes.\n\n\n💡 Idea central de la sesión\nLa BD.xlsx del Hospital Universitario Nivel III no se copia tal cual a MySQL. Un Excel real trae encabezados duplicados, columnas vacías, N/A, mayúsculas inconsistentes y campos que mezclan número con unidad. Decidir qué entra, qué se descarta, qué se divide y qué se normaliza — eso es diseñar una base de datos. Hoy hacemos exactamente eso y luego lo convertimos en una aplicación web funcional.",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 03: Backend, PHP y MySQL"
+      "Clase 06: CRUD de Inventario de Equipos"
     ]
   },
   {
-    "objectID": "corte1/clase03/index.html#código-de-referencia-sistema-de-registro-y-login",
-    "href": "corte1/clase03/index.html#código-de-referencia-sistema-de-registro-y-login",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
-    "section": "💻 Código de Referencia: Sistema de Registro y Login",
-    "text": "💻 Código de Referencia: Sistema de Registro y Login\nA continuación se presentan los archivos separados necesarios para construir el sistema cliente-servidor visto en clase.\n\n1. Estructura HTML (index.html)\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n    &lt;meta charset=\"UTF-8\"&gt;\n    &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;\n    &lt;title&gt;Login y Registro&lt;/title&gt;\n    &lt;link rel=\"stylesheet\" href=\"style.css\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n    &lt;div class=\"container\"&gt;\n        &lt;!-- Formulario de Login --&gt;\n        &lt;div class=\"form-container\" id=\"login-container\"&gt;\n            &lt;h2&gt;Iniciar Sesión&lt;/h2&gt;\n            &lt;form id=\"login-form\"&gt;\n                &lt;input type=\"email\" id=\"login-email\" placeholder=\"Correo Electrónico\" required&gt;\n                &lt;input type=\"password\" id=\"login-password\" placeholder=\"Contraseña\" required&gt;\n                &lt;button type=\"submit\"&gt;Ingresar&lt;/button&gt;\n                &lt;p&gt;¿No tienes cuenta? &lt;a href=\"#\" id=\"show-register\"&gt;Regístrate aquí&lt;/a&gt;&lt;/p&gt;\n            &lt;/form&gt;\n            &lt;div id=\"login-message\"&gt;&lt;/div&gt;\n        &lt;/div&gt;\n\n        &lt;!-- Formulario de Registro --&gt;\n        &lt;div class=\"form-container hidden\" id=\"register-container\"&gt;\n            &lt;h2&gt;Registro&lt;/h2&gt;\n            &lt;form id=\"register-form\"&gt;\n                &lt;input type=\"text\" id=\"register-name\" placeholder=\"Nombre Completo\" required&gt;\n                &lt;input type=\"email\" id=\"register-email\" placeholder=\"Correo Electrónico\" required&gt;\n                &lt;input type=\"password\" id=\"register-password\" placeholder=\"Contraseña\" required&gt;\n                &lt;button type=\"submit\"&gt;Registrarse&lt;/button&gt;\n                &lt;p&gt;¿Ya tienes cuenta? &lt;a href=\"#\" id=\"show-login\"&gt;Inicia sesión&lt;/a&gt;&lt;/p&gt;\n            &lt;/form&gt;\n            &lt;div id=\"register-message\"&gt;&lt;/div&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    \n    &lt;script src=\"script.js\"&gt;&lt;/script&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\n2. Estilos CSS (style.css)\n* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n}\n\nbody {\n    background-color: #f0f2f5;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n}\n\n.container {\n    background: #fff;\n    padding: 30px;\n    border-radius: 8px;\n    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);\n    width: 100%;\n    max-width: 400px;\n}\n\n.form-container h2 {\n    text-align: center;\n    margin-bottom: 20px;\n    color: #333;\n}\n\nform {\n    display: flex;\n    flex-direction: column;\n}\n\ninput {\n    padding: 12px;\n    margin-bottom: 15px;\n    border: 1px solid #ddd;\n    border-radius: 4px;\n    font-size: 14px;\n}\n\nbutton {\n    padding: 12px;\n    background-color: #007bff;\n    color: white;\n    border: none;\n    border-radius: 4px;\n    cursor: pointer;\n    font-size: 16px;\n    font-weight: bold;\n    transition: background 0.3s;\n}\n\nbutton:hover {\n    background-color: #0056b3;\n}\n\np {\n    text-align: center;\n    margin-top: 15px;\n    font-size: 14px;\n}\n\na {\n    color: #007bff;\n    text-decoration: none;\n}\n\na:hover {\n    text-decoration: underline;\n}\n\n.hidden {\n    display: none;\n}\n\n#login-message, #register-message {\n    text-align: center;\n    margin-top: 15px;\n    font-weight: bold;\n}\n.success { color: green; }\n.error { color: red; }\n\n\n3. Lógica JavaScript (script.js)\ndocument.addEventListener('DOMContentLoaded', () =&gt; {\n    const loginContainer = document.getElementById('login-container');\n    const registerContainer = document.getElementById('register-container');\n    const showRegisterBtn = document.getElementById('show-register');\n    const showLoginBtn = document.getElementById('show-login');\n\n    const loginForm = document.getElementById('login-form');\n    const registerForm = document.getElementById('register-form');\n\n    // Alternar vistas\n    showRegisterBtn.addEventListener('click', (e) =&gt; {\n        e.preventDefault();\n        loginContainer.classList.add('hidden');\n        registerContainer.classList.remove('hidden');\n    });\n\n    showLoginBtn.addEventListener('click', (e) =&gt; {\n        e.preventDefault();\n        registerContainer.classList.add('hidden');\n        loginContainer.classList.remove('hidden');\n    });\n\n    // Envío de Registro (Método POST)\n    registerForm.addEventListener('submit', async (e) =&gt; {\n        e.preventDefault();\n        const nombre = document.getElementById('register-name').value;\n        const email = document.getElementById('register-email').value;\n        const password = document.getElementById('register-password').value;\n        const messageDiv = document.getElementById('register-message');\n\n        try {\n            const response = await fetch('api.php?action=register', {\n                method: 'POST',\n                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },\n                body: new URLSearchParams({ nombre, email, password })\n            });\n            const data = await response.json();\n            \n            if(data.success) {\n                messageDiv.textContent = 'Registro exitoso. Ya puedes iniciar sesión.';\n                messageDiv.className = 'success';\n                registerForm.reset();\n            } else {\n                messageDiv.textContent = data.error || 'Error en el registro.';\n                messageDiv.className = 'error';\n            }\n        } catch (error) {\n            messageDiv.textContent = 'Error de conexión.';\n            messageDiv.className = 'error';\n        }\n    });\n\n    // Envío de Login (Método POST)\n    loginForm.addEventListener('submit', async (e) =&gt; {\n        e.preventDefault();\n        const email = document.getElementById('login-email').value;\n        const password = document.getElementById('login-password').value;\n        const messageDiv = document.getElementById('login-message');\n\n        try {\n            const response = await fetch('api.php?action=login', {\n                method: 'POST',\n                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },\n                body: new URLSearchParams({ email, password })\n            });\n            const data = await response.json();\n            \n            if(data.success) {\n                messageDiv.textContent = '¡Bienvenido ' + data.user.nombre + '!';\n                messageDiv.className = 'success';\n            } else {\n                messageDiv.textContent = data.error || 'Credenciales incorrectas.';\n                messageDiv.className = 'error';\n            }\n        } catch (error) {\n            messageDiv.textContent = 'Error de conexión.';\n            messageDiv.className = 'error';\n        }\n    });\n});\n\n\n4. Base de Datos SQL (database.sql)\n-- Crear la base de datos\nCREATE DATABASE IF NOT EXISTS sistema_login;\nUSE sistema_login;\n\n-- Crear la tabla de usuarios\nCREATE TABLE IF NOT EXISTS usuarios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nombre VARCHAR(100) NOT NULL,\n    email VARCHAR(100) NOT NULL UNIQUE,\n    password VARCHAR(255) NOT NULL,\n    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\n\n5. Backend PHP (API de Conexión y CRUD) (api.php)\n&lt;?php\nheader('Content-Type: application/json');\n\n// 1. Configuración de Conexión a Base de Datos\n$host = 'localhost';\n$dbname = 'sistema_login';\n$user = 'root'; // Ajustar según servidor\n$pass = '';     // Ajustar según servidor\n\ntry {\n    $pdo = new PDO(\"mysql:host=$host;dbname=$dbname;charset=utf8\", $user, $pass);\n    $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n} catch (PDOException $e) {\n    echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"Error de conexión a BD\"]);\n    exit;\n}\n\n// 2. Procesamiento de Solicitudes (Create & Read)\n$action = $_GET['action'] ?? '';\n\nif ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    \n    // CRUD: CREATE (Registro)\n    if ($action === 'register') {\n        $nombre = $_POST['nombre'] ?? '';\n        $email = $_POST['email'] ?? '';\n        $password = $_POST['password'] ?? '';\n        \n        if (empty($nombre) || empty($email) || empty($password)) {\n            echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"Todos los campos son obligatorios\"]);\n            exit;\n        }\n\n        // Hash de contraseña por seguridad\n        $hashed_password = password_hash($password, PASSWORD_DEFAULT);\n\n        try {\n            $stmt = $pdo-&gt;prepare(\"INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)\");\n            $stmt-&gt;execute([$nombre, $email, $hashed_password]);\n            echo json_encode([\"success\" =&gt; true]);\n        } catch (PDOException $e) {\n            if ($e-&gt;getCode() == 23000) {\n                echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"El correo ya está registrado\"]);\n            } else {\n                echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"Error al registrar usuario\"]);\n            }\n        }\n    } \n    \n    // CRUD: READ (Login)\n    elseif ($action === 'login') {\n        $email = $_POST['email'] ?? '';\n        $password = $_POST['password'] ?? '';\n\n        if (empty($email) || empty($password)) {\n            echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"Correo y contraseña son obligatorios\"]);\n            exit;\n        }\n\n        $stmt = $pdo-&gt;prepare(\"SELECT id, nombre, password FROM usuarios WHERE email = ?\");\n        $stmt-&gt;execute([$email]);\n        $user = $stmt-&gt;fetch(PDO::FETCH_ASSOC);\n\n        if ($user && password_verify($password, $user['password'])) {\n            echo json_encode([\n                \"success\" =&gt; true, \n                \"user\" =&gt; [\n                    \"id\" =&gt; $user['id'],\n                    \"nombre\" =&gt; $user['nombre']\n                ]\n            ]);\n        } else {\n            echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"Credenciales incorrectas\"]);\n        }\n    }\n}\n?&gt;",
+    "objectID": "corte1/clase06/index.html#antes-de-empezar-5-minutos",
+    "href": "corte1/clase06/index.html#antes-de-empezar-5-minutos",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "🧰 Antes de empezar (5 minutos)",
+    "text": "🧰 Antes de empezar (5 minutos)\n\n\n\n\n\n\nNoteRequisitos de la sesión\n\n\n\n\nXAMPP instalado, con Apache y MySQL en verde.\nVisual Studio Code abierto.\nEl archivo BD.xlsx descargado y abierto en Excel.\nLa Guía WEB del curso a la mano (misma arquitectura que usaremos hoy).\nNavegador en http://127.0.0.1/phpmyadmin/.\n\n\n\nEstructura de carpetas (la misma de la Guía WEB):\nC:\\xampp\\htdocs\\ProyectoInventario\\\n├── index.php              ← READ  (listado + búsqueda + formulario)\n├── modificar.php          ← formulario de edición\n├── css/\n├── js/\n└── api/\n    ├── conexion.php       ← conexión mysqli\n    ├── guardar.php        ← CREATE\n    ├── actualizar.php     ← UPDATE\n    └── eliminar.php       ← DELETE",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 03: Backend, PHP y MySQL"
+      "Clase 06: CRUD de Inventario de Equipos"
     ]
   },
   {
-    "objectID": "corte1/clase03/index.html#materiales-y-lecturas",
-    "href": "corte1/clase03/index.html#materiales-y-lecturas",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
-    "section": "📖 Materiales y Lecturas",
-    "text": "📖 Materiales y Lecturas\n\n\n\n\n\n\nNote💡 Material de Clase\n\n\n\n\nGuía docente MySQL (Documento Word)\nProyecto completo: Código fuente Login y Registro (ZIP)",
+    "objectID": "corte1/clase06/index.html#ruta-de-la-clase",
+    "href": "corte1/clase06/index.html#ruta-de-la-clase",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "🧭 Ruta de la clase",
+    "text": "🧭 Ruta de la clase\n\n\n\n\n\n\n\n\n\nPaso\nActividad\nHerramienta\nTiempo\n\n\n\n\n1\nAuditoría de BD.xlsx (31 columnas)\nExcel\n15 min\n\n\n2\nLas 4 decisiones de diseño\nExcel\n10 min\n\n\n3\nSelector interactivo de variables\nWidget en esta página\n20 min\n\n\n4\nDiccionario de datos final\nExcel\n10 min\n\n\n5\nCrear la base de datos\nphpMyAdmin\n20 min\n\n\n6\nConexión PHP\nVS Code\n10 min\n\n\n7\nREAD — index.php\nVS Code\n25 min\n\n\n8\nCREATE — api/guardar.php\nVS Code\n15 min\n\n\n9\nUPDATE — modificar.php + api/actualizar.php\nVS Code\n15 min\n\n\n10\nDELETE — api/eliminar.php\nVS Code\n10 min\n\n\n11\nMejorar la seguridad del código\nVS Code\n10 min\n\n\n12\nPruebas\nNavegador\n10 min\n\n\n13\nPlanteamiento del reto de Corte 2\n—\n5 min",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 03: Backend, PHP y MySQL"
+      "Clase 06: CRUD de Inventario de Equipos"
     ]
   },
   {
-    "objectID": "corte1/clase03/index.html#práctica-de-laboratorio",
-    "href": "corte1/clase03/index.html#práctica-de-laboratorio",
-    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "objectID": "corte1/clase06/index.html#paso-1-auditoría-de-la-fuente",
+    "href": "corte1/clase06/index.html#paso-1-auditoría-de-la-fuente",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 1 · Auditoría de la Fuente 🔎",
+    "text": "Paso 1 · Auditoría de la Fuente 🔎\nObjetivo: antes de escribir una sola línea de SQL, hay que saber qué trae realmente el archivo.\n\n\n\n\n\n\nNote🏥 El contexto del caso\n\n\n\nBD.xlsx es el inventario del Hospital Universitario Nivel III, una institución de alta complejidad: salas de cirugía, UCI adulto y coronaria, imagenología, unidad renal, terapia respiratoria y laboratorio clínico.\nEso importa para el diseño: un hospital de tercer nivel concentra equipos de soporte de vida y de riesgo IIB y III (ventiladores, máquinas de anestesia, arco en C, hemodiálisis), con mantenimiento preventivo bimestral y trimestral. Por eso las clasificaciones biomédica y de riesgo no pueden quedar como texto libre: de ellas depende el cronograma de mantenimiento y la respuesta ante tecnovigilancia.\n(Nombre institucional ficticio, con fines académicos.)\n\n\nAbra BD.xlsx, hoja Listado Equipos: 67 filas × 31 columnas. Para cada columna hay que responder tres preguntas: ¿qué tan llena está?, ¿cuántos valores distintos tiene?, ¿qué problema esconde?\n\n1.1 Perfil real de las 31 columnas\n\n\n\n\n\n\n\n\n\n\n#\nColumna en Excel\nLlenado\nDistintos\nProblema detectado\n\n\n\n\n1\nACTIVO\n93 %\n60\nMezcla 3393 con E000774\n\n\n2\nPLACA NUEVA\n25 %\n17\nCasi vacía: no sirve como llave\n\n\n3\nUBICACIÓN\n100 %\n14\nEs el servicio\n\n\n4\nUBICACIÓN\n100 %\n23\n⚠️ Encabezado duplicado: es el área\n\n\n5\nNOMBRE DEL EQUIPO\n100 %\n42\nTexto libre\n\n\n6\nMARCA\n100 %\n43\nTexto libre\n\n\n7\nMODELO\n99 %\n56\n5 registros dicen N/A\n\n\n8\nSERIE\n99 %\n53\n13 dicen N/A: no sirve como UNIQUE\n\n\n9\nFECHA DE FABRICACION\n100 %\n20\nSolo trae el año (1994–2013)\n\n\n10\nFECHA DE INSTALACION\n0 %\n0\nColumna vacía\n\n\n11\nFECHA DE COMPRA\n0 %\n0\nColumna vacía\n\n\n12\nACCESORIOS DEL EQUIPO\n76 %\n11\nMultivalor en una sola celda\n\n\n13\nVOLTAJE DE ALIMENTACION\n76 %\n5\nNúmero + unidad: 110 VAC\n\n\n14\nCORRIENTE DE ALIMENTACION\n70 %\n14\nComa y punto: 0,5A, 2.2A, 300mA\n\n\n15\nPESO\n69 %\n17\nTres unidades: 120gr, 12Kg, 1,7Tn\n\n\n16\nPOTENCIA\n69 %\n16\nNúmero + W\n\n\n17\nDIMENSIONES\n70 %\n18\ncm y mm mezclados\n\n\n18\nFUENTE DE ALIMENTACION\n76 %\n2\nDominio cerrado\n\n\n19\nFRECUENCIA DE ALIMENTACION\n75 %\n1\nSiempre 60 Hz: cero información\n\n\n20\nCARACTERISTICAS BATERIA\n73 %\n8\nTexto libre: 12V 500mA\n\n\n21\nCONDICIONES DE TRABAJO\n73 %\n1\nUn solo valor: cero información\n\n\n22\nTEMPERATURA\n72 %\n16\nEs un rango: 0 - 43°C\n\n\n23\nHUMEDAD\n76 %\n2\nEs un rango: 30 - 60 %\n\n\n24\nCLASIFICACION ELECTRICA\n72 %\n9 → 7\nB Clase II vs B clase II\n\n\n25\nMANEJO DE SOFTWARE\n72 %\n3 → 2\nSI/si/NO: es booleano\n\n\n26\nCLASIFICACION BIOMEDICA\n72 %\n6 → 5\nDiagnostico vs diagnostico\n\n\n27\nCALIBRACION\n70 %\n2\nSI/NO: booleano\n\n\n28\nCLASIFICACION SEGÚN RIESGO\n72 %\n3\nFalta III del INVIMA\n\n\n29\nRESPONSABLE MANTENIMIENTO\n72 %\n1\nSiempre el mismo: cero información\n\n\n30\nTECNOLOGIA PREDOMINANTE\n72 %\n7 → 5\nElectrica vs electrico\n\n\n31\nFRECUENCIA MPP\n72 %\n4 → 3\nMayúsculas; además es derivable\n\n\n\n\n🧪 Micro-reto 1 (3 minutos)\nMire las columnas 3 y 4: las dos se llaman UBICACIÓN. ¿Qué pasa si intenta crear una tabla con dos columnas del mismo nombre en MySQL? Escriba el nombre que le va a dar a cada una. (Sugerencia: Servicio y Area.)\n\n\n🧪 Micro-reto 2 (3 minutos)\nLa columna PLACA NUEVA solo está llena en 17 de 67 equipos. Un compañero propone usarla como PRIMARY KEY. Dé dos razones técnicas para rechazar esa propuesta.\n\n\n\n✅ Entregable del Paso 1\nHoja de cálculo nueva llamada auditoria con las 31 filas y su problema detectado.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-2-las-cuatro-decisiones-de-diseño",
+    "href": "corte1/clase06/index.html#paso-2-las-cuatro-decisiones-de-diseño",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 2 · Las Cuatro Decisiones de Diseño ⚖️",
+    "text": "Paso 2 · Las Cuatro Decisiones de Diseño ⚖️\nFrente a cada columna del Excel solo existen cuatro decisiones posibles:\n\n\n\n\n\n\nNote🗑️ 1. DESCARTAR\n\n\n\nLa columna no aporta información. Casos: 100 % vacía (FECHA DE INSTALACION) o un solo valor repetido en todas las filas (CONDICIONES DE TRABAJO, FRECUENCIA DE ALIMENTACION, RESPONSABLE MANTENIMIENTO). Un campo constante ocupa espacio, no permite filtrar y no responde ninguna pregunta.\n\n\n\n\n\n\n\n\nNote✅ 2. CONSERVAR TAL CUAL\n\n\n\nEl dato es atómico y no tiene dominio cerrado. Casos: NOMBRE DEL EQUIPO, MARCA, MODELO, SERIE. Se tipifican como VARCHAR(n) con una longitud justificada.\n\n\n\n\n\n\n\n\nNote✂️ 3. DIVIDIR (una columna → dos o más)\n\n\n\nEl dato no es atómico: mezcla valor y unidad, o es un rango. TEMPERATURA = 0 - 43°C se convierte en TempMin y TempMax. VOLTAJE = 110 VAC se convierte en VoltajeValor (INT) y VoltajeTipo (VAC/VDC). Regla: si no puede ordenar, filtrar ni promediar el campo, es porque no está dividido.\n\n\n\n\n\n\n\n\nNote🔗 4. NORMALIZAR (columna → tabla de dominio + FOREIGN KEY)\n\n\n\nEl dato pertenece a una lista cerrada que se repite. Casos: CLASIFICACION BIOMEDICA, CLASIFICACION SEGÚN RIESGO, TECNOLOGIA PREDOMINANTE, FRECUENCIA MPP, UBICACIÓN(servicio). Se crea una tabla aparte y en inventario queda solo el código. Esto es lo que impide que existan Diagnostico, diagnostico y DIAGNOSTICO como si fueran tres cosas distintas.\n\n\n\n\n\n\n\n\nImportant⚠️ La pregunta que decide todo\n\n\n\nPara cada columna pregúntese: “¿qué consulta quiero poder hacer con este dato?”\n\n“¿Cuántos equipos de soporte de vida hay en la UCI?” → CLASIFICACION BIOMEDICA y SERVICIO deben estar normalizados.\n“¿Cuáles equipos pesan más de 100 kg?” → PESO debe estar dividido y en una sola unidad.\n“¿Cuántos equipos trabajan a 60 Hz?” → nadie hace esa consulta, y además todos son iguales → descartar.\n\n\n\n\n✅ Entregable del Paso 2\nColumna Decisión en su hoja auditoria, con uno de los cuatro valores para cada una de las 31 columnas.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-3-selector-interactivo-de-variables",
+    "href": "corte1/clase06/index.html#paso-3-selector-interactivo-de-variables",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 3 · Selector Interactivo de Variables 🎛️",
+    "text": "Paso 3 · Selector Interactivo de Variables 🎛️\nObjetivo: tomar las 31 decisiones y ver cómo se convierten, automáticamente, en el CREATE TABLE.\nPara cada columna elija una decisión. Cuando termine, pulse Generar diccionario + SQL. Después puede comparar sus decisiones con la solución sugerida.\n\n  \n    ⚙️ Generar diccionario + SQL\n    🔍 Comparar con la solución sugerida\n    ↺ Reiniciar\n    \n  \n  \n  Diccionario resultante:\n  \n  Script SQL generado:\n  -- Tome sus decisiones y pulse \"Generar diccionario + SQL\"\n  \n\n\n\n\n🧪 Micro-reto 3 (5 minutos)\nMarque todas las columnas como Conservar y genere el SQL. Luego marque las 4 columnas sin información como Descartar y vuelva a generarlo. Cuente cuántos campos se ahorró y explique qué consulta se volvió posible al normalizar CLASIFICACION BIOMEDICA que antes no lo era.\n\n\n✅ Entregable del Paso 3\nCaptura del diccionario generado con sus decisiones y el puntaje de coincidencias.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-4-diccionario-de-datos-final",
+    "href": "corte1/clase06/index.html#paso-4-diccionario-de-datos-final",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 4 · Diccionario de Datos Final 📋",
+    "text": "Paso 4 · Diccionario de Datos Final 📋\nEsta es la tabla inventario que vamos a construir. Cópiela a su hoja de cálculo: es el entregable formal del taller.\n\n\n\n\n\n\n\n\n\n\n#\nCampo BD\nTipo de dato\nOrigen\nPor qué así\n\n\n\n\n0\nIdEquipo\nINT AUTO_INCREMENT · PK\n(nuevo)\nNinguna columna del Excel sirve de llave\n\n\n1\nActivoFijo\nVARCHAR(15) · NOT NULL\nACTIVO\nCon INT se pierde E000774\n\n\n2\nPlaca\nVARCHAR(15) · NULL\nPLACA NUEVA\nSolo la tiene el 25 %\n\n\n3\nIdServicio\nINT · FK · NOT NULL\nUBICACIÓN (1ª)\n14 servicios repetidos → servicios\n\n\n4\nIdArea\nINT · FK · NULL\nUBICACIÓN (2ª)\nEncabezado duplicado → areas\n\n\n5\nNombreEquipo\nVARCHAR(80) · NOT NULL\nNOMBRE EQUIPO\nDato principal\n\n\n6\nMarca\nVARCHAR(60) · NOT NULL\nMARCA\nTexto libre\n\n\n7\nModelo\nVARCHAR(40) · NULL\nMODELO\nLos N/A se guardan como NULL\n\n\n8\nSerie\nVARCHAR(40) · NULL\nSERIE\n13 N/A: no puede ser UNIQUE\n\n\n9\nAnioFabricacion\nYEAR · NULL\nFECHA FABRIC.\nLa fuente solo trae el año\n\n\n10\nVoltajeValor\nSMALLINT · NULL\nVOLTAJE\n110 VAC → 110\n\n\n11\nVoltajeTipo\nCHAR(3) · NULL\nVOLTAJE\n110 VAC → VAC\n\n\n12\nCorrienteValor\nDECIMAL(7,3) · NULL\nCORRIENTE\n0,5A → 0.500\n\n\n13\nCorrienteUnidad\nCHAR(2) · NULL\nCORRIENTE\nA o mA\n\n\n14\nPesoKg\nDECIMAL(8,3) · NULL\nPESO\ngr, Kg y Tn → todo a kg\n\n\n15\nPotenciaW\nINT · NULL\nPOTENCIA\n3600W → 3600\n\n\n16\nAltoMm\nINT · NULL\nDIMENSIONES\ncm y mm → todo a mm\n\n\n17\nAnchoMm\nINT · NULL\nDIMENSIONES\nIdem\n\n\n18\nProfundoMm\nINT · NULL\nDIMENSIONES\nA veces solo hay 2 medidas\n\n\n19\nFuenteAlimentacion\nENUM · NULL\nFUENTE ALIM.\nDominio de 2 valores\n\n\n20\nCaracteristicasBateria\nVARCHAR(30) · NULL\nCARACT. BATERIA\nTexto libre corto\n\n\n21\nTempMinC\nSMALLINT · NULL\nTEMPERATURA\n0 - 43°C → 0\n\n\n22\nTempMaxC\nSMALLINT · NULL\nTEMPERATURA\n0 - 43°C → 43\n\n\n23\nHumMinPct\nTINYINT · NULL\nHUMEDAD\n30 - 60 % → 30\n\n\n24\nHumMaxPct\nTINYINT · NULL\nHUMEDAD\n30 - 60 % → 60\n\n\n25\nIdClasifElectrica\nINT · FK · NULL\nCLASIF. ELECTRICA\nUnifica mayúsculas\n\n\n26\nManejaSoftware\nTINYINT(1) · NULL\nMANEJO SOFTWARE\nSI/NO → 1/0\n\n\n27\nRequiereCalibracion\nTINYINT(1) · NULL\nCALIBRACION\nSI/NO → 1/0\n\n\n28\nIdClasifBiomedica\nINT · FK · NOT NULL\nCLASIF. BIOMEDICA\nDominio cerrado\n\n\n29\nIdClasifRiesgo\nINT · FK · NOT NULL\nCLASIF. RIESGO\nDominio INVIMA\n\n\n30\nIdTecnologia\nINT · FK · NULL\nTECNOLOGIA\nDominio cerrado\n\n\n31\nIdFrecuenciaMpp\nINT · FK · NULL\nFRECUENCIA MPP\nDominio cerrado\n\n\n32\nAccesorios\nTEXT · NULL\nACCESORIOS\nMultivalor: deuda técnica\n\n\n33\nEstadoEquipo\nTINYINT(1) · NOT NULL\n(nuevo)\nPermite el borrado lógico\n\n\n\nColumnas descartadas y por qué: FECHA DE INSTALACION y FECHA DE COMPRA (0 % de datos), FRECUENCIA DE ALIMENTACION (siempre 60 Hz), CONDICIONES DE TRABAJO (un solo valor), RESPONSABLE MANTENIMIENTO (siempre Ingenieria biomedica).\n\n\n\n\n\n\nImportant📝 Documente la deuda técnica\n\n\n\nEn su diccionario agregue una hoja decisiones_pendientes con al menos estas tres: 1. Accesorios debería ser una tabla 1:N (equipo_accesorio), no un TEXT. 2. NombreEquipo debería normalizarse contra un catálogo de nomenclatura de dispositivos médicos. 3. Las columnas descartadas por estar vacías se documentan, no se borran del diccionario: mañana el hospital puede tener esos datos.\n\n\n\n✅ Entregable del Paso 4\nHoja diccionario con los 34 campos, sus tipos y su justificación.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-5-crear-la-base-de-datos",
+    "href": "corte1/clase06/index.html#paso-5-crear-la-base-de-datos",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 5 · Crear la Base de Datos 🗄️",
+    "text": "Paso 5 · Crear la Base de Datos 🗄️\nObjetivo: materializar el diccionario en MySQL.\nAbra http://127.0.0.1/phpmyadmin/, pestaña SQL, pegue el script completo y ejecute.\n\n\n\n\n\n\nTipDos caminos, el mismo resultado\n\n\n\nLa Guía WEB crea la base y la tabla a mano desde la interfaz de phpMyAdmin (Database → nombre → crear tabla → columnas). Hágalo así la primera vez para entender la interfaz. Después use el script: es reproducible, se versiona y se entrega.\n\n\n\n5.0 Cómo se pasa del Excel plano al esquema relacional\nAntes de escribir el script, veamos el mecanismo. Use los controles para avanzar paso a paso.\n\n\n\n  \n    ◀ Anterior\n    ▶ Reproducir\n    Siguiente ▶\n    ↺ Reiniciar\n    \n    \n  \n\n  \n  \n    \n      \n        \n      \n    \n\n    \n    \n\n      \n      \n        \n        BD.xlsx · CLASIFICACIÓN BIOMÉDICA\n        \n        Diagnostico\n        diagnostico\n        Soporte de Vida\n        Diagnostico\n        Tratamiento\n        Soporte de Vida\n        3 escrituras del mismo concepto\n      \n\n      \n      \n        normalizar\n        \n      \n\n      \n      \n        \n        \n        \n        clasif_biomedica\n        IdClasifBiomedica · PK\n        1  Diagnostico\n        2  Tratamiento\n        3  Soporte de Vida\n        cada valor\n        existe una vez\n      \n\n      \n      \n        \n        \n        \n        inventario\n        NombreEquipo   VARCHAR(80)\n        IdClasifBiomedica   INT   → FK\n        ya no guarda el texto, guarda el código\n      \n\n      \n      \n        \n        1\n        N\n        FOREIGN KEY\n        MySQL rechaza un código inexistente\n      \n    \n\n    \n    \n\n      \n      \n        \n        servicios\n        IdServicio · Nombre\n\n        \n        areas\n        IdArea · IdServicio\n\n        \n        clasif_biomedica\n        5 valores\n\n        \n        clasif_riesgo\n        I · IIA · IIB · III\n      \n\n      \n      \n        \n        clasif_electrica\n        B · BF · CF\n\n        \n        tecnologias\n        6 valores\n\n        \n        frecuencias_mpp\n        Bimestral … Anual\n      \n\n      \n      \n        \n        \n        \n        inventario\n        NombreEquipo · Marca · Modelo\n        AnioFabricacion · PesoKg · PotenciaW\n        TempMinC · TempMaxC · HumMinPct\n        EstadoEquipo → baja lógica\n      \n\n      \n      \n        \n        IdEquipo · PRIMARY KEY (artificial)\n        \n        UNIQUE (ActivoFijo)\n      \n\n      \n      \n        \n        \n        \n        \n        \n        \n        \n        1\n        N\n      \n\n      \n      \n        \n        \n        \n        criticidad\n        FrecuenciaUso · FormaUso\n        ExactitudReq · ImportanciaEco\n        PuntajeTotal → GENERATED\n      \n      \n        \n        1\n        N\n      \n\n      \n      \n        \n        v_cronograma_mpp\n        VISTA · JOIN criticidad + inventario\n        18–20 → BIMESTRAL\n        4–8 → ANUAL\n      \n      \n        \n        lee\n      \n\n      \n      \n        \n        FOREIGN KEY · 1 dominio → N equipos\n        \n        la vista lee de esas tablas, no las duplica\n      \n    \n  \n  \n    De una columna de texto repetido a un esquema con dominios, llaves foráneas y una vista que calcula el período de mantenimiento.\n  \n  \n\n  \n\n\n\n\n🧪 Micro-reto 4 (3 minutos)\nAvance hasta el paso 3 del diagrama y responda: si en inventario guardáramos el texto \"Soporte de Vida\" en vez del código, ¿qué pasa el día en que alguien escriba \"soporte de vida\"? Nombre la consulta del Paso 5.2 que dejaría de funcionar.\n\n\n\n5.1 database.sql\n-- =========================================================\n--  IFMER 2026-II | Clase 06\n--  Inventario de equipos biomedicos - Hospital Universitario Nivel III\n--  Fuente: BD.xlsx, hoja \"Listado Equipos\"\n-- =========================================================\nCREATE DATABASE IF NOT EXISTS inventarioequipos\n  DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\nUSE inventarioequipos;\n\n-- Sin esta linea, las tildes y la N con virgulilla se guardan mal\nSET NAMES utf8mb4;\n\n-- ---------------- TABLAS DE DOMINIO ----------------\nCREATE TABLE IF NOT EXISTS servicios (\n  IdServicio INT AUTO_INCREMENT PRIMARY KEY,\n  Nombre     VARCHAR(60) NOT NULL UNIQUE\n) ENGINE=InnoDB;\n\nINSERT IGNORE INTO servicios (Nombre) VALUES\n('SALAS DE CIRUGIA'), ('UCI 2 PISO'), ('UCI 4 PISO'), ('UCI CORONARIA'),\n('LABORATORIO CLINICO'), ('RADIOLOGIA'), ('URGENCIAS'), ('FISIOTERAPIA'),\n('TERAPIA FISICA'), ('DEPARTAMENTO ENFERMERIA'), ('HOSPITALIZACION 3 SUR'),\n('HOSPITALIZACION 6 SUR'), ('HOSPITALIZACION 7 SUR'), ('CONSULTA EXTERNA');\n\nCREATE TABLE IF NOT EXISTS areas (\n  IdArea     INT AUTO_INCREMENT PRIMARY KEY,\n  IdServicio INT NOT NULL,\n  Nombre     VARCHAR(60) NOT NULL,\n  CONSTRAINT fk_area_servicio FOREIGN KEY (IdServicio) REFERENCES servicios(IdServicio)\n) ENGINE=InnoDB;\n\nINSERT IGNORE INTO areas (IdServicio, Nombre) VALUES\n(1,'SALA'), (1,'ESTERILIZACION'), (2,'CUBICULO'), (3,'CUBICULO'),\n(4,'CARRO DE PARO'), (5,'CENTRIFUGACION'), (5,'COAGULACION'),\n(5,'UNIDAD TRANSFUCIONAL'), (6,'ECOGRAFIAS'), (6,'RADIOLOGIA'),\n(7,'CONSULTORIO'), (7,'CONSULTORIO Nº 2'), (8,'CONSULTORIO Nº 4'), (11,'HABITACION');\n\nCREATE TABLE IF NOT EXISTS clasif_biomedica (\n  IdClasifBiomedica INT AUTO_INCREMENT PRIMARY KEY,\n  Nombre            VARCHAR(40) NOT NULL UNIQUE\n) ENGINE=InnoDB;\n\nINSERT IGNORE INTO clasif_biomedica (Nombre) VALUES\n('Diagnostico'), ('Tratamiento'), ('Soporte de Vida'),\n('Laboratorio Clinico'), ('Apoyo y Tratamiento'), ('Prevencion'), ('Rehabilitacion');\n\nCREATE TABLE IF NOT EXISTS clasif_riesgo (\n  IdClasifRiesgo INT AUTO_INCREMENT PRIMARY KEY,\n  Codigo         VARCHAR(4)  NOT NULL UNIQUE,\n  Descripcion    VARCHAR(80) NOT NULL\n) ENGINE=InnoDB;\n\n-- Clasificacion INVIMA. Nota: BD.xlsx solo trae I, IIA y IIB,\n-- pero el dominio normativo incluye III: se registra completo.\nINSERT IGNORE INTO clasif_riesgo (Codigo, Descripcion) VALUES\n('I',   'Riesgo bajo'),\n('IIA', 'Riesgo moderado'),\n('IIB', 'Riesgo alto'),\n('III', 'Riesgo muy alto');\n\nCREATE TABLE IF NOT EXISTS clasif_electrica (\n  IdClasifElectrica INT AUTO_INCREMENT PRIMARY KEY,\n  Codigo            VARCHAR(15) NOT NULL UNIQUE\n) ENGINE=InnoDB;\n\nINSERT IGNORE INTO clasif_electrica (Codigo) VALUES\n('B Clase I'), ('B Clase II'), ('BF Clase I'), ('BF Clase II'),\n('CF Clase I'), ('CF Clase II'), ('Clase III');\n\nCREATE TABLE IF NOT EXISTS tecnologias (\n  IdTecnologia INT AUTO_INCREMENT PRIMARY KEY,\n  Nombre       VARCHAR(30) NOT NULL UNIQUE\n) ENGINE=InnoDB;\n\nINSERT IGNORE INTO tecnologias (Nombre) VALUES\n('Electrica'), ('Electronica'), ('Mecanica'),\n('Electromecanica'), ('Electroneumatica'), ('Electrohidraulica');\n\nCREATE TABLE IF NOT EXISTS frecuencias_mpp (\n  IdFrecuenciaMpp INT AUTO_INCREMENT PRIMARY KEY,\n  Nombre          VARCHAR(20) NOT NULL UNIQUE,\n  MesesIntervalo  TINYINT     NOT NULL\n) ENGINE=InnoDB;\n\nINSERT IGNORE INTO frecuencias_mpp (Nombre, MesesIntervalo) VALUES\n('Bimestral', 2), ('Trimestral', 3), ('Semestral', 6), ('Anual', 12);\n\n-- ---------------- TABLA PRINCIPAL ----------------\nCREATE TABLE IF NOT EXISTS inventario (\n  IdEquipo               INT AUTO_INCREMENT PRIMARY KEY,\n\n  -- Identificacion del equipo\n  ActivoFijo             VARCHAR(15)  NOT NULL,\n  Placa                  VARCHAR(15)  NULL,\n  NombreEquipo           VARCHAR(80)  NOT NULL,\n  Marca                  VARCHAR(60)  NOT NULL,\n  Modelo                 VARCHAR(40)  NULL,\n  Serie                  VARCHAR(40)  NULL,\n  AnioFabricacion        YEAR         NULL,\n\n  -- Localizacion\n  IdServicio             INT          NOT NULL,\n  IdArea                 INT          NULL,\n\n  -- Caracteristicas electricas (columnas DIVIDIDAS)\n  VoltajeValor           SMALLINT     NULL,\n  VoltajeTipo            CHAR(3)      NULL,\n  CorrienteValor         DECIMAL(7,3) NULL,\n  CorrienteUnidad        CHAR(2)      NULL,\n  PotenciaW              INT          NULL,\n  FuenteAlimentacion     ENUM('Electrica','Bateria') NULL,\n  CaracteristicasBateria VARCHAR(30)  NULL,\n\n  -- Caracteristicas fisicas\n  PesoKg                 DECIMAL(8,3) NULL,\n  AltoMm                 INT          NULL,\n  AnchoMm                INT          NULL,\n  ProfundoMm             INT          NULL,\n\n  -- Condiciones de operacion (rangos DIVIDIDOS)\n  TempMinC               SMALLINT     NULL,\n  TempMaxC               SMALLINT     NULL,\n  HumMinPct              TINYINT      NULL,\n  HumMaxPct              TINYINT      NULL,\n\n  -- Clasificaciones (columnas NORMALIZADAS)\n  IdClasifElectrica      INT          NULL,\n  IdClasifBiomedica      INT          NOT NULL,\n  IdClasifRiesgo         INT          NOT NULL,\n  IdTecnologia           INT          NULL,\n  IdFrecuenciaMpp        INT          NULL,\n\n  -- Booleanos\n  ManejaSoftware         TINYINT(1)   NULL,\n  RequiereCalibracion    TINYINT(1)   NULL,\n\n  -- Texto libre y trazabilidad\n  Accesorios             TEXT         NULL,\n  EstadoEquipo           TINYINT(1)   NOT NULL DEFAULT 1,\n  FechaRegistro          TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,\n\n  -- Integridad\n  CONSTRAINT uq_activo    UNIQUE (ActivoFijo),\n  CONSTRAINT fk_inv_serv  FOREIGN KEY (IdServicio)        REFERENCES servicios(IdServicio),\n  CONSTRAINT fk_inv_area  FOREIGN KEY (IdArea)            REFERENCES areas(IdArea),\n  CONSTRAINT fk_inv_bio   FOREIGN KEY (IdClasifBiomedica) REFERENCES clasif_biomedica(IdClasifBiomedica),\n  CONSTRAINT fk_inv_ries  FOREIGN KEY (IdClasifRiesgo)    REFERENCES clasif_riesgo(IdClasifRiesgo),\n  CONSTRAINT fk_inv_elec  FOREIGN KEY (IdClasifElectrica) REFERENCES clasif_electrica(IdClasifElectrica),\n  CONSTRAINT fk_inv_tec   FOREIGN KEY (IdTecnologia)      REFERENCES tecnologias(IdTecnologia),\n  CONSTRAINT fk_inv_mpp   FOREIGN KEY (IdFrecuenciaMpp)   REFERENCES frecuencias_mpp(IdFrecuenciaMpp),\n  CONSTRAINT ck_anio      CHECK (AnioFabricacion IS NULL OR AnioFabricacion BETWEEN 1950 AND 2100),\n  CONSTRAINT ck_temp      CHECK (TempMinC IS NULL OR TempMaxC IS NULL OR TempMinC &lt;= TempMaxC)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;\n\nCREATE INDEX idx_inv_nombre ON inventario (NombreEquipo);\n\n-- ---------------- DATOS DE PRUEBA (tomados de BD.xlsx) ----------------\nINSERT INTO inventario\n(ActivoFijo, Placa, NombreEquipo, Marca, Modelo, Serie, AnioFabricacion,\n IdServicio, IdArea, VoltajeValor, VoltajeTipo, CorrienteValor, CorrienteUnidad,\n PotenciaW, FuenteAlimentacion, PesoKg, AltoMm, AnchoMm, ProfundoMm,\n TempMinC, TempMaxC, HumMinPct, HumMaxPct,\n IdClasifElectrica, IdClasifBiomedica, IdClasifRiesgo, IdTecnologia, IdFrecuenciaMpp,\n ManejaSoftware, RequiereCalibracion, Accesorios)\nVALUES\n('3393','E000355','AUTOCLAVE','ARAWELL',NULL,NULL,2006,\n 1,2,380,'VAC',10.000,'A',3600,'Electrica',450.000,1000,1850,580,\n 0,150,30,80, 2,3,3,5,2, 0,1,NULL),\n('1146',NULL,'BASCULA ANALOGA','HEALTH O METER','233KG',NULL,2013,\n 7,12,NULL,NULL,NULL,NULL,NULL,NULL,15.000,280,1470,560,\n 0,58,30,60, NULL,1,1,3,2, 0,1,NULL),\n('E000774',NULL,'AGITADOR DE PLAQUETAS','HELMER','PF151','1011960',2013,\n 5,8,110,'VAC',NULL,NULL,NULL,'Electrica',NULL,NULL,NULL,NULL,\n NULL,NULL,30,60, NULL,4,1,1,3, 0,0,NULL);\n\n💡 Fíjese en el tercer registro\nE000774 viene del Excel en la columna ACTIVO, no en PLACA NUEVA. Si hubiéramos tipificado ActivoFijo como INT, ese equipo no se podría registrar. Ese es el costo real de una mala tipificación: pérdida de datos.\n\n\n\n5.2 Bonus: la criticidad que define la frecuencia de mantenimiento\nLa hoja MPP de BD.xlsx califica cada equipo con 4 variables de 1 a 5 (frecuencia de uso, forma de uso, exactitud requerida, importancia económica). La suma define el período: 4–8 anual · 9–13 semestral · 14–17 trimestral · 18–20 bimestral.\nEso no se escribe a mano: se calcula.\nCREATE TABLE IF NOT EXISTS criticidad (\n  IdCriticidad   INT AUTO_INCREMENT PRIMARY KEY,\n  IdEquipo       INT NOT NULL,\n  FrecuenciaUso  TINYINT NOT NULL,\n  FormaUso       TINYINT NOT NULL,\n  ExactitudReq   TINYINT NOT NULL,\n  ImportanciaEco TINYINT NOT NULL,\n  -- Columna generada: MySQL la calcula sola, nadie la puede desincronizar\n  PuntajeTotal   TINYINT AS (FrecuenciaUso + FormaUso + ExactitudReq + ImportanciaEco) STORED,\n  CONSTRAINT fk_crit_equipo FOREIGN KEY (IdEquipo) REFERENCES inventario(IdEquipo),\n  CONSTRAINT ck_rangos CHECK (\n       FrecuenciaUso  BETWEEN 1 AND 5\n   AND FormaUso       BETWEEN 1 AND 5\n   AND ExactitudReq   BETWEEN 1 AND 5\n   AND ImportanciaEco BETWEEN 1 AND 5)\n) ENGINE=InnoDB;\n\n-- Vista que traduce el puntaje al periodo de mantenimiento\nCREATE OR REPLACE VIEW v_cronograma_mpp AS\nSELECT i.IdEquipo, i.NombreEquipo, s.Nombre AS Servicio, c.PuntajeTotal,\n       CASE\n         WHEN c.PuntajeTotal BETWEEN 18 AND 20 THEN 'BIMESTRAL'\n         WHEN c.PuntajeTotal BETWEEN 14 AND 17 THEN 'TRIMESTRAL'\n         WHEN c.PuntajeTotal BETWEEN  9 AND 13 THEN 'SEMESTRAL'\n         ELSE 'ANUAL'\n       END AS PeriodoMpp\nFROM criticidad c\nJOIN inventario i ON i.IdEquipo = c.IdEquipo\nJOIN servicios  s ON s.IdServicio = i.IdServicio;\n\n-- Ejemplo: MONITOR MULTIPARAMETROS de la hoja MPP -&gt; 5+5+5+4 = 19 -&gt; BIMESTRAL\nINSERT INTO criticidad (IdEquipo, FrecuenciaUso, FormaUso, ExactitudReq, ImportanciaEco)\nVALUES (1, 5, 4, 4, 4);\n\nSELECT * FROM v_cronograma_mpp;\n\n🧪 Verificación obligatoria (3 consultas que debe ejecutar)\n-- 1) El UNIQUE funciona: esto DEBE fallar\nINSERT INTO inventario (ActivoFijo, NombreEquipo, Marca, IdServicio, IdClasifBiomedica, IdClasifRiesgo)\nVALUES ('3393','EQUIPO REPETIDO','X',1,1,1);\n\n-- 2) La FOREIGN KEY funciona: esto DEBE fallar (no existe el servicio 99)\nINSERT INTO inventario (ActivoFijo, NombreEquipo, Marca, IdServicio, IdClasifBiomedica, IdClasifRiesgo)\nVALUES ('9999','EQUIPO FANTASMA','X',99,1,1);\n\n-- 3) La consulta que ANTES del diseno era imposible:\n--    \"cuantos equipos de soporte de vida hay por servicio\"\nSELECT s.Nombre AS Servicio, cb.Nombre AS Clasificacion, COUNT(*) AS Total\nFROM inventario i\nJOIN servicios s         ON s.IdServicio = i.IdServicio\nJOIN clasif_biomedica cb ON cb.IdClasifBiomedica = i.IdClasifBiomedica\nWHERE i.EstadoEquipo = 1\nGROUP BY s.Nombre, cb.Nombre\nORDER BY Total DESC;\nSi las dos primeras fallan y la tercera agrupa correctamente, su base cumple el diccionario. ✅\n\n\n\n✅ Entregable del Paso 5\ndatabase.sql ejecutable + captura de phpMyAdmin con las 8 tablas creadas.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-6-conexión-php",
+    "href": "corte1/clase06/index.html#paso-6-conexión-php",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 6 · Conexión PHP 🔌",
+    "text": "Paso 6 · Conexión PHP 🔌\nCree la carpeta C:\\xampp\\htdocs\\ProyectoInventario\\api\\ y dentro el archivo conexion.php (el mismo de la Guía WEB, apuntando a nuestra base):\n&lt;?php\n// api/conexion.php\n$mysqli = new mysqli('localhost', 'root', '', 'inventarioequipos');\n\nif ($mysqli-&gt;connect_error) {\n    die('Error en la conexion: ' . $mysqli-&gt;connect_error);\n}\n\n// Necesario para que las tildes y la Ñ se guarden bien\n$mysqli-&gt;set_charset('utf8mb4');\n\n\n\n\n\n\nImportant⚠️ Diferencia con la Guía WEB\n\n\n\nLa guía incluye echo(\"conexion exitosa\"); para probar el archivo. Úselo solo para probar y luego bórrelo: si lo deja, ese texto se imprime en todas las páginas que hagan require 'conexion.php' y le va a dañar el HTML.\n\n\nPruebe abriendo http://127.0.0.1/ProyectoInventario/api/conexion.php. Si la página queda en blanco sin errores, la conexión funciona.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-7-read-index.php",
+    "href": "corte1/clase06/index.html#paso-7-read-index.php",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 7 · READ — index.php 👀",
+    "text": "Paso 7 · READ — index.php 👀\nObjetivo: listar el inventario, buscarlo y mostrar el formulario de registro.\nCree C:\\xampp\\htdocs\\ProyectoInventario\\index.php.\n\n7.1 Consulta (arriba del HTML)7.2 Cabecera HTML7.3 Formulario de registro7.4 Búsqueda y tabla7.5 Modal y scripts\n\n\nTodo esto va antes de &lt;!DOCTYPE html&gt;:\n&lt;?php\nrequire 'api/conexion.php';\n\n// ---------- Busqueda ----------\n$busqueda = $_POST['campo'] ?? '';\n$where = \"WHERE i.EstadoEquipo = 1\";\n\nif ($busqueda !== '') {\n    $b = $mysqli-&gt;real_escape_string($busqueda);\n    $where .= \" AND (i.ActivoFijo LIKE '%$b%'\n                  OR i.NombreEquipo LIKE '%$b%'\n                  OR i.Marca LIKE '%$b%'\n                  OR i.Serie LIKE '%$b%')\";\n}\n\n// ---------- Listado con los nombres de las tablas de dominio ----------\n$sql = \"SELECT i.IdEquipo, i.ActivoFijo, i.Placa, i.NombreEquipo, i.Marca,\n               i.Modelo, i.Serie, i.AnioFabricacion,\n               s.Nombre  AS Servicio,\n               a.Nombre  AS Area,\n               cb.Nombre AS ClasifBiomedica,\n               cr.Codigo AS Riesgo,\n               f.Nombre  AS FrecuenciaMpp\n        FROM inventario i\n        JOIN servicios s          ON s.IdServicio = i.IdServicio\n        LEFT JOIN areas a         ON a.IdArea = i.IdArea\n        JOIN clasif_biomedica cb  ON cb.IdClasifBiomedica = i.IdClasifBiomedica\n        JOIN clasif_riesgo cr     ON cr.IdClasifRiesgo = i.IdClasifRiesgo\n        LEFT JOIN frecuencias_mpp f ON f.IdFrecuenciaMpp = i.IdFrecuenciaMpp\n        $where\n        ORDER BY i.NombreEquipo\";\n$resultado = $mysqli-&gt;query($sql);\n\n// ---------- Listas para los &lt;select&gt; del formulario ----------\n$servicios = $mysqli-&gt;query(\"SELECT IdServicio, Nombre FROM servicios ORDER BY Nombre\");\n$areas     = $mysqli-&gt;query(\"SELECT IdArea, Nombre FROM areas ORDER BY Nombre\");\n$biomed    = $mysqli-&gt;query(\"SELECT IdClasifBiomedica, Nombre FROM clasif_biomedica ORDER BY Nombre\");\n$riesgos   = $mysqli-&gt;query(\"SELECT IdClasifRiesgo, Codigo, Descripcion FROM clasif_riesgo ORDER BY IdClasifRiesgo\");\n$tecno     = $mysqli-&gt;query(\"SELECT IdTecnologia, Nombre FROM tecnologias ORDER BY Nombre\");\n$frecs     = $mysqli-&gt;query(\"SELECT IdFrecuenciaMpp, Nombre FROM frecuencias_mpp ORDER BY MesesIntervalo\");\n?&gt;\n\n💡 Por qué los JOIN\nEn la tabla inventario el servicio está guardado como IdServicio = 1. Un número no le sirve al usuario. El JOIN con servicios es lo que convierte ese 1 en SALAS DE CIRUGIA en la pantalla. Normalizar no significa mostrar códigos: significa guardarlos bien.\n\n\n\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"UTF-8\"&gt;\n  &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;\n  &lt;title&gt;Inventario de Equipos Biomédicos&lt;/title&gt;\n\n  &lt;!-- Estilos Bootstrap (igual que en la Guía WEB) --&gt;\n  &lt;link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\"\n        integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\"\n        crossorigin=\"anonymous\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n\n&lt;div class=\"jumbotron jumbotron-fluid py-4 mb-4\" style=\"background:#941100;color:#fff;\"&gt;\n  &lt;div class=\"container\"&gt;\n    &lt;h1 class=\"display-5\"&gt;Inventario de Equipos Biomédicos&lt;/h1&gt;\n    &lt;p class=\"lead mb-0\"&gt;Hospital Universitario Nivel III — Informática Médica IFMER 2026-II&lt;/p&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;div class=\"container\"&gt;\n\n\n&lt;h3 class=\"mb-3\"&gt;Registrar equipo&lt;/h3&gt;\n&lt;form method=\"POST\" action=\"api/guardar.php\"&gt;\n\n  &lt;div class=\"form-row\"&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label for=\"ActivoFijo\"&gt;Activo fijo *&lt;/label&gt;\n      &lt;input type=\"text\" class=\"form-control\" name=\"ActivoFijo\" id=\"ActivoFijo\"\n             maxlength=\"15\" required&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label for=\"Placa\"&gt;Placa nueva&lt;/label&gt;\n      &lt;input type=\"text\" class=\"form-control\" name=\"Placa\" id=\"Placa\" maxlength=\"15\"&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-6\"&gt;\n      &lt;label for=\"NombreEquipo\"&gt;Nombre del equipo *&lt;/label&gt;\n      &lt;input type=\"text\" class=\"form-control\" name=\"NombreEquipo\" id=\"NombreEquipo\"\n             maxlength=\"80\" required&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;div class=\"form-row\"&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label for=\"Marca\"&gt;Marca *&lt;/label&gt;\n      &lt;input type=\"text\" class=\"form-control\" name=\"Marca\" id=\"Marca\" maxlength=\"60\" required&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label for=\"Modelo\"&gt;Modelo&lt;/label&gt;\n      &lt;input type=\"text\" class=\"form-control\" name=\"Modelo\" id=\"Modelo\" maxlength=\"40\"&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label for=\"Serie\"&gt;Serie&lt;/label&gt;\n      &lt;input type=\"text\" class=\"form-control\" name=\"Serie\" id=\"Serie\" maxlength=\"40\"&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label for=\"AnioFabricacion\"&gt;Año de fabricación&lt;/label&gt;\n      &lt;input type=\"number\" class=\"form-control\" name=\"AnioFabricacion\" id=\"AnioFabricacion\"\n             min=\"1950\" max=\"2100\" placeholder=\"2013\"&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;div class=\"form-row\"&gt;\n    &lt;div class=\"form-group col-md-4\"&gt;\n      &lt;label for=\"IdServicio\"&gt;Servicio *&lt;/label&gt;\n      &lt;select name=\"IdServicio\" id=\"IdServicio\" class=\"form-control\" required&gt;\n        &lt;option value=\"\"&gt;Seleccione…&lt;/option&gt;\n        &lt;?php while ($s = $servicios-&gt;fetch_assoc()) { ?&gt;\n          &lt;option value=\"&lt;?php echo $s['IdServicio']; ?&gt;\"&gt;&lt;?php echo $s['Nombre']; ?&gt;&lt;/option&gt;\n        &lt;?php } ?&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-4\"&gt;\n      &lt;label for=\"IdArea\"&gt;Área&lt;/label&gt;\n      &lt;select name=\"IdArea\" id=\"IdArea\" class=\"form-control\"&gt;\n        &lt;option value=\"\"&gt;Seleccione…&lt;/option&gt;\n        &lt;?php while ($a = $areas-&gt;fetch_assoc()) { ?&gt;\n          &lt;option value=\"&lt;?php echo $a['IdArea']; ?&gt;\"&gt;&lt;?php echo $a['Nombre']; ?&gt;&lt;/option&gt;\n        &lt;?php } ?&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-4\"&gt;\n      &lt;label for=\"IdClasifBiomedica\"&gt;Clasificación biomédica *&lt;/label&gt;\n      &lt;select name=\"IdClasifBiomedica\" id=\"IdClasifBiomedica\" class=\"form-control\" required&gt;\n        &lt;option value=\"\"&gt;Seleccione…&lt;/option&gt;\n        &lt;?php while ($c = $biomed-&gt;fetch_assoc()) { ?&gt;\n          &lt;option value=\"&lt;?php echo $c['IdClasifBiomedica']; ?&gt;\"&gt;&lt;?php echo $c['Nombre']; ?&gt;&lt;/option&gt;\n        &lt;?php } ?&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;div class=\"form-row\"&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label for=\"IdClasifRiesgo\"&gt;Riesgo (INVIMA) *&lt;/label&gt;\n      &lt;select name=\"IdClasifRiesgo\" id=\"IdClasifRiesgo\" class=\"form-control\" required&gt;\n        &lt;option value=\"\"&gt;Seleccione…&lt;/option&gt;\n        &lt;?php while ($r = $riesgos-&gt;fetch_assoc()) { ?&gt;\n          &lt;option value=\"&lt;?php echo $r['IdClasifRiesgo']; ?&gt;\"&gt;\n            &lt;?php echo $r['Codigo'] . ' — ' . $r['Descripcion']; ?&gt;\n          &lt;/option&gt;\n        &lt;?php } ?&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label for=\"IdTecnologia\"&gt;Tecnología predominante&lt;/label&gt;\n      &lt;select name=\"IdTecnologia\" id=\"IdTecnologia\" class=\"form-control\"&gt;\n        &lt;option value=\"\"&gt;Seleccione…&lt;/option&gt;\n        &lt;?php while ($t = $tecno-&gt;fetch_assoc()) { ?&gt;\n          &lt;option value=\"&lt;?php echo $t['IdTecnologia']; ?&gt;\"&gt;&lt;?php echo $t['Nombre']; ?&gt;&lt;/option&gt;\n        &lt;?php } ?&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label for=\"IdFrecuenciaMpp\"&gt;Frecuencia de MPP&lt;/label&gt;\n      &lt;select name=\"IdFrecuenciaMpp\" id=\"IdFrecuenciaMpp\" class=\"form-control\"&gt;\n        &lt;option value=\"\"&gt;Seleccione…&lt;/option&gt;\n        &lt;?php while ($f = $frecs-&gt;fetch_assoc()) { ?&gt;\n          &lt;option value=\"&lt;?php echo $f['IdFrecuenciaMpp']; ?&gt;\"&gt;&lt;?php echo $f['Nombre']; ?&gt;&lt;/option&gt;\n        &lt;?php } ?&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label for=\"FuenteAlimentacion\"&gt;Fuente de alimentación&lt;/label&gt;\n      &lt;select name=\"FuenteAlimentacion\" id=\"FuenteAlimentacion\" class=\"form-control\"&gt;\n        &lt;option value=\"\"&gt;Seleccione…&lt;/option&gt;\n        &lt;option value=\"Electrica\"&gt;Eléctrica&lt;/option&gt;\n        &lt;option value=\"Bateria\"&gt;Batería&lt;/option&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;div class=\"form-row\"&gt;\n    &lt;div class=\"form-group col-md-2\"&gt;\n      &lt;label for=\"VoltajeValor\"&gt;Voltaje&lt;/label&gt;\n      &lt;input type=\"number\" class=\"form-control\" name=\"VoltajeValor\" id=\"VoltajeValor\" placeholder=\"110\"&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-2\"&gt;\n      &lt;label for=\"VoltajeTipo\"&gt;Tipo&lt;/label&gt;\n      &lt;select name=\"VoltajeTipo\" id=\"VoltajeTipo\" class=\"form-control\"&gt;\n        &lt;option value=\"\"&gt;—&lt;/option&gt;\n        &lt;option value=\"VAC\"&gt;VAC&lt;/option&gt;\n        &lt;option value=\"VDC\"&gt;VDC&lt;/option&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-2\"&gt;\n      &lt;label for=\"CorrienteValor\"&gt;Corriente&lt;/label&gt;\n      &lt;input type=\"number\" step=\"0.001\" class=\"form-control\" name=\"CorrienteValor\" id=\"CorrienteValor\"&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-2\"&gt;\n      &lt;label for=\"CorrienteUnidad\"&gt;Unidad&lt;/label&gt;\n      &lt;select name=\"CorrienteUnidad\" id=\"CorrienteUnidad\" class=\"form-control\"&gt;\n        &lt;option value=\"\"&gt;—&lt;/option&gt;\n        &lt;option value=\"A\"&gt;A&lt;/option&gt;\n        &lt;option value=\"mA\"&gt;mA&lt;/option&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-2\"&gt;\n      &lt;label for=\"PotenciaW\"&gt;Potencia (W)&lt;/label&gt;\n      &lt;input type=\"number\" class=\"form-control\" name=\"PotenciaW\" id=\"PotenciaW\"&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-2\"&gt;\n      &lt;label for=\"PesoKg\"&gt;Peso (kg)&lt;/label&gt;\n      &lt;input type=\"number\" step=\"0.001\" class=\"form-control\" name=\"PesoKg\" id=\"PesoKg\"&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;div class=\"form-row\"&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label&gt;¿Maneja software?&lt;/label&gt;\n      &lt;select name=\"ManejaSoftware\" class=\"form-control\"&gt;\n        &lt;option value=\"0\"&gt;No&lt;/option&gt;\n        &lt;option value=\"1\"&gt;Sí&lt;/option&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-3\"&gt;\n      &lt;label&gt;¿Requiere calibración?&lt;/label&gt;\n      &lt;select name=\"RequiereCalibracion\" class=\"form-control\"&gt;\n        &lt;option value=\"0\"&gt;No&lt;/option&gt;\n        &lt;option value=\"1\"&gt;Sí&lt;/option&gt;\n      &lt;/select&gt;\n    &lt;/div&gt;\n    &lt;div class=\"form-group col-md-6\"&gt;\n      &lt;label for=\"Accesorios\"&gt;Accesorios&lt;/label&gt;\n      &lt;input type=\"text\" class=\"form-control\" name=\"Accesorios\" id=\"Accesorios\"\n             placeholder=\"Cable AC, Cable ECG, Palas\"&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;button type=\"submit\" class=\"btn btn-danger mb-4\"&gt;Guardar equipo&lt;/button&gt;\n&lt;/form&gt;\n\n\n&lt;hr&gt;\n&lt;h3 class=\"mb-3\"&gt;Consultar inventario&lt;/h3&gt;\n\n&lt;form action=\"&lt;?php echo $_SERVER['PHP_SELF']; ?&gt;\" method=\"POST\" class=\"form-inline mb-3\"&gt;\n  &lt;input type=\"text\" class=\"form-control mr-2\" id=\"campo\" name=\"campo\"\n         placeholder=\"Activo, nombre, marca o serie\"\n         value=\"&lt;?php echo htmlspecialchars($busqueda); ?&gt;\"&gt;\n  &lt;input type=\"submit\" value=\"Buscar\" class=\"btn btn-info mr-2\"&gt;\n  &lt;a href=\"index.php\" class=\"btn btn-secondary\"&gt;Limpiar&lt;/a&gt;\n&lt;/form&gt;\n\n&lt;div class=\"table-responsive\"&gt;\n  &lt;table class=\"table table-striped table-sm\"&gt;\n    &lt;thead class=\"thead-dark\"&gt;\n      &lt;tr&gt;\n        &lt;th&gt;Activo&lt;/th&gt;&lt;th&gt;Equipo&lt;/th&gt;&lt;th&gt;Marca&lt;/th&gt;&lt;th&gt;Modelo&lt;/th&gt;\n        &lt;th&gt;Serie&lt;/th&gt;&lt;th&gt;Año&lt;/th&gt;&lt;th&gt;Servicio&lt;/th&gt;&lt;th&gt;Área&lt;/th&gt;\n        &lt;th&gt;Clasificación&lt;/th&gt;&lt;th&gt;Riesgo&lt;/th&gt;&lt;th&gt;MPP&lt;/th&gt;&lt;th colspan=\"2\"&gt;Acciones&lt;/th&gt;\n      &lt;/tr&gt;\n    &lt;/thead&gt;\n    &lt;tbody&gt;\n      &lt;?php while ($row = $resultado-&gt;fetch_assoc()) { ?&gt;\n        &lt;tr&gt;\n          &lt;td&gt;&lt;?php echo $row['ActivoFijo']; ?&gt;&lt;/td&gt;\n          &lt;td&gt;&lt;?php echo $row['NombreEquipo']; ?&gt;&lt;/td&gt;\n          &lt;td&gt;&lt;?php echo $row['Marca']; ?&gt;&lt;/td&gt;\n          &lt;td&gt;&lt;?php echo $row['Modelo'] ?? '—'; ?&gt;&lt;/td&gt;\n          &lt;td&gt;&lt;?php echo $row['Serie'] ?? '—'; ?&gt;&lt;/td&gt;\n          &lt;td&gt;&lt;?php echo $row['AnioFabricacion'] ?? '—'; ?&gt;&lt;/td&gt;\n          &lt;td&gt;&lt;?php echo $row['Servicio']; ?&gt;&lt;/td&gt;\n          &lt;td&gt;&lt;?php echo $row['Area'] ?? '—'; ?&gt;&lt;/td&gt;\n          &lt;td&gt;&lt;?php echo $row['ClasifBiomedica']; ?&gt;&lt;/td&gt;\n          &lt;td&gt;&lt;span class=\"badge badge-warning\"&gt;&lt;?php echo $row['Riesgo']; ?&gt;&lt;/span&gt;&lt;/td&gt;\n          &lt;td&gt;&lt;?php echo $row['FrecuenciaMpp'] ?? '—'; ?&gt;&lt;/td&gt;\n          &lt;td&gt;\n            &lt;a class=\"btn btn-sm btn-primary\"\n               href=\"modificar.php?id=&lt;?php echo $row['IdEquipo']; ?&gt;\"&gt;Editar&lt;/a&gt;\n          &lt;/td&gt;\n          &lt;td&gt;\n            &lt;a class=\"btn btn-sm btn-danger\" href=\"#\"\n               data-href=\"api/eliminar.php?id=&lt;?php echo $row['IdEquipo']; ?&gt;\"\n               data-toggle=\"modal\" data-target=\"#confirm-delete\"&gt;Dar de baja&lt;/a&gt;\n          &lt;/td&gt;\n        &lt;/tr&gt;\n      &lt;?php } ?&gt;\n    &lt;/tbody&gt;\n  &lt;/table&gt;\n&lt;/div&gt;\n&lt;/div&gt;&lt;!-- /container --&gt;\n\n\n&lt;!-- Modal de confirmación (igual que en la Guía WEB) --&gt;\n&lt;div class=\"modal fade\" id=\"confirm-delete\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\"&gt;\n  &lt;div class=\"modal-dialog\"&gt;\n    &lt;div class=\"modal-content\"&gt;\n      &lt;div class=\"modal-header\"&gt;\n        &lt;h5 class=\"modal-title\"&gt;Dar de baja el equipo&lt;/h5&gt;\n        &lt;button type=\"button\" class=\"close\" data-dismiss=\"modal\"&gt;&times;&lt;/button&gt;\n      &lt;/div&gt;\n      &lt;div class=\"modal-body\"&gt;\n        ¿Confirma dar de baja este equipo? El registro &lt;b&gt;no se borra&lt;/b&gt;: queda inactivo\n        para conservar la trazabilidad del inventario.\n      &lt;/div&gt;\n      &lt;div class=\"modal-footer\"&gt;\n        &lt;button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\"&gt;Cancelar&lt;/button&gt;\n        &lt;a class=\"btn btn-danger btn-ok\"&gt;Confirmar&lt;/a&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\"\n        integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\"\n        crossorigin=\"anonymous\"&gt;&lt;/script&gt;\n&lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\"\n        integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\"\n        crossorigin=\"anonymous\"&gt;&lt;/script&gt;\n&lt;script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"\n        integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\"\n        crossorigin=\"anonymous\"&gt;&lt;/script&gt;\n\n&lt;script&gt;\n  $('#confirm-delete').on('show.bs.modal', function (e) {\n    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));\n  });\n&lt;/script&gt;\n\n&lt;/body&gt;\n&lt;/html&gt;\n\n\n\nAbra http://127.0.0.1/ProyectoInventario/index.php: debe ver los 3 equipos de prueba con el nombre del servicio y la clasificación, no con sus códigos.\n\n✅ Entregable del Paso 7\nCaptura del listado funcionando con la búsqueda aplicada.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-8-create-apiguardar.php",
+    "href": "corte1/clase06/index.html#paso-8-create-apiguardar.php",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 8 · CREATE — api/guardar.php 💾",
+    "text": "Paso 8 · CREATE — api/guardar.php 💾\n&lt;?php\n// api/guardar.php\nrequire 'conexion.php';\n\n// ---------- Campos que acepta el formulario (= diccionario de datos) ----------\n$campos = ['ActivoFijo','Placa','NombreEquipo','Marca','Modelo','Serie','AnioFabricacion',\n           'IdServicio','IdArea','IdClasifBiomedica','IdClasifRiesgo','IdTecnologia',\n           'IdFrecuenciaMpp','FuenteAlimentacion','VoltajeValor','VoltajeTipo',\n           'CorrienteValor','CorrienteUnidad','PotenciaW','PesoKg',\n           'ManejaSoftware','RequiereCalibracion','Accesorios'];\n\n$datos = [];\nforeach ($campos as $c) {\n    $v = $_POST[$c] ?? '';\n    $datos[$c] = ($v === '') ? null : $v;   // vacio en el formulario = NULL en la BD\n}\n\n// ---------- Validaciones minimas (las que exige el diccionario) ----------\n$errores = [];\nif (empty($datos['ActivoFijo']))        $errores[] = 'El activo fijo es obligatorio.';\nif (empty($datos['NombreEquipo']))      $errores[] = 'El nombre del equipo es obligatorio.';\nif (empty($datos['Marca']))             $errores[] = 'La marca es obligatoria.';\nif (empty($datos['IdServicio']))        $errores[] = 'Debe seleccionar el servicio.';\nif (empty($datos['IdClasifBiomedica'])) $errores[] = 'Debe seleccionar la clasificacion biomedica.';\nif (empty($datos['IdClasifRiesgo']))    $errores[] = 'Debe seleccionar la clasificacion de riesgo.';\n\nif (!empty($datos['AnioFabricacion'])) {\n    $anio = (int)$datos['AnioFabricacion'];\n    if ($anio &lt; 1950 || $anio &gt; (int)date('Y')) {\n        $errores[] = 'El anio de fabricacion debe estar entre 1950 y ' . date('Y') . '.';\n    }\n}\n\n// ---------- Insercion con CONSULTA PREPARADA ----------\n$guardado = false;\n$mensajeError = '';\n\nif (empty($errores)) {\n    $cols   = implode(', ', $campos);\n    $marcas = implode(', ', array_fill(0, count($campos), '?'));\n    $tipos  = str_repeat('s', count($campos));   // mysqli castea segun la columna\n\n    // En PHP 8 mysqli LANZA EXCEPCIONES: el error se atrapa con try/catch,\n    // no comprobando el valor que devuelve execute().\n    try {\n        $stmt = $mysqli-&gt;prepare(\"INSERT INTO inventario ($cols) VALUES ($marcas)\");\n        $stmt-&gt;bind_param($tipos, ...array_values($datos));\n        $stmt-&gt;execute();\n        $stmt-&gt;close();\n        $guardado = true;\n    } catch (mysqli_sql_exception $e) {\n        if ($e-&gt;getCode() == 1062) {                 // viola UNIQUE\n            $mensajeError = 'Ya existe un equipo con ese numero de activo fijo.';\n        } elseif ($e-&gt;getCode() == 1452) {           // viola FOREIGN KEY\n            $mensajeError = 'El servicio o la clasificacion seleccionada no existe en la tabla de dominio.';\n        } else {\n            $mensajeError = 'Error al guardar: ' . $e-&gt;getMessage();\n        }\n    }\n}\n?&gt;\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"UTF-8\"&gt;\n  &lt;title&gt;Guardar equipo&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\"\n        integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\"\n        crossorigin=\"anonymous\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;div class=\"container mt-5 text-center\"&gt;\n  &lt;?php if ($guardado) { ?&gt;\n    &lt;div class=\"alert alert-success\"&gt;&lt;h3&gt;EQUIPO REGISTRADO&lt;/h3&gt;&lt;/div&gt;\n  &lt;?php } else { ?&gt;\n    &lt;div class=\"alert alert-danger\"&gt;\n      &lt;h3&gt;NO SE PUDO REGISTRAR&lt;/h3&gt;\n      &lt;ul class=\"list-unstyled mb-0\"&gt;\n        &lt;?php foreach ($errores as $e) { echo \"&lt;li&gt;$e&lt;/li&gt;\"; } ?&gt;\n        &lt;?php if ($mensajeError) { echo \"&lt;li&gt;$mensajeError&lt;/li&gt;\"; } ?&gt;\n      &lt;/ul&gt;\n    &lt;/div&gt;\n  &lt;?php } ?&gt;\n  &lt;a href=\"../index.php\" class=\"btn btn-primary\"&gt;Regresar&lt;/a&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\n\n\n\n\nImportant⚠️ PHP 8 cambió cómo se reportan los errores de MySQL\n\n\n\nXAMPP hoy trae PHP 8, y ahí mysqli lanza excepciones en lugar de devolver false. Por eso el INSERT va dentro de un try / catch.\nSi copia el patrón antiguo if ($stmt-&gt;execute()) { ... } else { ... }, el bloque else nunca se ejecuta: al registrar un activo fijo repetido el estudiante no verá su mensaje, verá una pantalla blanca con Fatal error: Uncaught mysqli_sql_exception. Es el error más frecuente de esta práctica.\n\n\n\n\n\n\n\n\nImportant🔐 Diferencia clave con la Guía WEB\n\n\n\nLa guía arma el INSERT concatenando las variables: \"... VALUES ('$Placa', '$NombreEquipo', ...)\". Eso funciona, pero permite inyección SQL: si alguien escribe '; DROP TABLE inventario; -- en el formulario, la base se destruye.\nAquí usamos prepare() + bind_param(): los datos viajan separados de la sentencia SQL y esa clase de ataque deja de ser posible. En un sistema hospitalario esto no es opcional.\n\n\n\n🧪 Micro-reto 5 (5 minutos)\nRegistre un equipo dejando vacío el campo Serie. Consulte la tabla en phpMyAdmin. ¿Quedó guardado como NULL o como cadena vacía ''? Explique por qué la línea $datos[$c] = ($v === '') ? null : $v; importa.\n\n\n✅ Entregable del Paso 8\nCaptura de un equipo registrado desde el formulario y visible en el listado.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-9-update-modificar.php-apiactualizar.php",
+    "href": "corte1/clase06/index.html#paso-9-update-modificar.php-apiactualizar.php",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 9 · UPDATE — modificar.php + api/actualizar.php ✏️",
+    "text": "Paso 9 · UPDATE — modificar.php + api/actualizar.php ✏️\n\n9.1 modificar.php (en la carpeta principal)\nCarga el equipo seleccionado y lo muestra en un formulario pre-diligenciado.\n&lt;?php\nrequire 'api/conexion.php';\n\n$id = (int)($_GET['id'] ?? 0);\n\n$stmt = $mysqli-&gt;prepare(\"SELECT * FROM inventario WHERE IdEquipo = ?\");\n$stmt-&gt;bind_param('i', $id);\n$stmt-&gt;execute();\n$row = $stmt-&gt;get_result()-&gt;fetch_assoc();\n$stmt-&gt;close();\n\nif (!$row) {\n    die('&lt;div style=\"font-family:sans-serif;padding:2rem\"&gt;Equipo no encontrado.\n         &lt;a href=\"index.php\"&gt;Regresar&lt;/a&gt;&lt;/div&gt;');\n}\n\n// Listas de dominio para los &lt;select&gt;\n$servicios = $mysqli-&gt;query(\"SELECT IdServicio, Nombre FROM servicios ORDER BY Nombre\");\n$biomed    = $mysqli-&gt;query(\"SELECT IdClasifBiomedica, Nombre FROM clasif_biomedica ORDER BY Nombre\");\n$riesgos   = $mysqli-&gt;query(\"SELECT IdClasifRiesgo, Codigo FROM clasif_riesgo ORDER BY IdClasifRiesgo\");\n?&gt;\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"UTF-8\"&gt;\n  &lt;title&gt;Modificar equipo&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\"\n        integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\"\n        crossorigin=\"anonymous\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;div class=\"container mt-4\"&gt;\n  &lt;h2&gt;Modificar equipo #&lt;?php echo $row['IdEquipo']; ?&gt;&lt;/h2&gt;\n\n  &lt;form method=\"POST\" action=\"api/actualizar.php?id=&lt;?php echo $row['IdEquipo']; ?&gt;\"&gt;\n\n    &lt;div class=\"form-row\"&gt;\n      &lt;div class=\"form-group col-md-3\"&gt;\n        &lt;label&gt;Activo fijo *&lt;/label&gt;\n        &lt;input type=\"text\" class=\"form-control\" name=\"mActivoFijo\" required\n               value=\"&lt;?php echo htmlspecialchars($row['ActivoFijo']); ?&gt;\"&gt;\n      &lt;/div&gt;\n      &lt;div class=\"form-group col-md-3\"&gt;\n        &lt;label&gt;Placa&lt;/label&gt;\n        &lt;input type=\"text\" class=\"form-control\" name=\"mPlaca\"\n               value=\"&lt;?php echo htmlspecialchars($row['Placa'] ?? ''); ?&gt;\"&gt;\n      &lt;/div&gt;\n      &lt;div class=\"form-group col-md-6\"&gt;\n        &lt;label&gt;Nombre del equipo *&lt;/label&gt;\n        &lt;input type=\"text\" class=\"form-control\" name=\"mNombreEquipo\" required\n               value=\"&lt;?php echo htmlspecialchars($row['NombreEquipo']); ?&gt;\"&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n\n    &lt;div class=\"form-row\"&gt;\n      &lt;div class=\"form-group col-md-3\"&gt;\n        &lt;label&gt;Marca *&lt;/label&gt;\n        &lt;input type=\"text\" class=\"form-control\" name=\"mMarca\" required\n               value=\"&lt;?php echo htmlspecialchars($row['Marca']); ?&gt;\"&gt;\n      &lt;/div&gt;\n      &lt;div class=\"form-group col-md-3\"&gt;\n        &lt;label&gt;Modelo&lt;/label&gt;\n        &lt;input type=\"text\" class=\"form-control\" name=\"mModelo\"\n               value=\"&lt;?php echo htmlspecialchars($row['Modelo'] ?? ''); ?&gt;\"&gt;\n      &lt;/div&gt;\n      &lt;div class=\"form-group col-md-3\"&gt;\n        &lt;label&gt;Serie&lt;/label&gt;\n        &lt;input type=\"text\" class=\"form-control\" name=\"mSerie\"\n               value=\"&lt;?php echo htmlspecialchars($row['Serie'] ?? ''); ?&gt;\"&gt;\n      &lt;/div&gt;\n      &lt;div class=\"form-group col-md-3\"&gt;\n        &lt;label&gt;Año de fabricación&lt;/label&gt;\n        &lt;input type=\"number\" class=\"form-control\" name=\"mAnioFabricacion\" min=\"1950\" max=\"2100\"\n               value=\"&lt;?php echo $row['AnioFabricacion']; ?&gt;\"&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n\n    &lt;div class=\"form-row\"&gt;\n      &lt;div class=\"form-group col-md-4\"&gt;\n        &lt;label&gt;Servicio *&lt;/label&gt;\n        &lt;select name=\"mIdServicio\" class=\"form-control\" required&gt;\n          &lt;?php while ($s = $servicios-&gt;fetch_assoc()) { ?&gt;\n            &lt;option value=\"&lt;?php echo $s['IdServicio']; ?&gt;\"\n              &lt;?php if ($row['IdServicio'] == $s['IdServicio']) echo 'selected'; ?&gt;&gt;\n              &lt;?php echo $s['Nombre']; ?&gt;\n            &lt;/option&gt;\n          &lt;?php } ?&gt;\n        &lt;/select&gt;\n      &lt;/div&gt;\n      &lt;div class=\"form-group col-md-4\"&gt;\n        &lt;label&gt;Clasificación biomédica *&lt;/label&gt;\n        &lt;select name=\"mIdClasifBiomedica\" class=\"form-control\" required&gt;\n          &lt;?php while ($c = $biomed-&gt;fetch_assoc()) { ?&gt;\n            &lt;option value=\"&lt;?php echo $c['IdClasifBiomedica']; ?&gt;\"\n              &lt;?php if ($row['IdClasifBiomedica'] == $c['IdClasifBiomedica']) echo 'selected'; ?&gt;&gt;\n              &lt;?php echo $c['Nombre']; ?&gt;\n            &lt;/option&gt;\n          &lt;?php } ?&gt;\n        &lt;/select&gt;\n      &lt;/div&gt;\n      &lt;div class=\"form-group col-md-4\"&gt;\n        &lt;label&gt;Riesgo *&lt;/label&gt;\n        &lt;select name=\"mIdClasifRiesgo\" class=\"form-control\" required&gt;\n          &lt;?php while ($r = $riesgos-&gt;fetch_assoc()) { ?&gt;\n            &lt;option value=\"&lt;?php echo $r['IdClasifRiesgo']; ?&gt;\"\n              &lt;?php if ($row['IdClasifRiesgo'] == $r['IdClasifRiesgo']) echo 'selected'; ?&gt;&gt;\n              &lt;?php echo $r['Codigo']; ?&gt;\n            &lt;/option&gt;\n          &lt;?php } ?&gt;\n        &lt;/select&gt;\n      &lt;/div&gt;\n    &lt;/div&gt;\n\n    &lt;button type=\"submit\" class=\"btn btn-danger\"&gt;Actualizar&lt;/button&gt;\n    &lt;a href=\"index.php\" class=\"btn btn-secondary\"&gt;Regresar&lt;/a&gt;\n  &lt;/form&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n💡 El detalle que hace funcionar la edición\n&lt;?php if ($row['IdServicio'] == $s['IdServicio']) echo 'selected'; ?&gt;\nSin esa línea, el &lt;select&gt; siempre abre en la primera opción y, al guardar, le cambia el servicio al equipo sin que nadie lo pidiera. Es el error más común de esta clase.\n\n\n\n9.2 api/actualizar.php\n&lt;?php\n// api/actualizar.php\nrequire 'conexion.php';\n\n$id = (int)($_GET['id'] ?? 0);\n\n$campos = ['ActivoFijo','Placa','NombreEquipo','Marca','Modelo','Serie',\n           'AnioFabricacion','IdServicio','IdClasifBiomedica','IdClasifRiesgo'];\n\n$datos = [];\nforeach ($campos as $c) {\n    $v = $_POST['m' . $c] ?? '';       // el formulario usa el prefijo \"m\"\n    $datos[$c] = ($v === '') ? null : $v;\n}\n\n$sets    = implode(' = ?, ', $campos) . ' = ?';\n$tipos   = str_repeat('s', count($campos)) . 'i';\n$valores = array_values($datos);\n$valores[] = $id;\n\n$ok = false; $filas = 0; $mensajeError = '';\n\ntry {\n    $stmt = $mysqli-&gt;prepare(\"UPDATE inventario SET $sets WHERE IdEquipo = ?\");\n    $stmt-&gt;bind_param($tipos, ...$valores);\n    $stmt-&gt;execute();\n    $filas = $stmt-&gt;affected_rows;\n    $stmt-&gt;close();\n    $ok = true;\n} catch (mysqli_sql_exception $e) {\n    $mensajeError = ($e-&gt;getCode() == 1062)\n        ? 'Ya existe otro equipo con ese numero de activo fijo.'\n        : 'Error al actualizar: ' . $e-&gt;getMessage();\n}\n?&gt;\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"UTF-8\"&gt;\n  &lt;title&gt;Actualizar&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\"\n        integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\"\n        crossorigin=\"anonymous\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;div class=\"container mt-5 text-center\"&gt;\n  &lt;?php if ($ok) { ?&gt;\n    &lt;div class=\"alert alert-success\"&gt;\n      &lt;h3&gt;REGISTRO MODIFICADO&lt;/h3&gt;\n      &lt;p class=\"mb-0\"&gt;Filas afectadas: &lt;?php echo $filas; ?&gt;&lt;/p&gt;\n    &lt;/div&gt;\n  &lt;?php } else { ?&gt;\n    &lt;div class=\"alert alert-danger\"&gt;&lt;h3&gt;ERROR AL MODIFICAR&lt;/h3&gt;\n      &lt;p class=\"mb-0\"&gt;&lt;?php echo $mensajeError; ?&gt;&lt;/p&gt;&lt;/div&gt;\n  &lt;?php } ?&gt;\n  &lt;a href=\"../index.php\" class=\"btn btn-primary\"&gt;Regresar&lt;/a&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n🧪 Micro-reto 6 (3 minutos)\nEdite un equipo sin cambiar nada y pulse Actualizar. affected_rows va a devolver 0. ¿Es un error? Explique la diferencia entre “la consulta falló” y “la consulta no modificó ninguna fila”.\n\n\n\n✅ Entregable del Paso 9\nCaptura de un equipo antes y después de editarlo.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-10-delete-apieliminar.php",
+    "href": "corte1/clase06/index.html#paso-10-delete-apieliminar.php",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 10 · DELETE — api/eliminar.php 🗑️",
+    "text": "Paso 10 · DELETE — api/eliminar.php 🗑️\n&lt;?php\n// api/eliminar.php\nrequire 'conexion.php';\n\n$id = (int)($_GET['id'] ?? 0);\n\n// BORRADO LOGICO: el equipo no se borra, se marca como dado de baja.\n$stmt = $mysqli-&gt;prepare(\"UPDATE inventario SET EstadoEquipo = 0 WHERE IdEquipo = ?\");\n$stmt-&gt;bind_param('i', $id);\n$ok = $stmt-&gt;execute();\n$filas = $stmt-&gt;affected_rows;\n$stmt-&gt;close();\n\n// --- Version con borrado FISICO (NO recomendada, solo para comparar en clase) ---\n// $stmt = $mysqli-&gt;prepare(\"DELETE FROM inventario WHERE IdEquipo = ?\");\n?&gt;\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n  &lt;meta charset=\"UTF-8\"&gt;\n  &lt;title&gt;Dar de baja&lt;/title&gt;\n  &lt;link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\"\n        integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\"\n        crossorigin=\"anonymous\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&lt;div class=\"container mt-5 text-center\"&gt;\n  &lt;?php if ($ok && $filas &gt; 0) { ?&gt;\n    &lt;div class=\"alert alert-warning\"&gt;&lt;h3&gt;EQUIPO DADO DE BAJA&lt;/h3&gt;\n      &lt;p class=\"mb-0\"&gt;El registro sigue en la base de datos con &lt;code&gt;EstadoEquipo = 0&lt;/code&gt;.&lt;/p&gt;\n    &lt;/div&gt;\n  &lt;?php } else { ?&gt;\n    &lt;div class=\"alert alert-danger\"&gt;&lt;h3&gt;NO SE PUDO DAR DE BAJA&lt;/h3&gt;&lt;/div&gt;\n  &lt;?php } ?&gt;\n  &lt;a href=\"../index.php\" class=\"btn btn-primary\"&gt;Regresar&lt;/a&gt;\n&lt;/div&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\n\n\n\n\nImportant⚠️ Por qué NO usamos DELETE FROM\n\n\n\nLa Guía WEB usa DELETE FROM inventario WHERE id = '$id'. Es correcto como ejercicio de SQL, pero en un hospital un equipo biomédico tiene historia: mantenimientos, calibraciones, eventos adversos. Si borra el equipo, se rompen todas esas referencias (FOREIGN KEY) y se pierde la trazabilidad que exige la resolución de tecnovigilancia.\nRegla: en sistemas de salud se da de baja, no se borra.\n\n\n\n🧪 Micro-reto 7 (3 minutos)\nDé de baja un equipo y verifique en phpMyAdmin que sigue existiendo con EstadoEquipo = 0. Luego escriba la consulta que lista solo los equipos dados de baja.\n\n\n✅ Entregable del Paso 10\nCaptura del modal de confirmación y del registro con EstadoEquipo = 0.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-11-mejorar-la-seguridad-del-código",
+    "href": "corte1/clase06/index.html#paso-11-mejorar-la-seguridad-del-código",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 11 · Mejorar la Seguridad del Código 🛡️",
+    "text": "Paso 11 · Mejorar la Seguridad del Código 🛡️\nEl código de los pasos anteriores funciona, pero todavía tiene tres agujeros de seguridad. Corregirlos es lo que separa un ejercicio de clase de una aplicación que se puede entregar:\n\n\n\n\n\n\n\n\n\n#\nProblema en el código base\nSolución\nDónde aplicarla\n\n\n\n\n1\nSQL armado con concatenación → inyección SQL\nprepare() + bind_param()\nguardar.php, actualizar.php, eliminar.php\n\n\n2\nDatos impresos sin filtrar → XSS\nhtmlspecialchars($valor) al imprimir\nindex.php, modificar.php\n\n\n3\nCredenciales de BD en el código\nArchivo de configuración fuera de htdocs\nconexion.php\n\n\n\n\n💡 Qué significa cada ataque, en palabras sencillas\nInyección SQL. Si el INSERT se arma pegando texto (\"... '$Marca' ...\"), el usuario puede escribir en el formulario algo que el servidor confunde con instrucciones SQL en vez de con un dato. Con eso puede leer toda la base, cambiarla o borrarla. La consulta preparada lo evita porque el dato viaja por un canal separado y nunca se interpreta como instrucción.\nXSS (Cross-Site Scripting). Si usted imprime en la tabla lo que alguien guardó, y esa persona guardó &lt;script&gt;…&lt;/script&gt; en el campo Marca, ese código se ejecuta en el navegador de quien consulte el inventario. htmlspecialchars() lo convierte en texto visible e inofensivo.\n\n// 1. Inyección SQL — la búsqueda de index.php, con consulta preparada\n$sql = \"SELECT ... FROM inventario i ... WHERE i.EstadoEquipo = 1\n        AND (i.ActivoFijo LIKE ? OR i.NombreEquipo LIKE ? OR i.Marca LIKE ?)\";\n$stmt = $mysqli-&gt;prepare($sql);\n$like = '%' . $busqueda . '%';\n$stmt-&gt;bind_param('sss', $like, $like, $like);\n$stmt-&gt;execute();\n$resultado = $stmt-&gt;get_result();\n\n// 2. XSS — al imprimir cualquier dato que venga de la base\n&lt;td&gt;&lt;?php echo htmlspecialchars($row['NombreEquipo']); ?&gt;&lt;/td&gt;\n\n🧪 Micro-reto 8 — demuestre la vulnerabilidad (5 minutos)\nEn la versión concatenada de la búsqueda, escriba en el buscador:\n' OR '1'='1\ny observe que devuelve todos los equipos, incluidos los dados de baja. Luego cambie a la versión preparada y repita: no devuelve nada. Esa es la diferencia, en una sola prueba.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-12-pruebas",
+    "href": "corte1/clase06/index.html#paso-12-pruebas",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 12 · Pruebas ✅",
+    "text": "Paso 12 · Pruebas ✅\n\n\n\n\n\n\n\n\n\n#\nCaso de prueba\nEntrada\nResultado esperado\n\n\n\n\n1\nRegistro válido\nTodos los obligatorios diligenciados\n“EQUIPO REGISTRADO” y aparece en la tabla\n\n\n2\nActivo fijo duplicado\nActivoFijo = 3393\nError de UNIQUE: “Ya existe un equipo con ese activo”\n\n\n3\nObligatorio vacío\nSin NombreEquipo\nEl navegador bloquea el envío (required)\n\n\n4\nServicio inexistente\nForzar IdServicio = 99\nError de FOREIGN KEY\n\n\n5\nAño inválido\nAnioFabricacion = 1800\n“El año debe estar entre 1950 y 2026”\n\n\n6\nCampo opcional vacío\nSin Serie\nSe guarda NULL, no ''\n\n\n7\nEdición\nCambiar la marca\n“REGISTRO MODIFICADO”, filas afectadas: 1\n\n\n8\nBaja lógica\nBotón Dar de baja\nDesaparece del listado, sigue en la BD con EstadoEquipo = 0\n\n\n9\nBúsqueda\nBuscar AUTOCLAVE\nSolo los equipos que coinciden\n\n\n10\nInyección SQL\n' OR '1'='1\nCon consulta preparada: cero resultados\n\n\n\n\n✅ Entregable del Paso 12\nTabla de los 10 casos con el resultado obtenido y captura de al menos 4.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#video-así-debe-quedar-su-aplicación",
+    "href": "corte1/clase06/index.html#video-así-debe-quedar-su-aplicación",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "🎬 Video: así debe quedar su aplicación",
+    "text": "🎬 Video: así debe quedar su aplicación\nEste video de 90 segundos muestra la aplicación funcionando de verdad, con la base inventarioequipos cargada desde el database.sql de esta guía. Es el criterio de aceptación del taller: si su pantalla se comporta como este video, el trabajo está completo.\n\n  \n  Su navegador no reproduce video HTML5.\n  Descargue el archivo aquí.\n\n\nLo que aparece en el video, en orden\n\n\n\n\n\n\n\n\nTiempo\nQué se ve\nQué demuestra\n\n\n\n\n0:05\nLa aplicación en http://localhost/ProyectoInventario/index.php\nEl proyecto corre en XAMPP\n\n\n0:12\nEl listado con nombres de servicio y clasificación\nEl SELECT con JOIN a las tablas de dominio\n\n\n0:20\nSe diligencia el formulario; los desplegables traen los dominios\nLos &lt;select&gt; se llenan desde la base, no a mano\n\n\n0:38\nEQUIPO REGISTRADO y el equipo aparece en la tabla\nCREATE con consulta preparada\n\n\n0:48\nSe repite el activo fijo → “Ya existe un equipo con ese número de activo fijo”\nLa restricción UNIQUE y el try/catch funcionando\n\n\n0:58\nBúsqueda por VENTILADOR\nREAD con filtro\n\n\n1:06\nEl formulario de edición llega prellenado\nmodificar.php con los selected correctos\n\n\n1:14\nREGISTRO MODIFICADO · Filas afectadas: 1\nUPDATE ... WHERE IdEquipo = ?\n\n\n1:22\nModal de confirmación y EQUIPO DADO DE BAJA\nBorrado lógico: EstadoEquipo = 0\n\n\n1:28\nEl equipo desaparece del listado pero sigue en la base\nEl SELECT filtra por EstadoEquipo = 1\n\n\n\n\n✅ Autoevaluación: compare su pantalla con el video\nMarque cada punto solo si lo logró en su propio computador:\n\nLa cabecera roja y el formulario se ven con Bootstrap (los estilos cargan).\nLos desplegables de Servicio, Clasificación biomédica y Riesgo traen valores de la base de datos.\nAl guardar aparece EQUIPO REGISTRADO y el equipo entra en la tabla.\nAl repetir el activo fijo sale un mensaje, no una pantalla de error fatal de PHP.\nLa búsqueda filtra el listado.\nEl formulario de edición abre con los datos del equipo y el servicio correcto ya seleccionado.\nAl actualizar dice Filas afectadas: 1.\nDar de baja saca el equipo del listado, y en phpMyAdmin el registro sigue con EstadoEquipo = 0.\n\n\n\n\n\n\n\n\nImportant⚠️ Si algo no le funciona, revise en este orden\n\n\n\n\nPágina en blanco → falta require, o hay un error de PHP. Active la vista de errores o revise el log de Apache.\n“Error en la conexion” → el nombre de la base en conexion.php no coincide con el del database.sql.\nLos desplegables salen vacíos → no ejecutó los INSERT de las tablas de dominio.\nLa página se ve sin estilos → sin internet no carga el CDN de Bootstrap; descargue el .css a la carpeta css/.\nFatal error: mysqli_sql_exception → le faltó el try/catch del Paso 8.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#paso-13-planteamiento-del-reto-proyecto-de-corte-2",
+    "href": "corte1/clase06/index.html#paso-13-planteamiento-del-reto-proyecto-de-corte-2",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Paso 13 · Planteamiento del Reto — Proyecto de Corte 2 🌉",
+    "text": "Paso 13 · Planteamiento del Reto — Proyecto de Corte 2 🌉\n\n\n\n\n\n\nImportant📌 Esto NO se desarrolla hoy\n\n\n\nLo que sigue es el enunciado del proyecto que ustedes construirán durante el Corte 2. Hoy solo lo leemos para entender hacia dónde va el curso. El método ya lo aprendieron: es exactamente el mismo que acabamos de aplicar al inventario de equipos.\n\n\n\nEl reto\nHoy la fuente de verdad fue un Excel del hospital. En el Corte 2 la fuente de verdad será la ley.\nDeberán construir un sistema de registro e identificación de pacientes cuyo modelo de datos no lo decide el programador, sino el Anexo Técnico de la Resolución 866 de 2021 del Ministerio de Salud y Protección Social, que define el conjunto de datos relevantes para la interoperabilidad de la Historia Clínica Electrónica.\nLas tres actividades del reto:\n\nConsulta normativa. Ingresar a la web del Ministerio de Salud y ubicar, en el Anexo Técnico de la Resolución 866 de 2021, la sección referida al Conjunto de Datos de Identificación del Paciente. 📄 resolucion-866-de-2021.pdf\nDiccionario de Datos. Construir, en hoja de cálculo, la misma tabla que hicimos hoy (variable, campo BD, descripción, tipo, longitud, obligatorio, dominio, ejemplo, fuente normativa), extrayendo todas las variables exigidas por la norma: tipo y número de identificación, nombres, apellidos, sexo biológico, fecha de nacimiento, código DANE del municipio de residencia, etc.\nSistema CRUD. Implementar el registro de pacientes en HTML + PHP + MySQL sobre ese diccionario.\n\n\n\nLo que cambia y lo que no\n\n\n\n\n\n\n\n\n\nTaller de hoy (Clase 06)\nReto de Corte 2\n\n\n\n\nFuente\nBD.xlsx — Listado de Equipos\nResolución 866 de 2021 — Anexo Técnico\n\n\nEntidad\ninventario (equipos)\npacientes (personas)\n\n\nDominios\nServicio, clasificación de riesgo, tecnología\nTipo de documento, sexo, etnia, DIVIPOLA – DANE\n\n\nCómo se justifica un campo\n“está en el Excel del hospital”\n“está en el artículo/anexo tal de la norma”\n\n\nRiesgo de un error\nUn equipo mal inventariado\nUn paciente mal identificado\n\n\nMétodo\nAuditar → decidir → tipificar → crear → CRUD\nIdéntico\n\n\n\n\n💡 La diferencia que importa\nEn el inventario, si tipifica mal PESO obtiene un reporte feo. En pacientes, si tipifica NumeroDocumento como INT, el documento 0012345 se vuelve 12345 y usted acaba de crear un paciente que no existe. La misma técnica, con consecuencias clínicas.\n\n\n🧪 Para pensar antes de la próxima clase\nSin abrir todavía la norma, escriba tres variables que usted cree que exige la Resolución 866 para identificar a un paciente, y una que usted incluiría por costumbre pero que probablemente la norma no pide. En la primera clase del Corte 2 verificamos quién acertó.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#entregables-de-la-clase-06",
+    "href": "corte1/clase06/index.html#entregables-de-la-clase-06",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "📦 Entregables de la Clase 06",
+    "text": "📦 Entregables de la Clase 06\nSuba un solo archivo .zip con:\n\nAuditoria_Diccionario_Equipos.xlsx — hojas auditoria (31 columnas con su decisión), diccionario (los 34 campos tipificados) y decisiones_pendientes.\ndatabase.sql — script ejecutable con las tablas de dominio, inventario, criticidad y la vista.\nCarpeta ProyectoInventario/ con index.php, modificar.php y api/ (conexion.php, guardar.php, actualizar.php, eliminar.php).\npruebas.pdf — los 10 casos del Paso 12 con capturas.\n\n\n📊 Rúbrica\n\n\n\n\n\n\n\n\nCriterio\nPeso\nExcelente (5.0)\n\n\n\n\nAuditoría y selección de variables\n25 %\nLas 31 columnas auditadas; cada decisión (descartar/conservar/dividir/normalizar) justificada con datos\n\n\nTipificación y diseño de la BD\n25 %\nTipos correctos; PK, UNIQUE y FOREIGN KEY implementadas; dominios normalizados\n\n\nCRUD funcional\n25 %\nLas 4 operaciones funcionan desde la interfaz; los &lt;select&gt; cargan desde las tablas de dominio\n\n\nSeguridad y buenas prácticas\n15 %\nConsultas preparadas, htmlspecialchars, borrado lógico\n\n\nPruebas y documentación\n10 %\nLos 10 casos ejecutados con evidencia",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#materiales-y-referencias",
+    "href": "corte1/clase06/index.html#materiales-y-referencias",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "📖 Materiales y Referencias",
+    "text": "📖 Materiales y Referencias\n\n\n\n\n\n\nNote💡 Material de la sesión\n\n\n\n\nBase de datos fuente: BD.xlsx — hoja Listado Equipos\nGuía del proyecto web: Guía WEB\nPlantilla de trabajo: Auditoria_Diccionario_Equipos_PLANTILLA.xlsx\nDocumentación oficial: MySQL — Tipos de datos · PHP — mysqli::prepare · Bootstrap 4 — Formularios\nPara el reto de Corte 2: Resolución 866 de 2021 (MinSalud)",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase06/index.html#práctica-de-laboratorio",
+    "href": "corte1/clase06/index.html#práctica-de-laboratorio",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
     "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\n\nActividad: Replicar el login visto en clase utilizando todas las tecnologías vistas en clase.",
+    "text": "🧪 Práctica de Laboratorio\n\nActividad: Auditar BD.xlsx, construir el diccionario de datos del inventario de equipos biomédicos e implementar su CRUD completo con HTML, PHP y MySQL.\nModalidad: Individual en clase, entrega por parejas.\nProducto: .zip con los 4 entregables listados arriba.",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 03: Backend, PHP y MySQL"
+      "Clase 06: CRUD de Inventario de Equipos"
+    ]
+  },
+  {
+    "objectID": "corte1/clase05/index.html",
+    "href": "corte1/clase05/index.html",
+    "title": "Clase 05: Evaluación Corte 1 (Parcial 1)",
+    "section": "",
+    "text": "💻 Ver Presentación de Diapositivas",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 05: Evaluación Corte 1"
+    ]
+  },
+  {
+    "objectID": "corte1/clase05/index.html#enlace-al-examen",
+    "href": "corte1/clase05/index.html#enlace-al-examen",
+    "title": "Clase 05: Evaluación Corte 1 (Parcial 1)",
+    "section": "📝 Enlace al Examen",
+    "text": "📝 Enlace al Examen\n\n\n\n\n\n\nImportant\n\n\n\nAtención: El siguiente enlace es exclusivamente para acceder durante la Clase 5 (sesión del parcial).\n🔗 Acceder al Examen (Plataforma IoT Urosario)",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 05: Evaluación Corte 1"
+    ]
+  },
+  {
+    "objectID": "corte1/clase05/index.html#temas-de-estudio-para-el-parcial",
+    "href": "corte1/clase05/index.html#temas-de-estudio-para-el-parcial",
+    "title": "Clase 05: Evaluación Corte 1 (Parcial 1)",
+    "section": "📚 Temas de Estudio para el Parcial",
+    "text": "📚 Temas de Estudio para el Parcial\nA continuación se presenta un resumen de los temas clave que deben estudiarse, basados en el banco de preguntas:\n\n1. Modelo DIKW (Dato, Información, Conocimiento, Sabiduría)\n\nDiferencia conceptual entre Dato, Información, Conocimiento y Sabiduría.\nInterpretación de ejemplos médicos (ej. señales de oximetría, registros de presión, reglas de software en monitores).\nAplicación de DIKW en tableros de control y bases de datos.\n\n\n\n2. Metodología Ágil (Scrum)\n\nRoles: Funciones y diferencias entre el Product Owner y el Scrum Master.\nEventos y Artefactos: Concepto y duración de un Sprint, propósito del Daily Scrum, e interpretación del Product Backlog.\nResolución de problemas: Manejo de bloqueos (ej. falta de acceso a servidores) e interrupciones urgentes durante un Sprint.\n\n\n\n3. Bases de Datos Relacionales (SQL) y CRUD\n\nCRUD: Relación de las operaciones Crear, Leer, Actualizar, Eliminar con las sentencias INSERT, SELECT, UPDATE, DELETE.\nEstructura: Importancia de la PRIMARY KEY (y AUTO_INCREMENT) y FOREIGN KEY (relación entre tablas). Tipos de datos como VARCHAR.\nAplicación: Escribir e interpretar consultas SQL para el sistema de inventario (ej. mover un equipo de servicio, eliminar, o listar).\n\n\n\n4. Desarrollo Web (PHP y HTML)\n\nFrontend (HTML): Enlaces (&lt;a href&gt;), estructura de formularios y validaciones (type, required).\nBackend (PHP): Dónde se ejecuta el código, uso de variables superglobales ($_GET y $_POST), sesiones (session_start()).\nSeguridad y BD: Uso de consultas preparadas ($mysqli-&gt;prepare) para evitar inyección SQL, conexión básica a MySQL.\n\n\n\n5. Arquitectura Web General\n\nCliente-Servidor: Roles de cada parte en una aplicación médica (navegador vs. servidor/backend).\nProtocolo HTTP/HTTPS: Diferencias entre GET y POST. La importancia de HTTPS para la seguridad de datos de pacientes.\nCódigos de Estado y JSON: Interpretación de respuestas del servidor (ej. HTTP 200, HTTP 404).\n\n\n\n6. API REST\n\nPrincipios: Concepto de API REST y por qué es “sin estado” (stateless).\nMétodos HTTP: Correspondencia con CRUD (GET, POST, PUT, DELETE).\nIntercambio de datos: Consumo y envío de JSON (php://input, json_decode, envío de encabezados adecuados).\n\n\n\n7. Bases de Datos NoSQL\n\nConceptos: Diferencia frente a bases relacionales, ventajas y riesgos de no tener un esquema fijo.\nCasos de Uso en Salud: Almacenamiento de flujos de datos continuos (monitores de UCI) o documentos con campos variables (historias clínicas, informes de imagenología).",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 05: Evaluación Corte 1"
     ]
   },
   {
@@ -965,100 +803,552 @@
     ]
   },
   {
-    "objectID": "corte1/clase05/index.html",
-    "href": "corte1/clase05/index.html",
-    "title": "Clase 05: Evaluación Corte 1 (Parcial 1)",
+    "objectID": "corte1/clase03/index.html",
+    "href": "corte1/clase03/index.html",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
     "section": "",
     "text": "💻 Ver Presentación de Diapositivas",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 05: Evaluación Corte 1"
+      "Clase 03: Backend, PHP y MySQL"
     ]
   },
   {
-    "objectID": "corte1/clase05/index.html#objetivos-de-la-clase",
-    "href": "corte1/clase05/index.html#objetivos-de-la-clase",
-    "title": "Clase 05: Evaluación Corte 1 (Parcial 1)",
+    "objectID": "corte1/clase03/index.html#objetivos-de-la-clase",
+    "href": "corte1/clase03/index.html#objetivos-de-la-clase",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
     "section": "🎯 Objetivos de la Clase",
-    "text": "🎯 Objetivos de la Clase\n\nObjetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "text": "🎯 Objetivos de la Clase\n\nComprender los fundamentos de las aplicaciones web (HTML, CSS, JavaScript).\nEntender el rol de PHP en el desarrollo backend.\nConocer los conceptos básicos de Bases de Datos y el lenguaje SQL.",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 05: Evaluación Corte 1"
+      "Clase 03: Backend, PHP y MySQL"
     ]
   },
   {
-    "objectID": "corte1/clase05/index.html#materiales-y-lecturas",
-    "href": "corte1/clase05/index.html#materiales-y-lecturas",
-    "title": "Clase 05: Evaluación Corte 1 (Parcial 1)",
+    "objectID": "corte1/clase03/index.html#código-de-referencia-sistema-de-registro-y-login",
+    "href": "corte1/clase03/index.html#código-de-referencia-sistema-de-registro-y-login",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "section": "💻 Código de Referencia: Sistema de Registro y Login",
+    "text": "💻 Código de Referencia: Sistema de Registro y Login\nA continuación se presentan los archivos separados necesarios para construir el sistema cliente-servidor visto en clase.\n\n1. Estructura HTML (index.html)\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"es\"&gt;\n&lt;head&gt;\n    &lt;meta charset=\"UTF-8\"&gt;\n    &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;\n    &lt;title&gt;Login y Registro&lt;/title&gt;\n    &lt;link rel=\"stylesheet\" href=\"style.css\"&gt;\n&lt;/head&gt;\n&lt;body&gt;\n    &lt;div class=\"container\"&gt;\n        &lt;!-- Formulario de Login --&gt;\n        &lt;div class=\"form-container\" id=\"login-container\"&gt;\n            &lt;h2&gt;Iniciar Sesión&lt;/h2&gt;\n            &lt;form id=\"login-form\"&gt;\n                &lt;input type=\"email\" id=\"login-email\" placeholder=\"Correo Electrónico\" required&gt;\n                &lt;input type=\"password\" id=\"login-password\" placeholder=\"Contraseña\" required&gt;\n                &lt;button type=\"submit\"&gt;Ingresar&lt;/button&gt;\n                &lt;p&gt;¿No tienes cuenta? &lt;a href=\"#\" id=\"show-register\"&gt;Regístrate aquí&lt;/a&gt;&lt;/p&gt;\n            &lt;/form&gt;\n            &lt;div id=\"login-message\"&gt;&lt;/div&gt;\n        &lt;/div&gt;\n\n        &lt;!-- Formulario de Registro --&gt;\n        &lt;div class=\"form-container hidden\" id=\"register-container\"&gt;\n            &lt;h2&gt;Registro&lt;/h2&gt;\n            &lt;form id=\"register-form\"&gt;\n                &lt;input type=\"text\" id=\"register-name\" placeholder=\"Nombre Completo\" required&gt;\n                &lt;input type=\"email\" id=\"register-email\" placeholder=\"Correo Electrónico\" required&gt;\n                &lt;input type=\"password\" id=\"register-password\" placeholder=\"Contraseña\" required&gt;\n                &lt;button type=\"submit\"&gt;Registrarse&lt;/button&gt;\n                &lt;p&gt;¿Ya tienes cuenta? &lt;a href=\"#\" id=\"show-login\"&gt;Inicia sesión&lt;/a&gt;&lt;/p&gt;\n            &lt;/form&gt;\n            &lt;div id=\"register-message\"&gt;&lt;/div&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    \n    &lt;script src=\"script.js\"&gt;&lt;/script&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n\n\n2. Estilos CSS (style.css)\n* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n}\n\nbody {\n    background-color: #f0f2f5;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n}\n\n.container {\n    background: #fff;\n    padding: 30px;\n    border-radius: 8px;\n    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);\n    width: 100%;\n    max-width: 400px;\n}\n\n.form-container h2 {\n    text-align: center;\n    margin-bottom: 20px;\n    color: #333;\n}\n\nform {\n    display: flex;\n    flex-direction: column;\n}\n\ninput {\n    padding: 12px;\n    margin-bottom: 15px;\n    border: 1px solid #ddd;\n    border-radius: 4px;\n    font-size: 14px;\n}\n\nbutton {\n    padding: 12px;\n    background-color: #007bff;\n    color: white;\n    border: none;\n    border-radius: 4px;\n    cursor: pointer;\n    font-size: 16px;\n    font-weight: bold;\n    transition: background 0.3s;\n}\n\nbutton:hover {\n    background-color: #0056b3;\n}\n\np {\n    text-align: center;\n    margin-top: 15px;\n    font-size: 14px;\n}\n\na {\n    color: #007bff;\n    text-decoration: none;\n}\n\na:hover {\n    text-decoration: underline;\n}\n\n.hidden {\n    display: none;\n}\n\n#login-message, #register-message {\n    text-align: center;\n    margin-top: 15px;\n    font-weight: bold;\n}\n.success { color: green; }\n.error { color: red; }\n\n\n3. Lógica JavaScript (script.js)\ndocument.addEventListener('DOMContentLoaded', () =&gt; {\n    const loginContainer = document.getElementById('login-container');\n    const registerContainer = document.getElementById('register-container');\n    const showRegisterBtn = document.getElementById('show-register');\n    const showLoginBtn = document.getElementById('show-login');\n\n    const loginForm = document.getElementById('login-form');\n    const registerForm = document.getElementById('register-form');\n\n    // Alternar vistas\n    showRegisterBtn.addEventListener('click', (e) =&gt; {\n        e.preventDefault();\n        loginContainer.classList.add('hidden');\n        registerContainer.classList.remove('hidden');\n    });\n\n    showLoginBtn.addEventListener('click', (e) =&gt; {\n        e.preventDefault();\n        registerContainer.classList.add('hidden');\n        loginContainer.classList.remove('hidden');\n    });\n\n    // Envío de Registro (Método POST)\n    registerForm.addEventListener('submit', async (e) =&gt; {\n        e.preventDefault();\n        const nombre = document.getElementById('register-name').value;\n        const email = document.getElementById('register-email').value;\n        const password = document.getElementById('register-password').value;\n        const messageDiv = document.getElementById('register-message');\n\n        try {\n            const response = await fetch('api.php?action=register', {\n                method: 'POST',\n                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },\n                body: new URLSearchParams({ nombre, email, password })\n            });\n            const data = await response.json();\n            \n            if(data.success) {\n                messageDiv.textContent = 'Registro exitoso. Ya puedes iniciar sesión.';\n                messageDiv.className = 'success';\n                registerForm.reset();\n            } else {\n                messageDiv.textContent = data.error || 'Error en el registro.';\n                messageDiv.className = 'error';\n            }\n        } catch (error) {\n            messageDiv.textContent = 'Error de conexión.';\n            messageDiv.className = 'error';\n        }\n    });\n\n    // Envío de Login (Método POST)\n    loginForm.addEventListener('submit', async (e) =&gt; {\n        e.preventDefault();\n        const email = document.getElementById('login-email').value;\n        const password = document.getElementById('login-password').value;\n        const messageDiv = document.getElementById('login-message');\n\n        try {\n            const response = await fetch('api.php?action=login', {\n                method: 'POST',\n                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },\n                body: new URLSearchParams({ email, password })\n            });\n            const data = await response.json();\n            \n            if(data.success) {\n                messageDiv.textContent = '¡Bienvenido ' + data.user.nombre + '!';\n                messageDiv.className = 'success';\n            } else {\n                messageDiv.textContent = data.error || 'Credenciales incorrectas.';\n                messageDiv.className = 'error';\n            }\n        } catch (error) {\n            messageDiv.textContent = 'Error de conexión.';\n            messageDiv.className = 'error';\n        }\n    });\n});\n\n\n4. Base de Datos SQL (database.sql)\n-- Crear la base de datos\nCREATE DATABASE IF NOT EXISTS sistema_login;\nUSE sistema_login;\n\n-- Crear la tabla de usuarios\nCREATE TABLE IF NOT EXISTS usuarios (\n    id INT AUTO_INCREMENT PRIMARY KEY,\n    nombre VARCHAR(100) NOT NULL,\n    email VARCHAR(100) NOT NULL UNIQUE,\n    password VARCHAR(255) NOT NULL,\n    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n);\n\n\n5. Backend PHP (API de Conexión y CRUD) (api.php)\n&lt;?php\nheader('Content-Type: application/json');\n\n// 1. Configuración de Conexión a Base de Datos\n$host = 'localhost';\n$dbname = 'sistema_login';\n$user = 'root'; // Ajustar según servidor\n$pass = '';     // Ajustar según servidor\n\ntry {\n    $pdo = new PDO(\"mysql:host=$host;dbname=$dbname;charset=utf8\", $user, $pass);\n    $pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);\n} catch (PDOException $e) {\n    echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"Error de conexión a BD\"]);\n    exit;\n}\n\n// 2. Procesamiento de Solicitudes (Create & Read)\n$action = $_GET['action'] ?? '';\n\nif ($_SERVER['REQUEST_METHOD'] === 'POST') {\n    \n    // CRUD: CREATE (Registro)\n    if ($action === 'register') {\n        $nombre = $_POST['nombre'] ?? '';\n        $email = $_POST['email'] ?? '';\n        $password = $_POST['password'] ?? '';\n        \n        if (empty($nombre) || empty($email) || empty($password)) {\n            echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"Todos los campos son obligatorios\"]);\n            exit;\n        }\n\n        // Hash de contraseña por seguridad\n        $hashed_password = password_hash($password, PASSWORD_DEFAULT);\n\n        try {\n            $stmt = $pdo-&gt;prepare(\"INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)\");\n            $stmt-&gt;execute([$nombre, $email, $hashed_password]);\n            echo json_encode([\"success\" =&gt; true]);\n        } catch (PDOException $e) {\n            if ($e-&gt;getCode() == 23000) {\n                echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"El correo ya está registrado\"]);\n            } else {\n                echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"Error al registrar usuario\"]);\n            }\n        }\n    } \n    \n    // CRUD: READ (Login)\n    elseif ($action === 'login') {\n        $email = $_POST['email'] ?? '';\n        $password = $_POST['password'] ?? '';\n\n        if (empty($email) || empty($password)) {\n            echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"Correo y contraseña son obligatorios\"]);\n            exit;\n        }\n\n        $stmt = $pdo-&gt;prepare(\"SELECT id, nombre, password FROM usuarios WHERE email = ?\");\n        $stmt-&gt;execute([$email]);\n        $user = $stmt-&gt;fetch(PDO::FETCH_ASSOC);\n\n        if ($user && password_verify($password, $user['password'])) {\n            echo json_encode([\n                \"success\" =&gt; true, \n                \"user\" =&gt; [\n                    \"id\" =&gt; $user['id'],\n                    \"nombre\" =&gt; $user['nombre']\n                ]\n            ]);\n        } else {\n            echo json_encode([\"success\" =&gt; false, \"error\" =&gt; \"Credenciales incorrectas\"]);\n        }\n    }\n}\n?&gt;",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 03: Backend, PHP y MySQL"
+    ]
+  },
+  {
+    "objectID": "corte1/clase03/index.html#materiales-y-lecturas",
+    "href": "corte1/clase03/index.html#materiales-y-lecturas",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
     "section": "📖 Materiales y Lecturas",
-    "text": "📖 Materiales y Lecturas\n\n💡 Preparación Previa\nContenido y guía práctica en construcción por el docente.",
+    "text": "📖 Materiales y Lecturas\n\n\n\n\n\n\nNote💡 Material de Clase\n\n\n\n\nGuía docente MySQL (Documento Word)\nProyecto completo: Código fuente Login y Registro (ZIP)",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 05: Evaluación Corte 1"
+      "Clase 03: Backend, PHP y MySQL"
     ]
   },
   {
-    "objectID": "corte1/clase05/index.html#práctica-de-laboratorio",
-    "href": "corte1/clase05/index.html#práctica-de-laboratorio",
-    "title": "Clase 05: Evaluación Corte 1 (Parcial 1)",
+    "objectID": "corte1/clase03/index.html#práctica-de-laboratorio",
+    "href": "corte1/clase03/index.html#práctica-de-laboratorio",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
     "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\nActividad práctica en desarrollo.",
+    "text": "🧪 Práctica de Laboratorio\n\nActividad: Replicar el login visto en clase utilizando todas las tecnologías vistas en clase.",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 05: Evaluación Corte 1"
+      "Clase 03: Backend, PHP y MySQL"
     ]
   },
   {
-    "objectID": "corte1/clase06/index.html",
-    "href": "corte1/clase06/index.html",
-    "title": "Clase 06: Consolidación e Integración de Sistemas",
+    "objectID": "corte1/clase02/index.html",
+    "href": "corte1/clase02/index.html",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
     "section": "",
-    "text": "Objetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "text": "Ver Presentación de la Clase",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 06: Integración"
+      "Clase 02: Cliente-Servidor & Ágiles"
     ]
   },
   {
-    "objectID": "corte1/clase06/index.html#objetivos-de-la-clase",
-    "href": "corte1/clase06/index.html#objetivos-de-la-clase",
-    "title": "Clase 06: Consolidación e Integración de Sistemas",
+    "objectID": "corte1/clase02/index.html#objetivos-de-la-clase",
+    "href": "corte1/clase02/index.html#objetivos-de-la-clase",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "🎯 Objetivos de la Clase",
+    "text": "🎯 Objetivos de la Clase\n\nComprender la evolución de los registros clínicos en papel hacia la Salud 4.0.\nIdentificar las diferencias fundamentales entre las metodologías de gestión de proyectos clásicas y las metodologías ágiles (Scrum).\nEntender la arquitectura Cliente-Servidor y los componentes Frontend y Backend en el contexto de un sistema de información en salud.\nConocer los conceptos básicos de un sistema CRUD y su aplicación en la Historia Clínica Electrónica (HCE).",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 02: Cliente-Servidor & Ágiles"
+    ]
+  },
+  {
+    "objectID": "corte1/clase02/index.html#conceptos-fundamentales",
+    "href": "corte1/clase02/index.html#conceptos-fundamentales",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "📖 Conceptos Fundamentales",
+    "text": "📖 Conceptos Fundamentales\n\n1. Evolución hacia la Salud 4.0\nLos flujos de trabajo clínicos y administrativos han evolucionado drásticamente. Hemos pasado del registro tradicional en papel a un ecosistema digital integrado (Salud 4.0), donde la información médica fluye a través de diversas plataformas para apoyar la toma de decisiones clínicas y mejorar la eficiencia administrativa.\n\n\n2. Metodologías de Gestión de Proyectos\n\nMetodologías Clásicas\nSe caracterizan por una planificación rigurosa y estática desde el inicio del proyecto (ej. Cascada). - Gestión estricta de cronograma (Gantt), costos y riesgos. - Fases independientes y secuenciales. - Adecuadas para proyectos con requisitos inmutables y un amplio rango de tiempo.\n\n\nMetodologías Ágiles (Scrum)\nIdeal para el desarrollo de software y aplicaciones tecnológicas, ya que se adapta a las necesidades cambiantes del cliente. - Flexibilidad: Fácil adaptación y seguimiento rápido de entregas. - Trabajo Iterativo: El trabajo se divide en Sprints (etapas interrelacionadas y cortas). - Roles en Scrum: - Product Owner (Dueño del Producto): Representa a los Stakeholders (interesados: gerentes, CEO, médicos). Conoce de primera mano las necesidades del cliente y define los requisitos. - Scrum Master: Líder facilitador del equipo (no un jefe). Garantiza la aplicación de la metodología y actúa como moderador entre el equipo y el Product Owner. - Equipo de Desarrollo (Developers): Ejecutan el trabajo. Participan en reuniones diarias (“Dailys”) respondiendo: ¿Qué hice ayer?, ¿Qué haré hoy?, ¿Qué problemas tuve? - Herramientas: Aplicaciones como Trello facilitan la administración visual de proyectos ágiles.\n\n\n\n3. Paradigma Cliente - Servidor\nLas soluciones tecnológicas modernas en salud se dividen en dos instancias principales: - Frontend (Cliente): La interfaz visual con la que interactúan los profesionales de la salud o los pacientes. - Backend (Servidor): La lógica de negocio y la base de datos donde se procesa y almacena de forma segura la información médica.\n\n\n4. Sistemas CRUD\nLa base de la mayoría de los sistemas de información en salud es el modelo CRUD, que define las cuatro operaciones fundamentales sobre una base de datos: - Create (Crear registros médicos) - Read (Consultar el historial del paciente) - Update (Actualizar datos o evolución) - Delete (Eliminar o archivar registros, bajo estrictas normativas)\n\n\n5. Historia Clínica Electrónica (HCE)\nLa Historia Clínica Electrónica centraliza la gestión de los datos de los pacientes e implementa transversalmente el modelo CRUD. En Colombia, la interoperabilidad y reglamentación de la Historia Clínica Electrónica está liderada por el Ministerio de Salud. Puedes consultar más información en el sitio oficial: - 🔗 Ministerio de Salud: Interoperabilidad de la Historia Clínica Electrónica (IHCE)\n\n\n\nEjemplo en Vivo: Consumiendo una API desde el Cliente (Frontend)\nEl siguiente bloque de código se ejecuta directamente en su navegador gracias a Pyodide. Hace una petición a un servidor externo (Backend) para obtener el clima actual, demostrando en la práctica el paradigma Cliente-Servidor. Puede presionar el botón de “Run” para probarlo en tiempo real.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 02: Cliente-Servidor & Ágiles"
+    ]
+  },
+  {
+    "objectID": "corte1/clase02/index.html#práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866",
+    "href": "corte1/clase02/index.html#práctica-de-laboratorio-diseño-de-datos-clínicos-resolución-866",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "🧪 Práctica de Laboratorio: Diseño de Datos Clínicos (Resolución 866)",
+    "text": "🧪 Práctica de Laboratorio: Diseño de Datos Clínicos (Resolución 866)\n\nObjetivo Práctico\nIdentificar y estructurar los datos mínimos requeridos para la tabla pacientes de un sistema CRUD, asegurando el cumplimiento de la normativa colombiana de interoperabilidad (Resolución 866 de 2021).\n\n\n\n\n\n\nNote💻 Actividad: Construyendo el Diccionario de Datos\n\n\n\n\nConsulta Normativa: Ingrese a la web oficial del Ministerio de Salud y consulte el Anexo Técnico de la Resolución 866 de 2021. Ubique la sección referida al Conjunto de Datos de Identificación del Paciente.\nEstructura de la Tabla: En una hoja de cálculo (Excel, Google Sheets), cree una tabla que servirá como su “Diccionario de Datos” para el diseño del sistema.\nSelección de Variables: Extraiga todas las variables exigidas por la normatividad (por ejemplo: Tipo de Identificación, Número de Identificación, Nombres, Apellidos, Sexo Biológico, Fecha de Nacimiento, Código DANE del municipio de residencia, etc.).\nTipificación de Datos: Por cada variable seleccionada, añada una columna definiendo qué tipo de dato utilizará en la base de datos (Ej: VARCHAR para texto, DATE para fechas, INT para números enteros).\n\nGuarde este documento, ya que será la base técnica para la programación de la base de datos en las próximas clases.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 02: Cliente-Servidor & Ágiles"
+    ]
+  },
+  {
+    "objectID": "corte1/clase01/index.html",
+    "href": "corte1/clase01/index.html",
+    "title": "Clase 01: Jerarquía del Conocimiento y Salud 4.0",
     "section": "",
-    "text": "Objetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "text": "Ver Presentación de la Clase",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 06: Integración"
+      "Clase 01: Salud 4.0 & DIKW"
     ]
   },
   {
-    "objectID": "corte1/clase06/index.html#materiales-y-lecturas",
-    "href": "corte1/clase06/index.html#materiales-y-lecturas",
-    "title": "Clase 06: Consolidación e Integración de Sistemas",
-    "section": "📖 Materiales y Lecturas",
-    "text": "📖 Materiales y Lecturas\n\n💡 Preparación Previa\nContenido y guía práctica en construcción por el docente.",
+    "objectID": "corte1/clase01/index.html#objetivos-de-la-clase",
+    "href": "corte1/clase01/index.html#objetivos-de-la-clase",
+    "title": "Clase 01: Jerarquía del Conocimiento y Salud 4.0",
+    "section": "🎯 Objetivos de la Clase",
+    "text": "🎯 Objetivos de la Clase\nComprender los conceptos fundamentales de la informática médica, el flujo de trabajo clínico y administrativo, y la aplicación práctica del modelo DIKW.",
     "crumbs": [
       "Guía de Asignatura",
       "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 06: Integración"
+      "Clase 01: Salud 4.0 & DIKW"
     ]
   },
   {
-    "objectID": "corte1/clase06/index.html#práctica-de-laboratorio",
-    "href": "corte1/clase06/index.html#práctica-de-laboratorio",
-    "title": "Clase 06: Consolidación e Integración de Sistemas",
+    "objectID": "corte1/clase01/index.html#conceptos-fundamentales",
+    "href": "corte1/clase01/index.html#conceptos-fundamentales",
+    "title": "Clase 01: Jerarquía del Conocimiento y Salud 4.0",
+    "section": "📖 Conceptos Fundamentales",
+    "text": "📖 Conceptos Fundamentales\n\nJerarquía del Conocimiento (Modelo DIKW)\nLa base de la informática médica se centra en la transición progresiva desde los datos brutos hasta la toma de decisiones: - Dato: Símbolos o lecturas aisladas. - Información: Datos con contexto y significado. - Conocimiento: Información comprendida y estructurada. - Sabiduría: Conocimiento aplicado para la acción y resolución de problemas.\n\n\nEvolución Clínica\n\nFlujos de trabajo clínicos y administrativos.\nTransición: Del registro en papel a la Salud 4.0.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 01: Salud 4.0 & DIKW"
+    ]
+  },
+  {
+    "objectID": "corte1/clase01/index.html#práctica-de-laboratorio-programando-el-triaje",
+    "href": "corte1/clase01/index.html#práctica-de-laboratorio-programando-el-triaje",
+    "title": "Clase 01: Jerarquía del Conocimiento y Salud 4.0",
+    "section": "🧪 Práctica de Laboratorio: Programando el Triaje",
+    "text": "🧪 Práctica de Laboratorio: Programando el Triaje\n\nEl Ciclo DIKW Aplicado\nProblema: Imagina que existe un dispositivo IoT (como un reloj inteligente) que mide la temperatura de pacientes en una sala de espera y debes decidir automáticamente qué hacer con cada uno.\n\nDato (temperaturas_sensor): “Miren la lista de números [36.5, 39.2...]. Si yo solo les doy eso, no saben si es temperatura, precio del dólar o latidos por minuto. Eso es el Dato.”\nInformación (mensaje_info): “Cuando agregamos °C, el dato gana contexto. Ahora sabemos qué estamos midiendo.”\nConocimiento (if/else): “Aquí entra la medicina. El computador no sabe qué es fiebre. Nosotros, como expertos, le enseñamos las reglas (por ejemplo, &gt; 37.5). El if representa el conocimiento médico codificado.”\nSabiduría (accion): “El sistema no solo dice ‘tiene fiebre’, sino que sugiere qué hacer (‘Administrar antipirético’). La sabiduría es la aplicación práctica del conocimiento para resolver un problema.”\n\n\nEjemplo en Código Python\nA continuación, un ejemplo básico de cómo se estructuran las decisiones (Conocimiento y Sabiduría) en código real. ¡Puedes editar este código y ejecutarlo directamente aquí en tu navegador!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNote💻 Reto Práctico\n\n\n\nModifiquen el código para agregar una segunda variable, como Saturación de Oxígeno (SpO2), y describan paso a paso el ciclo DIKW para esta nueva variable.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟦 Corte 1: Aplicaciones Web y SIS",
+      "Clase 01: Salud 4.0 & DIKW"
+    ]
+  },
+  {
+    "objectID": "corte1/clase01/slides.html#jefferson-sarmiento-rojas-ph.d-c",
+    "href": "corte1/clase01/slides.html#jefferson-sarmiento-rojas-ph.d-c",
+    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
+    "section": "Jefferson Sarmiento Rojas, Ph.D (c)",
+    "text": "Jefferson Sarmiento Rojas, Ph.D (c)"
+  },
+  {
+    "objectID": "corte1/clase01/slides.html#pirámide-dikw",
+    "href": "corte1/clase01/slides.html#pirámide-dikw",
+    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
+    "section": "Pirámide DIKW",
+    "text": "Pirámide DIKW"
+  },
+  {
+    "objectID": "corte1/clase01/slides.html#dato",
+    "href": "corte1/clase01/slides.html#dato",
+    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
+    "section": "Dato",
+    "text": "Dato\n\nSímbolos o lecturas aisladas.\nEjemplo: [36.5, 39.2...] sin contexto."
+  },
+  {
+    "objectID": "corte1/clase01/slides.html#información",
+    "href": "corte1/clase01/slides.html#información",
+    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
+    "section": "Información",
+    "text": "Información\n\nDatos con contexto y significado.\nEjemplo: 39.2 °C (Sabemos qué estamos midiendo)."
+  },
+  {
+    "objectID": "corte1/clase01/slides.html#conocimiento",
+    "href": "corte1/clase01/slides.html#conocimiento",
+    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
+    "section": "Conocimiento",
+    "text": "Conocimiento\n\nInformación comprendida y estructurada.\nEjemplo: Si temperatura &gt; 37.5, entonces hay fiebre. El conocimiento médico codificado."
+  },
+  {
+    "objectID": "corte1/clase01/slides.html#sabiduría",
+    "href": "corte1/clase01/slides.html#sabiduría",
+    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
+    "section": "Sabiduría",
+    "text": "Sabiduría\n\nConocimiento aplicado para la acción y resolución de problemas.\nEjemplo: “El sistema sugiere administrar antipirético y priorizar atención”."
+  },
+  {
+    "objectID": "corte1/clase01/slides.html#flujos-de-trabajo",
+    "href": "corte1/clase01/slides.html#flujos-de-trabajo",
+    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
+    "section": "Flujos de trabajo",
+    "text": "Flujos de trabajo\n\nComprender cómo se mueve la información clínica y administrativa dentro de un hospital."
+  },
+  {
+    "objectID": "corte1/clase01/slides.html#transición-de-tecnologías",
+    "href": "corte1/clase01/slides.html#transición-de-tecnologías",
+    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
+    "section": "Transición de Tecnologías",
+    "text": "Transición de Tecnologías"
+  },
+  {
+    "objectID": "corte1/clase01/slides.html#hacia-la-salud-4.0",
+    "href": "corte1/clase01/slides.html#hacia-la-salud-4.0",
+    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
+    "section": "Hacia la Salud 4.0",
+    "text": "Hacia la Salud 4.0\n\nTransición del registro en papel a sistemas totalmente digitalizados, inteligentes e interoperables."
+  },
+  {
+    "objectID": "corte1/clase01/slides.html#programando-el-triaje-reto-dikw",
+    "href": "corte1/clase01/slides.html#programando-el-triaje-reto-dikw",
+    "title": "Clase 01: Fundamentos de Informática Médica & DIKW",
+    "section": "Programando el Triaje (Reto DIKW)",
+    "text": "Programando el Triaje (Reto DIKW)\nImagina un dispositivo IoT (como un smartwatch) midiendo pacientes en sala de espera.\nReto Práctico: Modifiquen el código del triage para agregar una segunda variable, como Saturación de Oxígeno (SpO2), y describan paso a paso el ciclo DIKW para esta nueva variable de manera automática."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#flujos-de-trabajo-clínicos-y-administrativos",
+    "href": "corte1/clase02/slides.html#flujos-de-trabajo-clínicos-y-administrativos",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Flujos de trabajo clínicos y administrativos",
+    "text": "Flujos de trabajo clínicos y administrativos\n\nEvolución constante de los procesos en las instituciones de salud.\nOptimización de recursos y tiempos de atención."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#del-registro-en-papel-a-la-salud-4.0",
+    "href": "corte1/clase02/slides.html#del-registro-en-papel-a-la-salud-4.0",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Del registro en papel a la Salud 4.0",
+    "text": "Del registro en papel a la Salud 4.0\n\nTransición del papel a los medios digitales.\nIntegración de tecnologías IoT, Big Data e IA.\nInteroperabilidad de los datos médicos."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#paradigma-cliente---servidor",
+    "href": "corte1/clase02/slides.html#paradigma-cliente---servidor",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Paradigma Cliente - Servidor",
+    "text": "Paradigma Cliente - Servidor\n\nCliente (Frontend): Interfaz visual donde interactúa el usuario.\nServidor (Backend): Lógica y base de datos donde se procesa la información de manera segura."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#proceso-para-la-planeación-y-ejecución",
+    "href": "corte1/clase02/slides.html#proceso-para-la-planeación-y-ejecución",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Proceso para la planeación y ejecución",
+    "text": "Proceso para la planeación y ejecución\n\nAntes de desarrollar cualquier sistema de información en salud, se requiere una planificación rigurosa.\nExisten dos grandes caminos: Metodologías Clásicas y Metodologías Ágiles."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#metodologías-clásicas",
+    "href": "corte1/clase02/slides.html#metodologías-clásicas",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Metodologías Clásicas",
+    "text": "Metodologías Clásicas\n\nGestión estricta y organizada del cronograma (Gantt).\nGestión de costos (directos, indirectos) y stakeholders.\nGestión rigurosa de riesgos.\nFases independientes.\nAdecuada para proyectos estáticos con un amplio rango de tiempo."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#metodologías-ágiles",
+    "href": "corte1/clase02/slides.html#metodologías-ágiles",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Metodologías Ágiles",
+    "text": "Metodologías Ágiles\n\nGestión organizada pero orientada a un estado cambiante.\nFácil adaptación a las necesidades del cliente (Iterativo).\nRetroalimentación constante.\nEntregas rápidas (Sprints).\nIdeal para el desarrollo de herramientas digitales y software."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#scrum",
+    "href": "corte1/clase02/slides.html#scrum",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Scrum",
+    "text": "Scrum\n\nMetodología ágil altamente adaptable y de fácil implementación.\nEspecialmente diseñada para proyectos tecnológicos.\nDivide el proyecto en ciclos cortos llamados Sprints."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#roles-en-scrum-product-owner",
+    "href": "corte1/clase02/slides.html#roles-en-scrum-product-owner",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Roles en Scrum: Product Owner",
+    "text": "Roles en Scrum: Product Owner\n\nInterlocutor entre el equipo y el cliente.\nConoce todas las necesidades (Dueño del Producto).\nRepresenta a los Stakeholders (gerentes, médicos, pacientes)."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#roles-en-scrum-scrum-master",
+    "href": "corte1/clase02/slides.html#roles-en-scrum-scrum-master",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Roles en Scrum: Scrum Master",
+    "text": "Roles en Scrum: Scrum Master\n\nLíder facilitador del equipo de trabajo.\nNO es un jefe tradicional.\nGarantiza que la metodología Scrum se aplique correctamente.\nModerador entre las necesidades y el equipo."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#roles-en-scrum-equipo-de-desarrollo",
+    "href": "corte1/clase02/slides.html#roles-en-scrum-equipo-de-desarrollo",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Roles en Scrum: Equipo de Desarrollo",
+    "text": "Roles en Scrum: Equipo de Desarrollo\n\nEjecutan las tareas técnicas del proyecto.\nTienen reuniones diarias (Dailys):\n\n¿Qué se hizo ayer?\n¿Qué se está haciendo hoy?\n¿Qué problemas se presentaron?"
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#herramientas-scrum-trello",
+    "href": "corte1/clase02/slides.html#herramientas-scrum-trello",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Herramientas Scrum (Trello)",
+    "text": "Herramientas Scrum (Trello)\n\nSoftware de administración de proyectos con interfaz web y móvil.\nUtiliza tableros, listas y tarjetas (Sistema Kanban) para organizar las tareas de los Sprints."
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#sistemas-crud",
+    "href": "corte1/clase02/slides.html#sistemas-crud",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Sistemas CRUD",
+    "text": "Sistemas CRUD\n\nCRUD: Operaciones fundamentales en sistemas de información en salud.\n\nCreate (Crear registros médicos)\nRead (Consultar el historial)\nUpdate (Actualizar datos o evolución)\nDelete (Eliminar o archivar bajo normativas)"
+  },
+  {
+    "objectID": "corte1/clase02/slides.html#historia-clínica-electrónica",
+    "href": "corte1/clase02/slides.html#historia-clínica-electrónica",
+    "title": "Clase 02: Metodologías Ágiles y Paradigma Cliente-Servidor",
+    "section": "Historia Clínica Electrónica",
+    "text": "Historia Clínica Electrónica\n\nHistoria Clínica Electrónica (HCE/EHR): Sistema centralizado para gestionar la información de los pacientes.\nRegistra transversalmente todos los datos clínicos."
+  },
+  {
+    "objectID": "corte1/clase03/slides.html#herramientas-digitales-y-aplicaciones-web",
+    "href": "corte1/clase03/slides.html#herramientas-digitales-y-aplicaciones-web",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "section": "Herramientas Digitales y Aplicaciones Web",
+    "text": "Herramientas Digitales y Aplicaciones Web"
+  },
+  {
+    "objectID": "corte1/clase03/slides.html#html",
+    "href": "corte1/clase03/slides.html#html",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "section": "HTML",
+    "text": "HTML"
+  },
+  {
+    "objectID": "corte1/clase03/slides.html#css",
+    "href": "corte1/clase03/slides.html#css",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "section": "CSS",
+    "text": "CSS\n\nCascading Style Sheets: Lenguaje que maneja el diseño y presentación de páginas web.\nFunciona junto con HTML (encargado del contenido).\n“En cascada”: se pueden tener varias hojas con propiedades heredadas."
+  },
+  {
+    "objectID": "corte1/clase03/slides.html#php",
+    "href": "corte1/clase03/slides.html#php",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "section": "PHP",
+    "text": "PHP\n\nHypertext Preprocessor: Lenguaje para desarrollar aplicaciones web.\nFavorece la conexión entre servidores y la interfaz de usuario.\nPrincipalmente backend (lado del servidor), pero con utilidades frontend."
+  },
+  {
+    "objectID": "corte1/clase03/slides.html#javascript",
+    "href": "corte1/clase03/slides.html#javascript",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "section": "JavaScript",
+    "text": "JavaScript\n\nAñade interactividad y permite crear aplicaciones web complejas.\nLenguaje de alto nivel, dinámico, interpretado y orientado a objetos.\nBasado en prototipos, imperativo y débilmente tipado.\nTecnología esencial junto a HTML y CSS."
+  },
+  {
+    "objectID": "corte1/clase03/slides.html#qué-es-sql",
+    "href": "corte1/clase03/slides.html#qué-es-sql",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "section": "¿Qué es SQL?",
+    "text": "¿Qué es SQL?\n\nStructured Query Language (desarrollado por IBM).\nLenguaje de Consulta Estructurado para comunicarse con BD (editar, seleccionar, filtrar).\nEstándar y motor de las bases de datos.\nMotores comunes: MySQL (rápido), PostgreSQL (robusto), MS SQL Server, DB2, Oracle."
+  },
+  {
+    "objectID": "corte1/clase03/slides.html#bases-de-datos",
+    "href": "corte1/clase03/slides.html#bases-de-datos",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
+    "section": "Bases de Datos",
+    "text": "Bases de Datos\n\nTipos de datos SQL y Características.\nComposición: Tablas (Nombre, Columnas/Atributos, Filas/Registros).\nCreación de tabla y consulta DESC nombreTabla;\nBases de Datos CRUD (Create, Read, Update, Delete)"
+  },
+  {
+    "objectID": "corte1/clase03/slides.html#práctica-de-laboratorio",
+    "href": "corte1/clase03/slides.html#práctica-de-laboratorio",
+    "title": "Clase 03: Desarrollo Backend y Base de Datos (PHP y MySQL)",
     "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\nActividad práctica en desarrollo.",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟦 Corte 1: Aplicaciones Web y SIS",
-      "Clase 06: Integración"
-    ]
+    "text": "🧪 Práctica de Laboratorio\nActividad: Replicar el login visto en clase utilizando todas las tecnologías vistas en clase."
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#servicios-web",
+    "href": "corte1/clase04/slides.html#servicios-web",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Servicios Web",
+    "text": "Servicios Web\nSoftware o pieza de software el cual utiliza protocolos y estándares para el intercambio de datos a través de internet."
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#paradigma-de-los-servicios-web",
+    "href": "corte1/clase04/slides.html#paradigma-de-los-servicios-web",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Paradigma de los servicios Web",
+    "text": "Paradigma de los servicios Web\nRequest, Response, Hypermedia, Server"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#bases-de-datos",
+    "href": "corte1/clase04/slides.html#bases-de-datos",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Bases de Datos",
+    "text": "Bases de Datos"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#características",
+    "href": "corte1/clase04/slides.html#características",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Características",
+    "text": "Características"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#bases-de-datos-no-relacionales",
+    "href": "corte1/clase04/slides.html#bases-de-datos-no-relacionales",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Bases de Datos No Relacionales",
+    "text": "Bases de Datos No Relacionales"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#rest-api",
+    "href": "corte1/clase04/slides.html#rest-api",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "REST-API",
+    "text": "REST-API"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#protocolo-http",
+    "href": "corte1/clase04/slides.html#protocolo-http",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Protocolo HTTP",
+    "text": "Protocolo HTTP"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#códigos-de-respuesta-http",
+    "href": "corte1/clase04/slides.html#códigos-de-respuesta-http",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Códigos de Respuesta HTTP",
+    "text": "Códigos de Respuesta HTTP"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#bases-de-datos-crud",
+    "href": "corte1/clase04/slides.html#bases-de-datos-crud",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "Bases de Datos CRUD",
+    "text": "Bases de Datos CRUD"
+  },
+  {
+    "objectID": "corte1/clase04/slides.html#práctica-de-laboratorio",
+    "href": "corte1/clase04/slides.html#práctica-de-laboratorio",
+    "title": "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL",
+    "section": "🧪 Práctica de Laboratorio",
+    "text": "🧪 Práctica de Laboratorio\nActividad: Replicar el sistema de Login y CRUD de la sesión consumiendo una base de datos NoSQL mediante Firebase y su API REST."
+  },
+  {
+    "objectID": "corte1/clase05/slides.html#diapositivas-en-desarrollo",
+    "href": "corte1/clase05/slides.html#diapositivas-en-desarrollo",
+    "title": "Clase 05: Consolidación e Integración de Sistemas",
+    "section": "Diapositivas en Desarrollo",
+    "text": "Diapositivas en Desarrollo\n\nPróximamente se publicará el contenido de las diapositivas de esta sesión."
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#la-cadena-de-hoy",
+    "href": "corte1/clase06/slides.html#la-cadena-de-hoy",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "La cadena de hoy",
+    "text": "La cadena de hoy\nExcel real → Auditoría → Diccionario → Tabla MySQL → CRUD en PHP\n\nEl Excel no se copia: se audita, se decide y se diseña.\n\n\nSi el diccionario está mal, la aplicación está mal."
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#la-fuente-bd.xlsx",
+    "href": "corte1/clase06/slides.html#la-fuente-bd.xlsx",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "La fuente: BD.xlsx",
+    "text": "La fuente: BD.xlsx\nInventario del Hospital Universitario Nivel III (institución de alta complejidad)\n\n67 equipos × 31 columnas\nSalas de cirugía, UCI adulto y coronaria, imagenología, unidad renal\nHojas: Listado Equipos, Ficha Tecnica, MPP, Predicitivo\n\n\nY viene con todos los problemas de un archivo real."
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#lo-que-esconde-ese-archivo",
+    "href": "corte1/clase06/slides.html#lo-que-esconde-ese-archivo",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Lo que esconde ese archivo",
+    "text": "Lo que esconde ese archivo\n\nDos columnas se llaman igual: UBICACIÓN y UBICACIÓN\nPLACA NUEVA está llena en 17 de 67 equipos\nFECHA DE INSTALACION y FECHA DE COMPRA: 100 % vacías\nFECHA DE FABRICACION solo trae el año\nPESO: 120gr, 12Kg, 1,7Tn — tres unidades\nCORRIENTE: 0,5A, 2.2A, 300mA — coma y punto\nDiagnostico vs diagnostico vs DIAGNOSTICO\nCONDICIONES DE TRABAJO: un solo valor en las 67 filas"
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#las-4-decisiones-posibles",
+    "href": "corte1/clase06/slides.html#las-4-decisiones-posibles",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Las 4 decisiones posibles",
+    "text": "Las 4 decisiones posibles\n\n\n\n\nCuándo\nEjemplo\n\n\n\n\n🗑️ Descartar\nVacía o constante\nFRECUENCIA DE ALIMENTACION\n\n\n✅ Conservar\nAtómico, texto libre\nMARCA\n\n\n✂️ Dividir\nValor + unidad, rango\n0 - 43°C\n\n\n🔗 Normalizar\nLista cerrada\nCLASIFICACION BIOMEDICA"
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#la-pregunta-que-decide-todo",
+    "href": "corte1/clase06/slides.html#la-pregunta-que-decide-todo",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "La pregunta que decide todo",
+    "text": "La pregunta que decide todo\n\n“¿Qué consulta quiero poder hacer con este dato?”\n\n\n“¿Cuántos equipos de soporte de vida hay en la UCI?” → hay que normalizar\n\n\n“¿Cuáles equipos pesan más de 100 kg?” → hay que dividir y unificar unidades\n\n\n“¿Cuántos equipos trabajan a 60 Hz?” → nadie la hace, y todos son iguales → descartar"
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#tipificar-no-es-cosmético",
+    "href": "corte1/clase06/slides.html#tipificar-no-es-cosmético",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Tipificar no es cosmético",
+    "text": "Tipificar no es cosmético\n\nActivoFijo como INT\n\n\nEl equipo E000774 no se puede registrar.\n\n\nPerdimos un equipo del hospital por elegir mal un tipo de dato."
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#del-diccionario-al-sql",
+    "href": "corte1/clase06/slides.html#del-diccionario-al-sql",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Del diccionario al SQL",
+    "text": "Del diccionario al SQL\nCREATE TABLE inventario (\n  IdEquipo          INT AUTO_INCREMENT PRIMARY KEY,\n  ActivoFijo        VARCHAR(15) NOT NULL,\n  NombreEquipo      VARCHAR(80) NOT NULL,\n  AnioFabricacion   YEAR        NULL,\n  PesoKg            DECIMAL(8,3) NULL,\n  IdServicio        INT         NOT NULL,\n  IdClasifRiesgo    INT         NOT NULL,\n  EstadoEquipo      TINYINT(1)  NOT NULL DEFAULT 1,\n  CONSTRAINT uq_activo UNIQUE (ActivoFijo),\n  CONSTRAINT fk_serv FOREIGN KEY (IdServicio)\n      REFERENCES servicios(IdServicio)\n);"
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#tablas-no-1",
+    "href": "corte1/clase06/slides.html#tablas-no-1",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "8 tablas, no 1",
+    "text": "8 tablas, no 1\nDominio: servicios · areas · clasif_biomedica · clasif_riesgo · clasif_electrica · tecnologias · frecuencias_mpp\nPrincipal: inventario\n\nEso es lo que impide que existan Trimestral y trimestral como cosas distintas."
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#el-esquema-en-una-imagen",
+    "href": "corte1/clase06/slides.html#el-esquema-en-una-imagen",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "El esquema en una imagen",
+    "text": "El esquema en una imagen\n\n  \n    \n      \n    \n  \n\n  \n    \n    servicios\n    \n    areas\n    \n    clasif_biomedica\n    \n    clasif_riesgo\n\n    \n    clasif_electrica\n    \n    tecnologias\n    \n    frecuencias_mpp\n  \n\n  \n    \n    \n    \n    \n    \n    \n    \n  \n\n  \n  \n  \n  inventario\n  IdEquipo · PRIMARY KEY\n  UNIQUE (ActivoFijo)\n  7 FOREIGN KEY\n  EstadoEquipo → baja lógica\n\n  \n  1\n  N\n\n  \n  \n  \n  criticidad\n  4 variables de 1 a 5\n  PuntajeTotal → GENERATED\n\n  \n  \n  v_cronograma_mpp\n  VISTA: no almacena datos\n  18–20 → BIMESTRAL\n\n  \n  FOREIGN KEY: 1 dominio → N equipos\n  \n  la vista lee, no duplica"
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#bonus-lo-que-se-calcula-no-se-escribe",
+    "href": "corte1/clase06/slides.html#bonus-lo-que-se-calcula-no-se-escribe",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Bonus: lo que se calcula no se escribe",
+    "text": "Bonus: lo que se calcula no se escribe\nHoja MPP: 4 variables de 1 a 5 → puntaje → período\nPuntajeTotal TINYINT AS\n  (FrecuenciaUso + FormaUso + ExactitudReq + ImportanciaEco) STORED\n18–20 → BIMESTRAL · 14–17 → TRIMESTRAL 9–13 → SEMESTRAL · 4–8 → ANUAL"
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#crud-y-los-archivos-del-proyecto",
+    "href": "corte1/clase06/slides.html#crud-y-los-archivos-del-proyecto",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "CRUD y los archivos del proyecto",
+    "text": "CRUD y los archivos del proyecto\n\n\n\nCRUD\nSQL\nArchivo\n\n\n\n\nCreate\nINSERT\napi/guardar.php\n\n\nRead\nSELECT + JOIN\nindex.php\n\n\nUpdate\nUPDATE\nmodificar.php → api/actualizar.php\n\n\nDelete\nUPDATE EstadoEquipo=0\napi/eliminar.php"
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#dos-reglas-no-negociables",
+    "href": "corte1/clase06/slides.html#dos-reglas-no-negociables",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "Dos reglas no negociables",
+    "text": "Dos reglas no negociables\n\n1. Consultas preparadas prepare() + bind_param(). Pruebe a buscar ' OR '1'='1 en la versión concatenada.\n\n\n2. En salud no se borra: se da de baja EstadoEquipo = 0. Los mantenimientos y la tecnovigilancia dependen de ese historial."
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#el-reto-del-corte-2",
+    "href": "corte1/clase06/slides.html#el-reto-del-corte-2",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "El reto del Corte 2",
+    "text": "El reto del Corte 2\nMisma cadena. Otra fuente de verdad.\n\n\n\nHoy\nCorte 2\n\n\n\n\nBD.xlsx del hospital\nResolución 866 de 2021\n\n\ninventario\npacientes\n\n\n“está en el Excel”\n“está en el anexo técnico”\n\n\nEquipo mal inventariado\nPaciente mal identificado"
+  },
+  {
+    "objectID": "corte1/clase06/slides.html#práctica-de-laboratorio",
+    "href": "corte1/clase06/slides.html#práctica-de-laboratorio",
+    "title": "Clase 06: CRUD de Inventario de Equipos Biomédicos",
+    "section": "🧪 Práctica de Laboratorio",
+    "text": "🧪 Práctica de Laboratorio\nActividad: Auditar BD.xlsx, construir el diccionario de datos del inventario e implementar el CRUD completo con HTML + PHP + MySQL.\nEntrega: .zip con auditoría + diccionario, database.sql, ProyectoInventario/ y las 10 pruebas."
   },
   {
     "objectID": "corte2/clase07/index.html",
