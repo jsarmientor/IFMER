@@ -364,11 +364,67 @@
     "text": "Diapositivas en Desarrollo\n\nPróximamente se publicará el contenido de las diapositivas de esta sesión."
   },
   {
-    "objectID": "corte2/clase07/slides.html#diapositivas-en-desarrollo",
-    "href": "corte2/clase07/slides.html#diapositivas-en-desarrollo",
-    "title": "Clase 07: Interoperabilidad y Estándares Clásicos",
-    "section": "Diapositivas en Desarrollo",
-    "text": "Diapositivas en Desarrollo\n\nPróximamente se publicará el contenido de las diapositivas de esta sesión."
+    "objectID": "corte2/clase07/slides.html#objetivos-de-la-sesión",
+    "href": "corte2/clase07/slides.html#objetivos-de-la-sesión",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad",
+    "section": "🎯 Objetivos de la Sesión",
+    "text": "🎯 Objetivos de la Sesión\n\nEntender qué es Visual Basic para Aplicaciones (VBA).\nIdentificar la importancia de automatizar tareas en Excel.\nReconocer el concepto de Interoperabilidad en Salud.\nConsumir APIs (SNOMED CT y CIE-10) desde macros."
+  },
+  {
+    "objectID": "corte2/clase07/slides.html#qué-es-vba",
+    "href": "corte2/clase07/slides.html#qué-es-vba",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad",
+    "section": "¿Qué es VBA?",
+    "text": "¿Qué es VBA?\n\nVisual Basic para Aplicaciones (VBA) es el lenguaje subyacente en Microsoft Office.\nObjetivo: Automatizar varias tareas y fusionarlas en una sola.\nPermite construir aplicaciones de escritorio sobre Excel, aumentando eficiencia y eficacia."
+  },
+  {
+    "objectID": "corte2/clase07/slides.html#conceptos-iniciales",
+    "href": "corte2/clase07/slides.html#conceptos-iniciales",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad",
+    "section": "Conceptos Iniciales",
+    "text": "Conceptos Iniciales\n\nVariables y Tipos de Datos: Almacenamiento temporal de información.\nOperadores: Matemáticos (+, -, *) y Lógicos (And, Or, Not).\nEstructuras de Control:\n\nCondicionales (Simples, compuestas, anidadas).\nCiclos (Mientras, Repetir, For)."
+  },
+  {
+    "objectID": "corte2/clase07/slides.html#programación-orientada-a-eventos",
+    "href": "corte2/clase07/slides.html#programación-orientada-a-eventos",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad",
+    "section": "Programación Orientada a Eventos",
+    "text": "Programación Orientada a Eventos\n\nLas aplicaciones VBA se basan en Objetos.\nMétodos: Acciones que el objeto puede ejecutar sobre sí mismo (ej. Show, Hide).\nEventos: Acciones reconocidas por el objeto que disparan el código (ej. un clic del usuario).\n\n\n“El usuario acciona y el código responde.”"
+  },
+  {
+    "objectID": "corte2/clase07/slides.html#el-problema-de-los-silos",
+    "href": "corte2/clase07/slides.html#el-problema-de-los-silos",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad",
+    "section": "El Problema de los “Silos”",
+    "text": "El Problema de los “Silos”\n\nLos Sistemas Locales de Salud suelen estar aislados (Silos).\nLa falta de comunicación dificulta la continuidad asistencial.\nSolución: Interoperabilidad mediante vocabularios estándar (CIE-10, SNOMED CT)."
+  },
+  {
+    "objectID": "corte2/clase07/slides.html#qué-es-una-api",
+    "href": "corte2/clase07/slides.html#qué-es-una-api",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad",
+    "section": "¿Qué es una API?",
+    "text": "¿Qué es una API?\n\nInterfaz de Programación de Aplicaciones.\nPermite que VBA en Excel se “hable” con servidores externos (como terminologías médicas) para enviar o extraer datos usando el protocolo HTTP y formatos como JSON."
+  },
+  {
+    "objectID": "corte2/clase07/slides.html#ejemplo-api-de-snomed-ct",
+    "href": "corte2/clase07/slides.html#ejemplo-api-de-snomed-ct",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad",
+    "section": "Ejemplo: API de SNOMED CT",
+    "text": "Ejemplo: API de SNOMED CT\nSub ConsultarSNOMED()\n    Dim http As Object\n    Dim url As String, term As String\n    \n    term = \"Diabetes\"\n    url = \"https://browser.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/concepts?term=\" & term & \"&limit=1\"\n    \n    Set http = CreateObject(\"MSXML2.XMLHTTP\")\n    http.Open \"GET\", url, False\n    http.send\n    \n    MsgBox http.responseText\nEnd Sub"
+  },
+  {
+    "objectID": "corte2/clase07/slides.html#ejemplo-api-de-cie-10",
+    "href": "corte2/clase07/slides.html#ejemplo-api-de-cie-10",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad",
+    "section": "Ejemplo: API de CIE-10",
+    "text": "Ejemplo: API de CIE-10\nSub ConsultarCIE10()\n    Dim http As Object\n    Dim url As String\n    \n    url = \"https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?terms=E11\"\n    \n    Set http = CreateObject(\"MSXML2.XMLHTTP\")\n    http.Open \"GET\", url, False\n    http.send\n    \n    MsgBox \"Resultado: \" & http.responseText\nEnd Sub"
+  },
+  {
+    "objectID": "corte2/clase07/slides.html#conclusiones-y-tareas",
+    "href": "corte2/clase07/slides.html#conclusiones-y-tareas",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad",
+    "section": "📝 Conclusiones y Tareas",
+    "text": "📝 Conclusiones y Tareas\n\nVBA es una herramienta potente para gestionar datos de salud en Excel.\nLas macros pueden ir más allá de cálculos locales e interactuar con la web.\nTarea: Probar el código en Excel (Alt + F11) y observar las respuestas JSON."
   },
   {
     "objectID": "corte1/index.html",
@@ -1353,7 +1409,7 @@
   {
     "objectID": "corte2/clase07/index.html",
     "href": "corte2/clase07/index.html",
-    "title": "Clase 07: Interoperabilidad y Estándares Clásicos",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad (APIs)",
     "section": "",
     "text": "💻 Ver Presentación de Diapositivas",
     "crumbs": [
@@ -1365,9 +1421,9 @@
   {
     "objectID": "corte2/clase07/index.html#objetivos-de-la-clase",
     "href": "corte2/clase07/index.html#objetivos-de-la-clase",
-    "title": "Clase 07: Interoperabilidad y Estándares Clásicos",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad (APIs)",
     "section": "🎯 Objetivos de la Clase",
-    "text": "🎯 Objetivos de la Clase\n\nObjetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "text": "🎯 Objetivos de la Clase\n\nComprender los conceptos básicos de Visual Basic para Aplicaciones (VBA) y la automatización en Microsoft Excel.\nEntender las estructuras de control (condiciones, ciclos) y la programación orientada a eventos.\nConocer el concepto de Interoperabilidad y resolver el problema de los “silos” de información.\nImplementar el consumo de APIs REST en Salud (SNOMED CT y CIE-10) usando VBA.",
     "crumbs": [
       "Guía de Asignatura",
       "🟩 Corte 2: Interoperabilidad & Salud",
@@ -1377,9 +1433,9 @@
   {
     "objectID": "corte2/clase07/index.html#materiales-y-lecturas",
     "href": "corte2/clase07/index.html#materiales-y-lecturas",
-    "title": "Clase 07: Interoperabilidad y Estándares Clásicos",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad (APIs)",
     "section": "📖 Materiales y Lecturas",
-    "text": "📖 Materiales y Lecturas\n\n💡 Preparación Previa\nContenido y guía práctica en construcción por el docente.",
+    "text": "📖 Materiales y Lecturas\n\n\n\n\n\n\nNote💡 Guía de Estudio\n\n\n\nPuede descargar la guía aquí: Guía 1 Segundo Corte\n\n\n\n\n\n\n\n\nNote💡 Material de Clase\n\n\n\n\nPresentación: Introducción a VBA (Documento PowerPoint)\n\n\n\n\nConceptos Clave de VBA\nVisual Basic para Aplicaciones (VBA) es el lenguaje de código de macros de Microsoft. Nos permite automatizar tareas complejas, fusionarlas en una sola y aumentar la eficiencia del trabajo mediante:\n\nVariables y Tipos de Datos: Asignación de datos y manipulación.\nEstructuras Condicionales: Simples, anidadas, múltiples (If, Then, Else).\nEstructuras Repetitivas: Ciclos (For, While, Do).\nEventos y Métodos: Programación controlada por la interacción del usuario (“el usuario acciona y el código responde”).",
     "crumbs": [
       "Guía de Asignatura",
       "🟩 Corte 2: Interoperabilidad & Salud",
@@ -1387,11 +1443,11 @@
     ]
   },
   {
-    "objectID": "corte2/clase07/index.html#práctica-de-laboratorio",
-    "href": "corte2/clase07/index.html#práctica-de-laboratorio",
-    "title": "Clase 07: Interoperabilidad y Estándares Clásicos",
-    "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\nActividad práctica en desarrollo.",
+    "objectID": "corte2/clase07/index.html#práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10",
+    "href": "corte2/clase07/index.html#práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10",
+    "title": "Clase 07: Introducción a VBA, Automatización e Interoperabilidad (APIs)",
+    "section": "🧪 Práctica: Consumo de APIs en Salud (SNOMED CT y CIE-10)",
+    "text": "🧪 Práctica: Consumo de APIs en Salud (SNOMED CT y CIE-10)\nUno de los grandes retos en la Informática Médica son los “silos” de información. Para resolverlo, utilizamos estándares de interoperabilidad y vocabularios controlados. A continuación se presentan ejemplos de cómo consumir APIs para consultar códigos.\n\n1. Consultar API de SNOMED CT usando VBA\nEl siguiente código muestra cómo hacer un request GET a una API pública (o local) de SNOMED CT utilizando el objeto MSXML2.XMLHTTP.\nSub ConsultarSNOMED()\n    Dim xmlhttp As Object\n    Dim url As String\n    Dim response As String\n    Dim term As String\n    \n    ' Término de búsqueda (ej. \"Diabetes\")\n    term = \"Diabetes\"\n    \n    ' Ejemplo de URL pública de SNOMED CT (Snowstorm)\n    url = \"https://browser.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/concepts?term=\" & term & \"&limit=1\"\n    \n    Set xmlhttp = CreateObject(\"MSXML2.XMLHTTP\")\n    \n    ' Inicializar la solicitud\n    xmlhttp.Open \"GET\", url, False\n    xmlhttp.setRequestHeader \"Content-Type\", \"application/json\"\n    xmlhttp.setRequestHeader \"Accept-Language\", \"es\"\n    \n    ' Enviar la solicitud\n    xmlhttp.send\n    \n    If xmlhttp.Status = 200 Then\n        response = xmlhttp.responseText\n        MsgBox \"Respuesta SNOMED CT: \" & vbCrLf & Left(response, 500)\n        ' Aquí se podría usar un parseador JSON para extraer el conceptId\n    Else\n        MsgBox \"Error: \" & xmlhttp.Status & \" - \" & xmlhttp.statusText\n    End If\n    \n    Set xmlhttp = Nothing\nEnd Sub\n\n\n2. Consultar API de CIE-10 usando VBA\nDe manera similar, podemos consultar repositorios de la Clasificación Internacional de Enfermedades (CIE-10).\nSub ConsultarCIE10()\n    Dim http As Object\n    Dim url As String\n    Dim response As String\n    Dim codigo As String\n    \n    ' Código CIE-10 a consultar (ej. \"E11\")\n    codigo = \"E11\"\n    \n    ' URL simulada/pública para CIE-10\n    url = \"https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?terms=\" & codigo\n    \n    Set http = CreateObject(\"MSXML2.XMLHTTP\")\n    http.Open \"GET\", url, False\n    http.send\n    \n    If http.Status = 200 Then\n        response = http.responseText\n        MsgBox \"Datos CIE-10 (\" & codigo & \"): \" & vbCrLf & response\n        ' Output incluye las descripciones para Diabetes Mellitus tipo 2\n    Else\n        MsgBox \"Error de conexión.\"\n    End If\n    \n    Set http = Nothing\nEnd Sub\n\n\n\n\n\n\nTipParseo de JSON en VBA\n\n\n\nVBA nativo no incluye un parseador JSON directo. Para extraer datos específicos como descripciones o códigos exactos, se recomienda incorporar el módulo VBA-JSON (JsonConverter.bas) en su proyecto.",
     "crumbs": [
       "Guía de Asignatura",
       "🟩 Corte 2: Interoperabilidad & Salud",
