@@ -11,7 +11,7 @@
 
   <meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)">
   <meta name="dcterms.date" content="2026-07-23">
-  <title>Informática Médica - IFMER 2026-II – Clase 09: Salud Digital, Telemedicina &amp; PWA</title>
+  <title>Informática Médica - IFMER 2026-II – Clase 09: HL7 FHIR, IHCE y RDA</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,6 +29,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-06e768f098560084c2d7120de8ad04fb.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -128,7 +194,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Clase 09: Salud Digital, Telemedicina &amp; PWA</h1>
+  <h1 class="title">Clase 09: HL7 FHIR, IHCE y RDA</h1>
   <p class="subtitle">Informática Médica - IFMER 2026-II</p>
 
 <div class="quarto-title-authors">
@@ -145,15 +211,175 @@ Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)
   <p class="date">2026-07-23</p>
 </section>
 <section>
-<section id="clase-09-salud-digital-telemedicina-pwa" class="title-slide slide level1 center">
-<h1>🚧 Clase 09: Salud Digital, Telemedicina &amp; PWA</h1>
+<section id="clase-09-hl7-fhir-ihce-y-rda" class="title-slide slide level1 center">
+<h1>🚀 Clase 09: HL7 FHIR, IHCE y RDA</h1>
 
 </section>
-<section id="diapositivas-en-desarrollo" class="slide level2">
-<h2>Diapositivas en Desarrollo</h2>
+<section id="objetivos-de-la-sesión" class="slide level2">
+<h2>🎯 Objetivos de la Sesión</h2>
 <ul>
-<li>Próximamente se publicará el contenido de las diapositivas de esta sesión.</li>
+<li>Reconocer qué es un <strong>recurso</strong> en FHIR y su estructura.</li>
+<li>Identificar los elementos del recurso <code>Patient</code>.</li>
+<li>Ejecutar operaciones REST básicas (<code>GET</code>, <code>POST</code>) contra un servidor FHIR.</li>
+<li>Comprender la implementación de FHIR en Colombia (IHCE y RDA).</li>
 </ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="qué-es-hl7-fhir" class="title-slide slide level1 center">
+<h1>🌐 ¿Qué es HL7 FHIR?</h1>
+
+</section>
+<section id="fast-healthcare-interoperability-resources" class="slide level2">
+<h2>Fast Healthcare Interoperability Resources</h2>
+<ul>
+<li>Todos los sistemas hablan el mismo “idioma”: los mismos recursos, sobre el mismo protocolo (HTTP/REST), en formato JSON o XML.</li>
+<li><strong>Idea clave:</strong> FHIR no reemplaza el contenido clínico, reemplaza <em>la forma de intercambiarlo</em>.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="los-recursos-en-fhir" class="title-slide slide level1 center">
+<h1>📦 Los Recursos en FHIR</h1>
+
+</section>
+<section id="qué-es-un-recurso" class="slide level2">
+<h2>¿Qué es un recurso?</h2>
+<ul>
+<li>Unidad básica de información en FHIR.</li>
+<li>Paquete de datos con estructura definida y significado clínico claro.</li>
+</ul>
+<h3 id="ejemplos-frecuentes">Ejemplos frecuentes</h3>
+<ul>
+<li><code>Patient</code>: Un paciente.</li>
+<li><code>Practitioner</code>: Un profesional de salud.</li>
+<li><code>Observation</code>: Una medición (ej. signos vitales).</li>
+<li><code>Condition</code>: Un diagnóstico.</li>
+<li><code>Composition</code>: Un documento clínico.</li>
+</ul>
+</section>
+<section id="el-recurso-patient" class="slide level2">
+<h2>El Recurso Patient</h2>
+<p>Casi todo en un sistema de salud gira alrededor del paciente.</p>
+<ul>
+<li><strong><code>id</code></strong>: Identificador único del servidor</li>
+<li><strong><code>identifier</code></strong>: Documento de identidad, historia clínica</li>
+<li><strong><code>active</code></strong>: Vigencia en el sistema</li>
+<li><strong><code>name</code></strong>: Nombres y apellidos</li>
+<li><strong><code>telecom</code></strong>: Teléfono, correo</li>
+<li><strong><code>gender</code></strong>: Sexo administrativo</li>
+<li><strong><code>birthDate</code></strong>: Fecha de nacimiento</li>
+</ul>
+</section>
+<section id="ejemplo-json-del-recurso-patient" class="slide level2">
+<h2>Ejemplo JSON del Recurso Patient</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a></a><span class="fu">{</span></span>
+<span id="cb1-2"><a></a>  <span class="dt">"resourceType"</span><span class="fu">:</span> <span class="st">"Patient"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"e0cd7fb6-b2cb-4767-86c2-300c924134de"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a></a>  <span class="dt">"identifier"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-5"><a></a>    <span class="fu">{</span></span>
+<span id="cb1-6"><a></a>      <span class="dt">"use"</span><span class="fu">:</span> <span class="st">"official"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a></a>      <span class="dt">"system"</span><span class="fu">:</span> <span class="st">"https://fhir.minsalud.gov.co/rda/NamingSystem/RNEC"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a></a>      <span class="dt">"value"</span><span class="fu">:</span> <span class="st">"1020304050"</span></span>
+<span id="cb1-9"><a></a>    <span class="fu">}</span></span>
+<span id="cb1-10"><a></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-11"><a></a>  <span class="dt">"active"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb1-12"><a></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-13"><a></a>    <span class="fu">{</span> <span class="dt">"use"</span><span class="fu">:</span> <span class="st">"official"</span><span class="fu">,</span> <span class="dt">"family"</span><span class="fu">:</span> <span class="st">"Gómez Rivas"</span><span class="fu">,</span> <span class="dt">"given"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"Laura"</span><span class="ot">,</span> <span class="st">"Camila"</span><span class="ot">]</span> <span class="fu">}</span></span>
+<span id="cb1-14"><a></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-15"><a></a>  <span class="dt">"gender"</span><span class="fu">:</span> <span class="st">"female"</span><span class="fu">,</span></span>
+<span id="cb1-16"><a></a>  <span class="dt">"birthDate"</span><span class="fu">:</span> <span class="st">"1995-06-12"</span></span>
+<span id="cb1-17"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="accediendo-a-un-recurso-api-rest" class="title-slide slide level1 center">
+<h1>🔌 Accediendo a un Recurso: API REST</h1>
+
+</section>
+<section id="operaciones-crud-estándar" class="slide level2">
+<h2>Operaciones CRUD Estándar</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Verbo</th>
+<th>URL de ejemplo</th>
+<th>Operación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><code>GET</code></strong></td>
+<td><code>/Patient/123</code></td>
+<td>Leer (<em>Read</em>) un paciente por su id</td>
+</tr>
+<tr class="even">
+<td><strong><code>GET</code></strong></td>
+<td><code>/Patient?family=Gómez</code></td>
+<td>Buscar (<em>Search</em>) pacientes</td>
+</tr>
+<tr class="odd">
+<td><strong><code>POST</code></strong></td>
+<td><code>/Patient</code></td>
+<td>Crear (<em>Create</em>) un paciente nuevo</td>
+</tr>
+<tr class="even">
+<td><strong><code>PUT</code></strong></td>
+<td><code>/Patient/123</code></td>
+<td>Actualizar (<em>Update</em>) un paciente</td>
+</tr>
+<tr class="odd">
+<td><strong><code>DELETE</code></strong></td>
+<td><code>/Patient/123</code></td>
+<td>Eliminar (<em>Delete</em>) un paciente</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="fhir-en-colombia-ihce-y-rda" class="title-slide slide level1 center">
+<h1>🇨🇴 FHIR en Colombia: IHCE y RDA</h1>
+
+</section>
+<section id="interoperabilidad-en-política-pública" class="slide level2">
+<h2>Interoperabilidad en Política Pública</h2>
+<ul>
+<li><strong>IHCE</strong> (Interoperabilidad de la Historia Clínica Electrónica): Estrategia de Minsalud para integrar los datos clínicos de cada paciente en un sistema nacional.</li>
+<li><strong>RDA</strong> (Resumen Digital de Atención): Documento clínico central (HL7 FHIR R4).
+<ul>
+<li>Un <code>Bundle</code> tipo <code>document</code> con un <code>Composition</code>.</li>
+<li>Referencia recursos como <code>Patient</code> y <code>Observation</code>.</li>
+</ul></li>
+<li>Obligatorio desde el 15 de abril de 2026.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="actividad-práctica" class="title-slide slide level1 center">
+<h1>🧪 Actividad Práctica</h1>
+
+</section>
+<section id="laboratorio-hapi-fhir-postman" class="slide level2">
+<h2>Laboratorio HAPI FHIR (Postman)</h2>
+<ol type="1">
+<li><strong>Buscar pacientes (GET)</strong>: <code>http://hapi.fhir.org/baseR4/Patient?_count=5</code></li>
+<li><strong>Leer un paciente (GET)</strong>: Buscar por <code>id</code> específico.</li>
+<li><strong>Crear un paciente (POST)</strong>: Enviar un JSON (Body &gt; raw &gt; JSON) a <code>http://hapi.fhir.org/baseR4/Patient</code> para crear un nuevo recurso (Status <code>201 Created</code>).</li>
+</ol>
+<blockquote>
+<p>¿Qué cambió en el JSON de respuesta frente al que enviamos?</p>
+</blockquote>
 
 
 </section></section>

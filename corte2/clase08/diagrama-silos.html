@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas">
-<meta name="dcterms.date" content="2026-07-23">
 
-<title>Clase 07: Introducción a VBA, Automatización e Interoperabilidad (APIs) – Informática Médica - IFMER 2026-II</title>
+<title>diagrama-silos – Informática Médica - IFMER 2026-II</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -135,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../corte2/index.html">🟩 Corte 2: Interoperabilidad &amp; Salud</a></li><li class="breadcrumb-item"><a href="../../corte2/clase07/index.html">Clase 07: Introducción a VBA, Automatización</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -231,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../corte2/clase07/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../corte2/clase07/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Clase 07: Introducción a VBA, Automatización</span></a>
   </div>
 </li>
@@ -312,199 +310,465 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#objetivos-de-la-clase" id="toc-objetivos-de-la-clase" class="nav-link active" data-scroll-target="#objetivos-de-la-clase">🎯 Objetivos de la Clase</a></li>
-  <li><a href="#materiales-y-lecturas" id="toc-materiales-y-lecturas" class="nav-link" data-scroll-target="#materiales-y-lecturas">📖 Materiales y Lecturas</a>
-  <ul class="collapse">
-  <li><a href="#conceptos-clave-de-vba" id="toc-conceptos-clave-de-vba" class="nav-link" data-scroll-target="#conceptos-clave-de-vba">Conceptos Clave de VBA</a></li>
-  </ul></li>
-  <li><a href="#práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10" id="toc-práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10" class="nav-link" data-scroll-target="#práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10">🧪 Práctica: Consumo de APIs en Salud (SNOMED CT y CIE-10)</a>
-  <ul class="collapse">
-  <li><a href="#consultar-api-de-snomed-ct-usando-vba" id="toc-consultar-api-de-snomed-ct-usando-vba" class="nav-link" data-scroll-target="#consultar-api-de-snomed-ct-usando-vba">1. Consultar API de SNOMED CT usando VBA</a></li>
-  <li><a href="#consultar-api-de-cie-10-usando-vba" id="toc-consultar-api-de-cie-10-usando-vba" class="nav-link" data-scroll-target="#consultar-api-de-cie-10-usando-vba">2. Consultar API de CIE-10 usando VBA</a></li>
-  <li><a href="#laboratorio-taller" id="toc-laboratorio-taller" class="nav-link" data-scroll-target="#laboratorio-taller">📝 Laboratorio / Taller</a></li>
-  </ul></li>
+  <li><a href="#el-sistema-fragmentado" id="toc-el-sistema-fragmentado" class="nav-link active" data-scroll-target="#el-sistema-fragmentado">El sistema fragmentado</a></li>
+  <li><a href="#qué-cambia-para-el-paciente" id="toc-qué-cambia-para-el-paciente" class="nav-link" data-scroll-target="#qué-cambia-para-el-paciente">Qué cambia para el paciente</a></li>
+  <li><a href="#comparación-punto-por-punto" id="toc-comparación-punto-por-punto" class="nav-link" data-scroll-target="#comparación-punto-por-punto">Comparación punto por punto</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="diagrama-silos.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../corte2/index.html">🟩 Corte 2: Interoperabilidad &amp; Salud</a></li><li class="breadcrumb-item"><a href="../../corte2/clase07/index.html">Clase 07: Introducción a VBA, Automatización</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Clase 07: Introducción a VBA, Automatización e Interoperabilidad (APIs)</h1>
-<p class="subtitle lead">Semana 7 | Corte 2</p>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Prof.&nbsp;Jefferson Sarmiento Rojas </p>
-          </div>
+<!--
+================================================================
+  DIAGRAMA: Silos en salud vs. atención integrada
+  Para Quarto + revealjs (IFMER)
+
+  Uso A (recomendado): guardar este archivo junto a slides.qmd y
+  llamarlo desde donde quieras la sección (escribiendo el shortcode de include):
+
+      {\{< include diagrama-silos.qmd >}}
+
+  Uso B: copiar y pegar todo el contenido dentro de slides.qmd.
+
+  El bloque <style> puede moverse a tu custom.scss si prefieres.
+================================================================
+-->
+<style>
+.silos-viz{
+  --sv-surface:#ffffff;
+  --sv-surface-2:#f4f7fa;
+  --sv-ink:#16202b;
+  --sv-muted:#5b6b7c;
+  --sv-line:#c7d2dd;
+  --sv-steel:#2f5d8c;
+  --sv-silo:#c8452f;
+  --sv-silo-soft:#fbeae7;
+  --sv-integ:#0b8a78;
+  --sv-integ-soft:#e3f4f1;
+  width:100%;
+}
+/* Variante para temas oscuros: <div class="silos-viz dark" ...> */
+.silos-viz.dark{
+  --sv-surface:#18212b; --sv-surface-2:#1e2833; --sv-ink:#e6edf4;
+  --sv-muted:#9aabbc; --sv-line:#2e3c4a; --sv-steel:#7aa8dc;
+  --sv-silo:#e97462; --sv-silo-soft:#33211e;
+  --sv-integ:#3fc7ae; --sv-integ-soft:#132c28;
+}
+
+/* --- interruptor --- */
+.silos-viz .sv-switch{
+  display:inline-flex; position:relative;
+  background:var(--sv-surface); border:1px solid var(--sv-line);
+  border-radius:999px; padding:4px; margin:0 0 .5em;
+}
+.silos-viz .sv-switch button{
+  font:inherit; font-size:.5em; font-weight:600;
+  border:0; background:transparent; color:var(--sv-muted);
+  padding:.45em 1.1em; border-radius:999px; cursor:pointer;
+  position:relative; z-index:2; transition:color .25s ease;
+}
+.silos-viz .sv-switch button:focus-visible{outline:2px solid var(--sv-steel); outline-offset:3px}
+.silos-viz .sv-thumb{
+  position:absolute; top:4px; bottom:4px; left:4px; border-radius:999px;
+  background:var(--sv-silo-soft); border:1px solid var(--sv-silo); z-index:1;
+  transition:transform .42s cubic-bezier(.65,0,.2,1), background .42s, border-color .42s, width .42s;
+}
+.silos-viz[data-mode="integ"] .sv-thumb{background:var(--sv-integ-soft); border-color:var(--sv-integ)}
+.silos-viz[data-mode="silos"] .sv-switch button[data-mode="silos"]{color:var(--sv-silo)}
+.silos-viz[data-mode="integ"] .sv-switch button[data-mode="integ"]{color:var(--sv-integ)}
+
+/* --- lienzo --- */
+.silos-viz .sv-board{
+  background:var(--sv-surface); border:1px solid var(--sv-line);
+  border-radius:14px; padding:.4em .3em .1em;
+}
+.silos-viz svg.sv-diagram{display:block; width:100%; height:auto}
+.silos-viz .sv-cap{
+  margin:.5em 0 0; font-size:.5em; color:var(--sv-muted); text-align:left;
+}
+.silos-viz .sv-cap b{color:var(--sv-ink); font-weight:600}
+
+/* --- tokens del SVG --- */
+.silos-viz .box-fill{fill:var(--sv-surface-2)}
+.silos-viz .box-stroke{stroke:var(--sv-line); fill:none; stroke-width:1.5}
+.silos-viz .lbl{fill:var(--sv-ink); font-size:15px; font-weight:600}
+.silos-viz .sub{fill:var(--sv-muted); font-size:12px}
+.silos-viz .wire-lbl{fill:var(--sv-muted); font-family:ui-monospace,"IBM Plex Mono",monospace; font-size:11px}
+.silos-viz .ico{stroke:var(--sv-steel); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+
+.silos-viz .state{transition:opacity .45s ease}
+.silos-viz[data-mode="integ"] .only-silos{opacity:0; pointer-events:none}
+.silos-viz[data-mode="silos"] .only-integ{opacity:0; pointer-events:none}
+
+.silos-viz .barrier{stroke:var(--sv-silo); stroke-width:2.2; fill:none; stroke-dasharray:7 6}
+.silos-viz .blocked-arrow{stroke:var(--sv-silo); stroke-width:2.2; fill:none}
+.silos-viz .xmark{stroke:var(--sv-silo); stroke-width:2.6; stroke-linecap:round}
+.silos-viz .xdisc{fill:var(--sv-silo-soft); stroke:var(--sv-silo); stroke-width:1.6}
+.silos-viz .silo-tint{fill:var(--sv-silo); opacity:.06; transition:opacity .45s}
+.silos-viz[data-mode="integ"] .silo-tint{opacity:0}
+
+.silos-viz .sv-pulse{animation:sv-pulse 1.9s ease-in-out infinite}
+@keyframes sv-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.88)}}
+.silos-viz .sv-bump{animation:sv-bump 2.1s cubic-bezier(.5,0,.4,1) infinite}
+@keyframes sv-bump{0%,100%{transform:translateX(0)}42%{transform:translateX(16px)}58%{transform:translateX(10px)}}
+
+.silos-viz .flow{stroke:var(--sv-integ); stroke-width:2.2; fill:none;
+  stroke-dasharray:6 8; stroke-linecap:round; animation:sv-dash 1.5s linear infinite}
+@keyframes sv-dash{to{stroke-dashoffset:-28}}
+.silos-viz .packet{fill:var(--sv-integ)}
+.silos-viz .hub-fill{fill:var(--sv-integ-soft); stroke:var(--sv-integ); stroke-width:2}
+.silos-viz .hub-halo{fill:none; stroke:var(--sv-integ); stroke-width:1.2; opacity:.35;
+  animation:sv-halo 2.6s ease-out infinite}
+@keyframes sv-halo{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.13);opacity:0}}
+
+/* --- tarjetas --- */
+.silos-viz .sv-stack{position:relative; margin-top:.4em}
+.silos-viz .sv-panel{
+  display:grid; gap:.5em; grid-template-columns:repeat(3,1fr);
+  transition:opacity .38s ease, transform .38s ease;
+}
+.silos-viz .sv-panel.hidden{position:absolute; inset:0; opacity:0; transform:translateY(8px); pointer-events:none}
+.silos-viz .sv-card{
+  background:var(--sv-surface); border:1px solid var(--sv-line);
+  border-left:3px solid var(--sv-silo); border-radius:10px;
+  padding:.6em .7em; text-align:left; font-size:.52em; line-height:1.5;
+}
+.silos-viz .sv-card.good{border-left-color:var(--sv-integ)}
+.silos-viz .sv-card h3{margin:0 0 .4em; font-size:1.08em; font-weight:600; color:var(--sv-ink)}
+.silos-viz .sv-card dl{margin:0}
+.silos-viz .sv-card dt{font-weight:600; color:var(--sv-ink)}
+.silos-viz .sv-card dd{margin:0 0 .5em; color:var(--sv-muted)}
+.silos-viz .sv-card dd:last-child{margin-bottom:0}
+
+/* --- tabla --- */
+.silos-viz table.sv-table{border-collapse:collapse; width:100%; font-size:.55em}
+.silos-viz table.sv-table th,
+.silos-viz table.sv-table td{padding:.45em .7em; text-align:left; border-bottom:1px solid var(--sv-line)}
+.silos-viz table.sv-table tr:last-child td{border-bottom:0}
+.silos-viz table.sv-table thead th{font-weight:600; background:var(--sv-surface-2); color:var(--sv-muted)}
+.silos-viz table.sv-table td:first-child{font-weight:600; color:var(--sv-ink)}
+.silos-viz .col-silo,.silos-viz .col-integ{color:var(--sv-muted); transition:background .4s ease,color .4s ease}
+.silos-viz[data-mode="silos"] .col-silo{background:var(--sv-silo-soft); color:var(--sv-ink)}
+.silos-viz[data-mode="integ"] .col-integ{background:var(--sv-integ-soft); color:var(--sv-ink)}
+.silos-viz thead .col-silo{color:var(--sv-silo)}
+.silos-viz thead .col-integ{color:var(--sv-integ)}
+
+@media (prefers-reduced-motion: reduce){
+  .silos-viz *{animation:none !important; transition-duration:.01ms !important}
+}
+</style>
+<section id="el-sistema-fragmentado" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="el-sistema-fragmentado">El sistema fragmentado</h2>
+<div class="silos-viz diagram-zoomable" data-mode="silos" id="sv-1">
+  
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="sv-switch" role="group" aria-label="Modo del diagrama">
+    <span class="sv-thumb"></span>
+    <button data-mode="silos" aria-pressed="true">Sistema en silos</button>
+    <button data-mode="integ" aria-pressed="false">Atención integrada</button>
   </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 23, 2026</p>
+
+  <div class="sv-board">
+  <svg class="sv-diagram" viewbox="0 0 900 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tres servicios clínicos bloqueados entre sí, o conectados por una capa de interoperabilidad">
+    <defs>
+      <marker id="sv-ar-s" markerwidth="7" markerheight="7" refx="5.5" refy="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="var(--sv-silo)"></path>
+      </marker>
+      <marker id="sv-ar-i" markerwidth="7" markerheight="7" refx="5.5" refy="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="var(--sv-integ)"></path>
+      </marker>
+      <path id="sv-p1" d="M135,176 L135,225 Q135,247 175,260 L392,292"></path>
+      <path id="sv-p2" d="M450,176 L450,275"></path>
+      <path id="sv-p3" d="M765,176 L765,225 Q765,247 725,260 L508,292"></path>
+    </defs>
+
+    <!-- Urgencias -->
+    <g>
+      <rect x="50" y="36" width="170" height="140" rx="10" class="box-fill"></rect>
+      <rect x="50" y="36" width="170" height="140" rx="10" class="silo-tint"></rect>
+      <rect x="50" y="36" width="170" height="140" rx="10" class="box-stroke"></rect>
+      <g class="ico" transform="translate(119,60)">
+        <rect x="0" y="6" width="34" height="20" rx="3"></rect>
+        <path d="M22,6 L30,6 L34,13 L34,26"></path>
+        <circle cx="9" cy="28" r="3.6"></circle><circle cx="27" cy="28" r="3.6"></circle>
+        <path d="M8,13 L8,21 M4,17 L12,17"></path>
+      </g>
+      <text x="135" y="120" text-anchor="middle" class="lbl">Urgencias</text>
+      <text x="135" y="139" text-anchor="middle" class="sub">Triage y estabilización</text>
+      <text x="135" y="158" text-anchor="middle" class="wire-lbl">registro propio</text>
+    </g>
+
+    <!-- Medicina interna -->
+    <g>
+      <rect x="365" y="36" width="170" height="140" rx="10" class="box-fill"></rect>
+      <rect x="365" y="36" width="170" height="140" rx="10" class="silo-tint"></rect>
+      <rect x="365" y="36" width="170" height="140" rx="10" class="box-stroke"></rect>
+      <g class="ico" transform="translate(433,60)">
+        <path d="M0,26 L0,12 L22,12 Q34,12 34,22 L34,26"></path>
+        <path d="M0,20 L34,20"></path>
+        <circle cx="9" cy="5" r="4.5"></circle>
+        <path d="M0,26 L0,30 M34,26 L34,30"></path>
+      </g>
+      <text x="450" y="120" text-anchor="middle" class="lbl">Medicina interna</text>
+      <text x="450" y="139" text-anchor="middle" class="sub">Hospitalización</text>
+      <text x="450" y="158" text-anchor="middle" class="wire-lbl">registro propio</text>
+    </g>
+
+    <!-- Consulta externa -->
+    <g>
+      <rect x="680" y="36" width="170" height="140" rx="10" class="box-fill"></rect>
+      <rect x="680" y="36" width="170" height="140" rx="10" class="silo-tint"></rect>
+      <rect x="680" y="36" width="170" height="140" rx="10" class="box-stroke"></rect>
+      <g class="ico" transform="translate(748,59)">
+        <path d="M5,3 L5,14 Q5,24 15,24 Q25,24 25,14 L25,8"></path>
+        <circle cx="1.5" cy="2" r="2.2"></circle><circle cx="8.5" cy="2" r="2.2"></circle>
+        <circle cx="27" cy="5" r="4.5"></circle>
+        <path d="M27,9.5 L27,14"></path>
+      </g>
+      <text x="765" y="120" text-anchor="middle" class="lbl">Consulta externa</text>
+      <text x="765" y="139" text-anchor="middle" class="sub">Especialidades</text>
+      <text x="765" y="158" text-anchor="middle" class="wire-lbl">registro propio</text>
+    </g>
+
+    <!-- estado: silos -->
+    <g class="state only-silos">
+      <path class="barrier" d="M292,24 L292,216"></path>
+      <path class="barrier" d="M607,24 L607,216"></path>
+
+      <g class="sv-bump"><path class="blocked-arrow" d="M228,92 L268,92" marker-end="url(#sv-ar-s)"></path></g>
+      <g class="sv-bump"><path class="blocked-arrow" d="M543,92 L583,92" marker-end="url(#sv-ar-s)"></path></g>
+      <path class="blocked-arrow" d="M356,128 L316,128" marker-end="url(#sv-ar-s)" opacity=".55"></path>
+      <path class="blocked-arrow" d="M671,128 L631,128" marker-end="url(#sv-ar-s)" opacity=".55"></path>
+
+      <g class="sv-pulse" style="transform-origin:292px 106px">
+        <circle cx="292" cy="106" r="13" class="xdisc"></circle>
+        <path class="xmark" d="M287,101 L297,111 M297,101 L287,111"></path>
+      </g>
+      <g class="sv-pulse" style="transform-origin:607px 106px; animation-delay:.5s">
+        <circle cx="607" cy="106" r="13" class="xdisc"></circle>
+        <path class="xmark" d="M602,101 L612,111 M612,101 L602,111"></path>
+      </g>
+
+      <text x="450" y="242" text-anchor="middle" class="wire-lbl" style="fill:var(--sv-silo)">flujo restringido y vertical · sin historia compartida</text>
+
+      <rect x="300" y="275" width="300" height="86" rx="10" class="box-fill"></rect>
+      <rect x="300" y="275" width="300" height="86" rx="10" class="silo-tint"></rect>
+      <rect x="300" y="275" width="300" height="86" rx="10" class="box-stroke" stroke-dasharray="6 5"></rect>
+      <text x="450" y="306" text-anchor="middle" class="lbl">Tres historias parciales</text>
+      <text x="450" y="327" text-anchor="middle" class="sub">El paciente repite exámenes y relata su caso de nuevo</text>
+      <text x="450" y="346" text-anchor="middle" class="wire-lbl">papel · PDF · llamada telefónica</text>
+    </g>
+
+    <!-- estado: integrado -->
+    <g class="state only-integ">
+      <use href="#sv-p1" class="flow" marker-end="url(#sv-ar-i)"></use>
+      <use href="#sv-p2" class="flow" marker-end="url(#sv-ar-i)"></use>
+      <use href="#sv-p3" class="flow" marker-end="url(#sv-ar-i)"></use>
+
+      <circle r="4" class="packet">
+        <animatemotion dur="2.4s" repeatcount="indefinite" keypoints="1;0" keytimes="0;1" calcmode="linear"><mpath href="#sv-p1"></mpath></animatemotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animatemotion dur="2.4s" begin="-1.2s" repeatcount="indefinite"><mpath href="#sv-p1"></mpath></animatemotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animatemotion dur="2.1s" begin="-.6s" repeatcount="indefinite"><mpath href="#sv-p2"></mpath></animatemotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animatemotion dur="2.1s" repeatcount="indefinite" keypoints="1;0" keytimes="0;1" calcmode="linear"><mpath href="#sv-p2"></mpath></animatemotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animatemotion dur="2.4s" begin="-.3s" repeatcount="indefinite"><mpath href="#sv-p3"></mpath></animatemotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animatemotion dur="2.4s" begin="-1.6s" repeatcount="indefinite" keypoints="1;0" keytimes="0;1" calcmode="linear"><mpath href="#sv-p3"></mpath></animatemotion>
+      </circle>
+
+      <rect x="300" y="275" width="300" height="96" rx="12" class="hub-halo" style="transform-origin:450px 323px"></rect>
+      <rect x="300" y="275" width="300" height="96" rx="12" class="hub-fill"></rect>
+      <g class="ico" transform="translate(432,289)" style="stroke:var(--sv-integ)">
+        <circle cx="17" cy="9" r="6"></circle>
+        <path d="M17,15 L17,21 M17,21 L4,28 M17,21 L30,28"></path>
+        <circle cx="2" cy="29.5" r="3"></circle><circle cx="32" cy="29.5" r="3"></circle>
+      </g>
+      <text x="450" y="343" text-anchor="middle" class="lbl">Historia clínica unificada</text>
+      <text x="450" y="362" text-anchor="middle" class="wire-lbl" style="fill:var(--sv-integ)">HL7 FHIR · openEHR · identificador único de paciente</text>
+
+      <text x="450" y="242" text-anchor="middle" class="wire-lbl" style="fill:var(--sv-integ)">flujo bidireccional · el dato se escribe una vez y lo ve todo el equipo</text>
+    </g>
+  </svg>
+  </div>
+
+  <p class="sv-cap" data-role="cap"><b>Sistema en silos.</b> Cada servicio guarda lo suyo; entre ellos hay muros administrativos y técnicos.</p>
+</div>
+</section>
+<section id="qué-cambia-para-el-paciente" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="qué-cambia-para-el-paciente">Qué cambia para el paciente</h2>
+<div class="silos-viz diagram-zoomable" data-mode="silos" id="sv-2">
+  
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="sv-switch" role="group" aria-label="Modo de las tarjetas">
+    <span class="sv-thumb"></span>
+    <button data-mode="silos" aria-pressed="true">Problemas</button>
+    <button data-mode="integ" aria-pressed="false">Soluciones</button>
+  </div>
+
+  <div class="sv-stack">
+    <div class="sv-panel" data-role="panel-silos">
+      <div class="sv-card">
+        <h3 class="anchored">Datos incompletos del paciente</h3>
+        <dl>
+          <dt>Visión parcial</dt><dd>No existe un historial unificado que reúna lo que pasó en cada servicio.</dd>
+          <dt>Errores de diagnóstico</dt><dd>Se decide sobre información fragmentada y desactualizada.</dd>
+        </dl>
+      </div>
+      <div class="sv-card">
+        <h3 class="anchored">Falta de interoperabilidad</h3>
+        <dl>
+          <dt>Sistemas desconectados</dt><dd>Equipos médicos y HIS/RIS que no intercambian mensajes.</dd>
+          <dt>Duplicidad de pruebas</dt><dd>Se repiten exámenes porque el resultado anterior no aparece.</dd>
+        </dl>
+      </div>
+      <div class="sv-card">
+        <h3 class="anchored">Demoras y riesgos</h3>
+        <dl>
+          <dt>Decisiones lentas</dt><dd>Se espera por resultados que ya existen en otra área.</dd>
+          <dt>Falta de seguimiento</dt><dd>Se pierde la continuidad del tratamiento entre servicios.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="sv-panel hidden" data-role="panel-integ">
+      <div class="sv-card good">
+        <h3 class="anchored">Un solo expediente del paciente</h3>
+        <dl>
+          <dt>Visión completa</dt><dd>Urgencias, hospitalización y consulta escriben sobre la misma historia.</dd>
+          <dt>Decisión con contexto</dt><dd>Alergias, medicación y antecedentes en el punto de atención.</dd>
+        </dl>
+      </div>
+      <div class="sv-card good">
+        <h3 class="anchored">Interoperabilidad con estándares</h3>
+        <dl>
+          <dt>Sistemas que se entienden</dt><dd>Recursos FHIR y arquetipos openEHR como lenguaje común.</dd>
+          <dt>Cero repetición</dt><dd>El resultado de laboratorio se consulta, no se vuelve a pedir.</dd>
+        </dl>
+      </div>
+      <div class="sv-card good">
+        <h3 class="anchored">Atención oportuna y trazable</h3>
+        <dl>
+          <dt>Menos espera</dt><dd>Los resultados llegan al equipo apenas se validan.</dd>
+          <dt>Continuidad real</dt><dd>El plan de tratamiento sobrevive al cambio de servicio.</dd>
+        </dl>
+      </div>
     </div>
   </div>
+</div>
+</section>
+<section id="comparación-punto-por-punto" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="comparación-punto-por-punto">Comparación punto por punto</h2>
+<div class="silos-viz diagram-zoomable" data-mode="silos" id="sv-3">
   
-    
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="sv-switch" role="group" aria-label="Columna resaltada">
+    <span class="sv-thumb"></span>
+    <button data-mode="silos" aria-pressed="true">Resaltar silos</button>
+    <button data-mode="integ" aria-pressed="false">Resaltar integración</button>
   </div>
+
   
+<table class="sv-table caption-top table">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Característica</th>
+<th class="col-silo" data-quarto-table-cell-role="th">Estructura en silos</th>
+<th class="col-integ" data-quarto-table-cell-role="th">Atención integrada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Flujo de información</td>
+<td class="col-silo">Segmentado por departamento</td>
+<td class="col-integ">Compartido y unificado</td>
+</tr>
+<tr class="even">
+<td>Historial del paciente</td>
+<td class="col-silo">Incompleto y disperso</td>
+<td class="col-integ">Completo y accesible</td>
+</tr>
+<tr class="odd">
+<td>Comunicación médica</td>
+<td class="col-silo">Por jerarquías y barreras</td>
+<td class="col-integ">Colaborativa y transversal</td>
+</tr>
+<tr class="even">
+<td>Decisiones clínicas</td>
+<td class="col-silo">Basadas en datos parciales</td>
+<td class="col-integ">Informadas por el contexto total</td>
+</tr>
+<tr class="odd">
+<td>Uso de tecnología</td>
+<td class="col-silo">Sistemas propietarios y cerrados</td>
+<td class="col-integ">Estándares abiertos (HL7 FHIR, openEHR)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<script>
+(function(){
+  var TEXTS = {
+    silos: '<b>Sistema en silos.</b> Cada servicio guarda lo suyo; entre ellos hay muros administrativos y técnicos.',
+    integ: '<b>Atención integrada.</b> Los servicios siguen existiendo, pero comparten una capa común de datos.'
+  };
+
+  function placeThumb(viz){
+    var mode = viz.getAttribute('data-mode');
+    var btn  = viz.querySelector('.sv-switch button[data-mode="' + mode + '"]');
+    var thumb = viz.querySelector('.sv-thumb');
+    if(!btn || !thumb || !btn.offsetWidth) return;
+    thumb.style.width = btn.offsetWidth + 'px';
+    thumb.style.transform = 'translateX(' + (btn.offsetLeft - 4) + 'px)';
+  }
+
+  function setMode(viz, mode){
+    viz.setAttribute('data-mode', mode);
+    viz.querySelectorAll('.sv-switch button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.mode === mode));
+    });
+    var cap = viz.querySelector('[data-role="cap"]');
+    if (cap) cap.innerHTML = TEXTS[mode];
+    var ps = viz.querySelector('[data-role="panel-silos"]');
+    var pi = viz.querySelector('[data-role="panel-integ"]');
+    if (ps) ps.classList.toggle('hidden', mode !== 'silos');
+    if (pi) pi.classList.toggle('hidden', mode !== 'integ');
+    placeThumb(viz);
+  }
+
+  // delegación: funciona aunque la diapositiva se renderice después
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.silos-viz .sv-switch button');
+    if (!btn) return;
+    setMode(btn.closest('.silos-viz'), btn.dataset.mode);
+  });
+
+  function refreshAll(){
+    document.querySelectorAll('.silos-viz').forEach(placeThumb);
+  }
+  window.addEventListener('resize', refreshAll);
+  document.addEventListener('DOMContentLoaded', refreshAll);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(refreshAll);
+  // reveal.js: recalcular al entrar a cada diapositiva
+  if (window.Reveal && Reveal.on) Reveal.on('slidechanged', refreshAll);
+  else document.addEventListener('ready', refreshAll);
+  setTimeout(refreshAll, 400);
+})();
+</script>
 
 
-</header>
-
-
-<p><a href="slides.html" target="_blank" class="btn-slide">💻 Ver Presentación de Diapositivas</a></p>
-<section id="objetivos-de-la-clase" class="level2">
-<h2 class="anchored" data-anchor-id="objetivos-de-la-clase">🎯 Objetivos de la Clase</h2>
-<ul class="task-list">
-<li><label><input type="checkbox" checked="">Comprender los conceptos básicos de Visual Basic para Aplicaciones (VBA) y la automatización en Microsoft Excel.</label></li>
-<li><label><input type="checkbox" checked="">Entender las estructuras de control (condiciones, ciclos) y la programación orientada a eventos.</label></li>
-<li><label><input type="checkbox" checked="">Conocer el concepto de Interoperabilidad y resolver el problema de los “silos” de información.</label></li>
-<li><label><input type="checkbox" checked="">Implementar el consumo de APIs REST en Salud (SNOMED CT y CIE-10) usando VBA.</label></li>
-</ul>
-<hr>
-</section>
-<section id="materiales-y-lecturas" class="level2">
-<h2 class="anchored" data-anchor-id="materiales-y-lecturas">📖 Materiales y Lecturas</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>💡 Guía de Estudio
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Puede descargar la guía aquí: <strong><a href="Guia_1_Segundo_Corte.pdf">Guía 1 Segundo Corte</a></strong></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>💡 Material de Clase
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><a href="Introduccion VBA.pptx">Presentación: Introducción a VBA (Documento PowerPoint)</a></li>
-</ul>
-</div>
-</div>
-<section id="conceptos-clave-de-vba" class="level3">
-<h3 class="anchored" data-anchor-id="conceptos-clave-de-vba">Conceptos Clave de VBA</h3>
-<p><strong>Visual Basic para Aplicaciones (VBA)</strong> es el lenguaje de código de macros de Microsoft. Nos permite automatizar tareas complejas, fusionarlas en una sola y aumentar la eficiencia del trabajo mediante:</p>
-<ul>
-<li><strong>Variables y Tipos de Datos:</strong> Asignación de datos y manipulación.</li>
-<li><strong>Estructuras Condicionales:</strong> Simples, anidadas, múltiples (If, Then, Else).</li>
-<li><strong>Estructuras Repetitivas:</strong> Ciclos (For, While, Do).</li>
-<li><strong>Eventos y Métodos:</strong> Programación controlada por la interacción del usuario (“el usuario acciona y el código responde”).</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10" class="level2">
-<h2 class="anchored" data-anchor-id="práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10">🧪 Práctica: Consumo de APIs en Salud (SNOMED CT y CIE-10)</h2>
-<p>Uno de los grandes retos en la Informática Médica son los “silos” de información. Para resolverlo, utilizamos estándares de interoperabilidad y vocabularios controlados. A continuación se presentan ejemplos de cómo consumir APIs para consultar códigos.</p>
-<section id="consultar-api-de-snomed-ct-usando-vba" class="level3">
-<h3 class="anchored" data-anchor-id="consultar-api-de-snomed-ct-usando-vba">1. Consultar API de SNOMED CT usando VBA</h3>
-<p>El siguiente código muestra cómo hacer un request GET a una API pública (o local) de SNOMED CT utilizando el objeto <code>MSXML2.XMLHTTP</code>.</p>
-<pre class="vba"><code>Sub ConsultarSNOMED()
-    Dim xmlhttp As Object
-    Dim url As String
-    Dim response As String
-    Dim term As String
-    
-    ' Término de búsqueda (ej. "Diabetes")
-    term = "Diabetes"
-    
-    ' Ejemplo de URL pública de SNOMED CT (Snowstorm)
-    url = "https://browser.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/concepts?term=" &amp; term &amp; "&amp;limit=1"
-    
-    Set xmlhttp = CreateObject("MSXML2.XMLHTTP")
-    
-    ' Inicializar la solicitud
-    xmlhttp.Open "GET", url, False
-    xmlhttp.setRequestHeader "Content-Type", "application/json"
-    xmlhttp.setRequestHeader "Accept-Language", "es"
-    
-    ' Enviar la solicitud
-    xmlhttp.send
-    
-    If xmlhttp.Status = 200 Then
-        response = xmlhttp.responseText
-        MsgBox "Respuesta SNOMED CT: " &amp; vbCrLf &amp; Left(response, 500)
-        ' Aquí se podría usar un parseador JSON para extraer el conceptId
-    Else
-        MsgBox "Error: " &amp; xmlhttp.Status &amp; " - " &amp; xmlhttp.statusText
-    End If
-    
-    Set xmlhttp = Nothing
-End Sub</code></pre>
-</section>
-<section id="consultar-api-de-cie-10-usando-vba" class="level3">
-<h3 class="anchored" data-anchor-id="consultar-api-de-cie-10-usando-vba">2. Consultar API de CIE-10 usando VBA</h3>
-<p>De manera similar, podemos consultar repositorios de la Clasificación Internacional de Enfermedades (CIE-10).</p>
-<pre class="vba"><code>Sub ConsultarCIE10()
-    Dim http As Object
-    Dim url As String
-    Dim response As String
-    Dim codigo As String
-    
-    ' Código CIE-10 a consultar (ej. "E11")
-    codigo = "E11"
-    
-    ' URL simulada/pública para CIE-10
-    url = "https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?terms=" &amp; codigo
-    
-    Set http = CreateObject("MSXML2.XMLHTTP")
-    http.Open "GET", url, False
-    http.send
-    
-    If http.Status = 200 Then
-        response = http.responseText
-        MsgBox "Datos CIE-10 (" &amp; codigo &amp; "): " &amp; vbCrLf &amp; response
-        ' Output incluye las descripciones para Diabetes Mellitus tipo 2
-    Else
-        MsgBox "Error de conexión."
-    End If
-    
-    Set http = Nothing
-End Sub</code></pre>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Parseo de JSON en VBA
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>VBA nativo no incluye un parseador JSON directo. Para extraer datos específicos como descripciones o códigos exactos, se recomienda incorporar el módulo <code>VBA-JSON</code> (JsonConverter.bas) en su proyecto.</p>
-</div>
-</div>
-</section>
-<section id="laboratorio-taller" class="level3">
-<h3 class="anchored" data-anchor-id="laboratorio-taller">📝 Laboratorio / Taller</h3>
-<p>Debe completar el siguiente taller práctico correspondiente a esta sesión:</p>
-<ul>
-<li><a href="taller.docx">Descargar taller.docx</a></li>
-</ul>
-
-
-</section>
 </section>
 
 </main> <!-- /main -->

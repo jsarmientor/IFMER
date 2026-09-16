@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas">
-<meta name="dcterms.date" content="2026-07-23">
 
-<title>Clase 07: Introducción a VBA, Automatización e Interoperabilidad (APIs) – Informática Médica - IFMER 2026-II</title>
+<title>paradigmas-hl7 – Informática Médica - IFMER 2026-II</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -135,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../corte2/index.html">🟩 Corte 2: Interoperabilidad &amp; Salud</a></li><li class="breadcrumb-item"><a href="../../corte2/clase07/index.html">Clase 07: Introducción a VBA, Automatización</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -231,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../corte2/clase07/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../corte2/clase07/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Clase 07: Introducción a VBA, Automatización</span></a>
   </div>
 </li>
@@ -312,199 +310,381 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#objetivos-de-la-clase" id="toc-objetivos-de-la-clase" class="nav-link active" data-scroll-target="#objetivos-de-la-clase">🎯 Objetivos de la Clase</a></li>
-  <li><a href="#materiales-y-lecturas" id="toc-materiales-y-lecturas" class="nav-link" data-scroll-target="#materiales-y-lecturas">📖 Materiales y Lecturas</a>
-  <ul class="collapse">
-  <li><a href="#conceptos-clave-de-vba" id="toc-conceptos-clave-de-vba" class="nav-link" data-scroll-target="#conceptos-clave-de-vba">Conceptos Clave de VBA</a></li>
-  </ul></li>
-  <li><a href="#práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10" id="toc-práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10" class="nav-link" data-scroll-target="#práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10">🧪 Práctica: Consumo de APIs en Salud (SNOMED CT y CIE-10)</a>
-  <ul class="collapse">
-  <li><a href="#consultar-api-de-snomed-ct-usando-vba" id="toc-consultar-api-de-snomed-ct-usando-vba" class="nav-link" data-scroll-target="#consultar-api-de-snomed-ct-usando-vba">1. Consultar API de SNOMED CT usando VBA</a></li>
-  <li><a href="#consultar-api-de-cie-10-usando-vba" id="toc-consultar-api-de-cie-10-usando-vba" class="nav-link" data-scroll-target="#consultar-api-de-cie-10-usando-vba">2. Consultar API de CIE-10 usando VBA</a></li>
-  <li><a href="#laboratorio-taller" id="toc-laboratorio-taller" class="nav-link" data-scroll-target="#laboratorio-taller">📝 Laboratorio / Taller</a></li>
-  </ul></li>
+  <li><a href="#paradigmas-de-interoperabilidad-y-dónde-encaja-hl7" id="toc-paradigmas-de-interoperabilidad-y-dónde-encaja-hl7" class="nav-link active" data-scroll-target="#paradigmas-de-interoperabilidad-y-dónde-encaja-hl7">Paradigmas de interoperabilidad y dónde encaja HL7</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="paradigmas-hl7.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../corte2/index.html">🟩 Corte 2: Interoperabilidad &amp; Salud</a></li><li class="breadcrumb-item"><a href="../../corte2/clase07/index.html">Clase 07: Introducción a VBA, Automatización</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Clase 07: Introducción a VBA, Automatización e Interoperabilidad (APIs)</h1>
-<p class="subtitle lead">Semana 7 | Corte 2</p>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Prof.&nbsp;Jefferson Sarmiento Rojas </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 23, 2026</p>
+<!--
+================================================================
+  DIAGRAMA: Paradigmas de interoperabilidad + hitos HL7
+  Quarto + revealjs (IFMER)
+
+  Uso (usando el shortcode de include de Quarto):
+  {\{< include paradigmas-hl7.qmd >}}
+  o copiar y pegar dentro de slides.qmd.
+
+  Iconos: trazos SVG propios, sin librerías ni marcas registradas.
+  Espaciado horizontal conceptual (no a escala temporal).
+================================================================
+-->
+<style>
+.iop-viz{
+  --iop-surface:#ffffff;
+  --iop-surface-2:#f4f7fa;
+  --iop-ink:#16202b;
+  --iop-muted:#5b6b7c;
+  --iop-line:#c7d2dd;
+  --iop-steel:#6b5bd2;
+  --iop-integ:#0b8a78;
+  --iop-hl7:#d98324;
+  --iop-hl7-soft:#fdf0dd;
+  width:100%;
+}
+.iop-viz.dark{
+  --iop-surface:#18212b; --iop-surface-2:#1e2833; --iop-ink:#e6edf4;
+  --iop-muted:#9aabbc; --iop-line:#2e3c4a;
+  --iop-steel:#9a8cf0; --iop-integ:#3fc7ae;
+  --iop-hl7:#f0a94c; --iop-hl7-soft:#33260f;
+}
+
+/* --- controles --- */
+.iop-viz .iop-bar{display:flex; align-items:center; gap:.6em; flex-wrap:wrap; margin:0 0 .4em}
+.iop-viz .iop-switch{
+  display:inline-flex; position:relative;
+  background:var(--iop-surface); border:1px solid var(--iop-line);
+  border-radius:999px; padding:4px;
+}
+.iop-viz .iop-switch button{
+  font:inherit; font-size:.5em; font-weight:600;
+  border:0; background:transparent; color:var(--iop-muted);
+  padding:.45em 1.1em; border-radius:999px; cursor:pointer;
+  position:relative; z-index:2; transition:color .25s ease;
+}
+.iop-viz .iop-thumb{
+  position:absolute; top:4px; bottom:4px; left:4px; border-radius:999px;
+  background:var(--iop-surface-2); border:1px solid var(--iop-steel); z-index:1;
+  transition:transform .42s cubic-bezier(.65,0,.2,1), width .42s, border-color .42s;
+}
+.iop-viz[data-mode="hl7"] .iop-thumb{border-color:var(--iop-hl7)}
+.iop-viz[data-mode="base"] .iop-switch button[data-mode="base"]{color:var(--iop-steel)}
+.iop-viz[data-mode="hl7"]  .iop-switch button[data-mode="hl7"]{color:var(--iop-hl7)}
+.iop-viz .iop-replay{
+  font:inherit; font-size:.45em; color:var(--iop-muted);
+  background:none; border:0; cursor:pointer; padding:.3em .2em;
+  border-bottom:1px solid var(--iop-line);
+}
+.iop-viz .iop-replay:hover{color:var(--iop-ink)}
+.iop-viz button:focus-visible{outline:2px solid var(--iop-steel); outline-offset:3px}
+
+.iop-viz svg.iop-diagram{display:block; width:100%; height:auto}
+
+/* --- tokens svg --- */
+.iop-viz .n-name{fill:var(--iop-ink); font-size:16px; font-weight:700}
+.iop-viz .n-sub{fill:var(--iop-muted); font-size:11.5px}
+.iop-viz .n-year{fill:var(--iop-muted); font-family:ui-monospace,"IBM Plex Mono",monospace; font-size:10.5px}
+.iop-viz .axis-lbl{fill:var(--iop-muted); font-size:12.5px; font-style:italic}
+.iop-viz .band-lbl{fill:var(--iop-muted); font-size:11px; letter-spacing:.04em}
+.iop-viz .chip{fill:var(--iop-surface); stroke:var(--iop-line); stroke-width:1.5}
+.iop-viz .gl{fill:none; stroke:var(--iop-steel); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+.iop-viz .gl-f{fill:var(--iop-steel); stroke:none}
+.iop-viz .leader{stroke:var(--iop-line); stroke-width:1; stroke-dasharray:3 4; fill:none}
+.iop-viz .divider{stroke:var(--iop-line); stroke-width:1}
+.iop-viz .curve{fill:none; stroke:url(#iop-grad); stroke-width:5; stroke-linecap:round}
+.iop-viz .arrowtip{fill:var(--iop-integ)}
+.iop-viz .packet{fill:var(--iop-integ)}
+
+.iop-viz .pin-body{fill:var(--iop-hl7); stroke:none}
+.iop-viz .pin-year{fill:#fff; font-size:13px; font-weight:700}
+.iop-viz .h-name{fill:var(--iop-ink); font-size:14px; font-weight:700}
+.iop-viz .h-sub{fill:var(--iop-muted); font-size:11px}
+.iop-viz .h-gl{fill:none; stroke:var(--iop-hl7); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+.iop-viz .h-gl-f{fill:var(--iop-hl7); stroke:none}
+.iop-viz .h-guide{stroke:var(--iop-hl7); stroke-width:1; stroke-dasharray:2 5; opacity:.55}
+
+/* capa HL7 conmutable */
+.iop-viz #iop-hl7-layer{transition:opacity .5s ease}
+.iop-viz[data-mode="base"] #iop-hl7-layer{opacity:.12}
+
+/* --- animación de entrada --- */
+.iop-viz .curve{stroke-dasharray:1200; stroke-dashoffset:1200}
+.iop-viz .anim{opacity:0; transform-box:fill-box; transform-origin:center}
+.iop-viz.play .curve{animation:iop-draw 1.7s ease-out forwards}
+.iop-viz.play .node{animation:iop-pop .55s cubic-bezier(.3,1.5,.5,1) forwards; animation-delay:var(--d,0s)}
+.iop-viz.play .fadeup{animation:iop-up .5s ease-out forwards; animation-delay:var(--d,0s)}
+.iop-viz.play .drop{animation:iop-drop .6s cubic-bezier(.3,1.4,.5,1) forwards; animation-delay:var(--d,0s)}
+@keyframes iop-draw{to{stroke-dashoffset:0}}
+@keyframes iop-pop{from{opacity:0;transform:scale(.55)} to{opacity:1;transform:scale(1)}}
+@keyframes iop-up{from{opacity:0;transform:translateY(9px)} to{opacity:1;transform:translateY(0)}}
+@keyframes iop-drop{from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)}}
+
+@media (prefers-reduced-motion: reduce){
+  .iop-viz .curve{stroke-dashoffset:0 !important}
+  .iop-viz .anim{opacity:1 !important; transform:none !important}
+  .iop-viz *{animation:none !important; transition-duration:.01ms !important}
+}
+</style>
+<section id="paradigmas-de-interoperabilidad-y-dónde-encaja-hl7" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="paradigmas-de-interoperabilidad-y-dónde-encaja-hl7">Paradigmas de interoperabilidad y dónde encaja HL7</h2>
+<div class="iop-viz" data-mode="hl7" id="iop-1">
+
+  <div class="iop-bar">
+    <div class="iop-switch" role="group" aria-label="Capas visibles">
+      <span class="iop-thumb"></span>
+      <button data-mode="base" aria-pressed="false">Solo paradigmas</button>
+      <button data-mode="hl7" aria-pressed="true">Con estándares HL7</button>
     </div>
+    <button class="iop-replay" data-role="replay">Reproducir animación</button>
   </div>
-  
-    
-  </div>
-  
+
+<svg class="iop-diagram" viewbox="0 0 900 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Curva ascendente de nivel de interoperabilidad con cinco paradigmas y cuatro hitos del estándar HL7">
+  <defs>
+    <lineargradient id="iop-grad" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="var(--iop-steel)"></stop>
+      <stop offset="100%" stop-color="var(--iop-integ)"></stop>
+    </lineargradient>
+    <path id="iop-path" d="M45,252 C130,247 205,240 275,225 C355,208 400,190 455,178 C525,162 572,148 635,130 C712,108 790,82 855,58"></path>
+  </defs>
+
+  <!-- curva -->
+  <use href="#iop-path" class="curve"></use>
+  <g class="anim fadeup" style="--d:1.5s"><path class="arrowtip" d="M0,-8 L15,0 L0,8 Z" transform="translate(853,60) rotate(-21)"></path></g>
+  <circle r="4.5" class="packet" opacity=".9">
+    <animatemotion dur="3.4s" begin="1.7s" repeatcount="indefinite"><mpath href="#iop-path"></mpath></animatemotion>
+  </circle>
+  <g class="anim fadeup" style="--d:1.6s">
+    <text x="700" y="185" text-anchor="middle" class="axis-lbl" transform="rotate(-21 700 185)">Nivel de interoperabilidad</text>
+  </g>
+
+  <!-- ============ NODOS DE PARADIGMA ============ -->
+
+  <!-- 1. Pipeline -->
+  <g class="anim node" style="--d:.15s">
+    <rect x="71" y="201" width="48" height="48" rx="13" class="chip"></rect>
+    <g class="gl" transform="translate(82,212)">
+      <path d="M1,8 H15 M1,18 H15"></path>
+      <path d="M7,5 V21"></path>
+      <path d="M15,6.5 V19.5"></path>
+      <path d="M18,13 H25"></path>
+      <path d="M21.5,9.5 L25,13 L21.5,16.5"></path>
+    </g>
+  </g>
+  <path class="leader anim fadeup" style="--d:.5s" d="M95,251 V264"></path>
+  <g class="anim fadeup" style="--d:.5s">
+    <text x="95" y="280" text-anchor="middle" class="n-name">Pipeline</text>
+    <text x="95" y="296" text-anchor="middle" class="n-sub">Arquitectura</text>
+    <text x="95" y="309" text-anchor="middle" class="n-sub">de tuberías</text>
+    <text x="95" y="326" text-anchor="middle" class="n-year">1962 · 1991</text>
+  </g>
+
+  <!-- 2. EDA -->
+  <g class="anim node" style="--d:.3s">
+    <rect x="251" y="174" width="48" height="48" rx="13" class="chip"></rect>
+    <g transform="translate(262,185)">
+      <circle cx="5" cy="13" r="2.8" class="gl-f"></circle>
+      <path class="gl" d="M9.5,7.5 A8,8 0 0 1 9.5,18.5"></path>
+      <path class="gl" d="M13.5,4 A11.5,11.5 0 0 1 13.5,22"></path>
+      <rect x="18.5" y="4" width="6" height="6" rx="1.5" class="gl"></rect>
+      <rect x="18.5" y="16" width="6" height="6" rx="1.5" class="gl"></rect>
+    </g>
+  </g>
+  <path class="leader anim fadeup" style="--d:.65s" d="M275,224 V264"></path>
+  <g class="anim fadeup" style="--d:.65s">
+    <text x="275" y="280" text-anchor="middle" class="n-name">EDA</text>
+    <text x="275" y="296" text-anchor="middle" class="n-sub">Arquitectura dirigida</text>
+    <text x="275" y="309" text-anchor="middle" class="n-sub">por eventos</text>
+    <text x="275" y="326" text-anchor="middle" class="n-year">1974 · 1994</text>
+  </g>
+
+  <!-- 3. SOA -->
+  <g class="anim node" style="--d:.45s">
+    <rect x="431" y="127" width="48" height="48" rx="13" class="chip"></rect>
+    <g class="gl" transform="translate(442,138)">
+      <rect x="2" y="4" width="6.5" height="7" rx="1.5"></rect>
+      <rect x="9.8" y="4" width="6.5" height="7" rx="1.5"></rect>
+      <rect x="17.6" y="4" width="6.5" height="7" rx="1.5"></rect>
+      <path d="M5.2,11 V16 M13,11 V16 M20.8,11 V16"></path>
+      <path d="M1,19 H25"></path>
+      <path d="M1,19 L4,22 M25,19 L22,22"></path>
+    </g>
+  </g>
+  <path class="leader anim fadeup" style="--d:.8s" d="M455,177 V264"></path>
+  <g class="anim fadeup" style="--d:.8s">
+    <text x="455" y="280" text-anchor="middle" class="n-name">SOA</text>
+    <text x="455" y="296" text-anchor="middle" class="n-sub">Arquitectura dirigida</text>
+    <text x="455" y="309" text-anchor="middle" class="n-sub">por servicios</text>
+    <text x="455" y="326" text-anchor="middle" class="n-year">1998 · 2003</text>
+  </g>
+
+  <!-- 4. ROA -->
+  <g class="anim node" style="--d:.6s">
+    <rect x="611" y="106" width="48" height="48" rx="13" class="chip"></rect>
+    <g class="gl" transform="translate(622,117)">
+      <rect x="1" y="9" width="5.5" height="8.5" rx="1.5"></rect>
+      <path d="M8,17.5 L10,8.5"></path>
+      <rect x="10.8" y="9" width="5.5" height="8.5" rx="1.5"></rect>
+      <path d="M17.6,17.5 L19.6,8.5"></path>
+      <rect x="20" y="9" width="5" height="8.5" rx="1.5"></rect>
+      <circle cx="3.8" cy="4" r="2.2"></circle>
+      <path d="M3.8,6.2 V9"></path>
+    </g>
+  </g>
+  <path class="leader anim fadeup" style="--d:.95s" d="M635,156 V264"></path>
+  <g class="anim fadeup" style="--d:.95s">
+    <text x="635" y="280" text-anchor="middle" class="n-name">ROA</text>
+    <text x="635" y="296" text-anchor="middle" class="n-sub">Arquitectura orientada</text>
+    <text x="635" y="309" text-anchor="middle" class="n-sub">a recursos</text>
+    <text x="635" y="326" text-anchor="middle" class="n-year">2000 · 2011</text>
+  </g>
+
+  <!-- 5. API -->
+  <g class="anim node" style="--d:.75s">
+    <rect x="791" y="56" width="48" height="48" rx="13" class="chip"></rect>
+    <g class="gl" transform="translate(802,67)">
+      <path d="M9,2.5 Q4,2.5 4,7.5 Q4,13 1,13 Q4,13 4,18.5 Q4,23.5 9,23.5"></path>
+      <path d="M17,2.5 Q22,2.5 22,7.5 Q22,13 25,13 Q22,13 22,18.5 Q22,23.5 17,23.5"></path>
+      <path d="M9,9.5 H17 M14.6,7.1 L17,9.5 L14.6,11.9"></path>
+      <path d="M17,16.5 H9 M11.4,14.1 L9,16.5 L11.4,18.9"></path>
+    </g>
+  </g>
+  <path class="leader anim fadeup" style="--d:1.1s" d="M815,106 V264"></path>
+  <g class="anim fadeup" style="--d:1.1s">
+    <text x="815" y="280" text-anchor="middle" class="n-name">API</text>
+    <text x="815" y="296" text-anchor="middle" class="n-sub">Interfaz de programación</text>
+    <text x="815" y="309" text-anchor="middle" class="n-sub">de aplicaciones</text>
+    <text x="815" y="326" text-anchor="middle" class="n-year">2000 · 2014</text>
+  </g>
+
+  <!-- ============ CAPA HL7 ============ -->
+  <g id="iop-hl7-layer">
+    <path class="divider anim fadeup" style="--d:1.2s" d="M40,342 H860"></path>
+    <text x="40" y="362" class="band-lbl anim fadeup" style="--d:1.2s">Hitos del estándar HL7</text>
+
+    <!-- 1989 v2 -->
+    <g class="anim drop" style="--d:1.35s">
+      <path class="h-guide" d="M185,344 V366"></path>
+      <g transform="translate(185,384)">
+        <path class="pin-body" d="M-16,0 a16,16 0 1,1 32,0 c0,9 -9,14 -16,22 c-7,-8 -16,-13 -16,-22 z"></path>
+        <text x="0" y="5" text-anchor="middle" class="pin-year">1989</text>
+      </g>
+      <g class="h-gl" transform="translate(177,410)">
+        <path d="M2,2 V14 M8,0 V16 M14,2 V14"></path>
+      </g>
+      <text x="185" y="441" text-anchor="middle" class="h-name">HL7 v2</text>
+      <text x="185" y="456" text-anchor="middle" class="h-sub">Mensajes por segmentos</text>
+    </g>
+
+    <!-- 2003 v3 -->
+    <g class="anim drop" style="--d:1.5s">
+      <path class="h-guide" d="M455,344 V366"></path>
+      <g transform="translate(455,384)">
+        <path class="pin-body" d="M-16,0 a16,16 0 1,1 32,0 c0,9 -9,14 -16,22 c-7,-8 -16,-13 -16,-22 z"></path>
+        <text x="0" y="5" text-anchor="middle" class="pin-year">2003</text>
+      </g>
+      <g class="h-gl" transform="translate(447,409)">
+        <path d="M8,1 L15,4.5 L8,8 L1,4.5 Z"></path>
+        <path d="M1,8.2 L8,11.7 L15,8.2"></path>
+        <path d="M1,11.9 L8,15.4 L15,11.9"></path>
+      </g>
+      <text x="455" y="441" text-anchor="middle" class="h-name">HL7 v3</text>
+      <text x="455" y="456" text-anchor="middle" class="h-sub">Modelo RIM en XML</text>
+    </g>
+
+    <!-- 2005 CDA -->
+    <g class="anim drop" style="--d:1.65s">
+      <path class="h-guide" d="M635,344 V366"></path>
+      <g transform="translate(635,384)">
+        <path class="pin-body" d="M-16,0 a16,16 0 1,1 32,0 c0,9 -9,14 -16,22 c-7,-8 -16,-13 -16,-22 z"></path>
+        <text x="0" y="5" text-anchor="middle" class="pin-year">2005</text>
+      </g>
+      <g class="h-gl" transform="translate(627,409)">
+        <path d="M3,1 H10 L13.5,4.5 V15 H3 Z"></path>
+        <path d="M10,1 V4.5 H13.5"></path>
+        <path d="M5.5,8.5 H11 M5.5,11.5 H11"></path>
+      </g>
+      <text x="635" y="441" text-anchor="middle" class="h-name">HL7 CDA</text>
+      <text x="635" y="456" text-anchor="middle" class="h-sub">Documento clínico</text>
+    </g>
+
+    <!-- 2014 FHIR -->
+    <g class="anim drop" style="--d:1.8s">
+      <path class="h-guide" d="M815,344 V366"></path>
+      <g transform="translate(815,384)">
+        <path class="pin-body" d="M-16,0 a16,16 0 1,1 32,0 c0,9 -9,14 -16,22 c-7,-8 -16,-13 -16,-22 z"></path>
+        <text x="0" y="5" text-anchor="middle" class="pin-year">2014</text>
+      </g>
+      <g transform="translate(807,409)">
+        <path class="h-gl" d="M8,5.5 V3 M8,10.5 V13 M5.5,8 H3.2 M10.5,8 H12.8"></path>
+        <circle cx="8" cy="8" r="2.6" class="h-gl-f"></circle>
+        <rect x="5.4" y="0.4" width="5.2" height="4" rx="1" class="h-gl"></rect>
+        <rect x="5.4" y="11.6" width="5.2" height="4" rx="1" class="h-gl"></rect>
+        <rect x="0.2" y="5.4" width="4" height="5.2" rx="1" class="h-gl"></rect>
+        <rect x="11.8" y="5.4" width="4" height="5.2" rx="1" class="h-gl"></rect>
+      </g>
+      <text x="815" y="441" text-anchor="middle" class="h-name">HL7 FHIR</text>
+      <text x="815" y="456" text-anchor="middle" class="h-sub">Recursos sobre REST</text>
+    </g>
+  </g>
+</svg>
+
+</div>
+<script>
+(function(){
+  function placeThumb(viz){
+    var mode = viz.getAttribute('data-mode');
+    var btn = viz.querySelector('.iop-switch button[data-mode="' + mode + '"]');
+    var thumb = viz.querySelector('.iop-thumb');
+    if(!btn || !thumb || !btn.offsetWidth) return;
+    thumb.style.width = btn.offsetWidth + 'px';
+    thumb.style.transform = 'translateX(' + (btn.offsetLeft - 4) + 'px)';
+  }
+
+  function play(viz){
+    viz.classList.remove('play');
+    void viz.offsetWidth;              // reinicia las animaciones CSS
+    viz.classList.add('play');
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.iop-viz .iop-switch button');
+    if (btn){
+      var viz = btn.closest('.iop-viz');
+      viz.setAttribute('data-mode', btn.dataset.mode);
+      viz.querySelectorAll('.iop-switch button').forEach(function(b){
+        b.setAttribute('aria-pressed', String(b.dataset.mode === btn.dataset.mode));
+      });
+      placeThumb(viz);
+      return;
+    }
+    var rep = e.target.closest('.iop-viz [data-role="replay"]');
+    if (rep) play(rep.closest('.iop-viz'));
+  });
+
+  function refresh(scope){
+    (scope || document).querySelectorAll('.iop-viz').forEach(function(viz){
+      placeThumb(viz);
+      play(viz);
+    });
+  }
+
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.iop-viz').forEach(placeThumb);
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){
+    document.querySelectorAll('.iop-viz').forEach(placeThumb);
+  });
+  // reveal.js: animar al entrar a la diapositiva
+  if (window.Reveal && Reveal.on) Reveal.on('slidechanged', function(ev){ refresh(ev.currentSlide); });
+  setTimeout(function(){ refresh(); }, 350);
+})();
+</script>
 
 
-</header>
-
-
-<p><a href="slides.html" target="_blank" class="btn-slide">💻 Ver Presentación de Diapositivas</a></p>
-<section id="objetivos-de-la-clase" class="level2">
-<h2 class="anchored" data-anchor-id="objetivos-de-la-clase">🎯 Objetivos de la Clase</h2>
-<ul class="task-list">
-<li><label><input type="checkbox" checked="">Comprender los conceptos básicos de Visual Basic para Aplicaciones (VBA) y la automatización en Microsoft Excel.</label></li>
-<li><label><input type="checkbox" checked="">Entender las estructuras de control (condiciones, ciclos) y la programación orientada a eventos.</label></li>
-<li><label><input type="checkbox" checked="">Conocer el concepto de Interoperabilidad y resolver el problema de los “silos” de información.</label></li>
-<li><label><input type="checkbox" checked="">Implementar el consumo de APIs REST en Salud (SNOMED CT y CIE-10) usando VBA.</label></li>
-</ul>
-<hr>
-</section>
-<section id="materiales-y-lecturas" class="level2">
-<h2 class="anchored" data-anchor-id="materiales-y-lecturas">📖 Materiales y Lecturas</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>💡 Guía de Estudio
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Puede descargar la guía aquí: <strong><a href="Guia_1_Segundo_Corte.pdf">Guía 1 Segundo Corte</a></strong></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>💡 Material de Clase
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><a href="Introduccion VBA.pptx">Presentación: Introducción a VBA (Documento PowerPoint)</a></li>
-</ul>
-</div>
-</div>
-<section id="conceptos-clave-de-vba" class="level3">
-<h3 class="anchored" data-anchor-id="conceptos-clave-de-vba">Conceptos Clave de VBA</h3>
-<p><strong>Visual Basic para Aplicaciones (VBA)</strong> es el lenguaje de código de macros de Microsoft. Nos permite automatizar tareas complejas, fusionarlas en una sola y aumentar la eficiencia del trabajo mediante:</p>
-<ul>
-<li><strong>Variables y Tipos de Datos:</strong> Asignación de datos y manipulación.</li>
-<li><strong>Estructuras Condicionales:</strong> Simples, anidadas, múltiples (If, Then, Else).</li>
-<li><strong>Estructuras Repetitivas:</strong> Ciclos (For, While, Do).</li>
-<li><strong>Eventos y Métodos:</strong> Programación controlada por la interacción del usuario (“el usuario acciona y el código responde”).</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10" class="level2">
-<h2 class="anchored" data-anchor-id="práctica-consumo-de-apis-en-salud-snomed-ct-y-cie-10">🧪 Práctica: Consumo de APIs en Salud (SNOMED CT y CIE-10)</h2>
-<p>Uno de los grandes retos en la Informática Médica son los “silos” de información. Para resolverlo, utilizamos estándares de interoperabilidad y vocabularios controlados. A continuación se presentan ejemplos de cómo consumir APIs para consultar códigos.</p>
-<section id="consultar-api-de-snomed-ct-usando-vba" class="level3">
-<h3 class="anchored" data-anchor-id="consultar-api-de-snomed-ct-usando-vba">1. Consultar API de SNOMED CT usando VBA</h3>
-<p>El siguiente código muestra cómo hacer un request GET a una API pública (o local) de SNOMED CT utilizando el objeto <code>MSXML2.XMLHTTP</code>.</p>
-<pre class="vba"><code>Sub ConsultarSNOMED()
-    Dim xmlhttp As Object
-    Dim url As String
-    Dim response As String
-    Dim term As String
-    
-    ' Término de búsqueda (ej. "Diabetes")
-    term = "Diabetes"
-    
-    ' Ejemplo de URL pública de SNOMED CT (Snowstorm)
-    url = "https://browser.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/concepts?term=" &amp; term &amp; "&amp;limit=1"
-    
-    Set xmlhttp = CreateObject("MSXML2.XMLHTTP")
-    
-    ' Inicializar la solicitud
-    xmlhttp.Open "GET", url, False
-    xmlhttp.setRequestHeader "Content-Type", "application/json"
-    xmlhttp.setRequestHeader "Accept-Language", "es"
-    
-    ' Enviar la solicitud
-    xmlhttp.send
-    
-    If xmlhttp.Status = 200 Then
-        response = xmlhttp.responseText
-        MsgBox "Respuesta SNOMED CT: " &amp; vbCrLf &amp; Left(response, 500)
-        ' Aquí se podría usar un parseador JSON para extraer el conceptId
-    Else
-        MsgBox "Error: " &amp; xmlhttp.Status &amp; " - " &amp; xmlhttp.statusText
-    End If
-    
-    Set xmlhttp = Nothing
-End Sub</code></pre>
-</section>
-<section id="consultar-api-de-cie-10-usando-vba" class="level3">
-<h3 class="anchored" data-anchor-id="consultar-api-de-cie-10-usando-vba">2. Consultar API de CIE-10 usando VBA</h3>
-<p>De manera similar, podemos consultar repositorios de la Clasificación Internacional de Enfermedades (CIE-10).</p>
-<pre class="vba"><code>Sub ConsultarCIE10()
-    Dim http As Object
-    Dim url As String
-    Dim response As String
-    Dim codigo As String
-    
-    ' Código CIE-10 a consultar (ej. "E11")
-    codigo = "E11"
-    
-    ' URL simulada/pública para CIE-10
-    url = "https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?terms=" &amp; codigo
-    
-    Set http = CreateObject("MSXML2.XMLHTTP")
-    http.Open "GET", url, False
-    http.send
-    
-    If http.Status = 200 Then
-        response = http.responseText
-        MsgBox "Datos CIE-10 (" &amp; codigo &amp; "): " &amp; vbCrLf &amp; response
-        ' Output incluye las descripciones para Diabetes Mellitus tipo 2
-    Else
-        MsgBox "Error de conexión."
-    End If
-    
-    Set http = Nothing
-End Sub</code></pre>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Parseo de JSON en VBA
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>VBA nativo no incluye un parseador JSON directo. Para extraer datos específicos como descripciones o códigos exactos, se recomienda incorporar el módulo <code>VBA-JSON</code> (JsonConverter.bas) en su proyecto.</p>
-</div>
-</div>
-</section>
-<section id="laboratorio-taller" class="level3">
-<h3 class="anchored" data-anchor-id="laboratorio-taller">📝 Laboratorio / Taller</h3>
-<p>Debe completar el siguiente taller práctico correspondiente a esta sesión:</p>
-<ul>
-<li><a href="taller.docx">Descargar taller.docx</a></li>
-</ul>
-
-
-</section>
 </section>
 
 </main> <!-- /main -->

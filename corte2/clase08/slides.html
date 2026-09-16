@@ -9,9 +9,9 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
-  <meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)">
+  <meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas">
   <meta name="dcterms.date" content="2026-07-23">
-  <title>Informática Médica - IFMER 2026-II – Clase 08: Estándares Modernos - HL7 FHIR &amp; APIs</title>
+  <title>Informática Médica - IFMER 2026-II – Clase 08: Estándares, Normativas Técnicas y Terminologías Clínicas</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -128,13 +128,13 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Clase 08: Estándares Modernos - HL7 FHIR &amp; APIs</h1>
+  <h1 class="title">Clase 08: Estándares, Normativas Técnicas y Terminologías Clínicas</h1>
   <p class="subtitle">Informática Médica - IFMER 2026-II</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c) 
+Prof.&nbsp;Jefferson Sarmiento Rojas 
 </div>
         <p class="quarto-title-affiliation">
             Universidad del Rosario
@@ -145,22 +145,1221 @@ Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)
   <p class="date">2026-07-23</p>
 </section>
 <section>
-<section id="clase-08-estándares-modernos---hl7-fhir-apis" class="title-slide slide level1 center">
-<h1>🚧 Clase 08: Estándares Modernos - HL7 FHIR &amp; APIs</h1>
-
-</section>
-<section id="diapositivas-en-desarrollo" class="slide level2">
-<h2>Diapositivas en Desarrollo</h2>
+<section id="objetivos-de-la-clase" class="title-slide slide level1 center">
+<h1>🎯 Objetivos de la Clase</h1>
 <ul>
-<li>Próximamente se publicará el contenido de las diapositivas de esta sesión.</li>
+<li>Comprender el problema de los silos de información en salud.</li>
+<li>Reconocer la evolución de los paradigmas de interoperabilidad y las versiones del estándar HL7.</li>
+<li>Entender el modelo Cliente-Servidor y los métodos HTTP (CRUD).</li>
+<li>Explorar el uso de terminologías estándar (CIE-10, CIE-11, SNOMED CT).</li>
+<li>Practicar el consumo de APIs con Postman.</li>
 </ul>
-
+</section>
+<section class="slide level2">
 
 </section></section>
+<section>
+<section id="el-problema-de-los-silos-en-salud" class="title-slide slide level1 center">
+<h1>🏥 El problema de los Silos en Salud</h1>
+
+</section>
+<section id="sistemas-fragmentados" class="slide level2">
+<h2>Sistemas Fragmentados</h2>
+<p>Históricamente, los sistemas de información en salud se han construido de manera aislada: - Software de laboratorio - Software de urgencias - Software de facturación</p>
+<p><strong>Consecuencia:</strong> Los datos quedan atrapados y <strong>no fluyen</strong>, obligando al paciente a repetir su historia o exámenes (Silos de información).</p>
+</section>
+<section class="slide level2">
+
+<p>﻿<!--
+================================================================
+  DIAGRAMA: Silos en salud vs. atención integrada
+  Para Quarto + revealjs (IFMER)
+
+  Uso A (recomendado): guardar este archivo junto a slides.qmd y
+  llamarlo desde donde quieras la sección (escribiendo el shortcode de include):
+
+      {\{< include diagrama-silos.qmd >}}
+
+  Uso B: copiar y pegar todo el contenido dentro de slides.qmd.
+
+  El bloque <style> puede moverse a tu custom.scss si prefieres.
+================================================================
+--></p>
+<style>
+.silos-viz{
+  --sv-surface:#ffffff;
+  --sv-surface-2:#f4f7fa;
+  --sv-ink:#16202b;
+  --sv-muted:#5b6b7c;
+  --sv-line:#c7d2dd;
+  --sv-steel:#2f5d8c;
+  --sv-silo:#c8452f;
+  --sv-silo-soft:#fbeae7;
+  --sv-integ:#0b8a78;
+  --sv-integ-soft:#e3f4f1;
+  width:100%;
+}
+/* Variante para temas oscuros: <div class="silos-viz dark" ...> */
+.silos-viz.dark{
+  --sv-surface:#18212b; --sv-surface-2:#1e2833; --sv-ink:#e6edf4;
+  --sv-muted:#9aabbc; --sv-line:#2e3c4a; --sv-steel:#7aa8dc;
+  --sv-silo:#e97462; --sv-silo-soft:#33211e;
+  --sv-integ:#3fc7ae; --sv-integ-soft:#132c28;
+}
+
+/* --- interruptor --- */
+.silos-viz .sv-switch{
+  display:inline-flex; position:relative;
+  background:var(--sv-surface); border:1px solid var(--sv-line);
+  border-radius:999px; padding:4px; margin:0 0 .5em;
+}
+.silos-viz .sv-switch button{
+  font:inherit; font-size:.5em; font-weight:600;
+  border:0; background:transparent; color:var(--sv-muted);
+  padding:.45em 1.1em; border-radius:999px; cursor:pointer;
+  position:relative; z-index:2; transition:color .25s ease;
+}
+.silos-viz .sv-switch button:focus-visible{outline:2px solid var(--sv-steel); outline-offset:3px}
+.silos-viz .sv-thumb{
+  position:absolute; top:4px; bottom:4px; left:4px; border-radius:999px;
+  background:var(--sv-silo-soft); border:1px solid var(--sv-silo); z-index:1;
+  transition:transform .42s cubic-bezier(.65,0,.2,1), background .42s, border-color .42s, width .42s;
+}
+.silos-viz[data-mode="integ"] .sv-thumb{background:var(--sv-integ-soft); border-color:var(--sv-integ)}
+.silos-viz[data-mode="silos"] .sv-switch button[data-mode="silos"]{color:var(--sv-silo)}
+.silos-viz[data-mode="integ"] .sv-switch button[data-mode="integ"]{color:var(--sv-integ)}
+
+/* --- lienzo --- */
+.silos-viz .sv-board{
+  background:var(--sv-surface); border:1px solid var(--sv-line);
+  border-radius:14px; padding:.4em .3em .1em;
+}
+.silos-viz svg.sv-diagram{display:block; width:100%; height:auto}
+.silos-viz .sv-cap{
+  margin:.5em 0 0; font-size:.5em; color:var(--sv-muted); text-align:left;
+}
+.silos-viz .sv-cap b{color:var(--sv-ink); font-weight:600}
+
+/* --- tokens del SVG --- */
+.silos-viz .box-fill{fill:var(--sv-surface-2)}
+.silos-viz .box-stroke{stroke:var(--sv-line); fill:none; stroke-width:1.5}
+.silos-viz .lbl{fill:var(--sv-ink); font-size:15px; font-weight:600}
+.silos-viz .sub{fill:var(--sv-muted); font-size:12px}
+.silos-viz .wire-lbl{fill:var(--sv-muted); font-family:ui-monospace,"IBM Plex Mono",monospace; font-size:11px}
+.silos-viz .ico{stroke:var(--sv-steel); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+
+.silos-viz .state{transition:opacity .45s ease}
+.silos-viz[data-mode="integ"] .only-silos{opacity:0; pointer-events:none}
+.silos-viz[data-mode="silos"] .only-integ{opacity:0; pointer-events:none}
+
+.silos-viz .barrier{stroke:var(--sv-silo); stroke-width:2.2; fill:none; stroke-dasharray:7 6}
+.silos-viz .blocked-arrow{stroke:var(--sv-silo); stroke-width:2.2; fill:none}
+.silos-viz .xmark{stroke:var(--sv-silo); stroke-width:2.6; stroke-linecap:round}
+.silos-viz .xdisc{fill:var(--sv-silo-soft); stroke:var(--sv-silo); stroke-width:1.6}
+.silos-viz .silo-tint{fill:var(--sv-silo); opacity:.06; transition:opacity .45s}
+.silos-viz[data-mode="integ"] .silo-tint{opacity:0}
+
+.silos-viz .sv-pulse{animation:sv-pulse 1.9s ease-in-out infinite}
+@keyframes sv-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.88)}}
+.silos-viz .sv-bump{animation:sv-bump 2.1s cubic-bezier(.5,0,.4,1) infinite}
+@keyframes sv-bump{0%,100%{transform:translateX(0)}42%{transform:translateX(16px)}58%{transform:translateX(10px)}}
+
+.silos-viz .flow{stroke:var(--sv-integ); stroke-width:2.2; fill:none;
+  stroke-dasharray:6 8; stroke-linecap:round; animation:sv-dash 1.5s linear infinite}
+@keyframes sv-dash{to{stroke-dashoffset:-28}}
+.silos-viz .packet{fill:var(--sv-integ)}
+.silos-viz .hub-fill{fill:var(--sv-integ-soft); stroke:var(--sv-integ); stroke-width:2}
+.silos-viz .hub-halo{fill:none; stroke:var(--sv-integ); stroke-width:1.2; opacity:.35;
+  animation:sv-halo 2.6s ease-out infinite}
+@keyframes sv-halo{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.13);opacity:0}}
+
+/* --- tarjetas --- */
+.silos-viz .sv-stack{position:relative; margin-top:.4em}
+.silos-viz .sv-panel{
+  display:grid; gap:.5em; grid-template-columns:repeat(3,1fr);
+  transition:opacity .38s ease, transform .38s ease;
+}
+.silos-viz .sv-panel.hidden{position:absolute; inset:0; opacity:0; transform:translateY(8px); pointer-events:none}
+.silos-viz .sv-card{
+  background:var(--sv-surface); border:1px solid var(--sv-line);
+  border-left:3px solid var(--sv-silo); border-radius:10px;
+  padding:.6em .7em; text-align:left; font-size:.52em; line-height:1.5;
+}
+.silos-viz .sv-card.good{border-left-color:var(--sv-integ)}
+.silos-viz .sv-card h3{margin:0 0 .4em; font-size:1.08em; font-weight:600; color:var(--sv-ink)}
+.silos-viz .sv-card dl{margin:0}
+.silos-viz .sv-card dt{font-weight:600; color:var(--sv-ink)}
+.silos-viz .sv-card dd{margin:0 0 .5em; color:var(--sv-muted)}
+.silos-viz .sv-card dd:last-child{margin-bottom:0}
+
+/* --- tabla --- */
+.silos-viz table.sv-table{border-collapse:collapse; width:100%; font-size:.55em}
+.silos-viz table.sv-table th,
+.silos-viz table.sv-table td{padding:.45em .7em; text-align:left; border-bottom:1px solid var(--sv-line)}
+.silos-viz table.sv-table tr:last-child td{border-bottom:0}
+.silos-viz table.sv-table thead th{font-weight:600; background:var(--sv-surface-2); color:var(--sv-muted)}
+.silos-viz table.sv-table td:first-child{font-weight:600; color:var(--sv-ink)}
+.silos-viz .col-silo,.silos-viz .col-integ{color:var(--sv-muted); transition:background .4s ease,color .4s ease}
+.silos-viz[data-mode="silos"] .col-silo{background:var(--sv-silo-soft); color:var(--sv-ink)}
+.silos-viz[data-mode="integ"] .col-integ{background:var(--sv-integ-soft); color:var(--sv-ink)}
+.silos-viz thead .col-silo{color:var(--sv-silo)}
+.silos-viz thead .col-integ{color:var(--sv-integ)}
+
+@media (prefers-reduced-motion: reduce){
+  .silos-viz *{animation:none !important; transition-duration:.01ms !important}
+}
+</style>
+</section>
+<section id="el-sistema-fragmentado" class="slide level2 smaller">
+<h2>El sistema fragmentado</h2>
+<div class="silos-viz diagram-zoomable" data-mode="silos" id="sv-1">
+  
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="sv-switch" role="group" aria-label="Modo del diagrama">
+    <span class="sv-thumb"></span>
+    <button data-mode="silos" aria-pressed="true">Sistema en silos</button>
+    <button data-mode="integ" aria-pressed="false">Atención integrada</button>
+  </div>
+
+  <div class="sv-board">
+  <svg class="sv-diagram" viewbox="0 0 900 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tres servicios clínicos bloqueados entre sí, o conectados por una capa de interoperabilidad">
+    <defs>
+      <marker id="sv-ar-s" markerwidth="7" markerheight="7" refx="5.5" refy="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="var(--sv-silo)"></path>
+      </marker>
+      <marker id="sv-ar-i" markerwidth="7" markerheight="7" refx="5.5" refy="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="var(--sv-integ)"></path>
+      </marker>
+      <path id="sv-p1" d="M135,176 L135,225 Q135,247 175,260 L392,292"></path>
+      <path id="sv-p2" d="M450,176 L450,275"></path>
+      <path id="sv-p3" d="M765,176 L765,225 Q765,247 725,260 L508,292"></path>
+    </defs>
+
+    <!-- Urgencias -->
+    <g>
+      <rect x="50" y="36" width="170" height="140" rx="10" class="box-fill"></rect>
+      <rect x="50" y="36" width="170" height="140" rx="10" class="silo-tint"></rect>
+      <rect x="50" y="36" width="170" height="140" rx="10" class="box-stroke"></rect>
+      <g class="ico" transform="translate(119,60)">
+        <rect x="0" y="6" width="34" height="20" rx="3"></rect>
+        <path d="M22,6 L30,6 L34,13 L34,26"></path>
+        <circle cx="9" cy="28" r="3.6"></circle><circle cx="27" cy="28" r="3.6"></circle>
+        <path d="M8,13 L8,21 M4,17 L12,17"></path>
+      </g>
+      <text x="135" y="120" text-anchor="middle" class="lbl">Urgencias</text>
+      <text x="135" y="139" text-anchor="middle" class="sub">Triage y estabilización</text>
+      <text x="135" y="158" text-anchor="middle" class="wire-lbl">registro propio</text>
+    </g>
+
+    <!-- Medicina interna -->
+    <g>
+      <rect x="365" y="36" width="170" height="140" rx="10" class="box-fill"></rect>
+      <rect x="365" y="36" width="170" height="140" rx="10" class="silo-tint"></rect>
+      <rect x="365" y="36" width="170" height="140" rx="10" class="box-stroke"></rect>
+      <g class="ico" transform="translate(433,60)">
+        <path d="M0,26 L0,12 L22,12 Q34,12 34,22 L34,26"></path>
+        <path d="M0,20 L34,20"></path>
+        <circle cx="9" cy="5" r="4.5"></circle>
+        <path d="M0,26 L0,30 M34,26 L34,30"></path>
+      </g>
+      <text x="450" y="120" text-anchor="middle" class="lbl">Medicina interna</text>
+      <text x="450" y="139" text-anchor="middle" class="sub">Hospitalización</text>
+      <text x="450" y="158" text-anchor="middle" class="wire-lbl">registro propio</text>
+    </g>
+
+    <!-- Consulta externa -->
+    <g>
+      <rect x="680" y="36" width="170" height="140" rx="10" class="box-fill"></rect>
+      <rect x="680" y="36" width="170" height="140" rx="10" class="silo-tint"></rect>
+      <rect x="680" y="36" width="170" height="140" rx="10" class="box-stroke"></rect>
+      <g class="ico" transform="translate(748,59)">
+        <path d="M5,3 L5,14 Q5,24 15,24 Q25,24 25,14 L25,8"></path>
+        <circle cx="1.5" cy="2" r="2.2"></circle><circle cx="8.5" cy="2" r="2.2"></circle>
+        <circle cx="27" cy="5" r="4.5"></circle>
+        <path d="M27,9.5 L27,14"></path>
+      </g>
+      <text x="765" y="120" text-anchor="middle" class="lbl">Consulta externa</text>
+      <text x="765" y="139" text-anchor="middle" class="sub">Especialidades</text>
+      <text x="765" y="158" text-anchor="middle" class="wire-lbl">registro propio</text>
+    </g>
+
+    <!-- estado: silos -->
+    <g class="state only-silos">
+      <path class="barrier" d="M292,24 L292,216"></path>
+      <path class="barrier" d="M607,24 L607,216"></path>
+
+      <g class="sv-bump"><path class="blocked-arrow" d="M228,92 L268,92" marker-end="url(#sv-ar-s)"></path></g>
+      <g class="sv-bump"><path class="blocked-arrow" d="M543,92 L583,92" marker-end="url(#sv-ar-s)"></path></g>
+      <path class="blocked-arrow" d="M356,128 L316,128" marker-end="url(#sv-ar-s)" opacity=".55"></path>
+      <path class="blocked-arrow" d="M671,128 L631,128" marker-end="url(#sv-ar-s)" opacity=".55"></path>
+
+      <g class="sv-pulse" style="transform-origin:292px 106px">
+        <circle cx="292" cy="106" r="13" class="xdisc"></circle>
+        <path class="xmark" d="M287,101 L297,111 M297,101 L287,111"></path>
+      </g>
+      <g class="sv-pulse" style="transform-origin:607px 106px; animation-delay:.5s">
+        <circle cx="607" cy="106" r="13" class="xdisc"></circle>
+        <path class="xmark" d="M602,101 L612,111 M612,101 L602,111"></path>
+      </g>
+
+      <text x="450" y="242" text-anchor="middle" class="wire-lbl" style="fill:var(--sv-silo)">flujo restringido y vertical · sin historia compartida</text>
+
+      <rect x="300" y="275" width="300" height="86" rx="10" class="box-fill"></rect>
+      <rect x="300" y="275" width="300" height="86" rx="10" class="silo-tint"></rect>
+      <rect x="300" y="275" width="300" height="86" rx="10" class="box-stroke" stroke-dasharray="6 5"></rect>
+      <text x="450" y="306" text-anchor="middle" class="lbl">Tres historias parciales</text>
+      <text x="450" y="327" text-anchor="middle" class="sub">El paciente repite exámenes y relata su caso de nuevo</text>
+      <text x="450" y="346" text-anchor="middle" class="wire-lbl">papel · PDF · llamada telefónica</text>
+    </g>
+
+    <!-- estado: integrado -->
+    <g class="state only-integ">
+      <use href="#sv-p1" class="flow" marker-end="url(#sv-ar-i)"></use>
+      <use href="#sv-p2" class="flow" marker-end="url(#sv-ar-i)"></use>
+      <use href="#sv-p3" class="flow" marker-end="url(#sv-ar-i)"></use>
+
+      <circle r="4" class="packet">
+        <animatemotion dur="2.4s" repeatcount="indefinite" keypoints="1;0" keytimes="0;1" calcmode="linear"><mpath href="#sv-p1"></mpath></animatemotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animatemotion dur="2.4s" begin="-1.2s" repeatcount="indefinite"><mpath href="#sv-p1"></mpath></animatemotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animatemotion dur="2.1s" begin="-.6s" repeatcount="indefinite"><mpath href="#sv-p2"></mpath></animatemotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animatemotion dur="2.1s" repeatcount="indefinite" keypoints="1;0" keytimes="0;1" calcmode="linear"><mpath href="#sv-p2"></mpath></animatemotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animatemotion dur="2.4s" begin="-.3s" repeatcount="indefinite"><mpath href="#sv-p3"></mpath></animatemotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animatemotion dur="2.4s" begin="-1.6s" repeatcount="indefinite" keypoints="1;0" keytimes="0;1" calcmode="linear"><mpath href="#sv-p3"></mpath></animatemotion>
+      </circle>
+
+      <rect x="300" y="275" width="300" height="96" rx="12" class="hub-halo" style="transform-origin:450px 323px"></rect>
+      <rect x="300" y="275" width="300" height="96" rx="12" class="hub-fill"></rect>
+      <g class="ico" transform="translate(432,289)" style="stroke:var(--sv-integ)">
+        <circle cx="17" cy="9" r="6"></circle>
+        <path d="M17,15 L17,21 M17,21 L4,28 M17,21 L30,28"></path>
+        <circle cx="2" cy="29.5" r="3"></circle><circle cx="32" cy="29.5" r="3"></circle>
+      </g>
+      <text x="450" y="343" text-anchor="middle" class="lbl">Historia clínica unificada</text>
+      <text x="450" y="362" text-anchor="middle" class="wire-lbl" style="fill:var(--sv-integ)">HL7 FHIR · openEHR · identificador único de paciente</text>
+
+      <text x="450" y="242" text-anchor="middle" class="wire-lbl" style="fill:var(--sv-integ)">flujo bidireccional · el dato se escribe una vez y lo ve todo el equipo</text>
+    </g>
+  </svg>
+  </div>
+
+  <p class="sv-cap" data-role="cap"><b>Sistema en silos.</b> Cada servicio guarda lo suyo; entre ellos hay muros administrativos y técnicos.</p>
+</div>
+</section>
+<section id="qué-cambia-para-el-paciente" class="slide level2 smaller">
+<h2>Qué cambia para el paciente</h2>
+<div class="silos-viz diagram-zoomable" data-mode="silos" id="sv-2">
+  
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="sv-switch" role="group" aria-label="Modo de las tarjetas">
+    <span class="sv-thumb"></span>
+    <button data-mode="silos" aria-pressed="true">Problemas</button>
+    <button data-mode="integ" aria-pressed="false">Soluciones</button>
+  </div>
+
+  <div class="sv-stack">
+    <div class="sv-panel" data-role="panel-silos">
+      <div class="sv-card">
+        <h3>Datos incompletos del paciente</h3>
+        <dl>
+          <dt>Visión parcial</dt><dd>No existe un historial unificado que reúna lo que pasó en cada servicio.</dd>
+          <dt>Errores de diagnóstico</dt><dd>Se decide sobre información fragmentada y desactualizada.</dd>
+        </dl>
+      </div>
+      <div class="sv-card">
+        <h3>Falta de interoperabilidad</h3>
+        <dl>
+          <dt>Sistemas desconectados</dt><dd>Equipos médicos y HIS/RIS que no intercambian mensajes.</dd>
+          <dt>Duplicidad de pruebas</dt><dd>Se repiten exámenes porque el resultado anterior no aparece.</dd>
+        </dl>
+      </div>
+      <div class="sv-card">
+        <h3>Demoras y riesgos</h3>
+        <dl>
+          <dt>Decisiones lentas</dt><dd>Se espera por resultados que ya existen en otra área.</dd>
+          <dt>Falta de seguimiento</dt><dd>Se pierde la continuidad del tratamiento entre servicios.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="sv-panel hidden" data-role="panel-integ">
+      <div class="sv-card good">
+        <h3>Un solo expediente del paciente</h3>
+        <dl>
+          <dt>Visión completa</dt><dd>Urgencias, hospitalización y consulta escriben sobre la misma historia.</dd>
+          <dt>Decisión con contexto</dt><dd>Alergias, medicación y antecedentes en el punto de atención.</dd>
+        </dl>
+      </div>
+      <div class="sv-card good">
+        <h3>Interoperabilidad con estándares</h3>
+        <dl>
+          <dt>Sistemas que se entienden</dt><dd>Recursos FHIR y arquetipos openEHR como lenguaje común.</dd>
+          <dt>Cero repetición</dt><dd>El resultado de laboratorio se consulta, no se vuelve a pedir.</dd>
+        </dl>
+      </div>
+      <div class="sv-card good">
+        <h3>Atención oportuna y trazable</h3>
+        <dl>
+          <dt>Menos espera</dt><dd>Los resultados llegan al equipo apenas se validan.</dd>
+          <dt>Continuidad real</dt><dd>El plan de tratamiento sobrevive al cambio de servicio.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section id="comparación-punto-por-punto" class="slide level2 smaller">
+<h2>Comparación punto por punto</h2>
+<div class="silos-viz diagram-zoomable" data-mode="silos" id="sv-3">
+  
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="sv-switch" role="group" aria-label="Columna resaltada">
+    <span class="sv-thumb"></span>
+    <button data-mode="silos" aria-pressed="true">Resaltar silos</button>
+    <button data-mode="integ" aria-pressed="false">Resaltar integración</button>
+  </div>
+
+  
+<table class="sv-table caption-top">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Característica</th>
+<th class="col-silo" data-quarto-table-cell-role="th">Estructura en silos</th>
+<th class="col-integ" data-quarto-table-cell-role="th">Atención integrada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Flujo de información</td>
+<td class="col-silo">Segmentado por departamento</td>
+<td class="col-integ">Compartido y unificado</td>
+</tr>
+<tr class="even">
+<td>Historial del paciente</td>
+<td class="col-silo">Incompleto y disperso</td>
+<td class="col-integ">Completo y accesible</td>
+</tr>
+<tr class="odd">
+<td>Comunicación médica</td>
+<td class="col-silo">Por jerarquías y barreras</td>
+<td class="col-integ">Colaborativa y transversal</td>
+</tr>
+<tr class="even">
+<td>Decisiones clínicas</td>
+<td class="col-silo">Basadas en datos parciales</td>
+<td class="col-integ">Informadas por el contexto total</td>
+</tr>
+<tr class="odd">
+<td>Uso de tecnología</td>
+<td class="col-silo">Sistemas propietarios y cerrados</td>
+<td class="col-integ">Estándares abiertos (HL7 FHIR, openEHR)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<script>
+(function(){
+  var TEXTS = {
+    silos: '<b>Sistema en silos.</b> Cada servicio guarda lo suyo; entre ellos hay muros administrativos y técnicos.',
+    integ: '<b>Atención integrada.</b> Los servicios siguen existiendo, pero comparten una capa común de datos.'
+  };
+
+  function placeThumb(viz){
+    var mode = viz.getAttribute('data-mode');
+    var btn  = viz.querySelector('.sv-switch button[data-mode="' + mode + '"]');
+    var thumb = viz.querySelector('.sv-thumb');
+    if(!btn || !thumb || !btn.offsetWidth) return;
+    thumb.style.width = btn.offsetWidth + 'px';
+    thumb.style.transform = 'translateX(' + (btn.offsetLeft - 4) + 'px)';
+  }
+
+  function setMode(viz, mode){
+    viz.setAttribute('data-mode', mode);
+    viz.querySelectorAll('.sv-switch button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.mode === mode));
+    });
+    var cap = viz.querySelector('[data-role="cap"]');
+    if (cap) cap.innerHTML = TEXTS[mode];
+    var ps = viz.querySelector('[data-role="panel-silos"]');
+    var pi = viz.querySelector('[data-role="panel-integ"]');
+    if (ps) ps.classList.toggle('hidden', mode !== 'silos');
+    if (pi) pi.classList.toggle('hidden', mode !== 'integ');
+    placeThumb(viz);
+  }
+
+  // delegación: funciona aunque la diapositiva se renderice después
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.silos-viz .sv-switch button');
+    if (!btn) return;
+    setMode(btn.closest('.silos-viz'), btn.dataset.mode);
+  });
+
+  function refreshAll(){
+    document.querySelectorAll('.silos-viz').forEach(placeThumb);
+  }
+  window.addEventListener('resize', refreshAll);
+  document.addEventListener('DOMContentLoaded', refreshAll);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(refreshAll);
+  // reveal.js: recalcular al entrar a cada diapositiva
+  if (window.Reveal && Reveal.on) Reveal.on('slidechanged', refreshAll);
+  else document.addEventListener('ready', refreshAll);
+  setTimeout(refreshAll, 400);
+})();
+</script>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="estándares-y-normativas-hl7" class="title-slide slide level1 center">
+<h1>📐 Estándares y Normativas (HL7)</h1>
+
+</section>
+<section id="derribando-los-muros" class="slide level2">
+<h2>Derribando los muros</h2>
+<p>Para conectar los silos, necesitamos un lenguaje común. <strong>Health Level Seven (HL7)</strong> lidera este esfuerzo global.</p>
+<ul>
+<li><strong>HL7 v2:</strong> Muy utilizado, basado en mensajes de texto delimitados (altamente flexible pero complejo de estandarizar).</li>
+<li><strong>HL7 v3:</strong> Intento de mayor rigidez usando XML y el Modelo de Información de Referencia (RIM).</li>
+<li><strong>CDA:</strong> Arquitectura de Documentos Clínicos.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>﻿<!--
+================================================================
+  DIAGRAMA: Paradigmas de interoperabilidad + hitos HL7
+  Quarto + revealjs (IFMER)
+
+  Uso (usando el shortcode de include de Quarto):
+  {\{< include paradigmas-hl7.qmd >}}
+  o copiar y pegar dentro de slides.qmd.
+
+  Iconos: trazos SVG propios, sin librerías ni marcas registradas.
+  Espaciado horizontal conceptual (no a escala temporal).
+================================================================
+--></p>
+<style>
+.iop-viz{
+  --iop-surface:#ffffff;
+  --iop-surface-2:#f4f7fa;
+  --iop-ink:#16202b;
+  --iop-muted:#5b6b7c;
+  --iop-line:#c7d2dd;
+  --iop-steel:#6b5bd2;
+  --iop-integ:#0b8a78;
+  --iop-hl7:#d98324;
+  --iop-hl7-soft:#fdf0dd;
+  width:100%;
+}
+.iop-viz.dark{
+  --iop-surface:#18212b; --iop-surface-2:#1e2833; --iop-ink:#e6edf4;
+  --iop-muted:#9aabbc; --iop-line:#2e3c4a;
+  --iop-steel:#9a8cf0; --iop-integ:#3fc7ae;
+  --iop-hl7:#f0a94c; --iop-hl7-soft:#33260f;
+}
+
+/* --- controles --- */
+.iop-viz .iop-bar{display:flex; align-items:center; gap:.6em; flex-wrap:wrap; margin:0 0 .4em}
+.iop-viz .iop-switch{
+  display:inline-flex; position:relative;
+  background:var(--iop-surface); border:1px solid var(--iop-line);
+  border-radius:999px; padding:4px;
+}
+.iop-viz .iop-switch button{
+  font:inherit; font-size:.5em; font-weight:600;
+  border:0; background:transparent; color:var(--iop-muted);
+  padding:.45em 1.1em; border-radius:999px; cursor:pointer;
+  position:relative; z-index:2; transition:color .25s ease;
+}
+.iop-viz .iop-thumb{
+  position:absolute; top:4px; bottom:4px; left:4px; border-radius:999px;
+  background:var(--iop-surface-2); border:1px solid var(--iop-steel); z-index:1;
+  transition:transform .42s cubic-bezier(.65,0,.2,1), width .42s, border-color .42s;
+}
+.iop-viz[data-mode="hl7"] .iop-thumb{border-color:var(--iop-hl7)}
+.iop-viz[data-mode="base"] .iop-switch button[data-mode="base"]{color:var(--iop-steel)}
+.iop-viz[data-mode="hl7"]  .iop-switch button[data-mode="hl7"]{color:var(--iop-hl7)}
+.iop-viz .iop-replay{
+  font:inherit; font-size:.45em; color:var(--iop-muted);
+  background:none; border:0; cursor:pointer; padding:.3em .2em;
+  border-bottom:1px solid var(--iop-line);
+}
+.iop-viz .iop-replay:hover{color:var(--iop-ink)}
+.iop-viz button:focus-visible{outline:2px solid var(--iop-steel); outline-offset:3px}
+
+.iop-viz svg.iop-diagram{display:block; width:100%; height:auto}
+
+/* --- tokens svg --- */
+.iop-viz .n-name{fill:var(--iop-ink); font-size:16px; font-weight:700}
+.iop-viz .n-sub{fill:var(--iop-muted); font-size:11.5px}
+.iop-viz .n-year{fill:var(--iop-muted); font-family:ui-monospace,"IBM Plex Mono",monospace; font-size:10.5px}
+.iop-viz .axis-lbl{fill:var(--iop-muted); font-size:12.5px; font-style:italic}
+.iop-viz .band-lbl{fill:var(--iop-muted); font-size:11px; letter-spacing:.04em}
+.iop-viz .chip{fill:var(--iop-surface); stroke:var(--iop-line); stroke-width:1.5}
+.iop-viz .gl{fill:none; stroke:var(--iop-steel); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+.iop-viz .gl-f{fill:var(--iop-steel); stroke:none}
+.iop-viz .leader{stroke:var(--iop-line); stroke-width:1; stroke-dasharray:3 4; fill:none}
+.iop-viz .divider{stroke:var(--iop-line); stroke-width:1}
+.iop-viz .curve{fill:none; stroke:url(#iop-grad); stroke-width:5; stroke-linecap:round}
+.iop-viz .arrowtip{fill:var(--iop-integ)}
+.iop-viz .packet{fill:var(--iop-integ)}
+
+.iop-viz .pin-body{fill:var(--iop-hl7); stroke:none}
+.iop-viz .pin-year{fill:#fff; font-size:13px; font-weight:700}
+.iop-viz .h-name{fill:var(--iop-ink); font-size:14px; font-weight:700}
+.iop-viz .h-sub{fill:var(--iop-muted); font-size:11px}
+.iop-viz .h-gl{fill:none; stroke:var(--iop-hl7); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+.iop-viz .h-gl-f{fill:var(--iop-hl7); stroke:none}
+.iop-viz .h-guide{stroke:var(--iop-hl7); stroke-width:1; stroke-dasharray:2 5; opacity:.55}
+
+/* capa HL7 conmutable */
+.iop-viz #iop-hl7-layer{transition:opacity .5s ease}
+.iop-viz[data-mode="base"] #iop-hl7-layer{opacity:.12}
+
+/* --- animación de entrada --- */
+.iop-viz .curve{stroke-dasharray:1200; stroke-dashoffset:1200}
+.iop-viz .anim{opacity:0; transform-box:fill-box; transform-origin:center}
+.iop-viz.play .curve{animation:iop-draw 1.7s ease-out forwards}
+.iop-viz.play .node{animation:iop-pop .55s cubic-bezier(.3,1.5,.5,1) forwards; animation-delay:var(--d,0s)}
+.iop-viz.play .fadeup{animation:iop-up .5s ease-out forwards; animation-delay:var(--d,0s)}
+.iop-viz.play .drop{animation:iop-drop .6s cubic-bezier(.3,1.4,.5,1) forwards; animation-delay:var(--d,0s)}
+@keyframes iop-draw{to{stroke-dashoffset:0}}
+@keyframes iop-pop{from{opacity:0;transform:scale(.55)} to{opacity:1;transform:scale(1)}}
+@keyframes iop-up{from{opacity:0;transform:translateY(9px)} to{opacity:1;transform:translateY(0)}}
+@keyframes iop-drop{from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)}}
+
+@media (prefers-reduced-motion: reduce){
+  .iop-viz .curve{stroke-dashoffset:0 !important}
+  .iop-viz .anim{opacity:1 !important; transform:none !important}
+  .iop-viz *{animation:none !important; transition-duration:.01ms !important}
+}
+</style>
+</section>
+<section id="paradigmas-de-interoperabilidad-y-dónde-encaja-hl7" class="slide level2 smaller">
+<h2>Paradigmas de interoperabilidad y dónde encaja HL7</h2>
+<div class="iop-viz" data-mode="hl7" id="iop-1">
+
+  <div class="iop-bar">
+    <div class="iop-switch" role="group" aria-label="Capas visibles">
+      <span class="iop-thumb"></span>
+      <button data-mode="base" aria-pressed="false">Solo paradigmas</button>
+      <button data-mode="hl7" aria-pressed="true">Con estándares HL7</button>
+    </div>
+    <button class="iop-replay" data-role="replay">Reproducir animación</button>
+  </div>
+
+<svg class="iop-diagram" viewbox="0 0 900 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Curva ascendente de nivel de interoperabilidad con cinco paradigmas y cuatro hitos del estándar HL7">
+  <defs>
+    <lineargradient id="iop-grad" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="var(--iop-steel)"></stop>
+      <stop offset="100%" stop-color="var(--iop-integ)"></stop>
+    </lineargradient>
+    <path id="iop-path" d="M45,252 C130,247 205,240 275,225 C355,208 400,190 455,178 C525,162 572,148 635,130 C712,108 790,82 855,58"></path>
+  </defs>
+
+  <!-- curva -->
+  <use href="#iop-path" class="curve"></use>
+  <g class="anim fadeup" style="--d:1.5s"><path class="arrowtip" d="M0,-8 L15,0 L0,8 Z" transform="translate(853,60) rotate(-21)"></path></g>
+  <circle r="4.5" class="packet" opacity=".9">
+    <animatemotion dur="3.4s" begin="1.7s" repeatcount="indefinite"><mpath href="#iop-path"></mpath></animatemotion>
+  </circle>
+  <g class="anim fadeup" style="--d:1.6s">
+    <text x="700" y="185" text-anchor="middle" class="axis-lbl" transform="rotate(-21 700 185)">Nivel de interoperabilidad</text>
+  </g>
+
+  <!-- ============ NODOS DE PARADIGMA ============ -->
+
+  <!-- 1. Pipeline -->
+  <g class="anim node" style="--d:.15s">
+    <rect x="71" y="201" width="48" height="48" rx="13" class="chip"></rect>
+    <g class="gl" transform="translate(82,212)">
+      <path d="M1,8 H15 M1,18 H15"></path>
+      <path d="M7,5 V21"></path>
+      <path d="M15,6.5 V19.5"></path>
+      <path d="M18,13 H25"></path>
+      <path d="M21.5,9.5 L25,13 L21.5,16.5"></path>
+    </g>
+  </g>
+  <path class="leader anim fadeup" style="--d:.5s" d="M95,251 V264"></path>
+  <g class="anim fadeup" style="--d:.5s">
+    <text x="95" y="280" text-anchor="middle" class="n-name">Pipeline</text>
+    <text x="95" y="296" text-anchor="middle" class="n-sub">Arquitectura</text>
+    <text x="95" y="309" text-anchor="middle" class="n-sub">de tuberías</text>
+    <text x="95" y="326" text-anchor="middle" class="n-year">1962 · 1991</text>
+  </g>
+
+  <!-- 2. EDA -->
+  <g class="anim node" style="--d:.3s">
+    <rect x="251" y="174" width="48" height="48" rx="13" class="chip"></rect>
+    <g transform="translate(262,185)">
+      <circle cx="5" cy="13" r="2.8" class="gl-f"></circle>
+      <path class="gl" d="M9.5,7.5 A8,8 0 0 1 9.5,18.5"></path>
+      <path class="gl" d="M13.5,4 A11.5,11.5 0 0 1 13.5,22"></path>
+      <rect x="18.5" y="4" width="6" height="6" rx="1.5" class="gl"></rect>
+      <rect x="18.5" y="16" width="6" height="6" rx="1.5" class="gl"></rect>
+    </g>
+  </g>
+  <path class="leader anim fadeup" style="--d:.65s" d="M275,224 V264"></path>
+  <g class="anim fadeup" style="--d:.65s">
+    <text x="275" y="280" text-anchor="middle" class="n-name">EDA</text>
+    <text x="275" y="296" text-anchor="middle" class="n-sub">Arquitectura dirigida</text>
+    <text x="275" y="309" text-anchor="middle" class="n-sub">por eventos</text>
+    <text x="275" y="326" text-anchor="middle" class="n-year">1974 · 1994</text>
+  </g>
+
+  <!-- 3. SOA -->
+  <g class="anim node" style="--d:.45s">
+    <rect x="431" y="127" width="48" height="48" rx="13" class="chip"></rect>
+    <g class="gl" transform="translate(442,138)">
+      <rect x="2" y="4" width="6.5" height="7" rx="1.5"></rect>
+      <rect x="9.8" y="4" width="6.5" height="7" rx="1.5"></rect>
+      <rect x="17.6" y="4" width="6.5" height="7" rx="1.5"></rect>
+      <path d="M5.2,11 V16 M13,11 V16 M20.8,11 V16"></path>
+      <path d="M1,19 H25"></path>
+      <path d="M1,19 L4,22 M25,19 L22,22"></path>
+    </g>
+  </g>
+  <path class="leader anim fadeup" style="--d:.8s" d="M455,177 V264"></path>
+  <g class="anim fadeup" style="--d:.8s">
+    <text x="455" y="280" text-anchor="middle" class="n-name">SOA</text>
+    <text x="455" y="296" text-anchor="middle" class="n-sub">Arquitectura dirigida</text>
+    <text x="455" y="309" text-anchor="middle" class="n-sub">por servicios</text>
+    <text x="455" y="326" text-anchor="middle" class="n-year">1998 · 2003</text>
+  </g>
+
+  <!-- 4. ROA -->
+  <g class="anim node" style="--d:.6s">
+    <rect x="611" y="106" width="48" height="48" rx="13" class="chip"></rect>
+    <g class="gl" transform="translate(622,117)">
+      <rect x="1" y="9" width="5.5" height="8.5" rx="1.5"></rect>
+      <path d="M8,17.5 L10,8.5"></path>
+      <rect x="10.8" y="9" width="5.5" height="8.5" rx="1.5"></rect>
+      <path d="M17.6,17.5 L19.6,8.5"></path>
+      <rect x="20" y="9" width="5" height="8.5" rx="1.5"></rect>
+      <circle cx="3.8" cy="4" r="2.2"></circle>
+      <path d="M3.8,6.2 V9"></path>
+    </g>
+  </g>
+  <path class="leader anim fadeup" style="--d:.95s" d="M635,156 V264"></path>
+  <g class="anim fadeup" style="--d:.95s">
+    <text x="635" y="280" text-anchor="middle" class="n-name">ROA</text>
+    <text x="635" y="296" text-anchor="middle" class="n-sub">Arquitectura orientada</text>
+    <text x="635" y="309" text-anchor="middle" class="n-sub">a recursos</text>
+    <text x="635" y="326" text-anchor="middle" class="n-year">2000 · 2011</text>
+  </g>
+
+  <!-- 5. API -->
+  <g class="anim node" style="--d:.75s">
+    <rect x="791" y="56" width="48" height="48" rx="13" class="chip"></rect>
+    <g class="gl" transform="translate(802,67)">
+      <path d="M9,2.5 Q4,2.5 4,7.5 Q4,13 1,13 Q4,13 4,18.5 Q4,23.5 9,23.5"></path>
+      <path d="M17,2.5 Q22,2.5 22,7.5 Q22,13 25,13 Q22,13 22,18.5 Q22,23.5 17,23.5"></path>
+      <path d="M9,9.5 H17 M14.6,7.1 L17,9.5 L14.6,11.9"></path>
+      <path d="M17,16.5 H9 M11.4,14.1 L9,16.5 L11.4,18.9"></path>
+    </g>
+  </g>
+  <path class="leader anim fadeup" style="--d:1.1s" d="M815,106 V264"></path>
+  <g class="anim fadeup" style="--d:1.1s">
+    <text x="815" y="280" text-anchor="middle" class="n-name">API</text>
+    <text x="815" y="296" text-anchor="middle" class="n-sub">Interfaz de programación</text>
+    <text x="815" y="309" text-anchor="middle" class="n-sub">de aplicaciones</text>
+    <text x="815" y="326" text-anchor="middle" class="n-year">2000 · 2014</text>
+  </g>
+
+  <!-- ============ CAPA HL7 ============ -->
+  <g id="iop-hl7-layer">
+    <path class="divider anim fadeup" style="--d:1.2s" d="M40,342 H860"></path>
+    <text x="40" y="362" class="band-lbl anim fadeup" style="--d:1.2s">Hitos del estándar HL7</text>
+
+    <!-- 1989 v2 -->
+    <g class="anim drop" style="--d:1.35s">
+      <path class="h-guide" d="M185,344 V366"></path>
+      <g transform="translate(185,384)">
+        <path class="pin-body" d="M-16,0 a16,16 0 1,1 32,0 c0,9 -9,14 -16,22 c-7,-8 -16,-13 -16,-22 z"></path>
+        <text x="0" y="5" text-anchor="middle" class="pin-year">1989</text>
+      </g>
+      <g class="h-gl" transform="translate(177,410)">
+        <path d="M2,2 V14 M8,0 V16 M14,2 V14"></path>
+      </g>
+      <text x="185" y="441" text-anchor="middle" class="h-name">HL7 v2</text>
+      <text x="185" y="456" text-anchor="middle" class="h-sub">Mensajes por segmentos</text>
+    </g>
+
+    <!-- 2003 v3 -->
+    <g class="anim drop" style="--d:1.5s">
+      <path class="h-guide" d="M455,344 V366"></path>
+      <g transform="translate(455,384)">
+        <path class="pin-body" d="M-16,0 a16,16 0 1,1 32,0 c0,9 -9,14 -16,22 c-7,-8 -16,-13 -16,-22 z"></path>
+        <text x="0" y="5" text-anchor="middle" class="pin-year">2003</text>
+      </g>
+      <g class="h-gl" transform="translate(447,409)">
+        <path d="M8,1 L15,4.5 L8,8 L1,4.5 Z"></path>
+        <path d="M1,8.2 L8,11.7 L15,8.2"></path>
+        <path d="M1,11.9 L8,15.4 L15,11.9"></path>
+      </g>
+      <text x="455" y="441" text-anchor="middle" class="h-name">HL7 v3</text>
+      <text x="455" y="456" text-anchor="middle" class="h-sub">Modelo RIM en XML</text>
+    </g>
+
+    <!-- 2005 CDA -->
+    <g class="anim drop" style="--d:1.65s">
+      <path class="h-guide" d="M635,344 V366"></path>
+      <g transform="translate(635,384)">
+        <path class="pin-body" d="M-16,0 a16,16 0 1,1 32,0 c0,9 -9,14 -16,22 c-7,-8 -16,-13 -16,-22 z"></path>
+        <text x="0" y="5" text-anchor="middle" class="pin-year">2005</text>
+      </g>
+      <g class="h-gl" transform="translate(627,409)">
+        <path d="M3,1 H10 L13.5,4.5 V15 H3 Z"></path>
+        <path d="M10,1 V4.5 H13.5"></path>
+        <path d="M5.5,8.5 H11 M5.5,11.5 H11"></path>
+      </g>
+      <text x="635" y="441" text-anchor="middle" class="h-name">HL7 CDA</text>
+      <text x="635" y="456" text-anchor="middle" class="h-sub">Documento clínico</text>
+    </g>
+
+    <!-- 2014 FHIR -->
+    <g class="anim drop" style="--d:1.8s">
+      <path class="h-guide" d="M815,344 V366"></path>
+      <g transform="translate(815,384)">
+        <path class="pin-body" d="M-16,0 a16,16 0 1,1 32,0 c0,9 -9,14 -16,22 c-7,-8 -16,-13 -16,-22 z"></path>
+        <text x="0" y="5" text-anchor="middle" class="pin-year">2014</text>
+      </g>
+      <g transform="translate(807,409)">
+        <path class="h-gl" d="M8,5.5 V3 M8,10.5 V13 M5.5,8 H3.2 M10.5,8 H12.8"></path>
+        <circle cx="8" cy="8" r="2.6" class="h-gl-f"></circle>
+        <rect x="5.4" y="0.4" width="5.2" height="4" rx="1" class="h-gl"></rect>
+        <rect x="5.4" y="11.6" width="5.2" height="4" rx="1" class="h-gl"></rect>
+        <rect x="0.2" y="5.4" width="4" height="5.2" rx="1" class="h-gl"></rect>
+        <rect x="11.8" y="5.4" width="4" height="5.2" rx="1" class="h-gl"></rect>
+      </g>
+      <text x="815" y="441" text-anchor="middle" class="h-name">HL7 FHIR</text>
+      <text x="815" y="456" text-anchor="middle" class="h-sub">Recursos sobre REST</text>
+    </g>
+  </g>
+</svg>
+
+</div>
+<script>
+(function(){
+  function placeThumb(viz){
+    var mode = viz.getAttribute('data-mode');
+    var btn = viz.querySelector('.iop-switch button[data-mode="' + mode + '"]');
+    var thumb = viz.querySelector('.iop-thumb');
+    if(!btn || !thumb || !btn.offsetWidth) return;
+    thumb.style.width = btn.offsetWidth + 'px';
+    thumb.style.transform = 'translateX(' + (btn.offsetLeft - 4) + 'px)';
+  }
+
+  function play(viz){
+    viz.classList.remove('play');
+    void viz.offsetWidth;              // reinicia las animaciones CSS
+    viz.classList.add('play');
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.iop-viz .iop-switch button');
+    if (btn){
+      var viz = btn.closest('.iop-viz');
+      viz.setAttribute('data-mode', btn.dataset.mode);
+      viz.querySelectorAll('.iop-switch button').forEach(function(b){
+        b.setAttribute('aria-pressed', String(b.dataset.mode === btn.dataset.mode));
+      });
+      placeThumb(viz);
+      return;
+    }
+    var rep = e.target.closest('.iop-viz [data-role="replay"]');
+    if (rep) play(rep.closest('.iop-viz'));
+  });
+
+  function refresh(scope){
+    (scope || document).querySelectorAll('.iop-viz').forEach(function(viz){
+      placeThumb(viz);
+      play(viz);
+    });
+  }
+
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.iop-viz').forEach(placeThumb);
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){
+    document.querySelectorAll('.iop-viz').forEach(placeThumb);
+  });
+  // reveal.js: animar al entrar a la diapositiva
+  if (window.Reveal && Reveal.on) Reveal.on('slidechanged', function(ev){ refresh(ev.currentSlide); });
+  setTimeout(function(){ refresh(); }, 350);
+})();
+</script>
+<aside class="notes">
+<p><strong>Análisis de la evolución:</strong> Cada versión de HL7 responde al paradigma dominante de su época. Mientras que la <strong>v2</strong> resolvía el transporte punto a punto con mensajes de texto, la <strong>v3</strong> buscó un modelo formal compartido (RIM) en pleno auge de SOA. Posteriormente, <strong>CDA</strong> estandarizó el documento clínico, hasta llegar a <strong>FHIR</strong>, que adopta completamente la arquitectura de recursos (ROA) y el uso de APIs REST. <em>(Nota: El espaciado horizontal en el diagrama es conceptual).</em></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="paradigma-cliente-servidor" class="title-slide slide level1 center">
+<h1>🌐 Paradigma Cliente-Servidor</h1>
+
+</section>
+<section id="comunicación-moderna" class="slide level2">
+<h2>Comunicación Moderna</h2>
+<p>Para que los sistemas modernos (como FHIR) funcionen, se basan en el modelo <strong>Cliente-Servidor</strong>.</p>
+<ul>
+<li><strong>Cliente:</strong> El navegador, un celular, la app del médico, Postman.</li>
+<li><strong>Servidor:</strong> El sistema central, la nube o la base de datos donde reside la información.</li>
+</ul>
+<p>El cliente hace peticiones (<strong>Requests</strong>) y el servidor devuelve respuestas (<strong>Responses</strong>).</p>
+</section>
+<section class="slide level2">
+
+<p>﻿<!--
+================================================================
+  DIAGRAMA: Paradigma Cliente-Servidor y Métodos HTTP
+  Quarto + revealjs (IFMER)
+================================================================
+--></p>
+<style>
+.http-viz{
+  --http-surface:#ffffff;
+  --http-surface-2:#f4f7fa;
+  --http-ink:#16202b;
+  --http-muted:#5b6b7c;
+  --http-line:#c7d2dd;
+  --http-get:#3b82f6;
+  --http-post:#10b981;
+  --http-put:#f59e0b;
+  --http-del:#ef4444;
+  width:100%;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+.http-viz.dark{
+  --http-surface:#18212b; --http-surface-2:#1e2833; --http-ink:#e6edf4;
+  --http-muted:#9aabbc; --http-line:#2e3c4a;
+}
+
+/* --- controles --- */
+.http-viz .http-bar{display:flex; align-items:center; gap:.6em; flex-wrap:wrap; margin:0 0 .8em}
+.http-viz .http-switch{
+  display:inline-flex; position:relative;
+  background:var(--http-surface); border:1px solid var(--http-line);
+  border-radius:999px; padding:4px;
+}
+.http-viz .http-switch button{
+  font:inherit; font-size:.6em; font-weight:600;
+  border:0; background:transparent; color:var(--http-muted);
+  padding:.5em 1.2em; border-radius:999px; cursor:pointer;
+  position:relative; z-index:2; transition:color .25s ease;
+}
+.http-viz .http-thumb{
+  position:absolute; top:4px; bottom:4px; left:4px; border-radius:999px;
+  background:var(--http-surface-2); border:1px solid var(--http-line); z-index:1;
+  transition:transform .4s cubic-bezier(.65,0,.2,1), width .4s, border-color .4s, background .4s;
+}
+
+.http-viz[data-mode="get"] .http-thumb{border-color:var(--http-get); background:#eff6ff}
+.http-viz[data-mode="post"] .http-thumb{border-color:var(--http-post); background:#ecfdf5}
+.http-viz[data-mode="put"] .http-thumb{border-color:var(--http-put); background:#fffbeb}
+.http-viz[data-mode="del"] .http-thumb{border-color:var(--http-del); background:#fef2f2}
+
+.http-viz[data-mode="get"] .http-switch button[data-mode="get"]{color:var(--http-get)}
+.http-viz[data-mode="post"] .http-switch button[data-mode="post"]{color:var(--http-post)}
+.http-viz[data-mode="put"] .http-switch button[data-mode="put"]{color:var(--http-put)}
+.http-viz[data-mode="del"] .http-switch button[data-mode="del"]{color:var(--http-del)}
+
+.http-viz button:focus-visible{outline:2px solid var(--http-get); outline-offset:3px}
+
+.http-viz svg.http-diagram{display:block; width:100%; height:auto}
+
+/* --- tokens svg --- */
+.http-viz .lbl-title{fill:var(--http-ink); font-size:18px; font-weight:700}
+.http-viz .lbl-sub{fill:var(--http-muted); font-size:13px}
+.http-viz .chip{fill:var(--http-surface); stroke:var(--http-line); stroke-width:2}
+.http-viz .gl{fill:none; stroke:var(--http-muted); stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.http-viz .method-lbl{font-size:15px; font-weight:700; font-family:ui-monospace,"IBM Plex Mono",monospace}
+.http-viz .payload-lbl{font-size:13px; fill:var(--http-ink)}
+
+.http-viz .track{fill:none; stroke:var(--http-line); stroke-width:2; stroke-dasharray:4 6}
+
+.http-viz .packet{opacity:0; transition:opacity .2s}
+.http-viz.play .packet{opacity:1; animation:http-fly 1.8s cubic-bezier(.4,0,.2,1) forwards}
+
+@keyframes http-fly{
+  0%{stroke-dashoffset:400}
+  100%{stroke-dashoffset:0}
+}
+
+.http-viz .packet-path{fill:none; stroke-width:4; stroke-linecap:round; stroke-dasharray:400; stroke-dashoffset:400}
+.http-viz[data-mode="get"] .packet-path{stroke:var(--http-get)}
+.http-viz[data-mode="post"] .packet-path{stroke:var(--http-post)}
+.http-viz[data-mode="put"] .packet-path{stroke:var(--http-put)}
+.http-viz[data-mode="del"] .packet-path{stroke:var(--http-del)}
+
+.http-viz .info-box{opacity:0; transition:opacity .4s ease, transform .4s ease; transform:translateY(10px)}
+.http-viz.play .info-box{opacity:1; transform:translateY(0); transition-delay:1.5s}
+
+/* Ocultar elementos según modo */
+.http-viz .m-get, .http-viz .m-post, .http-viz .m-put, .http-viz .m-del { display:none }
+.http-viz[data-mode="get"] .m-get{display:block}
+.http-viz[data-mode="post"] .m-post{display:block}
+.http-viz[data-mode="put"] .m-put{display:block}
+.http-viz[data-mode="del"] .m-del{display:block}
+
+</style>
+<div class="http-viz diagram-zoomable" data-mode="get" id="http-1">
+  
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="http-bar">
+    <div class="http-switch" role="group" aria-label="Métodos HTTP">
+      <span class="http-thumb"></span>
+      <button data-mode="get" aria-pressed="true">GET</button>
+      <button data-mode="post" aria-pressed="false">POST</button>
+      <button data-mode="put" aria-pressed="false">PUT</button>
+      <button data-mode="del" aria-pressed="false">DELETE</button>
+    </div>
+  </div>
+
+<svg class="http-diagram" viewbox="0 0 900 350" xmlns="http://www.w3.org/2000/svg">
+  
+  <defs>
+    <!-- Flechas -->
+    <marker id="ar-get" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto">
+      <path d="M0,1 L7,4 L0,7 Z" fill="var(--http-get)"></path>
+    </marker>
+    <marker id="ar-post" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto">
+      <path d="M0,1 L7,4 L0,7 Z" fill="var(--http-post)"></path>
+    </marker>
+    <marker id="ar-put" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto">
+      <path d="M0,1 L7,4 L0,7 Z" fill="var(--http-put)"></path>
+    </marker>
+    <marker id="ar-del" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto">
+      <path d="M0,1 L7,4 L0,7 Z" fill="var(--http-del)"></path>
+    </marker>
+  </defs>
+
+  <!-- ============ CLIENTE ============ -->
+  <g transform="translate(100, 100)">
+    <rect x="-60" y="-40" width="120" height="150" rx="15" class="chip"></rect>
+    <!-- Icono Laptop -->
+    <path class="gl" d="M-30,-10 h60 v40 h-60 z M-40,30 h80 l5,10 h-90 z"></path>
+    <text x="0" y="80" text-anchor="middle" class="lbl-title">Cliente</text>
+    <text x="0" y="100" text-anchor="middle" class="lbl-sub">(Navegador, App, Postman)</text>
+  </g>
+
+  <!-- ============ SERVIDOR ============ -->
+  <g transform="translate(800, 100)">
+    <rect x="-60" y="-40" width="120" height="150" rx="15" class="chip"></rect>
+    <!-- Icono Servidor/BD -->
+    <path class="gl" d="M-25,-10 h50 a10,5 0 0 1 0,10 h-50 a10,5 0 0 1 0,-10 z"></path>
+    <path class="gl" d="M-25,-5 v30 a10,5 0 0 0 50,0 v-30"></path>
+    <path class="gl" d="M-25,10 a10,5 0 0 0 50,0"></path>
+    <text x="0" y="80" text-anchor="middle" class="lbl-title">Servidor</text>
+    <text x="0" y="100" text-anchor="middle" class="lbl-sub">(API REST, Base de Datos)</text>
+  </g>
+
+  <!-- ============ PISTAS ============ -->
+  <!-- Request -->
+  <path class="track" d="M 180,90 L 720,90"></path>
+  <!-- Response -->
+  <path class="track" d="M 720,130 L 180,130"></path>
+
+  <text x="450" y="35" text-anchor="middle" class="lbl-sub">Request (Petición HTTP)</text>
+  <text x="450" y="180" text-anchor="middle" class="lbl-sub">Response (Respuesta HTTP)</text>
+
+  <!-- ============ ANIMACIONES POR MODO ============ -->
+
+  <!-- GET -->
+  <g class="m-get">
+    <g class="packet">
+      <path class="packet-path" d="M 180,90 L 710,90" marker-end="url(#ar-get)"></path>
+      <text x="450" y="75" text-anchor="middle" class="method-lbl" style="fill:var(--http-get)">GET /pacientes/123</text>
+    </g>
+    <g class="info-box">
+      <path class="packet-path" d="M 720,130 L 190,130" marker-end="url(#ar-get)" style="stroke-width:2; stroke-dasharray:0; stroke-dashoffset:0"></path>
+      <rect x="350" y="110" width="200" height="40" rx="6" fill="#eff6ff" stroke="var(--http-get)" stroke-width="1.5"></rect>
+      <text x="450" y="135" text-anchor="middle" class="payload-lbl">200 OK: { "nombre": "Ana" }</text>
+      
+      <text x="450" y="240" text-anchor="middle" class="lbl-title" style="fill:var(--http-get)">Consultar Datos</text>
+      <text x="450" y="265" text-anchor="middle" class="lbl-sub">El cliente solicita leer información existente en el servidor.</text>
+      <text x="450" y="285" text-anchor="middle" class="lbl-sub">No modifica los datos originales (Idempotente).</text>
+    </g>
+  </g>
+
+  <!-- POST -->
+  <g class="m-post">
+    <g class="packet">
+      <path class="packet-path" d="M 180,90 L 710,90" marker-end="url(#ar-post)"></path>
+      <text x="450" y="60" text-anchor="middle" class="method-lbl" style="fill:var(--http-post)">POST /pacientes</text>
+      <rect x="350" y="70" width="200" height="28" rx="6" fill="#ecfdf5" stroke="var(--http-post)" stroke-width="1.5"></rect>
+      <text x="450" y="89" text-anchor="middle" class="payload-lbl">{ "nombre": "Juan" }</text>
+    </g>
+    <g class="info-box">
+      <path class="packet-path" d="M 720,130 L 190,130" marker-end="url(#ar-post)" style="stroke-width:2; stroke-dasharray:0; stroke-dashoffset:0"></path>
+      <rect x="350" y="110" width="200" height="40" rx="6" fill="#ecfdf5" stroke="var(--http-post)" stroke-width="1.5"></rect>
+      <text x="450" y="135" text-anchor="middle" class="payload-lbl">201 Created: { "id": 456 }</text>
+      
+      <text x="450" y="240" text-anchor="middle" class="lbl-title" style="fill:var(--http-post)">Crear un Registro</text>
+      <text x="450" y="265" text-anchor="middle" class="lbl-sub">El cliente envía un bloque de datos (JSON) para crear un nuevo recurso.</text>
+      <text x="450" y="285" text-anchor="middle" class="lbl-sub">El servidor responde confirmando la creación y asignando un ID.</text>
+    </g>
+  </g>
+
+  <!-- PUT -->
+  <g class="m-put">
+    <g class="packet">
+      <path class="packet-path" d="M 180,90 L 710,90" marker-end="url(#ar-put)"></path>
+      <text x="450" y="60" text-anchor="middle" class="method-lbl" style="fill:var(--http-put)">PUT /pacientes/123</text>
+      <rect x="350" y="70" width="200" height="28" rx="6" fill="#fffbeb" stroke="var(--http-put)" stroke-width="1.5"></rect>
+      <text x="450" y="89" text-anchor="middle" class="payload-lbl">{ "nombre": "Ana B." }</text>
+    </g>
+    <g class="info-box">
+      <path class="packet-path" d="M 720,130 L 190,130" marker-end="url(#ar-put)" style="stroke-width:2; stroke-dasharray:0; stroke-dashoffset:0"></path>
+      <rect x="350" y="110" width="200" height="40" rx="6" fill="#fffbeb" stroke="var(--http-put)" stroke-width="1.5"></rect>
+      <text x="450" y="135" text-anchor="middle" class="payload-lbl">200 OK (Actualizado)</text>
+      
+      <text x="450" y="240" text-anchor="middle" class="lbl-title" style="fill:var(--http-put)">Actualizar Registro</text>
+      <text x="450" y="265" text-anchor="middle" class="lbl-sub">El cliente envía datos para reemplazar o actualizar un recurso existente.</text>
+    </g>
+  </g>
+
+  <!-- DELETE -->
+  <g class="m-del">
+    <g class="packet">
+      <path class="packet-path" d="M 180,90 L 710,90" marker-end="url(#ar-del)"></path>
+      <text x="450" y="75" text-anchor="middle" class="method-lbl" style="fill:var(--http-del)">DELETE /pacientes/123</text>
+    </g>
+    <g class="info-box">
+      <path class="packet-path" d="M 720,130 L 190,130" marker-end="url(#ar-del)" style="stroke-width:2; stroke-dasharray:0; stroke-dashoffset:0"></path>
+      <rect x="350" y="110" width="200" height="40" rx="6" fill="#fef2f2" stroke="var(--http-del)" stroke-width="1.5"></rect>
+      <text x="450" y="135" text-anchor="middle" class="payload-lbl">204 No Content (Eliminado)</text>
+      
+      <text x="450" y="240" text-anchor="middle" class="lbl-title" style="fill:var(--http-del)">Eliminar Registro</text>
+      <text x="450" y="265" text-anchor="middle" class="lbl-sub">El cliente solicita al servidor que borre el recurso especificado.</text>
+    </g>
+  </g>
+
+</svg>
+</div>
+<script>
+(function(){
+  function placeThumb(viz){
+    var mode = viz.getAttribute('data-mode');
+    var btn = viz.querySelector('.http-switch button[data-mode="' + mode + '"]');
+    var thumb = viz.querySelector('.http-thumb');
+    if(!btn || !thumb || !btn.offsetWidth) return;
+    thumb.style.width = btn.offsetWidth + 'px';
+    thumb.style.transform = 'translateX(' + (btn.offsetLeft - 4) + 'px)';
+  }
+
+  function play(viz){
+    viz.classList.remove('play');
+    void viz.offsetWidth; // reiniciar animacion
+    viz.classList.add('play');
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.http-viz .http-switch button');
+    if (btn){
+      var viz = btn.closest('.http-viz');
+      viz.setAttribute('data-mode', btn.dataset.mode);
+      viz.querySelectorAll('.http-switch button').forEach(function(b){
+        b.setAttribute('aria-pressed', String(b.dataset.mode === btn.dataset.mode));
+      });
+      placeThumb(viz);
+      play(viz);
+      return;
+    }
+  });
+
+  function refresh(scope){
+    (scope || document).querySelectorAll('.http-viz').forEach(function(viz){
+      placeThumb(viz);
+      play(viz);
+    });
+  }
+
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.http-viz').forEach(placeThumb);
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){
+    document.querySelectorAll('.http-viz').forEach(placeThumb);
+  });
+  if (window.Reveal && Reveal.on) Reveal.on('slidechanged', function(ev){ refresh(ev.currentSlide); });
+  setTimeout(function(){ refresh(); }, 350);
+})();
+</script>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="terminologías-clínicas" class="title-slide slide level1 center">
+<h1>📚 Terminologías Clínicas</h1>
+
+</section>
+<section id="interoperabilidad-semántica" class="slide level2">
+<h2>Interoperabilidad Semántica</h2>
+<p>No basta con enviarse mensajes (sintaxis); los sistemas necesitan <strong>hablar el mismo idioma médico</strong>.</p>
+<ul>
+<li><strong>SNOMED CT:</strong> Terminología clínica integral, multilingüe y codificada. (Incluye hallazgos, procedimientos, anatomía).</li>
+<li><strong>CIE-10:</strong> Estándar mundial de la OMS para diagnósticos y morbilidad. Obligatorio en Colombia (vía SISPRO).</li>
+</ul>
+</section>
+<section id="el-paso-a-la-cie-11" class="slide level2">
+<h2>El paso a la CIE-11</h2>
+<p>La OMS ya ha publicado la CIE-11, diseñada para un entorno puramente digital y moderno.</p>
+<p><strong>Problemática de la transición:</strong> - <strong>Mapeo complejo:</strong> Convertir el historial médico de CIE-10 a CIE-11 no es directo. - <strong>Sistemas Legados (HIS/EHR):</strong> Fuertemente acoplados a los códigos alfanuméricos de la CIE-10. - <strong>Capacitación:</strong> Gran esfuerzo de reentrenamiento para el personal médico.</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="actividad-práctica" class="title-slide slide level1 center">
+<h1>🧪 Actividad Práctica</h1>
+
+</section>
+<section id="crear-api-y-crud-en-mockapi" class="slide level2">
+<h2>1. Crear API y CRUD en MockAPI</h2>
+<p>Para entender el flujo completo de datos en la web: 1. Vamos a <a href="https://mockapi.io/">MockAPI</a>. 2. Simularemos un sistema de registros médicos utilizando <strong>métodos HTTP</strong>. 3. Practicaremos las operaciones CRUD: - <strong>POST:</strong> Crear registro. - <strong>GET:</strong> Consultar registro. - <strong>PUT/PATCH:</strong> Actualizar registro. - <strong>DELETE:</strong> Borrar registro.</p>
+</section>
+<section id="consumo-de-apis-clínicas" class="slide level2">
+<h2>2. Consumo de APIs Clínicas</h2>
+<p>Utilizando <strong>Postman</strong> (o su versión web), consumiremos el servicio de tablas clínicas del gobierno de EE.UU. (NIH).</p>
+<p><strong>Petición GET de prueba:</strong> - Buscar “tuberculosis”: <code>https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&amp;terms=tuberc</code> - Buscar “asma”: <code>https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&amp;terms=asthma</code></p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section id="preparación-para-la-clase-09" class="title-slide slide level1 center">
+<h1>🔜 Preparación para la Clase 09</h1>
+<p>Con los conceptos de <strong>Arquitecturas</strong>, <strong>Silos</strong>, el <strong>Paradigma Cliente-Servidor (HTTP)</strong> y las <strong>APIs</strong>, daremos el salto definitivo hacia <strong>HL7 FHIR</strong>.</p>
+
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Informática Médica - IFMER 2026-II</p>
+<p>Informática Médica - IFMER 2026-II | Prof.&nbsp;Jefferson Sarmiento Rojas</p>
 </div>
 </div></div>
 
