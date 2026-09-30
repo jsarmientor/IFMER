@@ -306,47 +306,23 @@
     "href": "corte2/clase11/index.html",
     "title": "Clase 11: Semana de Receso Académico",
     "section": "",
-    "text": "Objetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "text": "Durante esta semana de receso no habrá actividades académicas presenciales ni entregables. Es un espacio destinado para el descanso, la recarga de energías y, si lo desean, el repaso autónomo de los temas vistos hasta ahora en el semestre.\n¡Que disfruten su semana de receso!",
     "crumbs": [
       "Guía de Asignatura",
       "🟩 Corte 2: Interoperabilidad & Salud",
-      "Clase 11: Parcial Corte 2"
+      "Clase 11: Receso Académico"
     ]
   },
   {
-    "objectID": "corte2/clase11/index.html#objetivos-de-la-clase",
-    "href": "corte2/clase11/index.html#objetivos-de-la-clase",
+    "objectID": "corte2/clase11/index.html#semana-de-receso",
+    "href": "corte2/clase11/index.html#semana-de-receso",
     "title": "Clase 11: Semana de Receso Académico",
     "section": "",
-    "text": "Objetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "text": "Durante esta semana de receso no habrá actividades académicas presenciales ni entregables. Es un espacio destinado para el descanso, la recarga de energías y, si lo desean, el repaso autónomo de los temas vistos hasta ahora en el semestre.\n¡Que disfruten su semana de receso!",
     "crumbs": [
       "Guía de Asignatura",
       "🟩 Corte 2: Interoperabilidad & Salud",
-      "Clase 11: Parcial Corte 2"
-    ]
-  },
-  {
-    "objectID": "corte2/clase11/index.html#materiales-y-lecturas",
-    "href": "corte2/clase11/index.html#materiales-y-lecturas",
-    "title": "Clase 11: Semana de Receso Académico",
-    "section": "📖 Materiales y Lecturas",
-    "text": "📖 Materiales y Lecturas\n\n💡 Preparación Previa\nContenido y guía práctica en construcción por el docente.",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟩 Corte 2: Interoperabilidad & Salud",
-      "Clase 11: Parcial Corte 2"
-    ]
-  },
-  {
-    "objectID": "corte2/clase11/index.html#práctica-de-laboratorio",
-    "href": "corte2/clase11/index.html#práctica-de-laboratorio",
-    "title": "Clase 11: Semana de Receso Académico",
-    "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\nActividad práctica en desarrollo.",
-    "crumbs": [
-      "Guía de Asignatura",
-      "🟩 Corte 2: Interoperabilidad & Salud",
-      "Clase 11: Parcial Corte 2"
+      "Clase 11: Receso Académico"
     ]
   },
   {
@@ -1885,11 +1861,11 @@
     "href": "corte2/clase10/index.html",
     "title": "Clase 10: Evaluación Corte 2 (Parcial 2)",
     "section": "",
-    "text": "Objetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "text": "Evaluar la comprensión y aplicación práctica de los recursos FHIR (Condition, Observation, Medication, etc.).\nDemostrar la capacidad de construir e interactuar con recursos FHIR utilizando VS Code y sus complementos.\nContextualizar el uso de recursos FHIR dentro de la normatividad colombiana en salud.\nEjecutar operaciones CRUD (POST, GET, PUT, DELETE) en un servidor FHIR.",
     "crumbs": [
       "Guía de Asignatura",
       "🟩 Corte 2: Interoperabilidad & Salud",
-      "Clase 10: Receso Académico"
+      "Clase 10: Evaluación Corte 2 (Parcial 2)"
     ]
   },
   {
@@ -1897,35 +1873,47 @@
     "href": "corte2/clase10/index.html#objetivos-de-la-clase",
     "title": "Clase 10: Evaluación Corte 2 (Parcial 2)",
     "section": "",
-    "text": "Objetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "text": "Evaluar la comprensión y aplicación práctica de los recursos FHIR (Condition, Observation, Medication, etc.).\nDemostrar la capacidad de construir e interactuar con recursos FHIR utilizando VS Code y sus complementos.\nContextualizar el uso de recursos FHIR dentro de la normatividad colombiana en salud.\nEjecutar operaciones CRUD (POST, GET, PUT, DELETE) en un servidor FHIR.",
     "crumbs": [
       "Guía de Asignatura",
       "🟩 Corte 2: Interoperabilidad & Salud",
-      "Clase 10: Receso Académico"
+      "Clase 10: Evaluación Corte 2 (Parcial 2)"
     ]
   },
   {
-    "objectID": "corte2/clase10/index.html#materiales-y-lecturas",
-    "href": "corte2/clase10/index.html#materiales-y-lecturas",
+    "objectID": "corte2/clase10/index.html#descripción-del-parcial",
+    "href": "corte2/clase10/index.html#descripción-del-parcial",
     "title": "Clase 10: Evaluación Corte 2 (Parcial 2)",
-    "section": "📖 Materiales y Lecturas",
-    "text": "📖 Materiales y Lecturas\n\n💡 Preparación Previa\nContenido y guía práctica en construcción por el docente.",
+    "section": "📝 Descripción del Parcial",
+    "text": "📝 Descripción del Parcial\n\n\n\n\n\n\nImportant¡Aviso Importante: Horario y Preparación!\n\n\n\n\nPreparación: Tendrán 30 minutos de preparación al inicio.\nInicio de Sustentaciones: El parcial iniciará puntualmente a la 1:30 PM.\nNota: Por favor llegar temprano para aprovechar el tiempo de preparación.\n\n\n\nEl parcial del segundo corte consiste en una evaluación práctica en vivo. Cada grupo pasará al frente y, utilizando su propio computador y VS Code, deberá realizar lo siguiente:\n\n1. Construcción y Explicación del Recurso\n\nSelección: Basado en los recursos vistos en clase (Condition, Observation, Medication, entre otros) y utilizando la guía FHIR oficial.\nContexto Normativo: Explicar cuál es la aplicación del recurso seleccionado según la normatividad colombiana, proporcionando un ejemplo concreto de dónde se aplica.\nConstrucción en Vivo: Construir el recurso FHIR en vivo utilizando los complementos (extensiones) de VS Code.\nExplicación: Explicar el recurso construido bloque por bloque en detalle.\n\n\n\n2. Interacción con el Servidor FHIR\nAl finalizar la construcción, deberán realizar las siguientes operaciones básicas (CRUD) sobre el servidor FHIR: - POST: Crear (Create) el recurso en el servidor. - GET: Leer (Read) el recurso recién creado. - PUT: Actualizar (Update) el recurso en el servidor. - DELETE: Eliminar (Delete) el recurso del servidor.\nServidor FHIR de Prueba:\nhttp://10.132.92.78:8080/fhir\n(Nota: Esta IP puede cambiar. Por favor verifique con el docente si se mantiene esta IP o si se utilizará un servidor FHIR local).\n\n\n3. Publicación y Trabajo Autónomo (Participación individual)\n\nPublicación: El grupo que acaba de sustentar deberá publicar el ID o el JSON del recurso recién creado en el grupo de Teams de la clase.\nUpdate Individual (PUT): De manera individual, todos los demás estudiantes del curso deberán realizar una petición PUT a ese recurso (usando Postman o similares). Su objetivo es actualizar el recurso agregando su nombre en el elemento note.\nEstructura requerida:\n\"note\": [\n  {\n    \"text\": \"Nombre del estudiante\"\n  }\n]\nEvidencias: Cada estudiante debe tomar un pantallazo (screenshot) donde se vea claramente la petición (con su nombre en el JSON) y el código de respuesta HTTP exitoso (ej. 200 OK). Estas evidencias deben subirse a Teams (por cada estudiante y por cada recurso expuesto).",
     "crumbs": [
       "Guía de Asignatura",
       "🟩 Corte 2: Interoperabilidad & Salud",
-      "Clase 10: Receso Académico"
+      "Clase 10: Evaluación Corte 2 (Parcial 2)"
     ]
   },
   {
-    "objectID": "corte2/clase10/index.html#práctica-de-laboratorio",
-    "href": "corte2/clase10/index.html#práctica-de-laboratorio",
+    "objectID": "corte2/clase10/index.html#criterios-de-evaluación",
+    "href": "corte2/clase10/index.html#criterios-de-evaluación",
     "title": "Clase 10: Evaluación Corte 2 (Parcial 2)",
-    "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\nActividad práctica en desarrollo.",
+    "section": "⚖️ Criterios de Evaluación",
+    "text": "⚖️ Criterios de Evaluación\nLa calificación del parcial se divide en dos partes iguales:\n\n50% - Sustentación Grupal: Construcción en vivo, explicación del recurso, relación con normatividad colombiana y ejecución de las operaciones.\n50% - Interacción Individual (Updates): Entrega de evidencias en Teams (pantallazos de Postman con el código HTTP) que demuestren la actualización (PUT) exitosa a los recursos creados por los demás grupos.",
     "crumbs": [
       "Guía de Asignatura",
       "🟩 Corte 2: Interoperabilidad & Salud",
-      "Clase 10: Receso Académico"
+      "Clase 10: Evaluación Corte 2 (Parcial 2)"
+    ]
+  },
+  {
+    "objectID": "corte2/clase10/index.html#recomendaciones",
+    "href": "corte2/clase10/index.html#recomendaciones",
+    "title": "Clase 10: Evaluación Corte 2 (Parcial 2)",
+    "section": "💡 Recomendaciones",
+    "text": "💡 Recomendaciones\n\nAsegúrense de tener instaladas y configuradas las extensiones necesarias en VS Code.\nTengan clara la estructura JSON/XML del recurso FHIR que van a trabajar.\nRepasen la normatividad colombiana (ej. interoperabilidad, historia clínica electrónica, etc.) relacionada con su recurso.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟩 Corte 2: Interoperabilidad & Salud",
+      "Clase 10: Evaluación Corte 2 (Parcial 2)"
     ]
   },
   {
@@ -1957,7 +1945,7 @@
     "href": "corte2/index.html#contenido-semana-por-semana",
     "title": "Corte 2: Interoperabilidad y Salud Conectada",
     "section": "📅 Contenido Semana por Semana",
-    "text": "📅 Contenido Semana por Semana\n\n\n🟩 Semana 7 - Clase 07: Interoperabilidad y Estándares Clásicos\n\nConceptos: Problema de silos de datos, HL7 v2/v3, Terminologías (CIE-10, SNOMED CT).\nPráctica: Codificación diagnóstica con CIE-10.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟩 Semana 8 - Clase 08: Estándares Modernos - HL7 FHIR\n\nConceptos: HL7 FHIR, Recursos (Patient, Observation), APIs RESTful (JSON/XML).\nPráctica: Consulta y creación de recursos en servidor FHIR público (HAPI FHIR).\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟩 Semana 9 - Clase 09: Salud Digital y Telemedicina\n\nConceptos: Teleconsulta síncrona/asíncrona, marco legal, Aplicaciones Web Progresivas (PWA).\nPráctica: Simulación de requerimientos para plataforma de teleconsulta.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟩 Semana 10 - Clase 10: Receso Académico\n\nTrabajo Autónomo: Repaso de estándares y práctica autónoma FHIR.\nRecursos: Ver Guía de Receso\n\n\n\n\n\n🟩 Semana 11 - Clase 11: Evaluación Corte 2\n\nEvaluación Sumativa: Parcial 2 (20%) y Evaluación Formativa/Quiz FHIR (13.3%).\nRecursos: Ver Guía de Evaluación",
+    "text": "📅 Contenido Semana por Semana\n\n\n🟩 Semana 7 - Clase 07: Interoperabilidad y Estándares Clásicos\n\nConceptos: Problema de silos de datos, HL7 v2/v3, Terminologías (CIE-10, SNOMED CT).\nPráctica: Codificación diagnóstica con CIE-10.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟩 Semana 8 - Clase 08: Estándares Modernos - HL7 FHIR\n\nConceptos: HL7 FHIR, Recursos (Patient, Observation), APIs RESTful (JSON/XML).\nPráctica: Consulta y creación de recursos en servidor FHIR público (HAPI FHIR).\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟩 Semana 9 - Clase 09: Salud Digital y Telemedicina\n\nConceptos: Teleconsulta síncrona/asíncrona, marco legal, Aplicaciones Web Progresivas (PWA).\nPráctica: Simulación de requerimientos para plataforma de teleconsulta.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟩 Semana 10 - Clase 10: Evaluación Corte 2\n\nEvaluación Sumativa: Parcial 2 (20%) y Evaluación Formativa/Quiz FHIR (13.3%).\nRecursos: Ver Guía de Evaluación\n\n\n\n\n\n🟩 Semana 11 - Clase 11: Receso Académico\n\nTrabajo Autónomo: Semana destinada para el descanso y recarga de energías.\nRecursos: Ver Guía de Receso",
     "crumbs": [
       "Guía de Asignatura",
       "🟩 Corte 2: Interoperabilidad & Salud",
