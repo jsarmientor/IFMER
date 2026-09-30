@@ -1,7 +1,7 @@
 ---
-title: "Clase 08: Estándares Modernos - HL7 FHIR & APIs"
+title: "Clase 08: Estándares, Normativas Técnicas y Terminologías Clínicas"
 subtitle: "Informática Médica - IFMER 2026-II"
-author: "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"
+author: "Prof. Jefferson Sarmiento Rojas"
 institute: "Universidad del Rosario"
 date: "2026-07-23"
 format:
@@ -10,11 +10,124 @@ format:
     transition: slide
     slide-number: true
     controls: true
-    footer: "Informática Médica - IFMER 2026-II"
+    footer: "Informática Médica - IFMER 2026-II | Prof. Jefferson Sarmiento Rojas"
 ---
 
-# 🚧 Clase 08: Estándares Modernos - HL7 FHIR & APIs
+# 🎯 Objetivos de la Clase
 
-## Diapositivas en Desarrollo
+- Comprender el problema de los silos de información en salud.
+- Reconocer la evolución de los paradigmas de interoperabilidad y las versiones del estándar HL7.
+- Entender el modelo Cliente-Servidor y los métodos HTTP (CRUD).
+- Explorar el uso de terminologías estándar (CIE-10, CIE-11, SNOMED CT).
+- Practicar el consumo de APIs con Postman.
 
-* Próximamente se publicará el contenido de las diapositivas de esta sesión.
+---
+
+# 🏥 El problema de los Silos en Salud
+
+---
+
+## Sistemas Fragmentados
+Históricamente, los sistemas de información en salud se han construido de manera aislada:
+- Software de laboratorio
+- Software de urgencias
+- Software de facturación
+
+**Consecuencia:** Los datos quedan atrapados y **no fluyen**, obligando al paciente a repetir su historia o exámenes (Silos de información).
+
+---
+
+{{< include diagrama-silos.qmd >}}
+
+---
+
+# 📐 Estándares y Normativas (HL7)
+
+---
+
+## Derribando los muros
+Para conectar los silos, necesitamos un lenguaje común. **Health Level Seven (HL7)** lidera este esfuerzo global.
+
+- **HL7 v2:** Muy utilizado, basado en mensajes de texto delimitados (altamente flexible pero complejo de estandarizar).
+- **HL7 v3:** Intento de mayor rigidez usando XML y el Modelo de Información de Referencia (RIM).
+- **CDA:** Arquitectura de Documentos Clínicos.
+
+---
+
+{{< include paradigmas-hl7.qmd >}}
+
+::: {.notes}
+**Análisis de la evolución:**
+Cada versión de HL7 responde al paradigma dominante de su época. Mientras que la **v2** resolvía el transporte punto a punto con mensajes de texto, la **v3** buscó un modelo formal compartido (RIM) en pleno auge de SOA. Posteriormente, **CDA** estandarizó el documento clínico, hasta llegar a **FHIR**, que adopta completamente la arquitectura de recursos (ROA) y el uso de APIs REST. *(Nota: El espaciado horizontal en el diagrama es conceptual).*
+:::
+
+---
+
+# 🌐 Paradigma Cliente-Servidor
+
+---
+
+## Comunicación Moderna
+Para que los sistemas modernos (como FHIR) funcionen, se basan en el modelo **Cliente-Servidor**.
+
+- **Cliente:** El navegador, un celular, la app del médico, Postman.
+- **Servidor:** El sistema central, la nube o la base de datos donde reside la información.
+
+El cliente hace peticiones (**Requests**) y el servidor devuelve respuestas (**Responses**).
+
+---
+
+{{< include diagrama-http.qmd >}}
+
+---
+
+# 📚 Terminologías Clínicas
+
+---
+
+## Interoperabilidad Semántica
+No basta con enviarse mensajes (sintaxis); los sistemas necesitan **hablar el mismo idioma médico**.
+
+- **SNOMED CT:** Terminología clínica integral, multilingüe y codificada. (Incluye hallazgos, procedimientos, anatomía).
+- **CIE-10:** Estándar mundial de la OMS para diagnósticos y morbilidad. Obligatorio en Colombia (vía SISPRO).
+
+---
+
+## El paso a la CIE-11
+La OMS ya ha publicado la CIE-11, diseñada para un entorno puramente digital y moderno.
+
+**Problemática de la transición:**
+- **Mapeo complejo:** Convertir el historial médico de CIE-10 a CIE-11 no es directo.
+- **Sistemas Legados (HIS/EHR):** Fuertemente acoplados a los códigos alfanuméricos de la CIE-10.
+- **Capacitación:** Gran esfuerzo de reentrenamiento para el personal médico.
+
+---
+
+# 🧪 Actividad Práctica
+
+---
+
+## 1. Crear API y CRUD en MockAPI
+Para entender el flujo completo de datos en la web:
+1. Vamos a [MockAPI](https://mockapi.io/).
+2. Simularemos un sistema de registros médicos utilizando **métodos HTTP**.
+3. Practicaremos las operaciones CRUD:
+   - **POST:** Crear registro.
+   - **GET:** Consultar registro.
+   - **PUT/PATCH:** Actualizar registro.
+   - **DELETE:** Borrar registro.
+
+---
+
+## 2. Consumo de APIs Clínicas
+Utilizando **Postman** (o su versión web), consumiremos el servicio de tablas clínicas del gobierno de EE.UU. (NIH).
+
+**Petición GET de prueba:**
+- Buscar "tuberculosis": `https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&terms=tuberc`
+- Buscar "asma": `https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&terms=asthma`
+
+---
+
+# 🔜 Preparación para la Clase 09
+
+Con los conceptos de **Arquitecturas**, **Silos**, el **Paradigma Cliente-Servidor (HTTP)** y las **APIs**, daremos el salto definitivo hacia **HL7 FHIR**.

@@ -1,0 +1,285 @@
+﻿<!--
+================================================================
+  DIAGRAMA: Paradigma Cliente-Servidor y Métodos HTTP
+  Quarto + revealjs (IFMER)
+================================================================
+-->
+
+```{=html}
+<style>
+.http-viz{
+  --http-surface:#ffffff;
+  --http-surface-2:#f4f7fa;
+  --http-ink:#16202b;
+  --http-muted:#5b6b7c;
+  --http-line:#c7d2dd;
+  --http-get:#3b82f6;
+  --http-post:#10b981;
+  --http-put:#f59e0b;
+  --http-del:#ef4444;
+  width:100%;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+.http-viz.dark{
+  --http-surface:#18212b; --http-surface-2:#1e2833; --http-ink:#e6edf4;
+  --http-muted:#9aabbc; --http-line:#2e3c4a;
+}
+
+/* --- controles --- */
+.http-viz .http-bar{display:flex; align-items:center; gap:.6em; flex-wrap:wrap; margin:0 0 .8em}
+.http-viz .http-switch{
+  display:inline-flex; position:relative;
+  background:var(--http-surface); border:1px solid var(--http-line);
+  border-radius:999px; padding:4px;
+}
+.http-viz .http-switch button{
+  font:inherit; font-size:.6em; font-weight:600;
+  border:0; background:transparent; color:var(--http-muted);
+  padding:.5em 1.2em; border-radius:999px; cursor:pointer;
+  position:relative; z-index:2; transition:color .25s ease;
+}
+.http-viz .http-thumb{
+  position:absolute; top:4px; bottom:4px; left:4px; border-radius:999px;
+  background:var(--http-surface-2); border:1px solid var(--http-line); z-index:1;
+  transition:transform .4s cubic-bezier(.65,0,.2,1), width .4s, border-color .4s, background .4s;
+}
+
+.http-viz[data-mode="get"] .http-thumb{border-color:var(--http-get); background:#eff6ff}
+.http-viz[data-mode="post"] .http-thumb{border-color:var(--http-post); background:#ecfdf5}
+.http-viz[data-mode="put"] .http-thumb{border-color:var(--http-put); background:#fffbeb}
+.http-viz[data-mode="del"] .http-thumb{border-color:var(--http-del); background:#fef2f2}
+
+.http-viz[data-mode="get"] .http-switch button[data-mode="get"]{color:var(--http-get)}
+.http-viz[data-mode="post"] .http-switch button[data-mode="post"]{color:var(--http-post)}
+.http-viz[data-mode="put"] .http-switch button[data-mode="put"]{color:var(--http-put)}
+.http-viz[data-mode="del"] .http-switch button[data-mode="del"]{color:var(--http-del)}
+
+.http-viz button:focus-visible{outline:2px solid var(--http-get); outline-offset:3px}
+
+.http-viz svg.http-diagram{display:block; width:100%; height:auto}
+
+/* --- tokens svg --- */
+.http-viz .lbl-title{fill:var(--http-ink); font-size:18px; font-weight:700}
+.http-viz .lbl-sub{fill:var(--http-muted); font-size:13px}
+.http-viz .chip{fill:var(--http-surface); stroke:var(--http-line); stroke-width:2}
+.http-viz .gl{fill:none; stroke:var(--http-muted); stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
+.http-viz .method-lbl{font-size:15px; font-weight:700; font-family:ui-monospace,"IBM Plex Mono",monospace}
+.http-viz .payload-lbl{font-size:13px; fill:var(--http-ink)}
+
+.http-viz .track{fill:none; stroke:var(--http-line); stroke-width:2; stroke-dasharray:4 6}
+
+.http-viz .packet{opacity:0; transition:opacity .2s}
+.http-viz.play .packet{opacity:1; animation:http-fly 1.8s cubic-bezier(.4,0,.2,1) forwards}
+
+@keyframes http-fly{
+  0%{stroke-dashoffset:400}
+  100%{stroke-dashoffset:0}
+}
+
+.http-viz .packet-path{fill:none; stroke-width:4; stroke-linecap:round; stroke-dasharray:400; stroke-dashoffset:400}
+.http-viz[data-mode="get"] .packet-path{stroke:var(--http-get)}
+.http-viz[data-mode="post"] .packet-path{stroke:var(--http-post)}
+.http-viz[data-mode="put"] .packet-path{stroke:var(--http-put)}
+.http-viz[data-mode="del"] .packet-path{stroke:var(--http-del)}
+
+.http-viz .info-box{opacity:0; transition:opacity .4s ease, transform .4s ease; transform:translateY(10px)}
+.http-viz.play .info-box{opacity:1; transform:translateY(0); transition-delay:1.5s}
+
+/* Ocultar elementos según modo */
+.http-viz .m-get, .http-viz .m-post, .http-viz .m-put, .http-viz .m-del { display:none }
+.http-viz[data-mode="get"] .m-get{display:block}
+.http-viz[data-mode="post"] .m-post{display:block}
+.http-viz[data-mode="put"] .m-put{display:block}
+.http-viz[data-mode="del"] .m-del{display:block}
+
+</style>
+```
+
+```{=html}
+<div class="http-viz diagram-zoomable" data-mode="get" id="http-1">
+  
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="http-bar">
+    <div class="http-switch" role="group" aria-label="Métodos HTTP">
+      <span class="http-thumb"></span>
+      <button data-mode="get" aria-pressed="true">GET</button>
+      <button data-mode="post" aria-pressed="false">POST</button>
+      <button data-mode="put" aria-pressed="false">PUT</button>
+      <button data-mode="del" aria-pressed="false">DELETE</button>
+    </div>
+  </div>
+
+<svg class="http-diagram" viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg">
+  
+  <defs>
+    <!-- Flechas -->
+    <marker id="ar-get" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,1 L7,4 L0,7 Z" fill="var(--http-get)"/>
+    </marker>
+    <marker id="ar-post" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,1 L7,4 L0,7 Z" fill="var(--http-post)"/>
+    </marker>
+    <marker id="ar-put" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,1 L7,4 L0,7 Z" fill="var(--http-put)"/>
+    </marker>
+    <marker id="ar-del" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,1 L7,4 L0,7 Z" fill="var(--http-del)"/>
+    </marker>
+  </defs>
+
+  <!-- ============ CLIENTE ============ -->
+  <g transform="translate(100, 100)">
+    <rect x="-60" y="-40" width="120" height="150" rx="15" class="chip"/>
+    <!-- Icono Laptop -->
+    <path class="gl" d="M-30,-10 h60 v40 h-60 z M-40,30 h80 l5,10 h-90 z"/>
+    <text x="0" y="80" text-anchor="middle" class="lbl-title">Cliente</text>
+    <text x="0" y="100" text-anchor="middle" class="lbl-sub">(Navegador, App, Postman)</text>
+  </g>
+
+  <!-- ============ SERVIDOR ============ -->
+  <g transform="translate(800, 100)">
+    <rect x="-60" y="-40" width="120" height="150" rx="15" class="chip"/>
+    <!-- Icono Servidor/BD -->
+    <path class="gl" d="M-25,-10 h50 a10,5 0 0 1 0,10 h-50 a10,5 0 0 1 0,-10 z"/>
+    <path class="gl" d="M-25,-5 v30 a10,5 0 0 0 50,0 v-30"/>
+    <path class="gl" d="M-25,10 a10,5 0 0 0 50,0"/>
+    <text x="0" y="80" text-anchor="middle" class="lbl-title">Servidor</text>
+    <text x="0" y="100" text-anchor="middle" class="lbl-sub">(API REST, Base de Datos)</text>
+  </g>
+
+  <!-- ============ PISTAS ============ -->
+  <!-- Request -->
+  <path class="track" d="M 180,90 L 720,90"/>
+  <!-- Response -->
+  <path class="track" d="M 720,130 L 180,130"/>
+
+  <text x="450" y="35" text-anchor="middle" class="lbl-sub">Request (Petición HTTP)</text>
+  <text x="450" y="180" text-anchor="middle" class="lbl-sub">Response (Respuesta HTTP)</text>
+
+  <!-- ============ ANIMACIONES POR MODO ============ -->
+
+  <!-- GET -->
+  <g class="m-get">
+    <g class="packet">
+      <path class="packet-path" d="M 180,90 L 710,90" marker-end="url(#ar-get)"/>
+      <text x="450" y="75" text-anchor="middle" class="method-lbl" style="fill:var(--http-get)">GET /pacientes/123</text>
+    </g>
+    <g class="info-box">
+      <path class="packet-path" d="M 720,130 L 190,130" marker-end="url(#ar-get)" style="stroke-width:2; stroke-dasharray:0; stroke-dashoffset:0"/>
+      <rect x="350" y="110" width="200" height="40" rx="6" fill="#eff6ff" stroke="var(--http-get)" stroke-width="1.5"/>
+      <text x="450" y="135" text-anchor="middle" class="payload-lbl">200 OK: { "nombre": "Ana" }</text>
+      
+      <text x="450" y="240" text-anchor="middle" class="lbl-title" style="fill:var(--http-get)">Consultar Datos</text>
+      <text x="450" y="265" text-anchor="middle" class="lbl-sub">El cliente solicita leer información existente en el servidor.</text>
+      <text x="450" y="285" text-anchor="middle" class="lbl-sub">No modifica los datos originales (Idempotente).</text>
+    </g>
+  </g>
+
+  <!-- POST -->
+  <g class="m-post">
+    <g class="packet">
+      <path class="packet-path" d="M 180,90 L 710,90" marker-end="url(#ar-post)"/>
+      <text x="450" y="60" text-anchor="middle" class="method-lbl" style="fill:var(--http-post)">POST /pacientes</text>
+      <rect x="350" y="70" width="200" height="28" rx="6" fill="#ecfdf5" stroke="var(--http-post)" stroke-width="1.5"/>
+      <text x="450" y="89" text-anchor="middle" class="payload-lbl">{ "nombre": "Juan" }</text>
+    </g>
+    <g class="info-box">
+      <path class="packet-path" d="M 720,130 L 190,130" marker-end="url(#ar-post)" style="stroke-width:2; stroke-dasharray:0; stroke-dashoffset:0"/>
+      <rect x="350" y="110" width="200" height="40" rx="6" fill="#ecfdf5" stroke="var(--http-post)" stroke-width="1.5"/>
+      <text x="450" y="135" text-anchor="middle" class="payload-lbl">201 Created: { "id": 456 }</text>
+      
+      <text x="450" y="240" text-anchor="middle" class="lbl-title" style="fill:var(--http-post)">Crear un Registro</text>
+      <text x="450" y="265" text-anchor="middle" class="lbl-sub">El cliente envía un bloque de datos (JSON) para crear un nuevo recurso.</text>
+      <text x="450" y="285" text-anchor="middle" class="lbl-sub">El servidor responde confirmando la creación y asignando un ID.</text>
+    </g>
+  </g>
+
+  <!-- PUT -->
+  <g class="m-put">
+    <g class="packet">
+      <path class="packet-path" d="M 180,90 L 710,90" marker-end="url(#ar-put)"/>
+      <text x="450" y="60" text-anchor="middle" class="method-lbl" style="fill:var(--http-put)">PUT /pacientes/123</text>
+      <rect x="350" y="70" width="200" height="28" rx="6" fill="#fffbeb" stroke="var(--http-put)" stroke-width="1.5"/>
+      <text x="450" y="89" text-anchor="middle" class="payload-lbl">{ "nombre": "Ana B." }</text>
+    </g>
+    <g class="info-box">
+      <path class="packet-path" d="M 720,130 L 190,130" marker-end="url(#ar-put)" style="stroke-width:2; stroke-dasharray:0; stroke-dashoffset:0"/>
+      <rect x="350" y="110" width="200" height="40" rx="6" fill="#fffbeb" stroke="var(--http-put)" stroke-width="1.5"/>
+      <text x="450" y="135" text-anchor="middle" class="payload-lbl">200 OK (Actualizado)</text>
+      
+      <text x="450" y="240" text-anchor="middle" class="lbl-title" style="fill:var(--http-put)">Actualizar Registro</text>
+      <text x="450" y="265" text-anchor="middle" class="lbl-sub">El cliente envía datos para reemplazar o actualizar un recurso existente.</text>
+    </g>
+  </g>
+
+  <!-- DELETE -->
+  <g class="m-del">
+    <g class="packet">
+      <path class="packet-path" d="M 180,90 L 710,90" marker-end="url(#ar-del)"/>
+      <text x="450" y="75" text-anchor="middle" class="method-lbl" style="fill:var(--http-del)">DELETE /pacientes/123</text>
+    </g>
+    <g class="info-box">
+      <path class="packet-path" d="M 720,130 L 190,130" marker-end="url(#ar-del)" style="stroke-width:2; stroke-dasharray:0; stroke-dashoffset:0"/>
+      <rect x="350" y="110" width="200" height="40" rx="6" fill="#fef2f2" stroke="var(--http-del)" stroke-width="1.5"/>
+      <text x="450" y="135" text-anchor="middle" class="payload-lbl">204 No Content (Eliminado)</text>
+      
+      <text x="450" y="240" text-anchor="middle" class="lbl-title" style="fill:var(--http-del)">Eliminar Registro</text>
+      <text x="450" y="265" text-anchor="middle" class="lbl-sub">El cliente solicita al servidor que borre el recurso especificado.</text>
+    </g>
+  </g>
+
+</svg>
+</div>
+```
+
+```{=html}
+<script>
+(function(){
+  function placeThumb(viz){
+    var mode = viz.getAttribute('data-mode');
+    var btn = viz.querySelector('.http-switch button[data-mode="' + mode + '"]');
+    var thumb = viz.querySelector('.http-thumb');
+    if(!btn || !thumb || !btn.offsetWidth) return;
+    thumb.style.width = btn.offsetWidth + 'px';
+    thumb.style.transform = 'translateX(' + (btn.offsetLeft - 4) + 'px)';
+  }
+
+  function play(viz){
+    viz.classList.remove('play');
+    void viz.offsetWidth; // reiniciar animacion
+    viz.classList.add('play');
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.http-viz .http-switch button');
+    if (btn){
+      var viz = btn.closest('.http-viz');
+      viz.setAttribute('data-mode', btn.dataset.mode);
+      viz.querySelectorAll('.http-switch button').forEach(function(b){
+        b.setAttribute('aria-pressed', String(b.dataset.mode === btn.dataset.mode));
+      });
+      placeThumb(viz);
+      play(viz);
+      return;
+    }
+  });
+
+  function refresh(scope){
+    (scope || document).querySelectorAll('.http-viz').forEach(function(viz){
+      placeThumb(viz);
+      play(viz);
+    });
+  }
+
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.http-viz').forEach(placeThumb);
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){
+    document.querySelectorAll('.http-viz').forEach(placeThumb);
+  });
+  if (window.Reveal && Reveal.on) Reveal.on('slidechanged', function(ev){ refresh(ev.currentSlide); });
+  setTimeout(function(){ refresh(); }, 350);
+})();
+</script>
+```
+

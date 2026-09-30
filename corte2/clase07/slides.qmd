@@ -1,5 +1,5 @@
 ---
-title: "Clase 07: Interoperabilidad y Estándares Clásicos"
+title: "Clase 07: Introducción a VBA, Automatización e Interoperabilidad"
 subtitle: "Informática Médica - IFMER 2026-II"
 author: "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"
 institute: "Universidad del Rosario"
@@ -13,8 +13,97 @@ format:
     footer: "Informática Médica - IFMER 2026-II"
 ---
 
-# 🚧 Clase 07: Interoperabilidad y Estándares Clásicos
+# 🚀 Clase 07: Introducción a VBA y Automatización
 
-## Diapositivas en Desarrollo
+## 🎯 Objetivos de la Sesión
 
-* Próximamente se publicará el contenido de las diapositivas de esta sesión.
+- Entender qué es Visual Basic para Aplicaciones (VBA).
+- Identificar la importancia de automatizar tareas en Excel.
+- Reconocer el concepto de Interoperabilidad en Salud.
+- Consumir APIs (SNOMED CT y CIE-10) desde macros.
+
+---
+
+# 💻 Introducción a la Programación en VBA
+
+## ¿Qué es VBA?
+
+- **Visual Basic para Aplicaciones (VBA)** es el lenguaje subyacente en Microsoft Office.
+- **Objetivo:** Automatizar varias tareas y fusionarlas en una sola.
+- Permite construir **aplicaciones de escritorio** sobre Excel, aumentando eficiencia y eficacia.
+
+## Conceptos Iniciales
+
+- **Variables y Tipos de Datos**: Almacenamiento temporal de información.
+- **Operadores**: Matemáticos (`+`, `-`, `*`) y Lógicos (`And`, `Or`, `Not`).
+- **Estructuras de Control**:
+  - Condicionales (Simples, compuestas, anidadas).
+  - Ciclos (Mientras, Repetir, For).
+
+## Programación Orientada a Eventos
+
+- Las aplicaciones VBA se basan en **Objetos**.
+- **Métodos**: Acciones que el objeto puede ejecutar sobre sí mismo (ej. `Show`, `Hide`).
+- **Eventos**: Acciones reconocidas por el objeto que disparan el código (ej. un clic del usuario).
+  
+> *"El usuario acciona y el código responde."*
+
+---
+
+# 🏥 Interoperabilidad y Estándares Clásicos
+
+## El Problema de los "Silos"
+
+- Los Sistemas Locales de Salud suelen estar aislados (**Silos**).
+- La falta de comunicación dificulta la continuidad asistencial.
+- **Solución**: Interoperabilidad mediante vocabularios estándar (**CIE-10**, **SNOMED CT**).
+
+## ¿Qué es una API?
+
+- Interfaz de Programación de Aplicaciones.
+- Permite que VBA en Excel se "hable" con servidores externos (como terminologías médicas) para enviar o extraer datos usando el protocolo **HTTP** y formatos como **JSON**.
+
+---
+
+# 🛠️ Consumo de APIs en VBA
+
+## Ejemplo: API de SNOMED CT
+
+```vba
+Sub ConsultarSNOMED()
+    Dim http As Object
+    Dim url As String, term As String
+    
+    term = "Diabetes"
+    url = "https://browser.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/concepts?term=" & term & "&limit=1"
+    
+    Set http = CreateObject("MSXML2.XMLHTTP")
+    http.Open "GET", url, False
+    http.send
+    
+    MsgBox http.responseText
+End Sub
+```
+
+## Ejemplo: API de CIE-10
+
+```vba
+Sub ConsultarCIE10()
+    Dim http As Object
+    Dim url As String
+    
+    url = "https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?terms=E11"
+    
+    Set http = CreateObject("MSXML2.XMLHTTP")
+    http.Open "GET", url, False
+    http.send
+    
+    MsgBox "Resultado: " & http.responseText
+End Sub
+```
+
+## 📝 Conclusiones y Tareas
+
+- VBA es una herramienta potente para gestionar datos de salud en Excel.
+- Las macros pueden ir más allá de cálculos locales e interactuar con la web.
+- **Tarea**: Probar el código en Excel (Alt + F11) y observar las respuestas JSON.

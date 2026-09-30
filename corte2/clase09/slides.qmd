@@ -1,5 +1,5 @@
 ---
-title: "Clase 09: Salud Digital, Telemedicina & PWA"
+title: "Clase 09: HL7 FHIR, IHCE y RDA"
 subtitle: "Informática Médica - IFMER 2026-II"
 author: "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"
 institute: "Universidad del Rosario"
@@ -13,8 +13,112 @@ format:
     footer: "Informática Médica - IFMER 2026-II"
 ---
 
-# 🚧 Clase 09: Salud Digital, Telemedicina & PWA
+# 🚀 Clase 09: HL7 FHIR, IHCE y RDA
 
-## Diapositivas en Desarrollo
+## 🎯 Objetivos de la Sesión
 
-* Próximamente se publicará el contenido de las diapositivas de esta sesión.
+- Reconocer qué es un **recurso** en FHIR y su estructura.
+- Identificar los elementos del recurso `Patient`.
+- Ejecutar operaciones REST básicas (`GET`, `POST`) contra un servidor FHIR.
+- Comprender la implementación de FHIR en Colombia (IHCE y RDA).
+
+---
+
+# 🌐 ¿Qué es HL7 FHIR?
+
+## Fast Healthcare Interoperability Resources
+
+- Todos los sistemas hablan el mismo "idioma": los mismos recursos, sobre el mismo protocolo (HTTP/REST), en formato JSON o XML.
+- **Idea clave:** FHIR no reemplaza el contenido clínico, reemplaza *la forma de intercambiarlo*.
+
+---
+
+# 📦 Los Recursos en FHIR
+
+## ¿Qué es un recurso?
+
+- Unidad básica de información en FHIR.
+- Paquete de datos con estructura definida y significado clínico claro.
+
+### Ejemplos frecuentes
+- `Patient`: Un paciente.
+- `Practitioner`: Un profesional de salud.
+- `Observation`: Una medición (ej. signos vitales).
+- `Condition`: Un diagnóstico.
+- `Composition`: Un documento clínico.
+
+---
+
+## El Recurso Patient
+
+Casi todo en un sistema de salud gira alrededor del paciente.
+
+- **`id`**: Identificador único del servidor
+- **`identifier`**: Documento de identidad, historia clínica
+- **`active`**: Vigencia en el sistema
+- **`name`**: Nombres y apellidos
+- **`telecom`**: Teléfono, correo
+- **`gender`**: Sexo administrativo
+- **`birthDate`**: Fecha de nacimiento
+
+---
+
+## Ejemplo JSON del Recurso Patient
+
+```json
+{
+  "resourceType": "Patient",
+  "id": "e0cd7fb6-b2cb-4767-86c2-300c924134de",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "https://fhir.minsalud.gov.co/rda/NamingSystem/RNEC",
+      "value": "1020304050"
+    }
+  ],
+  "active": true,
+  "name": [
+    { "use": "official", "family": "Gómez Rivas", "given": ["Laura", "Camila"] }
+  ],
+  "gender": "female",
+  "birthDate": "1995-06-12"
+}
+```
+
+---
+
+# 🔌 Accediendo a un Recurso: API REST
+
+## Operaciones CRUD Estándar
+
+| Verbo | URL de ejemplo | Operación |
+|---|---|---|
+| **`GET`** | `/Patient/123` | Leer (*Read*) un paciente por su id |
+| **`GET`** | `/Patient?family=Gómez` | Buscar (*Search*) pacientes |
+| **`POST`** | `/Patient` | Crear (*Create*) un paciente nuevo |
+| **`PUT`** | `/Patient/123` | Actualizar (*Update*) un paciente |
+| **`DELETE`**| `/Patient/123` | Eliminar (*Delete*) un paciente |
+
+---
+
+# 🇨🇴 FHIR en Colombia: IHCE y RDA
+
+## Interoperabilidad en Política Pública
+
+- **IHCE** (Interoperabilidad de la Historia Clínica Electrónica): Estrategia de Minsalud para integrar los datos clínicos de cada paciente en un sistema nacional.
+- **RDA** (Resumen Digital de Atención): Documento clínico central (HL7 FHIR R4).
+  - Un `Bundle` tipo `document` con un `Composition`.
+  - Referencia recursos como `Patient` y `Observation`.
+- Obligatorio desde el 15 de abril de 2026.
+
+---
+
+# 🧪 Actividad Práctica
+
+## Laboratorio HAPI FHIR (Postman)
+
+1. **Buscar pacientes (GET)**: `http://hapi.fhir.org/baseR4/Patient?_count=5`
+2. **Leer un paciente (GET)**: Buscar por `id` específico.
+3. **Crear un paciente (POST)**: Enviar un JSON (Body > raw > JSON) a `http://hapi.fhir.org/baseR4/Patient` para crear un nuevo recurso (Status `201 Created`).
+
+> ¿Qué cambió en el JSON de respuesta frente al que enviamos?

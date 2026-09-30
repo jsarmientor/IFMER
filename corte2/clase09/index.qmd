@@ -1,5 +1,5 @@
 ---
-title: "Clase 09: Salud Digital, Telemedicina & PWA"
+title: "Clase 09: HL7 FHIR, IHCE y RDA"
 subtitle: "Semana 9 | Corte 2"
 author: "Prof. Jefferson Sarmiento Rojas"
 date: "2026-07-23"
@@ -14,21 +14,130 @@ format:
 
 ## 🎯 Objetivos de la Clase
 
-- [ ] Objetivo 1 (En desarrollo)
-- [ ] Objetivo 2 (En desarrollo)
+- [x] Reconocer qué es un **recurso** en FHIR y cómo se organiza su información.
+- [x] Identificar los elementos del recurso `Patient` y su tipo de dato.
+- [x] Ejecutar operaciones REST básicas (`GET`, `POST`) contra un servidor FHIR público de práctica.
+- [x] Comprender la implementación de FHIR en Colombia a través de la IHCE y el RDA.
 
----
+## 🌐 ¿Qué es HL7 FHIR?
 
-## 📖 Materiales y Lecturas
+**FHIR** (*Fast Healthcare Interoperability Resources*) es el estándar moderno propuesto por HL7 para resolver la fragmentación. En vez de interfaces a la medida, todos los sistemas hablan el mismo "idioma" usando los mismos recursos, sobre el mismo protocolo web (HTTP/REST), en formato JSON o XML.
 
-::: {.callout-flipped}
-##### 💡 Preparación Previa
-*Contenido y guía práctica en construcción por el docente.*
-
+::: {.callout-note}
+## 💡 Idea clave
+FHIR no reemplaza el contenido clínico que ya conocemos de HL7 v2 (admisiones, resultados, órdenes) — reemplaza *la forma de intercambiarlo*: de mensajes punto a punto a una API REST estándar y consultable.
 :::
 
----
+### ¿Qué es un recurso?
+
+Un **recurso** es la unidad básica de información en FHIR: un paquete de datos con una estructura definida (qué campos tiene, de qué tipo son y cuáles son obligatorios) y un significado clínico claro. Es la misma idea que una clase en programación orientada a objetos — la diferencia es que la "clase" ya viene definida por HL7: no la inventamos, la reutilizamos.
+
+Algunos recursos frecuentes:
+
+| Recurso | Qué representa |
+|---|---|
+| `Patient` | Un paciente |
+| `Practitioner` | Un profesional de salud |
+| `Observation` | Una medición u observación (ej. signos vitales) |
+| `Condition` | Un diagnóstico |
+| `Composition` | Un documento clínico |
+
+### El recurso Patient: el clásico de FHIR
+
+`Patient` es casi siempre el primer recurso que se estudia, porque casi todo lo demás en un sistema de salud gira alrededor de un paciente.
+
+| Elemento | Ruta FHIR | Qué guarda |
+|---|---|---|
+| `id` | `Patient.id` | Identificador único que asigna el servidor |
+| `identifier` | `Patient.identifier` | Documento de identidad, historia clínica, etc. |
+| `active` | `Patient.active` | ¿El registro sigue vigente en el sistema? |
+| `name` | `Patient.name` | Nombres y apellidos (puede repetirse) |
+| `telecom` | `Patient.telecom` | Teléfono, correo electrónico |
+| `gender` | `Patient.gender` | `male` \| `female` \| `other` \| `unknown` |
+| `birthDate` | `Patient.birthDate` | Fecha de nacimiento (`AAAA-MM-DD`) |
+
+Un ejemplo en JSON:
+
+```json
+{
+  "resourceType": "Patient",
+  "id": "e0cd7fb6-b2cb-4767-86c2-300c924134de",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "https://fhir.minsalud.gov.co/rda/NamingSystem/RNEC",
+      "value": "1020304050"
+    }
+  ],
+  "active": true,
+  "name": [
+    { "use": "official", "family": "Gómez Rivas", "given": ["Laura", "Camila"] }
+  ],
+  "gender": "female",
+  "birthDate": "1995-06-12",
+  "telecom": [
+    { "system": "phone", "value": "+573001112233", "use": "mobile" }
+  ]
+}
+```
+
+## 🔌 Cómo se accede a un recurso: la API REST
+
+FHIR define una **API REST estándar**: cualquier servidor FHIR responde a las mismas operaciones, sin importar qué software use por dentro. Las cuatro operaciones básicas (CRUD) son:
+
+| Verbo HTTP | URL de ejemplo | Operación |
+|---|---|---|
+| `GET` | `/Patient/123` | Leer (*Read*) un paciente por su id |
+| `GET` | `/Patient?family=Gómez` | Buscar (*Search*) pacientes por un criterio |
+| `POST` | `/Patient` | Crear (*Create*) un paciente nuevo |
+| `PUT` | `/Patient/123` | Actualizar (*Update*) un paciente existente |
+| `DELETE` | `/Patient/123` | Eliminar (*Delete*) un paciente |
+
+## 🇨🇴 FHIR en Colombia: la IHCE y el RDA
+
+La **IHCE** (Interoperabilidad de la Historia Clínica Electrónica) es una estrategia del Ministerio de Salud y Protección Social (Minsalud) que integra los datos clínicos de cada paciente en un sistema nacional único y seguro.
+
+El componente central es el **RDA** (Resumen Digital de Atención): el documento clínico que arma cada IPS y que cualquier otra puede consultar. Está construido, literalmente, en **HL7 FHIR R4** — un `Bundle` tipo `document` con un `Composition` que organiza el contenido y referencia recursos como `Patient` y `Observation`. 
+
+Cualquier profesional autorizado en el país puede consultarlo a través del Visor RDA (operación `$consultar-resumen-longitudinal`), y recuperar así al menos 12 meses de historia clínica del paciente, sin importar en qué IPS se generó.
 
 ## 🧪 Práctica de Laboratorio
 
-*Actividad práctica en desarrollo.*
+Vamos a aplicar lo que vimos en la Clase 08 con Postman, pero ahora contra un servidor FHIR real y gratuito: el **HAPI FHIR Demo Server**.
+
+### 1. Buscar pacientes (GET)
+
+Abre Postman y realiza una petición GET a:
+
+```
+http://hapi.fhir.org/baseR4/Patient?_count=5
+```
+
+Esto devuelve un `Bundle` con 5 pacientes reales de prueba.
+
+### 2. Leer un paciente (GET)
+
+Copia el `id` de cualquier paciente del resultado anterior y realiza una petición GET a:
+
+```
+http://hapi.fhir.org/baseR4/Patient/<id>
+```
+
+### 3. Crear un paciente (POST)
+
+En Postman, crea una petición `POST` a `http://hapi.fhir.org/baseR4/Patient`.
+En la pestaña "Body", selecciona "raw" y "JSON", pega el JSON del Paciente de ejemplo de esta guía y da *Send*. El servidor debe responder `201 Created` con un nuevo id asignado.
+
+### 4. Reflexionar
+
+Anota: ¿qué cambió en el JSON de respuesta frente al que enviamos? (pista: revisa los atributos `meta` e `id` asignados por el servidor).
+
+## 📖 Materiales y Lecturas
+
+- [Especificación oficial del recurso Patient (HL7 FHIR R4)](https://hl7.org/fhir/R4/patient.html)
+- [Servidor de práctica: HAPI FHIR Demo](http://hapi.fhir.org/baseR4)
+- [IHCE y el RDA en Colombia (Minsalud)](https://www.minsalud.gov.co/ihce/Paginas/default.aspx)
+
+------------------------------------------------------------------------
+
+© 2026 Informática Médica (IFMER) — Corte 2 — Prof. Jefferson Sarmiento Rojas, Universidad del Rosario, EMCS

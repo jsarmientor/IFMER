@@ -68,8 +68,8 @@ IFMER 2026-II/
 │   ├── clase07/              # Clase 07: HL7 v2/v3, CIE-10, SNOMED (index.qmd, slides.qmd)
 │   ├── clase08/              # Clase 08: HL7 FHIR & APIs (index.qmd, slides.qmd)
 │   ├── clase09/              # Clase 09: Telemedicina & PWA (index.qmd, slides.qmd)
-│   ├── clase10/              # Clase 10: Receso Académico (index.qmd)
-│   └── clase11/              # Clase 11: Parcial Corte 2 (index.qmd)
+│   ├── clase10/              # Clase 10: Parcial Corte 2 (index.qmd)
+│   └── clase11/              # Clase 11: Receso Académico (index.qmd)
 └── corte3/                   # Corte 3: Datos, Inteligencia Artificial y Ética (Semanas 12-15)
     ├── index.qmd             # Resumen Corte 3
     ├── clase12/              # Clase 12: IoMT & Wearables (index.qmd, slides.qmd)

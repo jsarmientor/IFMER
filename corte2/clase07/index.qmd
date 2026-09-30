@@ -1,5 +1,5 @@
 ---
-title: "Clase 07: Interoperabilidad y Estándares Clásicos"
+title: "Clase 07: Introducción a VBA, Automatización e Interoperabilidad (APIs)"
 subtitle: "Semana 7 | Corte 2"
 author: "Prof. Jefferson Sarmiento Rojas"
 date: "2026-07-23"
@@ -14,21 +14,119 @@ format:
 
 ## 🎯 Objetivos de la Clase
 
-- [ ] Objetivo 1 (En desarrollo)
-- [ ] Objetivo 2 (En desarrollo)
+- [x] Comprender los conceptos básicos de Visual Basic para Aplicaciones (VBA) y la automatización en Microsoft Excel.
+- [x] Entender las estructuras de control (condiciones, ciclos) y la programación orientada a eventos.
+- [x] Conocer el concepto de Interoperabilidad y resolver el problema de los "silos" de información.
+- [x] Implementar el consumo de APIs REST en Salud (SNOMED CT y CIE-10) usando VBA.
 
 ---
 
 ## 📖 Materiales y Lecturas
 
-::: {.callout-flipped}
-##### 💡 Preparación Previa
-*Contenido y guía práctica en construcción por el docente.*
-
+::: {.callout-note}
+##### 💡 Guía de Estudio
+Puede descargar la guía aquí: **[Guía 1 Segundo Corte](Guia_1_Segundo_Corte.pdf)**
 :::
+
+::: {.callout-note}
+##### 💡 Material de Clase
+* [Presentación: Introducción a VBA (Documento PowerPoint)](Introduccion%20VBA.pptx)
+:::
+
+### Conceptos Clave de VBA
+
+**Visual Basic para Aplicaciones (VBA)** es el lenguaje de código de macros de Microsoft. Nos permite automatizar tareas complejas, fusionarlas en una sola y aumentar la eficiencia del trabajo mediante:
+
+- **Variables y Tipos de Datos:** Asignación de datos y manipulación.
+- **Estructuras Condicionales:** Simples, anidadas, múltiples (If, Then, Else).
+- **Estructuras Repetitivas:** Ciclos (For, While, Do).
+- **Eventos y Métodos:** Programación controlada por la interacción del usuario ("el usuario acciona y el código responde").
 
 ---
 
-## 🧪 Práctica de Laboratorio
+## 🧪 Práctica: Consumo de APIs en Salud (SNOMED CT y CIE-10)
 
-*Actividad práctica en desarrollo.*
+Uno de los grandes retos en la Informática Médica son los "silos" de información. Para resolverlo, utilizamos estándares de interoperabilidad y vocabularios controlados. A continuación se presentan ejemplos de cómo consumir APIs para consultar códigos.
+
+### 1. Consultar API de SNOMED CT usando VBA
+
+El siguiente código muestra cómo hacer un request GET a una API pública (o local) de SNOMED CT utilizando el objeto `MSXML2.XMLHTTP`.
+
+```vba
+Sub ConsultarSNOMED()
+    Dim xmlhttp As Object
+    Dim url As String
+    Dim response As String
+    Dim term As String
+    
+    ' Término de búsqueda (ej. "Diabetes")
+    term = "Diabetes"
+    
+    ' Ejemplo de URL pública de SNOMED CT (Snowstorm)
+    url = "https://browser.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/concepts?term=" & term & "&limit=1"
+    
+    Set xmlhttp = CreateObject("MSXML2.XMLHTTP")
+    
+    ' Inicializar la solicitud
+    xmlhttp.Open "GET", url, False
+    xmlhttp.setRequestHeader "Content-Type", "application/json"
+    xmlhttp.setRequestHeader "Accept-Language", "es"
+    
+    ' Enviar la solicitud
+    xmlhttp.send
+    
+    If xmlhttp.Status = 200 Then
+        response = xmlhttp.responseText
+        MsgBox "Respuesta SNOMED CT: " & vbCrLf & Left(response, 500)
+        ' Aquí se podría usar un parseador JSON para extraer el conceptId
+    Else
+        MsgBox "Error: " & xmlhttp.Status & " - " & xmlhttp.statusText
+    End If
+    
+    Set xmlhttp = Nothing
+End Sub
+```
+
+### 2. Consultar API de CIE-10 usando VBA
+
+De manera similar, podemos consultar repositorios de la Clasificación Internacional de Enfermedades (CIE-10).
+
+```vba
+Sub ConsultarCIE10()
+    Dim http As Object
+    Dim url As String
+    Dim response As String
+    Dim codigo As String
+    
+    ' Código CIE-10 a consultar (ej. "E11")
+    codigo = "E11"
+    
+    ' URL simulada/pública para CIE-10
+    url = "https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?terms=" & codigo
+    
+    Set http = CreateObject("MSXML2.XMLHTTP")
+    http.Open "GET", url, False
+    http.send
+    
+    If http.Status = 200 Then
+        response = http.responseText
+        MsgBox "Datos CIE-10 (" & codigo & "): " & vbCrLf & response
+        ' Output incluye las descripciones para Diabetes Mellitus tipo 2
+    Else
+        MsgBox "Error de conexión."
+    End If
+    
+    Set http = Nothing
+End Sub
+```
+
+::: {.callout-tip}
+##### Parseo de JSON en VBA
+VBA nativo no incluye un parseador JSON directo. Para extraer datos específicos como descripciones o códigos exactos, se recomienda incorporar el módulo `VBA-JSON` (JsonConverter.bas) en su proyecto.
+:::
+
+### 📝 Laboratorio / Taller
+
+Debe completar el siguiente taller práctico correspondiente a esta sesión:
+
+* [Descargar taller.docx](taller.docx)

@@ -1,0 +1,438 @@
+﻿<!--
+================================================================
+  DIAGRAMA: Silos en salud vs. atención integrada
+  Para Quarto + revealjs (IFMER)
+
+  Uso A (recomendado): guardar este archivo junto a slides.qmd y
+  llamarlo desde donde quieras la sección (escribiendo el shortcode de include):
+
+      {\{< include diagrama-silos.qmd >}}
+
+  Uso B: copiar y pegar todo el contenido dentro de slides.qmd.
+
+  El bloque <style> puede moverse a tu custom.scss si prefieres.
+================================================================
+-->
+
+```{=html}
+<style>
+.silos-viz{
+  --sv-surface:#ffffff;
+  --sv-surface-2:#f4f7fa;
+  --sv-ink:#16202b;
+  --sv-muted:#5b6b7c;
+  --sv-line:#c7d2dd;
+  --sv-steel:#2f5d8c;
+  --sv-silo:#c8452f;
+  --sv-silo-soft:#fbeae7;
+  --sv-integ:#0b8a78;
+  --sv-integ-soft:#e3f4f1;
+  width:100%;
+}
+/* Variante para temas oscuros: <div class="silos-viz dark" ...> */
+.silos-viz.dark{
+  --sv-surface:#18212b; --sv-surface-2:#1e2833; --sv-ink:#e6edf4;
+  --sv-muted:#9aabbc; --sv-line:#2e3c4a; --sv-steel:#7aa8dc;
+  --sv-silo:#e97462; --sv-silo-soft:#33211e;
+  --sv-integ:#3fc7ae; --sv-integ-soft:#132c28;
+}
+
+/* --- interruptor --- */
+.silos-viz .sv-switch{
+  display:inline-flex; position:relative;
+  background:var(--sv-surface); border:1px solid var(--sv-line);
+  border-radius:999px; padding:4px; margin:0 0 .5em;
+}
+.silos-viz .sv-switch button{
+  font:inherit; font-size:.5em; font-weight:600;
+  border:0; background:transparent; color:var(--sv-muted);
+  padding:.45em 1.1em; border-radius:999px; cursor:pointer;
+  position:relative; z-index:2; transition:color .25s ease;
+}
+.silos-viz .sv-switch button:focus-visible{outline:2px solid var(--sv-steel); outline-offset:3px}
+.silos-viz .sv-thumb{
+  position:absolute; top:4px; bottom:4px; left:4px; border-radius:999px;
+  background:var(--sv-silo-soft); border:1px solid var(--sv-silo); z-index:1;
+  transition:transform .42s cubic-bezier(.65,0,.2,1), background .42s, border-color .42s, width .42s;
+}
+.silos-viz[data-mode="integ"] .sv-thumb{background:var(--sv-integ-soft); border-color:var(--sv-integ)}
+.silos-viz[data-mode="silos"] .sv-switch button[data-mode="silos"]{color:var(--sv-silo)}
+.silos-viz[data-mode="integ"] .sv-switch button[data-mode="integ"]{color:var(--sv-integ)}
+
+/* --- lienzo --- */
+.silos-viz .sv-board{
+  background:var(--sv-surface); border:1px solid var(--sv-line);
+  border-radius:14px; padding:.4em .3em .1em;
+}
+.silos-viz svg.sv-diagram{display:block; width:100%; height:auto}
+.silos-viz .sv-cap{
+  margin:.5em 0 0; font-size:.5em; color:var(--sv-muted); text-align:left;
+}
+.silos-viz .sv-cap b{color:var(--sv-ink); font-weight:600}
+
+/* --- tokens del SVG --- */
+.silos-viz .box-fill{fill:var(--sv-surface-2)}
+.silos-viz .box-stroke{stroke:var(--sv-line); fill:none; stroke-width:1.5}
+.silos-viz .lbl{fill:var(--sv-ink); font-size:15px; font-weight:600}
+.silos-viz .sub{fill:var(--sv-muted); font-size:12px}
+.silos-viz .wire-lbl{fill:var(--sv-muted); font-family:ui-monospace,"IBM Plex Mono",monospace; font-size:11px}
+.silos-viz .ico{stroke:var(--sv-steel); fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+
+.silos-viz .state{transition:opacity .45s ease}
+.silos-viz[data-mode="integ"] .only-silos{opacity:0; pointer-events:none}
+.silos-viz[data-mode="silos"] .only-integ{opacity:0; pointer-events:none}
+
+.silos-viz .barrier{stroke:var(--sv-silo); stroke-width:2.2; fill:none; stroke-dasharray:7 6}
+.silos-viz .blocked-arrow{stroke:var(--sv-silo); stroke-width:2.2; fill:none}
+.silos-viz .xmark{stroke:var(--sv-silo); stroke-width:2.6; stroke-linecap:round}
+.silos-viz .xdisc{fill:var(--sv-silo-soft); stroke:var(--sv-silo); stroke-width:1.6}
+.silos-viz .silo-tint{fill:var(--sv-silo); opacity:.06; transition:opacity .45s}
+.silos-viz[data-mode="integ"] .silo-tint{opacity:0}
+
+.silos-viz .sv-pulse{animation:sv-pulse 1.9s ease-in-out infinite}
+@keyframes sv-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.88)}}
+.silos-viz .sv-bump{animation:sv-bump 2.1s cubic-bezier(.5,0,.4,1) infinite}
+@keyframes sv-bump{0%,100%{transform:translateX(0)}42%{transform:translateX(16px)}58%{transform:translateX(10px)}}
+
+.silos-viz .flow{stroke:var(--sv-integ); stroke-width:2.2; fill:none;
+  stroke-dasharray:6 8; stroke-linecap:round; animation:sv-dash 1.5s linear infinite}
+@keyframes sv-dash{to{stroke-dashoffset:-28}}
+.silos-viz .packet{fill:var(--sv-integ)}
+.silos-viz .hub-fill{fill:var(--sv-integ-soft); stroke:var(--sv-integ); stroke-width:2}
+.silos-viz .hub-halo{fill:none; stroke:var(--sv-integ); stroke-width:1.2; opacity:.35;
+  animation:sv-halo 2.6s ease-out infinite}
+@keyframes sv-halo{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.13);opacity:0}}
+
+/* --- tarjetas --- */
+.silos-viz .sv-stack{position:relative; margin-top:.4em}
+.silos-viz .sv-panel{
+  display:grid; gap:.5em; grid-template-columns:repeat(3,1fr);
+  transition:opacity .38s ease, transform .38s ease;
+}
+.silos-viz .sv-panel.hidden{position:absolute; inset:0; opacity:0; transform:translateY(8px); pointer-events:none}
+.silos-viz .sv-card{
+  background:var(--sv-surface); border:1px solid var(--sv-line);
+  border-left:3px solid var(--sv-silo); border-radius:10px;
+  padding:.6em .7em; text-align:left; font-size:.52em; line-height:1.5;
+}
+.silos-viz .sv-card.good{border-left-color:var(--sv-integ)}
+.silos-viz .sv-card h3{margin:0 0 .4em; font-size:1.08em; font-weight:600; color:var(--sv-ink)}
+.silos-viz .sv-card dl{margin:0}
+.silos-viz .sv-card dt{font-weight:600; color:var(--sv-ink)}
+.silos-viz .sv-card dd{margin:0 0 .5em; color:var(--sv-muted)}
+.silos-viz .sv-card dd:last-child{margin-bottom:0}
+
+/* --- tabla --- */
+.silos-viz table.sv-table{border-collapse:collapse; width:100%; font-size:.55em}
+.silos-viz table.sv-table th,
+.silos-viz table.sv-table td{padding:.45em .7em; text-align:left; border-bottom:1px solid var(--sv-line)}
+.silos-viz table.sv-table tr:last-child td{border-bottom:0}
+.silos-viz table.sv-table thead th{font-weight:600; background:var(--sv-surface-2); color:var(--sv-muted)}
+.silos-viz table.sv-table td:first-child{font-weight:600; color:var(--sv-ink)}
+.silos-viz .col-silo,.silos-viz .col-integ{color:var(--sv-muted); transition:background .4s ease,color .4s ease}
+.silos-viz[data-mode="silos"] .col-silo{background:var(--sv-silo-soft); color:var(--sv-ink)}
+.silos-viz[data-mode="integ"] .col-integ{background:var(--sv-integ-soft); color:var(--sv-ink)}
+.silos-viz thead .col-silo{color:var(--sv-silo)}
+.silos-viz thead .col-integ{color:var(--sv-integ)}
+
+@media (prefers-reduced-motion: reduce){
+  .silos-viz *{animation:none !important; transition-duration:.01ms !important}
+}
+</style>
+```
+
+## El sistema fragmentado {.smaller}
+
+```{=html}
+<div class="silos-viz diagram-zoomable" data-mode="silos" id="sv-1">
+  
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="sv-switch" role="group" aria-label="Modo del diagrama">
+    <span class="sv-thumb"></span>
+    <button data-mode="silos" aria-pressed="true">Sistema en silos</button>
+    <button data-mode="integ" aria-pressed="false">Atención integrada</button>
+  </div>
+
+  <div class="sv-board">
+  <svg class="sv-diagram" viewBox="0 0 900 430" xmlns="http://www.w3.org/2000/svg" role="img"
+       aria-label="Tres servicios clínicos bloqueados entre sí, o conectados por una capa de interoperabilidad">
+    <defs>
+      <marker id="sv-ar-s" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="var(--sv-silo)"/>
+      </marker>
+      <marker id="sv-ar-i" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="var(--sv-integ)"/>
+      </marker>
+      <path id="sv-p1" d="M135,176 L135,225 Q135,247 175,260 L392,292"/>
+      <path id="sv-p2" d="M450,176 L450,275"/>
+      <path id="sv-p3" d="M765,176 L765,225 Q765,247 725,260 L508,292"/>
+    </defs>
+
+    <!-- Urgencias -->
+    <g>
+      <rect x="50" y="36" width="170" height="140" rx="10" class="box-fill"/>
+      <rect x="50" y="36" width="170" height="140" rx="10" class="silo-tint"/>
+      <rect x="50" y="36" width="170" height="140" rx="10" class="box-stroke"/>
+      <g class="ico" transform="translate(119,60)">
+        <rect x="0" y="6" width="34" height="20" rx="3"/>
+        <path d="M22,6 L30,6 L34,13 L34,26"/>
+        <circle cx="9" cy="28" r="3.6"/><circle cx="27" cy="28" r="3.6"/>
+        <path d="M8,13 L8,21 M4,17 L12,17"/>
+      </g>
+      <text x="135" y="120" text-anchor="middle" class="lbl">Urgencias</text>
+      <text x="135" y="139" text-anchor="middle" class="sub">Triage y estabilización</text>
+      <text x="135" y="158" text-anchor="middle" class="wire-lbl">registro propio</text>
+    </g>
+
+    <!-- Medicina interna -->
+    <g>
+      <rect x="365" y="36" width="170" height="140" rx="10" class="box-fill"/>
+      <rect x="365" y="36" width="170" height="140" rx="10" class="silo-tint"/>
+      <rect x="365" y="36" width="170" height="140" rx="10" class="box-stroke"/>
+      <g class="ico" transform="translate(433,60)">
+        <path d="M0,26 L0,12 L22,12 Q34,12 34,22 L34,26"/>
+        <path d="M0,20 L34,20"/>
+        <circle cx="9" cy="5" r="4.5"/>
+        <path d="M0,26 L0,30 M34,26 L34,30"/>
+      </g>
+      <text x="450" y="120" text-anchor="middle" class="lbl">Medicina interna</text>
+      <text x="450" y="139" text-anchor="middle" class="sub">Hospitalización</text>
+      <text x="450" y="158" text-anchor="middle" class="wire-lbl">registro propio</text>
+    </g>
+
+    <!-- Consulta externa -->
+    <g>
+      <rect x="680" y="36" width="170" height="140" rx="10" class="box-fill"/>
+      <rect x="680" y="36" width="170" height="140" rx="10" class="silo-tint"/>
+      <rect x="680" y="36" width="170" height="140" rx="10" class="box-stroke"/>
+      <g class="ico" transform="translate(748,59)">
+        <path d="M5,3 L5,14 Q5,24 15,24 Q25,24 25,14 L25,8"/>
+        <circle cx="1.5" cy="2" r="2.2"/><circle cx="8.5" cy="2" r="2.2"/>
+        <circle cx="27" cy="5" r="4.5"/>
+        <path d="M27,9.5 L27,14"/>
+      </g>
+      <text x="765" y="120" text-anchor="middle" class="lbl">Consulta externa</text>
+      <text x="765" y="139" text-anchor="middle" class="sub">Especialidades</text>
+      <text x="765" y="158" text-anchor="middle" class="wire-lbl">registro propio</text>
+    </g>
+
+    <!-- estado: silos -->
+    <g class="state only-silos">
+      <path class="barrier" d="M292,24 L292,216"/>
+      <path class="barrier" d="M607,24 L607,216"/>
+
+      <g class="sv-bump"><path class="blocked-arrow" d="M228,92 L268,92" marker-end="url(#sv-ar-s)"/></g>
+      <g class="sv-bump"><path class="blocked-arrow" d="M543,92 L583,92" marker-end="url(#sv-ar-s)"/></g>
+      <path class="blocked-arrow" d="M356,128 L316,128" marker-end="url(#sv-ar-s)" opacity=".55"/>
+      <path class="blocked-arrow" d="M671,128 L631,128" marker-end="url(#sv-ar-s)" opacity=".55"/>
+
+      <g class="sv-pulse" style="transform-origin:292px 106px">
+        <circle cx="292" cy="106" r="13" class="xdisc"/>
+        <path class="xmark" d="M287,101 L297,111 M297,101 L287,111"/>
+      </g>
+      <g class="sv-pulse" style="transform-origin:607px 106px; animation-delay:.5s">
+        <circle cx="607" cy="106" r="13" class="xdisc"/>
+        <path class="xmark" d="M602,101 L612,111 M612,101 L602,111"/>
+      </g>
+
+      <text x="450" y="242" text-anchor="middle" class="wire-lbl" style="fill:var(--sv-silo)">flujo restringido y vertical · sin historia compartida</text>
+
+      <rect x="300" y="275" width="300" height="86" rx="10" class="box-fill"/>
+      <rect x="300" y="275" width="300" height="86" rx="10" class="silo-tint"/>
+      <rect x="300" y="275" width="300" height="86" rx="10" class="box-stroke" stroke-dasharray="6 5"/>
+      <text x="450" y="306" text-anchor="middle" class="lbl">Tres historias parciales</text>
+      <text x="450" y="327" text-anchor="middle" class="sub">El paciente repite exámenes y relata su caso de nuevo</text>
+      <text x="450" y="346" text-anchor="middle" class="wire-lbl">papel · PDF · llamada telefónica</text>
+    </g>
+
+    <!-- estado: integrado -->
+    <g class="state only-integ">
+      <use href="#sv-p1" class="flow" marker-end="url(#sv-ar-i)"/>
+      <use href="#sv-p2" class="flow" marker-end="url(#sv-ar-i)"/>
+      <use href="#sv-p3" class="flow" marker-end="url(#sv-ar-i)"/>
+
+      <circle r="4" class="packet">
+        <animateMotion dur="2.4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#sv-p1"/></animateMotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animateMotion dur="2.4s" begin="-1.2s" repeatCount="indefinite"><mpath href="#sv-p1"/></animateMotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animateMotion dur="2.1s" begin="-.6s" repeatCount="indefinite"><mpath href="#sv-p2"/></animateMotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animateMotion dur="2.1s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#sv-p2"/></animateMotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animateMotion dur="2.4s" begin="-.3s" repeatCount="indefinite"><mpath href="#sv-p3"/></animateMotion>
+      </circle>
+      <circle r="4" class="packet">
+        <animateMotion dur="2.4s" begin="-1.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#sv-p3"/></animateMotion>
+      </circle>
+
+      <rect x="300" y="275" width="300" height="96" rx="12" class="hub-halo" style="transform-origin:450px 323px"/>
+      <rect x="300" y="275" width="300" height="96" rx="12" class="hub-fill"/>
+      <g class="ico" transform="translate(432,289)" style="stroke:var(--sv-integ)">
+        <circle cx="17" cy="9" r="6"/>
+        <path d="M17,15 L17,21 M17,21 L4,28 M17,21 L30,28"/>
+        <circle cx="2" cy="29.5" r="3"/><circle cx="32" cy="29.5" r="3"/>
+      </g>
+      <text x="450" y="343" text-anchor="middle" class="lbl">Historia clínica unificada</text>
+      <text x="450" y="362" text-anchor="middle" class="wire-lbl" style="fill:var(--sv-integ)">HL7 FHIR · openEHR · identificador único de paciente</text>
+
+      <text x="450" y="242" text-anchor="middle" class="wire-lbl" style="fill:var(--sv-integ)">flujo bidireccional · el dato se escribe una vez y lo ve todo el equipo</text>
+    </g>
+  </svg>
+  </div>
+
+  <p class="sv-cap" data-role="cap"><b>Sistema en silos.</b> Cada servicio guarda lo suyo; entre ellos hay muros administrativos y técnicos.</p>
+</div>
+```
+
+## Qué cambia para el paciente {.smaller}
+
+```{=html}
+<div class="silos-viz diagram-zoomable" data-mode="silos" id="sv-2">
+  
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="sv-switch" role="group" aria-label="Modo de las tarjetas">
+    <span class="sv-thumb"></span>
+    <button data-mode="silos" aria-pressed="true">Problemas</button>
+    <button data-mode="integ" aria-pressed="false">Soluciones</button>
+  </div>
+
+  <div class="sv-stack">
+    <div class="sv-panel" data-role="panel-silos">
+      <div class="sv-card">
+        <h3>Datos incompletos del paciente</h3>
+        <dl>
+          <dt>Visión parcial</dt><dd>No existe un historial unificado que reúna lo que pasó en cada servicio.</dd>
+          <dt>Errores de diagnóstico</dt><dd>Se decide sobre información fragmentada y desactualizada.</dd>
+        </dl>
+      </div>
+      <div class="sv-card">
+        <h3>Falta de interoperabilidad</h3>
+        <dl>
+          <dt>Sistemas desconectados</dt><dd>Equipos médicos y HIS/RIS que no intercambian mensajes.</dd>
+          <dt>Duplicidad de pruebas</dt><dd>Se repiten exámenes porque el resultado anterior no aparece.</dd>
+        </dl>
+      </div>
+      <div class="sv-card">
+        <h3>Demoras y riesgos</h3>
+        <dl>
+          <dt>Decisiones lentas</dt><dd>Se espera por resultados que ya existen en otra área.</dd>
+          <dt>Falta de seguimiento</dt><dd>Se pierde la continuidad del tratamiento entre servicios.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="sv-panel hidden" data-role="panel-integ">
+      <div class="sv-card good">
+        <h3>Un solo expediente del paciente</h3>
+        <dl>
+          <dt>Visión completa</dt><dd>Urgencias, hospitalización y consulta escriben sobre la misma historia.</dd>
+          <dt>Decisión con contexto</dt><dd>Alergias, medicación y antecedentes en el punto de atención.</dd>
+        </dl>
+      </div>
+      <div class="sv-card good">
+        <h3>Interoperabilidad con estándares</h3>
+        <dl>
+          <dt>Sistemas que se entienden</dt><dd>Recursos FHIR y arquetipos openEHR como lenguaje común.</dd>
+          <dt>Cero repetición</dt><dd>El resultado de laboratorio se consulta, no se vuelve a pedir.</dd>
+        </dl>
+      </div>
+      <div class="sv-card good">
+        <h3>Atención oportuna y trazable</h3>
+        <dl>
+          <dt>Menos espera</dt><dd>Los resultados llegan al equipo apenas se validan.</dd>
+          <dt>Continuidad real</dt><dd>El plan de tratamiento sobrevive al cambio de servicio.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Comparación punto por punto {.smaller}
+
+```{=html}
+<div class="silos-viz diagram-zoomable" data-mode="silos" id="sv-3">
+  
+  <button class="btn-zoom" onclick="this.parentElement.classList.toggle('fullscreen')">🔍 Zoom</button>
+<div class="sv-switch" role="group" aria-label="Columna resaltada">
+    <span class="sv-thumb"></span>
+    <button data-mode="silos" aria-pressed="true">Resaltar silos</button>
+    <button data-mode="integ" aria-pressed="false">Resaltar integración</button>
+  </div>
+
+  <table class="sv-table">
+    <thead>
+      <tr>
+        <th>Característica</th>
+        <th class="col-silo">Estructura en silos</th>
+        <th class="col-integ">Atención integrada</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Flujo de información</td><td class="col-silo">Segmentado por departamento</td><td class="col-integ">Compartido y unificado</td></tr>
+      <tr><td>Historial del paciente</td><td class="col-silo">Incompleto y disperso</td><td class="col-integ">Completo y accesible</td></tr>
+      <tr><td>Comunicación médica</td><td class="col-silo">Por jerarquías y barreras</td><td class="col-integ">Colaborativa y transversal</td></tr>
+      <tr><td>Decisiones clínicas</td><td class="col-silo">Basadas en datos parciales</td><td class="col-integ">Informadas por el contexto total</td></tr>
+      <tr><td>Uso de tecnología</td><td class="col-silo">Sistemas propietarios y cerrados</td><td class="col-integ">Estándares abiertos (HL7 FHIR, openEHR)</td></tr>
+    </tbody>
+  </table>
+</div>
+```
+
+```{=html}
+<script>
+(function(){
+  var TEXTS = {
+    silos: '<b>Sistema en silos.</b> Cada servicio guarda lo suyo; entre ellos hay muros administrativos y técnicos.',
+    integ: '<b>Atención integrada.</b> Los servicios siguen existiendo, pero comparten una capa común de datos.'
+  };
+
+  function placeThumb(viz){
+    var mode = viz.getAttribute('data-mode');
+    var btn  = viz.querySelector('.sv-switch button[data-mode="' + mode + '"]');
+    var thumb = viz.querySelector('.sv-thumb');
+    if(!btn || !thumb || !btn.offsetWidth) return;
+    thumb.style.width = btn.offsetWidth + 'px';
+    thumb.style.transform = 'translateX(' + (btn.offsetLeft - 4) + 'px)';
+  }
+
+  function setMode(viz, mode){
+    viz.setAttribute('data-mode', mode);
+    viz.querySelectorAll('.sv-switch button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.mode === mode));
+    });
+    var cap = viz.querySelector('[data-role="cap"]');
+    if (cap) cap.innerHTML = TEXTS[mode];
+    var ps = viz.querySelector('[data-role="panel-silos"]');
+    var pi = viz.querySelector('[data-role="panel-integ"]');
+    if (ps) ps.classList.toggle('hidden', mode !== 'silos');
+    if (pi) pi.classList.toggle('hidden', mode !== 'integ');
+    placeThumb(viz);
+  }
+
+  // delegación: funciona aunque la diapositiva se renderice después
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.silos-viz .sv-switch button');
+    if (!btn) return;
+    setMode(btn.closest('.silos-viz'), btn.dataset.mode);
+  });
+
+  function refreshAll(){
+    document.querySelectorAll('.silos-viz').forEach(placeThumb);
+  }
+  window.addEventListener('resize', refreshAll);
+  document.addEventListener('DOMContentLoaded', refreshAll);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(refreshAll);
+  // reveal.js: recalcular al entrar a cada diapositiva
+  if (window.Reveal && Reveal.on) Reveal.on('slidechanged', refreshAll);
+  else document.addEventListener('ready', refreshAll);
+  setTimeout(refreshAll, 400);
+})();
+</script>
+```
+

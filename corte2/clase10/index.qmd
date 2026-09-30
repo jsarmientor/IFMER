@@ -12,21 +12,69 @@ format:
 
 ## 🎯 Objetivos de la Clase
 
-- [ ] Objetivo 1 (En desarrollo)
-- [ ] Objetivo 2 (En desarrollo)
+- [x] Evaluar la comprensión y aplicación práctica de los recursos FHIR (Condition, Observation, Medication, etc.).
+- [x] Demostrar la capacidad de construir e interactuar con recursos FHIR utilizando VS Code y sus complementos.
+- [x] Contextualizar el uso de recursos FHIR dentro de la normatividad colombiana en salud.
+- [x] Ejecutar operaciones CRUD (POST, GET, PUT, DELETE) en un servidor FHIR.
 
 ---
 
-## 📖 Materiales y Lecturas
+## 📝 Descripción del Parcial
 
-::: {.callout-flipped}
-##### 💡 Preparación Previa
-*Contenido y guía práctica en construcción por el docente.*
-
+::: {.callout-important title="¡Aviso Importante: Horario y Preparación!"}
+- **Preparación:** Tendrán **30 minutos** de preparación al inicio.
+- **Inicio de Sustentaciones:** El parcial iniciará puntualmente a la **1:30 PM**.
+- **Nota:** Por favor llegar temprano para aprovechar el tiempo de preparación.
 :::
 
+El parcial del segundo corte consiste en una evaluación práctica en vivo. Cada grupo pasará al frente y, utilizando su propio computador y VS Code, deberá realizar lo siguiente:
+
+### 1. Construcción y Explicación del Recurso
+- **Selección:** Basado en los recursos vistos en clase (Condition, Observation, Medication, entre otros) y utilizando la guía FHIR oficial.
+- **Contexto Normativo:** Explicar cuál es la aplicación del recurso seleccionado según la normatividad colombiana, proporcionando un ejemplo concreto de dónde se aplica.
+- **Construcción en Vivo:** Construir el recurso FHIR en vivo utilizando los complementos (extensiones) de VS Code.
+- **Explicación:** Explicar el recurso construido bloque por bloque en detalle.
+
+### 2. Interacción con el Servidor FHIR
+Al finalizar la construcción, deberán realizar las siguientes operaciones básicas (CRUD) sobre el servidor FHIR:
+- **POST:** Crear (Create) el recurso en el servidor.
+- **GET:** Leer (Read) el recurso recién creado.
+- **PUT:** Actualizar (Update) el recurso en el servidor.
+- **DELETE:** Eliminar (Delete) el recurso del servidor.
+
+**Servidor FHIR de Prueba:**
+```text
+http://10.132.92.78:8080/fhir
+```
+*(Nota: Esta IP puede cambiar. Por favor verifique con el docente si se mantiene esta IP o si se utilizará un servidor FHIR local).*
+
+### 3. Publicación y Trabajo Autónomo (Participación individual)
+- **Publicación:** El grupo que acaba de sustentar deberá publicar el ID o el JSON del recurso recién creado en el grupo de **Teams** de la clase.
+- **Update Individual (PUT):** De manera individual, **todos los demás estudiantes** del curso deberán realizar una petición `PUT` a ese recurso (usando Postman o similares). Su objetivo es actualizar el recurso agregando su nombre en el elemento `note`.
+  
+  *Estructura requerida:*
+  ```json
+  "note": [
+    {
+      "text": "Nombre del estudiante"
+    }
+  ]
+  ```
+- **Evidencias:** Cada estudiante debe tomar un **pantallazo** (screenshot) donde se vea claramente la petición (con su nombre en el JSON) y el código de respuesta HTTP exitoso (ej. `200 OK`). Estas evidencias deben subirse a Teams (por cada estudiante y por cada recurso expuesto).
+
 ---
 
-## 🧪 Práctica de Laboratorio
+## ⚖️ Criterios de Evaluación
 
-*Actividad práctica en desarrollo.*
+La calificación del parcial se divide en dos partes iguales:
+
+- **50% - Sustentación Grupal:** Construcción en vivo, explicación del recurso, relación con normatividad colombiana y ejecución de las operaciones.
+- **50% - Interacción Individual (Updates):** Entrega de evidencias en Teams (pantallazos de Postman con el código HTTP) que demuestren la actualización (`PUT`) exitosa a los recursos creados por los demás grupos.
+
+---
+
+## 💡 Recomendaciones
+
+- Asegúrense de tener instaladas y configuradas las extensiones necesarias en VS Code.
+- Tengan clara la estructura JSON/XML del recurso FHIR que van a trabajar.
+- Repasen la normatividad colombiana (ej. interoperabilidad, historia clínica electrónica, etc.) relacionada con su recurso.

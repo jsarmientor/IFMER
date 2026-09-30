@@ -1,5 +1,5 @@
 ---
-title: "Clase 08: Estándares Modernos - HL7 FHIR & APIs"
+title: "Clase 08: Estándares, Normativas Técnicas y Terminologías Clínicas"
 subtitle: "Semana 8 | Corte 2"
 author: "Prof. Jefferson Sarmiento Rojas"
 date: "2026-07-23"
@@ -14,21 +14,102 @@ format:
 
 ## 🎯 Objetivos de la Clase
 
-- [ ] Objetivo 1 (En desarrollo)
-- [ ] Objetivo 2 (En desarrollo)
+- [x] Comprender el problema de los silos de información en salud.
+- [x] Reconocer la evolución de los paradigmas de interoperabilidad y las versiones del estándar HL7 (v2, v3, CDA).
+- [x] Explorar el uso de terminologías estándar internacionales (CIE-10, CIE-11, SNOMED CT).
+- [x] Instalar y utilizar Postman para interactuar con APIs de terminologías clínicas.
 
 ---
 
-## 📖 Materiales y Lecturas
+## 🏥 El problema de los Silos en Salud
 
-::: {.callout-flipped}
-##### 💡 Preparación Previa
-*Contenido y guía práctica en construcción por el docente.*
+Históricamente, los sistemas de información en salud se han construido de manera aislada. Un hospital puede tener un software para laboratorio, otro para urgencias y otro para facturación, y estos sistemas **no se comunican entre sí**. Esto genera lo que conocemos como **silos de información**, donde los datos están atrapados y no fluyen, obligando al paciente a repetir su historia o exámenes.
 
+{{< include diagrama-silos.qmd >}}
+
+## 📐 Estándares y Normativas Técnicas (HL7)
+
+Para derribar estos muros, han surgido diferentes normativas técnicas y estándares a lo largo de las décadas. **Health Level Seven (HL7)** ha sido la organización más importante en este esfuerzo.
+
+HL7 v2 y v3 son estándares de interoperabilidad para el intercambio de datos sanitarios. 
+- **HL7 v2** es el más utilizado, basa sus mensajes en texto (altamente flexible pero con variaciones entre implementaciones). 
+- **HL7 v3** intentó ser más estricto y estructurado (usando XML y basándose en el Modelo de Información de Referencia - RIM).
+
+A medida que evolucionó la arquitectura de software (pasando de *Pipeline* a *EDA*, *SOA*, *ROA* y finalmente *APIs* modernas), también lo hicieron los estándares de HL7, culminando en la creación de FHIR (que veremos a fondo en la próxima clase).
+
+{{< include paradigmas-hl7.qmd >}}
+
+::: {.callout-tip}
+## Análisis de la evolución
+Cada versión de HL7 responde al paradigma dominante de su época. Mientras que la **v2** resolvía el transporte punto a punto con mensajes de texto, la **v3** buscó un modelo formal compartido (RIM) en pleno auge de SOA. Posteriormente, **CDA** estandarizó el documento clínico, hasta llegar a **FHIR**, que adopta completamente la arquitectura de recursos (ROA) y el uso de APIs REST. *(Nota: El espaciado horizontal en el diagrama es conceptual).*
 :::
 
+## 🌐 Paradigma Cliente-Servidor y Métodos HTTP
+
+Para que estos sistemas modernos y APIs (como FHIR) puedan funcionar, se basan en el modelo **Cliente-Servidor**. En este paradigma, un "Cliente" (por ejemplo, el navegador de un médico o una aplicación) hace una solicitud o petición (*Request*) a un "Servidor" (donde está la base de datos o el sistema central). El servidor procesa la información y le devuelve una respuesta (*Response*).
+
+Para comunicarse, utilizan los métodos estándar del protocolo HTTP. Cada método tiene una intención clara sobre qué acción se quiere realizar con los datos:
+
+{{< include diagrama-http.qmd >}}
+
+## 📚 Terminologías Clínicas y Vocabularios Controlados
+
+Para que los sistemas se entiendan (interoperabilidad semántica), no basta con enviarse mensajes; necesitan hablar el mismo idioma médico.
+
+### 1. SNOMED CT
+Es la terminología clínica integral, multilingüe y codificada de mayor amplitud en el mundo. No solo clasifica enfermedades, sino síntomas, hallazgos, procedimientos y anatomía.
+
+🔗 **Explorador oficial:** [SNOMED CT Browser (Ej. Hallazgo clínico)](https://snomedbrowser.org/?perspective=full&conceptId1=404684003&edition=MAIN/SNOMEDCT-ES/2026-08-10&release=&languages=es,en)
+
+### 2. CIE-10 (Clasificación Internacional de Enfermedades)
+Mantenida por la OMS, es el estándar mundial para reportar diagnósticos, morbilidad y mortalidad.
+En Colombia, su uso es obligatorio y está normado a través de entidades como SISPRO.
+
+🔗 **Consulta nacional (MinSalud/SISPRO):** [Consultar Detalle Referencia Básica CIE-10](https://web.sispro.gov.co/WebPublico/Consultas/ConsultarDetalleReferenciaBasica.aspx?Code=CIE10)
+
+### 3. El paso de CIE-10 a CIE-11 y su problemática
+La OMS ya ha publicado la CIE-11, la cual está diseñada para un entorno digital. 
+**Problemática de la transición:**
+- **Mapeo:** Convertir millones de registros históricos de CIE-10 a CIE-11 no es directo.
+- **Sistemas Legados:** Muchos sistemas de HIS/EHR están fuertemente acoplados a la estructura alfanumérica de la CIE-10.
+- **Capacitación:** Requiere reentrenamiento masivo de personal médico y codificadores.
+
 ---
 
-## 🧪 Práctica de Laboratorio
+## 🧪 Actividad Práctica: Instalación de Postman y APIs
 
-*Actividad práctica en desarrollo.*
+Para entender cómo se comunican las máquinas modernas, dejaremos atrás los navegadores web por un momento e interactuaremos directamente con APIs REST de salud.
+
+### 1. Instalación de Postman
+1. Descarga e instala [Postman](https://www.postman.com/downloads/) o usa su versión web.
+2. Crea una cuenta gratuita y un nuevo *Workspace*.
+
+### 2. Crear API y CRUD
+Para entender el flujo completo de los datos, crearemos una API simulada utilizando [MockAPI](https://mockapi.io/). 
+La idea es crear y gestionar un sistema de registros médicos a través de peticiones HTTP, repasando las operaciones **CRUD**:
+- **POST (Create):** Crear un nuevo registro de paciente.
+- **GET (Read):** Leer o consultar los registros.
+- **PUT (Update):** Actualizar un registro existente.
+- **DELETE (Delete):** Eliminar un registro.
+
+### 3. Probando APIs de Terminología Clínica
+Vamos a consumir un servicio de tablas clínicas del gobierno de Estados Unidos (NIH).
+
+Abre Postman, selecciona el método **GET** y realiza las siguientes peticiones de prueba:
+
+* **Búsqueda del término "tuberculosis":**
+  `https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&terms=tuberc`
+
+* **Búsqueda del término "asthma":**
+  `https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&terms=asthma`
+
+*Observa la respuesta en formato JSON. Notarás que el servidor te devuelve un arreglo con el número de coincidencias, los códigos (ej. `J45.909` para asma no especificada) y sus descripciones.*
+
+::: {.callout-note}
+## Preparación para la Clase 09
+Con estos conceptos previos de arquitecturas, estándares (HL7) y cómo utilizar Postman para consumir APIs, en nuestra próxima sesión daremos el salto a **HL7 FHIR**.
+:::
+
+------------------------------------------------------------------------
+
+© 2026 Informática Médica (IFMER) — Corte 2 — Prof. Jefferson Sarmiento Rojas, Universidad del Rosario, EMCS

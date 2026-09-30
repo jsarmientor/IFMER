@@ -10,23 +10,8 @@ format:
     toc: true
 ---
 
-## 🎯 Objetivos de la Clase
+## 🌴 Semana de Receso
 
-- [ ] Objetivo 1 (En desarrollo)
-- [ ] Objetivo 2 (En desarrollo)
+Durante esta semana de receso no habrá actividades académicas presenciales ni entregables. Es un espacio destinado para el descanso, la recarga de energías y, si lo desean, el repaso autónomo de los temas vistos hasta ahora en el semestre.
 
----
-
-## 📖 Materiales y Lecturas
-
-::: {.callout-flipped}
-##### 💡 Preparación Previa
-*Contenido y guía práctica en construcción por el docente.*
-
-:::
-
----
-
-## 🧪 Práctica de Laboratorio
-
-*Actividad práctica en desarrollo.*
+¡Que disfruten su semana de receso!
