@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas">
-<meta name="dcterms.date" content="2026-07-23">
+<meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)">
+<meta name="dcterms.date" content="2026-10-14">
 
-<title>Clase 13: Big Data, Machine Learning &amp; TinyML – Informática Médica - IFMER 2026-II</title>
+<title>Clase 13: Big Data, Machine Learning &amp; TinyML en Salud – Informática Médica - IFMER 2026-II</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -43,6 +78,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-4776e7d1452f3ca92c538628fe1cf656.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,6 +110,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -312,9 +379,32 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#objetivos-de-la-clase" id="toc-objetivos-de-la-clase" class="nav-link active" data-scroll-target="#objetivos-de-la-clase">🎯 Objetivos de la Clase</a></li>
-  <li><a href="#materiales-y-lecturas" id="toc-materiales-y-lecturas" class="nav-link" data-scroll-target="#materiales-y-lecturas">📖 Materiales y Lecturas</a></li>
-  <li><a href="#práctica-de-laboratorio" id="toc-práctica-de-laboratorio" class="nav-link" data-scroll-target="#práctica-de-laboratorio">🧪 Práctica de Laboratorio</a></li>
+  <li><a href="#resultados-de-aprendizaje-esperados-rae" id="toc-resultados-de-aprendizaje-esperados-rae" class="nav-link active" data-scroll-target="#resultados-de-aprendizaje-esperados-rae">🎯 Resultados de Aprendizaje Esperados (RAE)</a></li>
+  <li><a href="#de-la-lógica-simbólica-a-la-aritmética-neuronal" id="toc-de-la-lógica-simbólica-a-la-aritmética-neuronal" class="nav-link" data-scroll-target="#de-la-lógica-simbólica-a-la-aritmética-neuronal">🧠 1. De la Lógica Simbólica a la Aritmética Neuronal</a>
+  <ul class="collapse">
+  <li><a href="#cambio-de-paradigma-programación-tradicional-vs.-machine-learning" id="toc-cambio-de-paradigma-programación-tradicional-vs.-machine-learning" class="nav-link" data-scroll-target="#cambio-de-paradigma-programación-tradicional-vs.-machine-learning">1.1 Cambio de Paradigma: Programación Tradicional vs.&nbsp;Machine Learning</a></li>
+  <li><a href="#evolución-histórica-de-la-inteligencia-artificial" id="toc-evolución-histórica-de-la-inteligencia-artificial" class="nav-link" data-scroll-target="#evolución-histórica-de-la-inteligencia-artificial">1.2 Evolución Histórica de la Inteligencia Artificial</a></li>
+  <li><a href="#el-cuello-de-botella-de-la-ingeniería-de-características" id="toc-el-cuello-de-botella-de-la-ingeniería-de-características" class="nav-link" data-scroll-target="#el-cuello-de-botella-de-la-ingeniería-de-características">1.3 El Cuello de Botella de la Ingeniería de Características</a></li>
+  <li><a href="#la-neurona-artificial-como-primitiva-de-computación" id="toc-la-neurona-artificial-como-primitiva-de-computación" class="nav-link" data-scroll-target="#la-neurona-artificial-como-primitiva-de-computación">1.4 La Neurona Artificial como Primitiva de Computación</a></li>
+  </ul></li>
+  <li><a href="#ciclo-de-vida-del-sistema-de-machine-learning-ml-systems-lifecycle" id="toc-ciclo-de-vida-del-sistema-de-machine-learning-ml-systems-lifecycle" class="nav-link" data-scroll-target="#ciclo-de-vida-del-sistema-de-machine-learning-ml-systems-lifecycle">🔄 2. Ciclo de Vida del Sistema de Machine Learning (ML Systems Lifecycle)</a></li>
+  <li><a href="#el-espectro-de-la-inteligencia-distribuida-cloud-ml-vs.-edge-ml-vs.-tinyml" id="toc-el-espectro-de-la-inteligencia-distribuida-cloud-ml-vs.-edge-ml-vs.-tinyml" class="nav-link" data-scroll-target="#el-espectro-de-la-inteligencia-distribuida-cloud-ml-vs.-edge-ml-vs.-tinyml">🌐 3. El Espectro de la Inteligencia Distribuida: Cloud ML vs.&nbsp;Edge ML vs.&nbsp;TinyML</a>
+  <ul class="collapse">
+  <li><a href="#tabla-comparativa-de-paradigmas-computacionales" id="toc-tabla-comparativa-de-paradigmas-computacionales" class="nav-link" data-scroll-target="#tabla-comparativa-de-paradigmas-computacionales">3.1 Tabla Comparativa de Paradigmas Computacionales</a></li>
+  <li><a href="#por-qué-tinyml-en-ingeniería-biomédica" id="toc-por-qué-tinyml-en-ingeniería-biomédica" class="nav-link" data-scroll-target="#por-qué-tinyml-en-ingeniería-biomédica">3.2 ¿Por qué TinyML en Ingeniería Biomédica?</a></li>
+  </ul></li>
+  <li><a href="#práctica-de-laboratorio-sistemas-inteligentes-en-informática-médica" id="toc-práctica-de-laboratorio-sistemas-inteligentes-en-informática-médica" class="nav-link" data-scroll-target="#práctica-de-laboratorio-sistemas-inteligentes-en-informática-médica">🧪 4. Práctica de Laboratorio: Sistemas Inteligentes en Informática Médica</a>
+  <ul class="collapse">
+  <li><a href="#características-de-la-plataforma-xiao-esp32s3-sense" id="toc-características-de-la-plataforma-xiao-esp32s3-sense" class="nav-link" data-scroll-target="#características-de-la-plataforma-xiao-esp32s3-sense">4.1 Características de la Plataforma XIAO ESP32S3 Sense</a></li>
+  <li><a href="#planteamiento-del-problema-hospitalario" id="toc-planteamiento-del-problema-hospitalario" class="nav-link" data-scroll-target="#planteamiento-del-problema-hospitalario">4.2 Planteamiento del Problema Hospitalario</a></li>
+  <li><a href="#ejercicio-1-configuración-del-entorno-de-desarrollo-arduino-ide" id="toc-ejercicio-1-configuración-del-entorno-de-desarrollo-arduino-ide" class="nav-link" data-scroll-target="#ejercicio-1-configuración-del-entorno-de-desarrollo-arduino-ide">4.3 Ejercicio 1: Configuración del Entorno de Desarrollo (Arduino IDE)</a></li>
+  <li><a href="#ejercicio-2-verificación-de-hardware-blink-y-monitor-serial" id="toc-ejercicio-2-verificación-de-hardware-blink-y-monitor-serial" class="nav-link" data-scroll-target="#ejercicio-2-verificación-de-hardware-blink-y-monitor-serial">4.4 Ejercicio 2: Verificación de Hardware (Blink y Monitor Serial)</a></li>
+  <li><a href="#ejercicio-3-adquisición-de-señal-acústica-con-micrófono-pdm-e-i2s" id="toc-ejercicio-3-adquisición-de-señal-acústica-con-micrófono-pdm-e-i2s" class="nav-link" data-scroll-target="#ejercicio-3-adquisición-de-señal-acústica-con-micrófono-pdm-e-i2s">4.5 Ejercicio 3: Adquisición de Señal Acústica con Micrófono PDM e I2S</a></li>
+  <li><a href="#ejercicio-4-grabación-de-audio-wav-en-microsd-y-habilitación-de-opi-psram" id="toc-ejercicio-4-grabación-de-audio-wav-en-microsd-y-habilitación-de-opi-psram" class="nav-link" data-scroll-target="#ejercicio-4-grabación-de-audio-wav-en-microsd-y-habilitación-de-opi-psram">4.6 Ejercicio 4: Grabación de Audio WAV en MicroSD y Habilitación de OPI PSRAM</a></li>
+  <li><a href="#ejercicio-5-resolución-del-reto-visión-artificial-embebida-con-sensecraft-ai-studio" id="toc-ejercicio-5-resolución-del-reto-visión-artificial-embebida-con-sensecraft-ai-studio" class="nav-link" data-scroll-target="#ejercicio-5-resolución-del-reto-visión-artificial-embebida-con-sensecraft-ai-studio">4.7 Ejercicio 5 (Resolución del Reto): Visión Artificial Embebida con SenseCraft AI Studio</a></li>
+  <li><a href="#integración-con-arquitectura-iot-mqtt-solución-integral" id="toc-integración-con-arquitectura-iot-mqtt-solución-integral" class="nav-link" data-scroll-target="#integración-con-arquitectura-iot-mqtt-solución-integral">4.8 Integración con Arquitectura IoT / MQTT (Solución Integral)</a></li>
+  </ul></li>
+  <li><a href="#bibliografía-y-referencias" id="toc-bibliografía-y-referencias" class="nav-link" data-scroll-target="#bibliografía-y-referencias">📚 Bibliografía y Referencias</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -323,8 +413,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../corte3/index.html">🟨 Corte 3: Datos, IA &amp; Ética</a></li><li class="breadcrumb-item"><a href="../../corte3/clase13/index.html">Clase 13: Big Data, ML &amp; CDSS</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Clase 13: Big Data, Machine Learning &amp; TinyML</h1>
-<p class="subtitle lead">Semana 13 | Corte 3</p>
+<div class="quarto-title-block"><div><h1 class="title">Clase 13: Big Data, Machine Learning &amp; TinyML en Salud</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Semana 13 | Corte 3 — Computación Neuronal, Arquitecturas Embebidas y Laboratorio con XIAO ESP32S3 Sense</p>
 </div>
 
 
@@ -334,14 +424,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Prof.&nbsp;Jefferson Sarmiento Rojas </p>
+             <p>Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c) </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 23, 2026</p>
+      <p class="date">October 14, 2026</p>
     </div>
   </div>
   
@@ -353,27 +443,727 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="slides.html" target="_blank" class="btn-slide">💻 Ver Presentación de Diapositivas</a></p>
-<section id="objetivos-de-la-clase" class="level2">
-<h2 class="anchored" data-anchor-id="objetivos-de-la-clase">🎯 Objetivos de la Clase</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Objetivo 1 (En desarrollo)</label></li>
-<li><label><input type="checkbox">Objetivo 2 (En desarrollo)</label></li>
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+  <a href="slides.html" target="_blank" class="btn btn-primary">
+    <i class="bi bi-display"></i> 💻 Ver Presentación de Diapositivas
+  </a>
+  <a href="recursos/ACTIVIDAD_PRACTICA_LABORATORIO_IA.pdf" target="_blank" class="btn btn-outline-danger">
+    <i class="bi bi-file-earmark-pdf"></i> 📄 Descargar Guía Práctica de Laboratorio (PDF)
+  </a>
+  <a href="https://seeed-studio.github.io/SenseCraft-Web-Toolkit/" target="_blank" class="btn btn-outline-success">
+    <i class="bi bi-cpu"></i> 🛠️ SenseCraft AI Studio (Web Workspace)
+  </a>
+  <a href="https://mlsysbook.ai/vol1/nn_computation/nn_computation.html" target="_blank" class="btn btn-outline-secondary">
+    <i class="bi bi-book"></i> 📖 MLSysBook: Neural Computation (Reddi et al.)
+  </a>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>💡 Resumen Ejecutivo de la Sesión
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En esta sesión profundizamos en la convergencia entre <strong>Big Data</strong>, <strong>Machine Learning (ML)</strong> y el paradigma emergente de <strong>TinyML (Machine Learning Embebido)</strong> aplicado al entorno biomédico y clínico.</p>
+<p>A partir de los principios de computación neuronal desarrollados por Reddi et al.&nbsp;en el texto de referencia <em>Machine Learning Systems</em> (<a href="https://mlsysbook.ai/vol1/nn_computation/nn_computation.html">mlsysbook.ai</a>), analizaremos cómo la transición de la programación tradicional a la aritmética neuronal permite procesar patrones fisiológicos complejos. Examinaremos el <strong>ciclo de vida completo de un sistema de ML</strong> y contrastaremos el espectro de computación distribuida (<strong>Cloud ML vs.&nbsp;Edge ML vs.&nbsp;TinyML</strong>).</p>
+<p>En el componente práctico, abordaremos el reto de <strong>identificación automática de equipamiento hospitalario</strong> durante rondas de vigilancia e inducción, utilizando la placa de desarrollo de ultra bajo consumo <strong>Seeed Studio XIAO ESP32S3 Sense</strong>, dotada de cámara digital OV2640 y micrófono PDM. Los estudiantes entrenarán y desplegarán un clasificador neuronal mediante <strong>SenseCraft AI Studio</strong>, integrando la telemetría del equipo con el protocolo <strong>MQTT</strong> para despachar enlaces a manuales de operación en tiempo real.</p>
+</div>
+</div>
+<hr>
+<section id="resultados-de-aprendizaje-esperados-rae" class="level2">
+<h2 class="anchored" data-anchor-id="resultados-de-aprendizaje-esperados-rae">🎯 Resultados de Aprendizaje Esperados (RAE)</h2>
+<p>Al finalizar esta sesión y la práctica de laboratorio, el estudiante estará en capacidad de:</p>
+<ol type="1">
+<li><strong>Identificar los principios fundamentales del aprendizaje automático embebido (TinyML)</strong> y su diferenciación frente a la computación en la nube (Cloud ML) y la programación tradicional basada en reglas.</li>
+<li><strong>Comprender la neurona artificial como primitiva computacional</strong>, analizando el flujo de operaciones de suma ponderada (MACs), funciones de activación no lineales y complejidad de memoria (Flash vs.&nbsp;SRAM) en arquitecturas feedforward.</li>
+<li><strong>Diseñar y entrenar modelos TinyML para la clasificación visual de patrones biomédicos</strong>, evaluando métricas de precisión, latencia de inferencia y consumo de potencia.</li>
+<li><strong>Implementar un sistema inteligente embebido sobre la tarjeta XIAO ESP32S3 Sense</strong>, configurando periféricos de audio digital (I2S/PDM), memoria PSRAM y cámara OV2640.</li>
+<li><strong>Vincular la inferencia en el borde (Edge AI) con arquitecturas de interoperabilidad IoT/MQTT</strong>, transmitiendo alertas y enlaces a documentación técnica hospitalaria de forma asíncrona.</li>
+</ol>
+<hr>
+</section>
+<section id="de-la-lógica-simbólica-a-la-aritmética-neuronal" class="level2">
+<h2 class="anchored" data-anchor-id="de-la-lógica-simbólica-a-la-aritmética-neuronal">🧠 1. De la Lógica Simbólica a la Aritmética Neuronal</h2>
+<section id="cambio-de-paradigma-programación-tradicional-vs.-machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="cambio-de-paradigma-programación-tradicional-vs.-machine-learning">1.1 Cambio de Paradigma: Programación Tradicional vs.&nbsp;Machine Learning</h3>
+<p>Durante décadas, el desarrollo de software biomédico se basó en el paradigma de <strong>programación clásica o deducción simbólica</strong>: un ingeniero o equipo clínico definía un conjunto explícito de <strong>reglas</strong> (condicionales lógicos <code>IF-THEN</code>, umbrales hemodinámicos fijos) y el computador procesaba los <strong>datos</strong> de entrada para producir <strong>respuestas</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/traditional_programming.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Programación Tradicional: Reglas y Datos producen Respuestas (Fuente: MLSysBook / Reddi et al., 2024)"><img src="img/traditional_programming.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Programación Tradicional: Reglas y Datos producen Respuestas (Fuente: MLSysBook / Reddi et al., 2024)"></a></p>
+</figure>
+</div>
+<figcaption>Programación Tradicional: Reglas y Datos producen Respuestas (Fuente: MLSysBook / Reddi et al., 2024)</figcaption>
+</figure>
+</div>
+<p>Sin embargo, en señales biomédicas e imágenes diagnósticas (electrocardiografía, fonocardiografía, retinografía, monitores de signos vitales), la variabilidad biológica, el ruido electrónico y los artefactos de movimiento hacen inviable la formulación manual de reglas universales.</p>
+<p>El <strong>Machine Learning (ML)</strong> invierte este flujo mediante un proceso <strong>inductivo</strong>:</p>
+<p><span class="math display">\[\text{Datos} + \text{Respuestas (Etiquetas)} \xrightarrow{\text{Entrenamiento}} \text{Reglas (Modelo Aprendido)}\]</span></p>
+<p>El algoritmo aprende de forma estadística una función de aproximación <span class="math inline">\(f(\mathbf{x}) \approx y\)</span> a partir de ejemplos históricos anotados.</p>
+<hr>
+</section>
+<section id="evolución-histórica-de-la-inteligencia-artificial" class="level3">
+<h3 class="anchored" data-anchor-id="evolución-histórica-de-la-inteligencia-artificial">1.2 Evolución Histórica de la Inteligencia Artificial</h3>
+<p>La inteligencia artificial no surgió de forma aislada; es la culminación de varias olas tecnológicas sucesivas:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/ai_ml_dl_timeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Evolución histórica: De la IA Simbólica al Machine Learning Estadístico y Deep Learning a Escala (Fuente: MLSysBook / Reddi et al., 2024)"><img src="img/ai_ml_dl_timeline.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="Evolución histórica: De la IA Simbólica al Machine Learning Estadístico y Deep Learning a Escala (Fuente: MLSysBook / Reddi et al., 2024)"></a></p>
+</figure>
+</div>
+<figcaption>Evolución histórica: De la IA Simbólica al Machine Learning Estadístico y Deep Learning a Escala (Fuente: MLSysBook / Reddi et al., 2024)</figcaption>
+</figure>
+</div>
+<div class="table-responsive">
+
+<table class="table table-hover align-middle caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead class="table-dark">
+<tr class="header">
+<th data-quarto-table-cell-role="th">Período</th>
+<th data-quarto-table-cell-role="th">Paradigma</th>
+<th data-quarto-table-cell-role="th">Hitos Principales</th>
+<th data-quarto-table-cell-role="th">Características y Limitaciones</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1950s – 1970s</strong></td>
+<td><strong>Inteligencia Artificial Simbólica</strong></td>
+<td>• Taller de Dartmouth (1956)<br>
+• Perceptrón simple de Rosenblatt (1958)<br>
+• Crítica de Minsky &amp; Papert al problema XOR (1969)</td>
+<td>Sistemas expertos basados en lógica proposicional. Fracaso ante problemas no linealmente separables; desencadenó el primer <em>Invierno de la IA</em>.</td>
+</tr>
+<tr class="even">
+<td><strong>1980s – 2000s</strong></td>
+<td><strong>Machine Learning Estadístico</strong></td>
+<td>• Retropropagación / Backprop (Rumelhart et al., 1986)<br>
+• Redes Recurrentes LSTM (Hochreiter &amp; Schmidhuber, 1997)<br>
+• Support Vector Machines (SVM) y Bosques Aleatorios (2001)</td>
+<td>Modelado estadístico a partir de datos. Dependencia crítica de la <em>ingeniería manual de características</em> (extracción artesanal de picos R en ECG o descriptores de textura).</td>
+</tr>
+<tr class="odd">
+<td><strong>2010s – Presente</strong></td>
+<td><strong>Deep Learning &amp; Redes a Escala</strong></td>
+<td>• AlexNet y la revolución ImageNet en GPU (2012)<br>
+• Arquitectura Transformer y Mecanismo de Atención (Vaswani et al., 2017)<br>
+• Edge AI y TinyML en microcontroladores (Reddi et al., 2020+)</td>
+<td>Extracción jerárquica y automatizada de características (Feature Learning). Alto costo computacional que impulsó la aceleración por hardware (TPUs, NPUs) y la cuantización de modelos.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<hr>
+</section>
+<section id="el-cuello-de-botella-de-la-ingeniería-de-características" class="level3">
+<h3 class="anchored" data-anchor-id="el-cuello-de-botella-de-la-ingeniería-de-características">1.3 El Cuello de Botella de la Ingeniería de Características</h3>
+<p>En el enfoque clásico de Machine Learning, el 80% del tiempo de ingeniería biomédica se invertía en construir transformadas manuales (Transformada Wavelet, Transformada Rápida de Fourier, momentos estadísticos). Si las características extraídas no capturaban la patología, ningún algoritmo lograba clasificarla correctamente.</p>
+<p>Las <strong>Redes Neuronales Profundas (Deep Learning)</strong> resuelven este obstáculo al aprender representaciones jerárquicas directamente desde los datos crudos:</p>
+<ul>
+<li><strong>Capas iniciales:</strong> Detectan bordes, gradientes de intensidad y transiciones de frecuencia.</li>
+<li><strong>Capas intermedias:</strong> Combinan bordes para formar texturas, formas geométricas o morfologías de ondas clínicas (complejo QRS, onda P).</li>
+<li><strong>Capas finales:</strong> Representan el objeto completo o estado patológico (taquicardia ventricular, bomba de infusión volumétrica, electrocardiógrafo).</li>
 </ul>
 <hr>
 </section>
-<section id="materiales-y-lecturas" class="level2">
-<h2 class="anchored" data-anchor-id="materiales-y-lecturas">📖 Materiales y Lecturas</h2>
-<section id="preparación-previa" class="level5 callout-flipped">
-<h5 class="anchored" data-anchor-id="preparación-previa">💡 Preparación Previa</h5>
-<p><em>Contenido y guía práctica en construcción por el docente.</em></p>
+<section id="la-neurona-artificial-como-primitiva-de-computación" class="level3">
+<h3 class="anchored" data-anchor-id="la-neurona-artificial-como-primitiva-de-computación">1.4 La Neurona Artificial como Primitiva de Computación</h3>
+<p>De acuerdo con el modelo formal presentado en <em>MLSysBook</em> (Reddi et al., 2024), la computación neuronal se fundamenta en dos pasos matemáticos sucesivos:</p>
+<pre><code>Entradas (x) ──► [ Suma Ponderada: z = w·x + b ] ──► [ Activación No Lineal: a = σ(z) ] ──► Salida (a)</code></pre>
+<section id="suma-ponderada-y-operación-mac-multiply-accumulate" class="level4">
+<h4 class="anchored" data-anchor-id="suma-ponderada-y-operación-mac-multiply-accumulate">1. Suma Ponderada y Operación MAC (Multiply-Accumulate)</h4>
+<p>Dado un vector de entradas <span class="math inline">\(\mathbf{x} = [x_1, x_2, \dots, x_n]^T\)</span>, un vector de pesos <span class="math inline">\(\mathbf{w} = [w_1, w_2, \dots, w_n]^T\)</span> y un escalar de sesgo (<em>bias</em>) <span class="math inline">\(b\)</span>:</p>
+<p><span class="math display">\[z = \sum_{i=1}^{n} w_i x_i + b = \mathbf{w}^T \mathbf{x} + b\]</span></p>
+<p>Cada multiplicación <span class="math inline">\(w_i \cdot x_i\)</span> seguida de una suma acumulativa constituye una operación <strong>MAC (Multiply-Accumulate)</strong>, equivalente a <strong>2 FLOPs</strong> (Floating Point Operations). El total de MACs define el presupuesto energético y el tiempo de reloj requerido por el microcontrolador.</p>
 </section>
+<section id="funciones-de-activación-no-lineal" class="level4">
+<h4 class="anchored" data-anchor-id="funciones-de-activación-no-lineal">2. Funciones de Activación No Lineal</h4>
+<p>Sin una activación no lineal, una red neuronal de 100 capas colapsaría matemáticamente en una simple transformación lineal afín:</p>
+<p><span class="math display">\[f(g(x)) = W_2(W_1 x + b_1) + b_2 = (W_2 W_1) x + (W_2 b_1 + b_2) = W' x + b'\]</span></p>
+<p>Para romper la linealidad y permitir la aproximación universal de funciones complejas, se aplican funciones de activación:</p>
+<ul>
+<li><strong>ReLU (Rectified Linear Unit):</strong> <span class="math inline">\(\sigma(z) = \max(0, z)\)</span>. Extremadamente eficiente en hardware embebido (un condicional <code>if (z &lt; 0) return 0;</code>), base de TinyML.</li>
+<li><strong>Sigmoide:</strong> <span class="math inline">\(\sigma(z) = \frac{1}{1 + e^{-z}}\)</span>. Mapea a probabilidades en <span class="math inline">\([0, 1]\)</span>, pero costosa de calcular en procesadores sin unidad de punto flotante exponencial.</li>
+<li><strong>Softmax:</strong> Utilizada en la capa de salida para problemas de clasificación multiclase (por ejemplo, clasificar entre 4 tipos de equipos médicos):</li>
+</ul>
+<p><span class="math display">\[\text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{C} e^{z_j}}\]</span></p>
 <hr>
 </section>
-<section id="práctica-de-laboratorio" class="level2">
-<h2 class="anchored" data-anchor-id="práctica-de-laboratorio">🧪 Práctica de Laboratorio</h2>
-<p><em>Actividad práctica en desarrollo.</em></p>
+</section>
+</section>
+<section id="ciclo-de-vida-del-sistema-de-machine-learning-ml-systems-lifecycle" class="level2">
+<h2 class="anchored" data-anchor-id="ciclo-de-vida-del-sistema-de-machine-learning-ml-systems-lifecycle">🔄 2. Ciclo de Vida del Sistema de Machine Learning (ML Systems Lifecycle)</h2>
+<p>Un modelo de inteligencia artificial en salud no es un archivo aislado; forma parte de una cadena productiva continua compuesta por <strong>10 fases interconectadas</strong> con bucles de retroalimentación activa:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/ml_lifecycle_pipeline.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Ciclo de Vida de Sistemas de ML: Desde la adquisición y validación de datos hasta el despliegue e inferencia en producción (Fuente: MLSysBook / Reddi et al., 2024)"><img src="img/ml_lifecycle_pipeline.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="Ciclo de Vida de Sistemas de ML: Desde la adquisición y validación de datos hasta el despliegue e inferencia en producción (Fuente: MLSysBook / Reddi et al., 2024)"></a></p>
+</figure>
+</div>
+<figcaption>Ciclo de Vida de Sistemas de ML: Desde la adquisición y validación de datos hasta el despliegue e inferencia en producción (Fuente: MLSysBook / Reddi et al., 2024)</figcaption>
+</figure>
+</div>
+<div class="row g-3">
+  <div class="col-md-6">
+    <div class="card h-100 border-primary">
+      <div class="card-header bg-primary text-white fw-bold">🟢 Fase de Datos (Data-Centric AI)</div>
+      <div class="card-body">
+        <ol class="mb-0">
+          <li><strong>Data Collection:</strong> Flujo continuo de adquisición desde sensores IoMT, cámaras o HCE.</li>
+          <li><strong>Data Ingestion:</strong> Formateo, indexación y estructuración en almacenes de datos.</li>
+          <li><strong>Data Analysis &amp; Curation:</strong> Detección de artefactos, desbalanceo de clases y valores atípicos.</li>
+          <li><strong>Data Labeling:</strong> Anotación experta por personal clínico o técnico biomédico.</li>
+          <li><strong>Data Validation:</strong> Verificación de integridad, consistencia y trazabilidad de los datos.</li>
+          <li><strong>Data Preparation:</strong> Normalización, particionado (Train 70% / Val 15% / Test 15%) y versionado.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card h-100 border-info">
+      <div class="card-header bg-info text-dark fw-bold">🔵 Fase de Modelo &amp; Despliegue (System-Centric)</div>
+      <div class="card-body">
+        <ol start="7" class="mb-0">
+          <li><strong>Model Training:</strong> Optimización de pesos mediante gradiente descendente estocástico (Adam, SGD).</li>
+          <li><strong>Model Evaluation:</strong> Cálculo de KPIs clínicos (Sensibilidad, Especificidad, F1-Score, Curva ROC-AUC).</li>
+          <li><strong>ML System Validation:</strong> Cuantización (FP32 a INT8), poda de pesos (*pruning*) y pruebas de estrés en hardware real.</li>
+          <li><strong>ML System Deployment:</strong> Carga del firmware en el microcontrolador e inferencia en tiempo real con monitoreo online.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>🔄 Bucles de Retroalimentación en Producción
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Como muestra el diagrama de Reddi et al., cuando el sistema está desplegado en un hospital, el monitoreo del rendimiento online retroalimenta continuamente el pipeline: - <strong>Data fixes:</strong> Identifica imágenes mal clasificadas por iluminación o ángulo para corregir el etiquetado. - <strong>Data needs:</strong> Solicita la recolección de nuevas muestras para clases subrepresentadas o nuevos modelos de equipamiento médico ingresados al inventario hospitalario.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="el-espectro-de-la-inteligencia-distribuida-cloud-ml-vs.-edge-ml-vs.-tinyml" class="level2">
+<h2 class="anchored" data-anchor-id="el-espectro-de-la-inteligencia-distribuida-cloud-ml-vs.-edge-ml-vs.-tinyml">🌐 3. El Espectro de la Inteligencia Distribuida: Cloud ML vs.&nbsp;Edge ML vs.&nbsp;TinyML</h2>
+<p>La computación inteligente en salud no opera en un único nodo centralizado, sino a lo largo de un espectro continuo de potencia de procesamiento y restricciones energéticas:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/distributed_intelligence_spectrum.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="El Espectro de Inteligencia Distribuida: Desde la Nube hasta los Dispositivos de Ultra Bajo Consumo (Fuente: MLSysBook / Reddi et al., 2024)"><img src="img/distributed_intelligence_spectrum.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="El Espectro de Inteligencia Distribuida: Desde la Nube hasta los Dispositivos de Ultra Bajo Consumo (Fuente: MLSysBook / Reddi et al., 2024)"></a></p>
+</figure>
+</div>
+<figcaption>El Espectro de Inteligencia Distribuida: Desde la Nube hasta los Dispositivos de Ultra Bajo Consumo (Fuente: MLSysBook / Reddi et al., 2024)</figcaption>
+</figure>
+</div>
+<section id="tabla-comparativa-de-paradigmas-computacionales" class="level3">
+<h3 class="anchored" data-anchor-id="tabla-comparativa-de-paradigmas-computacionales">3.1 Tabla Comparativa de Paradigmas Computacionales</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/ml_paradigms_table.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Parámetros Operacionales de Cloud ML, Edge ML, Mobile ML y TinyML (Fuente: MLSysBook / Reddi et al., 2024)"><img src="img/ml_paradigms_table.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Parámetros Operacionales de Cloud ML, Edge ML, Mobile ML y TinyML (Fuente: MLSysBook / Reddi et al., 2024)"></a></p>
+</figure>
+</div>
+<figcaption>Parámetros Operacionales de Cloud ML, Edge ML, Mobile ML y TinyML (Fuente: MLSysBook / Reddi et al., 2024)</figcaption>
+</figure>
+</div>
+<div class="table-responsive">
 
+<table class="table table-bordered table-striped align-middle caption-top">
+<thead class="table-dark">
+<tr class="header">
+<th data-quarto-table-cell-role="th">Paradigma</th>
+<th data-quarto-table-cell-role="th">Ubicación del Cómputo</th>
+<th data-quarto-table-cell-role="th">Latencia Típica</th>
+<th data-quarto-table-cell-role="th">Consumo de Potencia</th>
+<th data-quarto-table-cell-role="th">Memoria Disponible</th>
+<th data-quarto-table-cell-role="th">Caso de Uso Óptimo en Salud</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Cloud ML</strong></td>
+<td>Centros de datos remotos (AWS, Azure, GCP)</td>
+<td>100 – 500 ms</td>
+<td>Megavatios (MW)</td>
+<td>Terabytes (TB)</td>
+<td>Entrenamiento de Modelos Fundacionales, procesamiento masivo de resonancias magnéticas (MRI/CT), genómica poblacional.</td>
+</tr>
+<tr class="even">
+<td><strong>Edge ML</strong></td>
+<td>Servidores locales hospitalarios / Gateways</td>
+<td>10 – 100 ms</td>
+<td>~100 W</td>
+<td>Gigabytes (GB)</td>
+<td>Servidores PACS de radiología local, estaciones de monitoreo central en Unidades de Cuidados Intensivos (UCI).</td>
+</tr>
+<tr class="odd">
+<td><strong>Mobile ML</strong></td>
+<td>Smartphones clínicos, tablets asistenciales</td>
+<td>5 – 50 ms</td>
+<td>3 – 5 W</td>
+<td>Gigabytes (GB)</td>
+<td>Aplicaciones de teleconsulta médica, asistentes personales de triaje clínico, diagnóstico dermatológico en consulta.</td>
+</tr>
+<tr class="even">
+<td><strong>TinyML</strong></td>
+<td>Microcontroladores embebidos (MCU) y sensores</td>
+<td><strong>1 – 10 ms</strong></td>
+<td><strong>Miliwatts (mW) o $\mu$W</strong></td>
+<td><strong>Kilobytes (KB) a MB</strong></td>
+<td><strong>Monitoreo continuo <em>always-on</em>, marcapasos inteligentes, audífonos adaptativos, detección visual local de equipos en rondas hospitalarias.</strong></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<hr>
+</section>
+<section id="por-qué-tinyml-en-ingeniería-biomédica" class="level3">
+<h3 class="anchored" data-anchor-id="por-qué-tinyml-en-ingeniería-biomédica">3.2 ¿Por qué TinyML en Ingeniería Biomédica?</h3>
+<p>El procesamiento de IA directamente en el sensor o microcontrolador (<em>on-device AI</em>) aporta cuatro ventajas determinantes:</p>
+<ol type="1">
+<li><strong>Latencia Determinista en Tiempo Real (1–10 ms):</strong> No depende de retardos de red celular o Wi-Fi para emitir un veredicto crítico (por ejemplo, parada cardíaca en desfibrilador o desconexión de bomba).</li>
+<li><strong>Privacidad y Cumplimiento Normativo (Habeas Data / HIPAA):</strong> Las imágenes y las bioseñales del paciente se procesan localmente en la memoria SRAM del chip y se descartan inmediatamente; <strong>los datos sensibles nunca abandonan el dispositivo</strong>.</li>
+<li><strong>Autonomía y Confiabilidad sin Red:</strong> El sistema sigue operando en ambulancias, zonas rurales o ante caídas del servidor hospitalario.</li>
+<li><strong>Eficiencia Energética Extrema:</strong> Transmitir 1 byte por radiofrecuencia (Wi-Fi/4G) gasta hasta <strong>1.000 veces más energía</strong> que computar ese mismo byte localmente en una MCU.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="práctica-de-laboratorio-sistemas-inteligentes-en-informática-médica" class="level2">
+<h2 class="anchored" data-anchor-id="práctica-de-laboratorio-sistemas-inteligentes-en-informática-médica">🧪 4. Práctica de Laboratorio: Sistemas Inteligentes en Informática Médica</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📋 Información del Laboratorio
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Docente:</strong> Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)</li>
+<li><strong>Plataforma de Hardware:</strong> Kit Seeed Studio XIAO ESP32S3 Sense</li>
+<li><strong>Entorno de Programación:</strong> Arduino IDE 2.x con biblioteca ESP32 de Espressif Systems</li>
+<li><strong>Herramienta TinyML:</strong> SenseCraft AI Studio (Web Toolkit)</li>
+<li><strong>Protocolo de Integración:</strong> MQTT (Message Queuing Telemetry Transport)</li>
+</ul>
+</div>
+</div>
+<section id="características-de-la-plataforma-xiao-esp32s3-sense" class="level3">
+<h3 class="anchored" data-anchor-id="características-de-la-plataforma-xiao-esp32s3-sense">4.1 Características de la Plataforma XIAO ESP32S3 Sense</h3>
+<p>La <strong>XIAO ESP32S3 Sense</strong> es una plataforma de cómputo embebido de alto rendimiento diseñada específicamente para aplicaciones de visión artificial y reconocimiento de audio mediante TinyML.</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/xiao_esp32s3_photo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Tarjeta Seeed Studio XIAO ESP32S3 Sense con cámara OV2640 acoplada"><img src="img/lab/xiao_esp32s3_photo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Tarjeta Seeed Studio XIAO ESP32S3 Sense con cámara OV2640 acoplada"></a></p>
+</figure>
+</div>
+<figcaption>Tarjeta Seeed Studio XIAO ESP32S3 Sense con cámara OV2640 acoplada</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/xiao_esp32s3_pinout.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Disposición general de pines (Pinout) de la XIAO ESP32S3 Sense"><img src="img/lab/xiao_esp32s3_pinout.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="Disposición general de pines (Pinout) de la XIAO ESP32S3 Sense"></a></p>
+</figure>
+</div>
+<figcaption>Disposición general de pines (Pinout) de la XIAO ESP32S3 Sense</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Procesador:</strong> MCU Espressif ESP32-S3 de 32 bits, doble núcleo Xtensa LX7 a 240 MHz, con soporte de instrucciones vectoriales para aceleración de redes neuronales.</li>
+<li><strong>Módulo de Visión:</strong> Cámara desmontable <strong>OV2640</strong> (hasta 1600 × 1200 px), intercambiable con sensor OV5640.</li>
+<li><strong>Módulo de Audio:</strong> Micrófono digital PDM integrado en la placa base con interfaz I2S.</li>
+<li><strong>Memoria Expandida:</strong> <strong>8 MB de PSRAM</strong> (Pseudo-Static RAM vía interfaz OPI) y <strong>8 MB de memoria Flash</strong>, esenciales para albergar tensores neuronales. Ranura para tarjeta microSD FAT32 de hasta 32 GB.</li>
+<li><strong>Comunicaciones Inalámbricas:</strong> Wi-Fi 802.11 b/g/n (2.4 GHz) y Bluetooth Low Energy (BLE 5.0) con conector para antena externa U.FL.</li>
+<li><strong>Factor de Forma:</strong> Dimensiones ultra compactas de <strong>21 × 17.5 mm</strong>.</li>
+<li><strong>Gestión de Energía:</strong> Circuito de carga para batería LiPo con consumo en sueño profundo (<em>Deep Sleep</em>) de apenas <strong>14 <span class="math inline">\(\mu\)</span>A</strong>.</li>
+</ul>
+<hr>
+</section>
+<section id="planteamiento-del-problema-hospitalario" class="level3">
+<h3 class="anchored" data-anchor-id="planteamiento-del-problema-hospitalario">4.2 Planteamiento del Problema Hospitalario</h3>
+<p>Durante las rondas de inspección y vigilancia técnica hospitalaria, los practicantes de Ingeniería Biomédica se enfrentan a una amplia diversidad de equipos médicos (bombas de infusión, monitores de signos vitales, desfibriladores, analizadores de ECG) de distintas marcas y generaciones.</p>
+<p>La falta de familiaridad inmediata con un dispositivo específico puede derivar en registros erróneos en el sistema de gestión hospitalaria o demoras para consultar el <strong>manual técnico del fabricante</strong>, poniendo en riesgo la calidad asistencial.</p>
+<p><strong>Reto de Ingeniería:</strong> Desarrollar un sistema embebido inteligente sobre la placa <strong>XIAO ESP32S3 Sense</strong> que capture imágenes del entorno, identifique el equipo médico en tiempo real mediante un modelo TinyML optimizado y transmita vía <strong>MQTT</strong> el identificador del equipo junto con el enlace URL a su manual de operación, facilitando el acceso instantáneo desde el smartphone o tablet del practicante.</p>
+<hr>
+</section>
+<section id="ejercicio-1-configuración-del-entorno-de-desarrollo-arduino-ide" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-1-configuración-del-entorno-de-desarrollo-arduino-ide">4.3 Ejercicio 1: Configuración del Entorno de Desarrollo (Arduino IDE)</h3>
+<ol type="1">
+<li>Conecte la tarjeta XIAO ESP32S3 Sense al computador mediante un cable USB-C de datos.</li>
+<li>Abra Arduino IDE (versión 2.x recomendada).</li>
+<li>Diríjase a <strong>Herramientas <span class="math inline">\(\rightarrow\)</span> Administrador de placas</strong> (o el ícono lateral de placas).</li>
+<li>En el buscador escriba <code>ESP32</code> e instale el paquete oficial <strong><code>esp32</code> by Espressif Systems</strong>.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>⚠️ Precaución con la Selección de Paquete
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No instale el paquete <em>“Placas Arduino ESP32 de Arduino”</em>, ya que está destinado a la placa Arduino Nano ESP32 y generará errores de compilación con las bibliotecas de Seeed Studio.</p>
+</div>
+</div>
+<ol start="5" type="1">
+<li>En el menú superior de selección de placa, escriba <code>xiao esp32s3</code> y seleccione la placa <strong><code>XIAO_ESP32S3</code></strong> junto con el puerto COM asignado por el sistema operativo.</li>
+</ol>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/arduino_board_manager.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Administrador de Placas: Instalación de esp32 by Espressif"><img src="img/lab/arduino_board_manager.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Administrador de Placas: Instalación de esp32 by Espressif"></a></p>
+</figure>
+</div>
+<figcaption>Administrador de Placas: Instalación de esp32 by Espressif</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/arduino_select_xiao.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Selección de placa XIAO_ESP32S3 y puerto COM"><img src="img/lab/arduino_select_xiao.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Selección de placa XIAO_ESP32S3 y puerto COM"></a></p>
+</figure>
+</div>
+<figcaption>Selección de placa XIAO_ESP32S3 y puerto COM</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="ejercicio-2-verificación-de-hardware-blink-y-monitor-serial" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-2-verificación-de-hardware-blink-y-monitor-serial">4.4 Ejercicio 2: Verificación de Hardware (Blink y Monitor Serial)</h3>
+<p>Este ejercicio confirma que la placa responde a la programación y que el enlace de comunicación serie está operativo.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Ejercicio 2: Verificación de LED y Telemetría Serial</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Placa: Seeed Studio XIAO ESP32S3 Sense</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LED_BUILT </span><span class="dv">21</span><span class="pp">  </span><span class="co">// Pin asignado al LED integrado en placa</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>LED_BUILT<span class="op">,</span> OUTPUT<span class="op">);</span> <span class="co">// Configura pin como salida digital</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">9600</span><span class="op">);</span>         <span class="co">// Inicializa comunicación serial a 9600 bps</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>LED_BUILT<span class="op">,</span> LOW<span class="op">);</span>   <span class="co">// Enciende el LED (lógica invertida)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"LED Encendido"</span><span class="op">);</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  delay<span class="op">(</span><span class="dv">1000</span><span class="op">);</span>                    <span class="co">// Pausa de 1 segundo</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>LED_BUILT<span class="op">,</span> HIGH<span class="op">);</span>  <span class="co">// Apaga el LED</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"LED Apagado"</span><span class="op">);</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  delay<span class="op">(</span><span class="dv">1000</span><span class="op">);</span>                    <span class="co">// Pausa de 1 segundo</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Abra el <strong>Monitor Serie</strong> en Arduino IDE configurado a <code>9600 baudios</code> y compruebe la alternancia de estados.</p>
+<hr>
+</section>
+<section id="ejercicio-3-adquisición-de-señal-acústica-con-micrófono-pdm-e-i2s" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-3-adquisición-de-señal-acústica-con-micrófono-pdm-e-i2s">4.5 Ejercicio 3: Adquisición de Señal Acústica con Micrófono PDM e I2S</h3>
+<p>La XIAO ESP32S3 Sense integra un micrófono digital <strong>PDM (Pulse Density Modulation)</strong> que entrega muestras de audio mediante el bus de comunicación <strong>I2S</strong>. Este periférico resulta fundamental para proyectos de fonocardiografía digital o detección acústica de anomalías en turbinas y motores médicos.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Ejercicio 3: Lectura en Tiempo Real del Micrófono PDM Integrado</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Placa: Seeed Studio XIAO ESP32S3 Sense</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;ESP_I2S.h&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>I2SClass I2S<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">115200</span><span class="op">);</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="op">(!</span>Serial<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Espera hasta que el monitor serial esté conectado</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Configura pines del micrófono PDM: Pin 42 (Reloj PDM) y Pin 41 (Datos PDM)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  I2S<span class="op">.</span>setPinsPdmRx<span class="op">(</span><span class="dv">42</span><span class="op">,</span> <span class="dv">41</span><span class="op">);</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Inicializa I2S en modo PDM RX a 16 kHz, 16 bits por muestra, canal Mono</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>I2S<span class="op">.</span>begin<span class="op">(</span>I2S_MODE_PDM_RX<span class="op">,</span> <span class="dv">16000</span><span class="op">,</span> I2S_DATA_BIT_WIDTH_16BIT<span class="op">,</span> I2S_SLOT_MODE_MONO<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"¡Error al inicializar el bus I2S del micrófono!"</span><span class="op">);</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">);</span> <span class="co">// Detención por error</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Micrófono PDM inicializado con éxito."</span><span class="op">);</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Lectura de una muestra de audio digital</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> sample <span class="op">=</span> I2S<span class="op">.</span>read<span class="op">();</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Filtrado de valores espurios o silencios triviales</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>sample <span class="op">!=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> sample <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">&amp;&amp;</span> sample <span class="op">!=</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span>sample<span class="op">);</span> <span class="co">// Imprime el valor instantáneo de amplitud</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>📊 Visualización de la Bioseñal Acústica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Abra <strong>Herramientas <span class="math inline">\(\rightarrow\)</span> Serial Plotter</strong> en Arduino IDE para observar la forma de onda acústica en tiempo real mientras habla o genera sonidos cerca de la placa.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="ejercicio-4-grabación-de-audio-wav-en-microsd-y-habilitación-de-opi-psram" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-4-grabación-de-audio-wav-en-microsd-y-habilitación-de-opi-psram">4.6 Ejercicio 4: Grabación de Audio WAV en MicroSD y Habilitación de OPI PSRAM</h3>
+<p>Dado que un buffer de audio de varios segundos satura los pocos cientos de kilobytes de memoria SRAM interna del microcontrolador, es obligatorio habilitar la memoria externa <strong>PSRAM de 8 MB</strong> integrada en el encapsulado del XIAO.</p>
+<section id="activación-de-psram-en-arduino-ide" class="level4">
+<h4 class="anchored" data-anchor-id="activación-de-psram-en-arduino-ide">Activación de PSRAM en Arduino IDE:</h4>
+<p>Vaya al menú: <strong>Herramientas <span class="math inline">\(\rightarrow\)</span> PSRAM <span class="math inline">\(\rightarrow\)</span> “OPI PSRAM”</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/arduino_psram_opi.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Habilitación de OPI PSRAM en el menú de herramientas de Arduino IDE"><img src="img/lab/arduino_psram_opi.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Habilitación de OPI PSRAM en el menú de herramientas de Arduino IDE"></a></p>
+</figure>
+</div>
+<figcaption>Habilitación de OPI PSRAM en el menú de herramientas de Arduino IDE</figcaption>
+</figure>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Ejercicio 4: Grabador de Audio WAV en Tarjeta MicroSD</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Placa: Seeed Studio XIAO ESP32S3 Sense (Requiere OPI PSRAM habilitada)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"ESP_I2S.h"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"FS.h"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"SD.h"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  I2SClass i2s<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint8_t</span> <span class="op">*</span>wav_buffer<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">size_t</span> wav_size<span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">115200</span><span class="op">);</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="op">(!</span>Serial<span class="op">)</span> delay<span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Iniciando bus I2S para micrófono..."</span><span class="op">);</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  i2s<span class="op">.</span>setPinsPdmRx<span class="op">(</span><span class="dv">42</span><span class="op">,</span> <span class="dv">41</span><span class="op">);</span> <span class="co">// Pines PDM Clock y PDM Data</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>i2s<span class="op">.</span>begin<span class="op">(</span>I2S_MODE_PDM_RX<span class="op">,</span> <span class="dv">16000</span><span class="op">,</span> I2S_DATA_BIT_WIDTH_16BIT<span class="op">,</span> I2S_SLOT_MODE_MONO<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Error en inicialización de I2S"</span><span class="op">);</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Inicializando ranura MicroSD..."</span><span class="op">);</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Pin CS de la ranura microSD en la XIAO ESP32S3 Sense: Pin 21</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>SD<span class="op">.</span>begin<span class="op">(</span><span class="dv">21</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"¡Error al montar la tarjeta MicroSD! Verifique formato FAT32."</span><span class="op">);</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"MicroSD montada correctamente."</span><span class="op">);</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Grabando 20 segundos de audio del entorno..."</span><span class="op">);</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Graba 20 segundos alojando el buffer en la PSRAM</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  wav_buffer <span class="op">=</span> i2s<span class="op">.</span>recordWAV<span class="op">(</span><span class="dv">20</span><span class="op">,</span> <span class="op">&amp;</span>wav_size<span class="op">);</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  File file <span class="op">=</span> SD<span class="op">.</span>open<span class="op">(</span><span class="st">"/audio_biomedico.wav"</span><span class="op">,</span> FILE_WRITE<span class="op">);</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>file<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Error al abrir archivo para escritura en SD."</span><span class="op">);</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Escribiendo datos binarios WAV en SD..."</span><span class="op">);</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>file<span class="op">.</span>write<span class="op">(</span>wav_buffer<span class="op">,</span> wav_size<span class="op">)</span> <span class="op">!=</span> wav_size<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Error en la escritura del buffer completo."</span><span class="op">);</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>  file<span class="op">.</span>close<span class="op">();</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Grabación finalizada con éxito: /audio_biomedico.wav"</span><span class="op">);</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>  delay<span class="op">(</span><span class="dv">1000</span><span class="op">);</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>print<span class="op">(</span><span class="st">"."</span><span class="op">);</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="ejercicio-5-resolución-del-reto-visión-artificial-embebida-con-sensecraft-ai-studio" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-5-resolución-del-reto-visión-artificial-embebida-con-sensecraft-ai-studio">4.7 Ejercicio 5 (Resolución del Reto): Visión Artificial Embebida con SenseCraft AI Studio</h3>
+<p>En este ejercicio aplicaremos el flujo de <strong>Edge AI</strong> sin escribir código a bajo nivel, utilizando la plataforma web oficial <strong>SenseCraft AI Studio</strong> de Seeed Studio.</p>
+<pre><code>[ Navegador Web ] ──(Web Serial API)──► [ XIAO ESP32S3 Sense ] ──► [ Cámara OV2640 ]</code></pre>
+<section id="paso-1-conexión-y-reconocimiento-de-la-placa" class="level4">
+<h4 class="anchored" data-anchor-id="paso-1-conexión-y-reconocimiento-de-la-placa">Paso 1: Conexión y Reconocimiento de la Placa</h4>
+<ol type="1">
+<li>Abra Google Chrome o Microsoft Edge y acceda a <a href="https://seeed-studio.github.io/SenseCraft-Web-Toolkit/">SenseCraft Web Toolkit</a>.</li>
+<li>En la lista de dispositivos compatibles, seleccione <strong>XIAO ESP32S3 Sense</strong>.</li>
+<li>Haga clic en <strong>Connect Device</strong>, seleccione el puerto COM correspondiente y confirme la conexión.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/sensecraft_select_board.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Selección de la tarjeta XIAO ESP32S3 Sense en SenseCraft AI Studio"><img src="img/lab/sensecraft_select_board.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Selección de la tarjeta XIAO ESP32S3 Sense en SenseCraft AI Studio"></a></p>
+</figure>
+</div>
+<figcaption>Selección de la tarjeta XIAO ESP32S3 Sense en SenseCraft AI Studio</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="paso-2-verificación-del-streaming-de-cámara" class="level4">
+<h4 class="anchored" data-anchor-id="paso-2-verificación-del-streaming-de-cámara">Paso 2: Verificación del Streaming de Cámara</h4>
+<p>Cargue el firmware de prueba para verificar que el sensor OV2640 enfoca adecuadamente y transmite vídeo a la ventana del navegador.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/sensecraft_camera_test.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Verificación de funcionamiento y captura de vídeo con cámara OV2640"><img src="img/lab/sensecraft_camera_test.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Verificación de funcionamiento y captura de vídeo con cámara OV2640"></a></p>
+</figure>
+</div>
+<figcaption>Verificación de funcionamiento y captura de vídeo con cámara OV2640</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="paso-3-construcción-del-dataset-biomédico" class="level4">
+<h4 class="anchored" data-anchor-id="paso-3-construcción-del-dataset-biomédico">Paso 3: Construcción del Dataset Biomédico</h4>
+<p>Para resolver el reto hospitalario, defina al menos <strong>3 o 4 clases de equipos médicos</strong>:</p>
+<ul>
+<li><strong>Clase 1:</strong> <code>Bomba_Infusion</code></li>
+<li><strong>Clase 2:</strong> <code>Monitor_Signos_Vitales</code></li>
+<li><strong>Clase 3:</strong> <code>Desfibrilador</code></li>
+<li><strong>Clase 4 (Opcional):</strong> <code>Electrocardiografo</code> o <code>Fondo_Vacio</code> (para evitar falsos positivos).</li>
+</ul>
+<p>Mantenga presionado el botón de captura en cada clase mientras rota el dispositivo médico frente al lente de la cámara, variando la distancia, la inclinación y la iluminación (mínimo <strong>50 a 100 imágenes por clase</strong>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/sensecraft_dataset_capture.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Creación del dataset: Captura de muestras visuales para cada clase de dispositivo"><img src="img/lab/sensecraft_dataset_capture.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Creación del dataset: Captura de muestras visuales para cada clase de dispositivo"></a></p>
+</figure>
+</div>
+<figcaption>Creación del dataset: Captura de muestras visuales para cada clase de dispositivo</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="paso-4-entrenamiento-y-optimización-del-modelo" class="level4">
+<h4 class="anchored" data-anchor-id="paso-4-entrenamiento-y-optimización-del-modelo">Paso 4: Entrenamiento y Optimización del Modelo</h4>
+<ol type="1">
+<li>Haga clic en <strong>Start Training</strong>.</li>
+<li>SenseCraft procesará el dataset mediante una arquitectura convolucional ligera optimizada para microcontroladores (MobileNetV2 / SqueezeNet con cuantización INT8).</li>
+<li>Revise la matriz de confusión y el valor de precisión (<em>Accuracy</em>). Si alguna clase muestra confusión, capture más imágenes con diferentes ángulos de luz.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/sensecraft_train_model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Entrenamiento del clasificador neuronal embebido en SenseCraft"><img src="img/lab/sensecraft_train_model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Entrenamiento del clasificador neuronal embebido en SenseCraft"></a></p>
+</figure>
+</div>
+<figcaption>Entrenamiento del clasificador neuronal embebido en SenseCraft</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="paso-5-despliegue-en-la-tarjeta-flashing" class="level4">
+<h4 class="anchored" data-anchor-id="paso-5-despliegue-en-la-tarjeta-flashing">Paso 5: Despliegue en la Tarjeta (Flashing)</h4>
+<p>Haga clic en <strong>Deploy Model</strong>. La plataforma compilará el modelo cuantizado en formato TensorFlow Lite for Microcontrollers (TFLite Micro) y lo grabará directamente en la memoria Flash y PSRAM de la XIAO ESP32S3 Sense.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/sensecraft_deploy_model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Flasheo y despliegue del modelo neuronal compilado en la MCU"><img src="img/lab/sensecraft_deploy_model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Flasheo y despliegue del modelo neuronal compilado en la MCU"></a></p>
+</figure>
+</div>
+<figcaption>Flasheo y despliegue del modelo neuronal compilado en la MCU</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="paso-6-verificación-de-inferencia-en-tiempo-real" class="level4">
+<h4 class="anchored" data-anchor-id="paso-6-verificación-de-inferencia-en-tiempo-real">Paso 6: Verificación de Inferencia en Tiempo Real</h4>
+<p>Una vez finalizada la carga, la tarjeta ejecutará el bucle de inferencia de manera totalmente autónoma a una velocidad de <strong>15 a 30 FPS</strong>. Al apuntar la cámara a un monitor de signos vitales o a una bomba de infusión, la etiqueta y el porcentaje de confianza se visualizarán en pantalla.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/lab/sensecraft_inference_result.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Validación de inferencia local en tiempo real con alta certeza predictiva"><img src="img/lab/sensecraft_inference_result.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Validación de inferencia local en tiempo real con alta certeza predictiva"></a></p>
+</figure>
+</div>
+<figcaption>Validación de inferencia local en tiempo real con alta certeza predictiva</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+</section>
+<section id="integración-con-arquitectura-iot-mqtt-solución-integral" class="level3">
+<h3 class="anchored" data-anchor-id="integración-con-arquitectura-iot-mqtt-solución-integral">4.8 Integración con Arquitectura IoT / MQTT (Solución Integral)</h3>
+<p>Para completar el objetivo del reto hospitalario, el sistema embebido debe enlazar la inferencia local con la red IoT hospitalaria vista en la <a href="../../corte3/clase12/index.html">Clase 12</a>.</p>
+<p>Cuando el modelo detecte una clase con confianza superior al <strong>85%</strong>, el microcontrolador publica un mensaje JSON estructurado al broker MQTT hospitalario en el tópico:</p>
+<p><code>hospital/piso3/uci/equipos/identificacion</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"timestamp"</span><span class="fu">:</span> <span class="st">"2026-10-14T09:30:00Z"</span><span class="fu">,</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"dispositivo_sensor"</span><span class="fu">:</span> <span class="st">"XIAO-ESP32S3-CAM-01"</span><span class="fu">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"equipo_detectado"</span><span class="fu">:</span> <span class="st">"Bomba de Infusión Volumétrica"</span><span class="fu">,</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"modelo"</span><span class="fu">:</span> <span class="st">"B. Braun Infusomat Space"</span><span class="fu">,</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"confianza"</span><span class="fu">:</span> <span class="fl">0.94</span><span class="fu">,</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"manual_tecnico_url"</span><span class="fu">:</span> <span class="st">"https://hospital.urosario.edu.co/manuales/bbraun_infusomat.pdf"</span><span class="fu">,</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"estado_mantenimiento"</span><span class="fu">:</span> <span class="st">"Vigente - Calibración 2026-II"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>De este modo, cualquier smartphone o tablet del servicio hospitalario suscrito al tópico recibe de inmediato el enlace al manual operativo sin requerir búsqueda manual en archivadores físicos.</p>
+<hr>
+</section>
+</section>
+<section id="bibliografía-y-referencias" class="level2">
+<h2 class="anchored" data-anchor-id="bibliografía-y-referencias">📚 Bibliografía y Referencias</h2>
+<ol type="1">
+<li><strong>Reddi, V. J., et al.</strong> (2024). <em>Introduction to Machine Learning Systems: From Logic to Arithmetic (Neural Computation)</em>. Harvard University / MLSysBook. Disponible en: <a href="https://mlsysbook.ai/vol1/nn_computation/nn_computation.html">https://mlsysbook.ai/vol1/nn_computation/nn_computation.html</a></li>
+<li><strong>Sarmiento Rojas, J.</strong> (2026). <em>Actividad Práctica de Laboratorio: Sistemas Inteligentes en Informática Médica</em>. Programa de Ingeniería Biomédica, Escuela de Medicina y Ciencias de la Salud, Universidad del Rosario. <a href="recursos/ACTIVIDAD_PRACTICA_LABORATORIO_IA.pdf">Descargar PDF</a></li>
+<li><strong>Warden, P., &amp; Situnayake, D.</strong> (2019). <em>TinyML: Machine Learning with TensorFlow Lite on Arduino and Ultra-Low-Power Microcontrollers</em>. O’Reilly Media.</li>
+<li><strong>Seeed Studio.</strong> (2024). <em>Getting Started with Seeed Studio XIAO ESP32S3 (Sense)</em>. Seeed Wiki Documentation. Disponible en: <a href="https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/">https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/</a></li>
+<li><strong>Espressif Systems.</strong> (2024). <em>ESP-IDF Programming Guide: ESP32-S3 Technical Reference Manual (Vector Instructions &amp; I2S PDM)</em>. Disponible en: <a href="https://docs.espressif.com/">https://docs.espressif.com/</a></li>
+</ol>
+
+
+<!-- -->
 
 </section>
 
@@ -448,6 +1238,57 @@ ul.task-list li input[type="checkbox"] {
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -777,7 +1618,602 @@ ul.task-list li input[type="checkbox"] {
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Clase 13: Big Data, Machine Learning &amp; TinyML en Salud"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Semana 13 | Corte 3 — Computación Neuronal, Arquitecturas Embebidas y Laboratorio con XIAO ESP32S3 Sense"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Prof. Jefferson Sarmiento Rojas, Ph.D (c)"</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2026-10-14"</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: show</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2"&gt;</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;a href="slides.html" target="_blank" class="btn btn-primary"&gt;</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;i class="bi bi-display"&gt;&lt;/i&gt; 💻 Ver Presentación de Diapositivas</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/a&gt;</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;a href="recursos/ACTIVIDAD_PRACTICA_LABORATORIO_IA.pdf" target="_blank" class="btn btn-outline-danger"&gt;</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;i class="bi bi-file-earmark-pdf"&gt;&lt;/i&gt; 📄 Descargar Guía Práctica de Laboratorio (PDF)</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/a&gt;</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;a href="https://seeed-studio.github.io/SenseCraft-Web-Toolkit/" target="_blank" class="btn btn-outline-success"&gt;</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;i class="bi bi-cpu"&gt;&lt;/i&gt; 🛠️ SenseCraft AI Studio (Web Workspace)</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/a&gt;</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;a href="https://mlsysbook.ai/vol1/nn_computation/nn_computation.html" target="_blank" class="btn btn-outline-secondary"&gt;</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;i class="bi bi-book"&gt;&lt;/i&gt; 📖 MLSysBook: Neural Computation (Reddi et al.)</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/a&gt;</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💡 Resumen Ejecutivo de la Sesión</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>En esta sesión profundizamos en la convergencia entre **Big Data**, **Machine Learning (ML)** y el paradigma emergente de **TinyML (Machine Learning Embebido)** aplicado al entorno biomédico y clínico. </span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>A partir de los principios de computación neuronal desarrollados por Reddi et al. en el texto de referencia *Machine Learning Systems* ([mlsysbook.ai](https://mlsysbook.ai/vol1/nn_computation/nn_computation.html)), analizaremos cómo la transición de la programación tradicional a la aritmética neuronal permite procesar patrones fisiológicos complejos. Examinaremos el **ciclo de vida completo de un sistema de ML** y contrastaremos el espectro de computación distribuida (**Cloud ML vs. Edge ML vs. TinyML**). </span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>En el componente práctico, abordaremos el reto de **identificación automática de equipamiento hospitalario** durante rondas de vigilancia e inducción, utilizando la placa de desarrollo de ultra bajo consumo **Seeed Studio XIAO ESP32S3 Sense**, dotada de cámara digital OV2640 y micrófono PDM. Los estudiantes entrenarán y desplegarán un clasificador neuronal mediante **SenseCraft AI Studio**, integrando la telemetría del equipo con el protocolo **MQTT** para despachar enlaces a manuales de operación en tiempo real.</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Resultados de Aprendizaje Esperados (RAE)</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>Al finalizar esta sesión y la práctica de laboratorio, el estudiante estará en capacidad de:</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Identificar los principios fundamentales del aprendizaje automático embebido (TinyML)** y su diferenciación frente a la computación en la nube (Cloud ML) y la programación tradicional basada en reglas.</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Comprender la neurona artificial como primitiva computacional**, analizando el flujo de operaciones de suma ponderada (MACs), funciones de activación no lineales y complejidad de memoria (Flash vs. SRAM) en arquitecturas feedforward.</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Diseñar y entrenar modelos TinyML para la clasificación visual de patrones biomédicos**, evaluando métricas de precisión, latencia de inferencia y consumo de potencia.</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Implementar un sistema inteligente embebido sobre la tarjeta XIAO ESP32S3 Sense**, configurando periféricos de audio digital (I2S/PDM), memoria PSRAM y cámara OV2640.</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Vincular la inferencia en el borde (Edge AI) con arquitecturas de interoperabilidad IoT/MQTT**, transmitiendo alertas y enlaces a documentación técnica hospitalaria de forma asíncrona.</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 1. De la Lógica Simbólica a la Aritmética Neuronal</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1.1 Cambio de Paradigma: Programación Tradicional vs. Machine Learning</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>Durante décadas, el desarrollo de software biomédico se basó en el paradigma de **programación clásica o deducción simbólica**: un ingeniero o equipo clínico definía un conjunto explícito de **reglas** (condicionales lógicos `IF-THEN`, umbrales hemodinámicos fijos) y el computador procesaba los **datos** de entrada para producir **respuestas**.</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="al">![Programación Tradicional: Reglas y Datos producen Respuestas (Fuente: MLSysBook / Reddi et al., 2024)](img/traditional_programming.png)</span>{fig-align="center" width="70%"}</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>Sin embargo, en señales biomédicas e imágenes diagnósticas (electrocardiografía, fonocardiografía, retinografía, monitores de signos vitales), la variabilidad biológica, el ruido electrónico y los artefactos de movimiento hacen inviable la formulación manual de reglas universales. </span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>El **Machine Learning (ML)** invierte este flujo mediante un proceso **inductivo**:</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>$$\text{Datos} + \text{Respuestas (Etiquetas)} \xrightarrow{\text{Entrenamiento}} \text{Reglas (Modelo Aprendido)}$$</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>El algoritmo aprende de forma estadística una función de aproximación $f(\mathbf{x}) \approx y$ a partir de ejemplos históricos anotados.</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1.2 Evolución Histórica de la Inteligencia Artificial</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>La inteligencia artificial no surgió de forma aislada; es la culminación de varias olas tecnológicas sucesivas:</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a><span class="al">![Evolución histórica: De la IA Simbólica al Machine Learning Estadístico y Deep Learning a Escala (Fuente: MLSysBook / Reddi et al., 2024)](img/ai_ml_dl_timeline.png)</span>{fig-align="center" width="95%"}</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="table-responsive"&gt;</span></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;table class="table table-hover align-middle"&gt;</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;thead class="table-dark"&gt;</span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th&gt;Período&lt;/th&gt;</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th&gt;Paradigma&lt;/th&gt;</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th&gt;Hitos Principales&lt;/th&gt;</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th&gt;Características y Limitaciones&lt;/th&gt;</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/thead&gt;</span></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tbody&gt;</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;1950s – 1970s&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;Inteligencia Artificial Simbólica&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a><span class="in">        • Taller de Dartmouth (1956)&lt;br&gt;</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a><span class="in">        • Perceptrón simple de Rosenblatt (1958)&lt;br&gt;</span></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a><span class="in">        • Crítica de Minsky &amp; Papert al problema XOR (1969)</span></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/td&gt;</span></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Sistemas expertos basados en lógica proposicional. Fracaso ante problemas no linealmente separables; desencadenó el primer &lt;em&gt;Invierno de la IA&lt;/em&gt;.&lt;/td&gt;</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;1980s – 2000s&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;Machine Learning Estadístico&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;</span></span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a><span class="in">        • Retropropagación / Backprop (Rumelhart et al., 1986)&lt;br&gt;</span></span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a><span class="in">        • Redes Recurrentes LSTM (Hochreiter &amp; Schmidhuber, 1997)&lt;br&gt;</span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="in">        • Support Vector Machines (SVM) y Bosques Aleatorios (2001)</span></span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/td&gt;</span></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Modelado estadístico a partir de datos. Dependencia crítica de la &lt;em&gt;ingeniería manual de características&lt;/em&gt; (extracción artesanal de picos R en ECG o descriptores de textura).&lt;/td&gt;</span></span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;2010s – Presente&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;Deep Learning &amp; Redes a Escala&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;</span></span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a><span class="in">        • AlexNet y la revolución ImageNet en GPU (2012)&lt;br&gt;</span></span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a><span class="in">        • Arquitectura Transformer y Mecanismo de Atención (Vaswani et al., 2017)&lt;br&gt;</span></span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a><span class="in">        • Edge AI y TinyML en microcontroladores (Reddi et al., 2020+)</span></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/td&gt;</span></span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Extracción jerárquica y automatizada de características (Feature Learning). Alto costo computacional que impulsó la aceleración por hardware (TPUs, NPUs) y la cuantización de modelos.&lt;/td&gt;</span></span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tbody&gt;</span></span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/table&gt;</span></span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1.3 El Cuello de Botella de la Ingeniería de Características</span></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a>En el enfoque clásico de Machine Learning, el 80% del tiempo de ingeniería biomédica se invertía en construir transformadas manuales (Transformada Wavelet, Transformada Rápida de Fourier, momentos estadísticos). Si las características extraídas no capturaban la patología, ningún algoritmo lograba clasificarla correctamente.</span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a>Las **Redes Neuronales Profundas (Deep Learning)** resuelven este obstáculo al aprender representaciones jerárquicas directamente desde los datos crudos:</span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Capas iniciales:** Detectan bordes, gradientes de intensidad y transiciones de frecuencia.</span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Capas intermedias:** Combinan bordes para formar texturas, formas geométricas o morfologías de ondas clínicas (complejo QRS, onda P).</span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Capas finales:** Representan el objeto completo o estado patológico (taquicardia ventricular, bomba de infusión volumétrica, electrocardiógrafo).</span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1.4 La Neurona Artificial como Primitiva de Computación</span></span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a>De acuerdo con el modelo formal presentado en *MLSysBook* (Reddi et al., 2024), la computación neuronal se fundamenta en dos pasos matemáticos sucesivos:</span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a><span class="in">Entradas (x) ──► [ Suma Ponderada: z = w·x + b ] ──► [ Activación No Lineal: a = σ(z) ] ──► Salida (a)</span></span>
+<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 1. Suma Ponderada y Operación MAC (Multiply-Accumulate)</span></span>
+<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a>Dado un vector de entradas $\mathbf{x} = <span class="co">[</span><span class="ot">x_1, x_2, \dots, x_n</span><span class="co">]</span>^T$, un vector de pesos $\mathbf{w} = <span class="co">[</span><span class="ot">w_1, w_2, \dots, w_n</span><span class="co">]</span>^T$ y un escalar de sesgo (*bias*) $b$:</span>
+<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a>$$z = \sum_{i=1}^{n} w_i x_i + b = \mathbf{w}^T \mathbf{x} + b$$</span>
+<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a>Cada multiplicación $w_i \cdot x_i$ seguida de una suma acumulativa constituye una operación **MAC (Multiply-Accumulate)**, equivalente a **2 FLOPs** (Floating Point Operations). El total de MACs define el presupuesto energético y el tiempo de reloj requerido por el microcontrolador.</span>
+<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a><span class="fu">#### 2. Funciones de Activación No Lineal</span></span>
+<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a>Sin una activación no lineal, una red neuronal de 100 capas colapsaría matemáticamente en una simple transformación lineal afín:</span>
+<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a>$$f(g(x)) = W_2(W_1 x + b_1) + b_2 = (W_2 W_1) x + (W_2 b_1 + b_2) = W' x + b'$$</span>
+<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a>Para romper la linealidad y permitir la aproximación universal de funciones complejas, se aplican funciones de activación:</span>
+<span id="cb7-162"><a href="#cb7-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-163"><a href="#cb7-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**ReLU (Rectified Linear Unit):** $\sigma(z) = \max(0, z)$. Extremadamente eficiente en hardware embebido (un condicional <span class="in">`if (z &lt; 0) return 0;`</span>), base de TinyML.</span>
+<span id="cb7-164"><a href="#cb7-164" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Sigmoide:** $\sigma(z) = \frac{1}{1 + e^{-z}}$. Mapea a probabilidades en $<span class="co">[</span><span class="ot">0, 1</span><span class="co">]</span>$, pero costosa de calcular en procesadores sin unidad de punto flotante exponencial.</span>
+<span id="cb7-165"><a href="#cb7-165" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Softmax:** Utilizada en la capa de salida para problemas de clasificación multiclase (por ejemplo, clasificar entre 4 tipos de equipos médicos):</span>
+<span id="cb7-166"><a href="#cb7-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a>$$\text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{C} e^{z_j}}$$</span>
+<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔄 2. Ciclo de Vida del Sistema de Machine Learning (ML Systems Lifecycle)</span></span>
+<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a>Un modelo de inteligencia artificial en salud no es un archivo aislado; forma parte de una cadena productiva continua compuesta por **10 fases interconectadas** con bucles de retroalimentación activa:</span>
+<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a><span class="al">![Ciclo de Vida de Sistemas de ML: Desde la adquisición y validación de datos hasta el despliegue e inferencia en producción (Fuente: MLSysBook / Reddi et al., 2024)](img/ml_lifecycle_pipeline.png)</span>{fig-align="center" width="95%"}</span>
+<span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb7-178"><a href="#cb7-178" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="row g-3"&gt;</span></span>
+<span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="col-md-6"&gt;</span></span>
+<span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="card h-100 border-primary"&gt;</span></span>
+<span id="cb7-181"><a href="#cb7-181" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="card-header bg-primary text-white fw-bold"&gt;🟢 Fase de Datos (Data-Centric AI)&lt;/div&gt;</span></span>
+<span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="card-body"&gt;</span></span>
+<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;ol class="mb-0"&gt;</span></span>
+<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;&lt;strong&gt;Data Collection:&lt;/strong&gt; Flujo continuo de adquisición desde sensores IoMT, cámaras o HCE.&lt;/li&gt;</span></span>
+<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;&lt;strong&gt;Data Ingestion:&lt;/strong&gt; Formateo, indexación y estructuración en almacenes de datos.&lt;/li&gt;</span></span>
+<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;&lt;strong&gt;Data Analysis &amp; Curation:&lt;/strong&gt; Detección de artefactos, desbalanceo de clases y valores atípicos.&lt;/li&gt;</span></span>
+<span id="cb7-187"><a href="#cb7-187" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;&lt;strong&gt;Data Labeling:&lt;/strong&gt; Anotación experta por personal clínico o técnico biomédico.&lt;/li&gt;</span></span>
+<span id="cb7-188"><a href="#cb7-188" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;&lt;strong&gt;Data Validation:&lt;/strong&gt; Verificación de integridad, consistencia y trazabilidad de los datos.&lt;/li&gt;</span></span>
+<span id="cb7-189"><a href="#cb7-189" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;&lt;strong&gt;Data Preparation:&lt;/strong&gt; Normalización, particionado (Train 70% / Val 15% / Test 15%) y versionado.&lt;/li&gt;</span></span>
+<span id="cb7-190"><a href="#cb7-190" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;/ol&gt;</span></span>
+<span id="cb7-191"><a href="#cb7-191" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb7-192"><a href="#cb7-192" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb7-193"><a href="#cb7-193" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb7-194"><a href="#cb7-194" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="col-md-6"&gt;</span></span>
+<span id="cb7-195"><a href="#cb7-195" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="card h-100 border-info"&gt;</span></span>
+<span id="cb7-196"><a href="#cb7-196" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="card-header bg-info text-dark fw-bold"&gt;🔵 Fase de Modelo &amp; Despliegue (System-Centric)&lt;/div&gt;</span></span>
+<span id="cb7-197"><a href="#cb7-197" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="card-body"&gt;</span></span>
+<span id="cb7-198"><a href="#cb7-198" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;ol start="7" class="mb-0"&gt;</span></span>
+<span id="cb7-199"><a href="#cb7-199" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;&lt;strong&gt;Model Training:&lt;/strong&gt; Optimización de pesos mediante gradiente descendente estocástico (Adam, SGD).&lt;/li&gt;</span></span>
+<span id="cb7-200"><a href="#cb7-200" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;&lt;strong&gt;Model Evaluation:&lt;/strong&gt; Cálculo de KPIs clínicos (Sensibilidad, Especificidad, F1-Score, Curva ROC-AUC).&lt;/li&gt;</span></span>
+<span id="cb7-201"><a href="#cb7-201" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;&lt;strong&gt;ML System Validation:&lt;/strong&gt; Cuantización (FP32 a INT8), poda de pesos (*pruning*) y pruebas de estrés en hardware real.&lt;/li&gt;</span></span>
+<span id="cb7-202"><a href="#cb7-202" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;li&gt;&lt;strong&gt;ML System Deployment:&lt;/strong&gt; Carga del firmware en el microcontrolador e inferencia en tiempo real con monitoreo online.&lt;/li&gt;</span></span>
+<span id="cb7-203"><a href="#cb7-203" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;/ol&gt;</span></span>
+<span id="cb7-204"><a href="#cb7-204" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
+<span id="cb7-205"><a href="#cb7-205" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb7-206"><a href="#cb7-206" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/div&gt;</span></span>
+<span id="cb7-207"><a href="#cb7-207" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb7-208"><a href="#cb7-208" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-209"><a href="#cb7-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-210"><a href="#cb7-210" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb7-211"><a href="#cb7-211" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🔄 Bucles de Retroalimentación en Producción</span></span>
+<span id="cb7-212"><a href="#cb7-212" aria-hidden="true" tabindex="-1"></a>Como muestra el diagrama de Reddi et al., cuando el sistema está desplegado en un hospital, el monitoreo del rendimiento online retroalimenta continuamente el pipeline:</span>
+<span id="cb7-213"><a href="#cb7-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data fixes:** Identifica imágenes mal clasificadas por iluminación o ángulo para corregir el etiquetado.</span>
+<span id="cb7-214"><a href="#cb7-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Data needs:** Solicita la recolección de nuevas muestras para clases subrepresentadas o nuevos modelos de equipamiento médico ingresados al inventario hospitalario.</span>
+<span id="cb7-215"><a href="#cb7-215" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-216"><a href="#cb7-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-217"><a href="#cb7-217" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-218"><a href="#cb7-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-219"><a href="#cb7-219" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🌐 3. El Espectro de la Inteligencia Distribuida: Cloud ML vs. Edge ML vs. TinyML</span></span>
+<span id="cb7-220"><a href="#cb7-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-221"><a href="#cb7-221" aria-hidden="true" tabindex="-1"></a>La computación inteligente en salud no opera en un único nodo centralizado, sino a lo largo de un espectro continuo de potencia de procesamiento y restricciones energéticas:</span>
+<span id="cb7-222"><a href="#cb7-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-223"><a href="#cb7-223" aria-hidden="true" tabindex="-1"></a><span class="al">![El Espectro de Inteligencia Distribuida: Desde la Nube hasta los Dispositivos de Ultra Bajo Consumo (Fuente: MLSysBook / Reddi et al., 2024)](img/distributed_intelligence_spectrum.png)</span>{fig-align="center" width="95%"}</span>
+<span id="cb7-224"><a href="#cb7-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-225"><a href="#cb7-225" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.1 Tabla Comparativa de Paradigmas Computacionales</span></span>
+<span id="cb7-226"><a href="#cb7-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-227"><a href="#cb7-227" aria-hidden="true" tabindex="-1"></a><span class="al">![Parámetros Operacionales de Cloud ML, Edge ML, Mobile ML y TinyML (Fuente: MLSysBook / Reddi et al., 2024)](img/ml_paradigms_table.png)</span>{fig-align="center" width="85%"}</span>
+<span id="cb7-228"><a href="#cb7-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-229"><a href="#cb7-229" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb7-230"><a href="#cb7-230" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;div class="table-responsive"&gt;</span></span>
+<span id="cb7-231"><a href="#cb7-231" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;table class="table table-bordered table-striped align-middle"&gt;</span></span>
+<span id="cb7-232"><a href="#cb7-232" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;thead class="table-dark"&gt;</span></span>
+<span id="cb7-233"><a href="#cb7-233" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb7-234"><a href="#cb7-234" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th&gt;Paradigma&lt;/th&gt;</span></span>
+<span id="cb7-235"><a href="#cb7-235" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th&gt;Ubicación del Cómputo&lt;/th&gt;</span></span>
+<span id="cb7-236"><a href="#cb7-236" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th&gt;Latencia Típica&lt;/th&gt;</span></span>
+<span id="cb7-237"><a href="#cb7-237" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th&gt;Consumo de Potencia&lt;/th&gt;</span></span>
+<span id="cb7-238"><a href="#cb7-238" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th&gt;Memoria Disponible&lt;/th&gt;</span></span>
+<span id="cb7-239"><a href="#cb7-239" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;th&gt;Caso de Uso Óptimo en Salud&lt;/th&gt;</span></span>
+<span id="cb7-240"><a href="#cb7-240" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb7-241"><a href="#cb7-241" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/thead&gt;</span></span>
+<span id="cb7-242"><a href="#cb7-242" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;tbody&gt;</span></span>
+<span id="cb7-243"><a href="#cb7-243" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb7-244"><a href="#cb7-244" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;Cloud ML&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-245"><a href="#cb7-245" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Centros de datos remotos (AWS, Azure, GCP)&lt;/td&gt;</span></span>
+<span id="cb7-246"><a href="#cb7-246" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;100 – 500 ms&lt;/td&gt;</span></span>
+<span id="cb7-247"><a href="#cb7-247" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Megavatios (MW)&lt;/td&gt;</span></span>
+<span id="cb7-248"><a href="#cb7-248" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Terabytes (TB)&lt;/td&gt;</span></span>
+<span id="cb7-249"><a href="#cb7-249" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Entrenamiento de Modelos Fundacionales, procesamiento masivo de resonancias magnéticas (MRI/CT), genómica poblacional.&lt;/td&gt;</span></span>
+<span id="cb7-250"><a href="#cb7-250" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb7-251"><a href="#cb7-251" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb7-252"><a href="#cb7-252" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;Edge ML&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-253"><a href="#cb7-253" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Servidores locales hospitalarios / Gateways&lt;/td&gt;</span></span>
+<span id="cb7-254"><a href="#cb7-254" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;10 – 100 ms&lt;/td&gt;</span></span>
+<span id="cb7-255"><a href="#cb7-255" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;~100 W&lt;/td&gt;</span></span>
+<span id="cb7-256"><a href="#cb7-256" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Gigabytes (GB)&lt;/td&gt;</span></span>
+<span id="cb7-257"><a href="#cb7-257" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Servidores PACS de radiología local, estaciones de monitoreo central en Unidades de Cuidados Intensivos (UCI).&lt;/td&gt;</span></span>
+<span id="cb7-258"><a href="#cb7-258" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb7-259"><a href="#cb7-259" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb7-260"><a href="#cb7-260" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;Mobile ML&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-261"><a href="#cb7-261" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Smartphones clínicos, tablets asistenciales&lt;/td&gt;</span></span>
+<span id="cb7-262"><a href="#cb7-262" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;5 – 50 ms&lt;/td&gt;</span></span>
+<span id="cb7-263"><a href="#cb7-263" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;3 – 5 W&lt;/td&gt;</span></span>
+<span id="cb7-264"><a href="#cb7-264" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Gigabytes (GB)&lt;/td&gt;</span></span>
+<span id="cb7-265"><a href="#cb7-265" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Aplicaciones de teleconsulta médica, asistentes personales de triaje clínico, diagnóstico dermatológico en consulta.&lt;/td&gt;</span></span>
+<span id="cb7-266"><a href="#cb7-266" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb7-267"><a href="#cb7-267" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;tr&gt;</span></span>
+<span id="cb7-268"><a href="#cb7-268" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;TinyML&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-269"><a href="#cb7-269" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;Microcontroladores embebidos (MCU) y sensores&lt;/td&gt;</span></span>
+<span id="cb7-270"><a href="#cb7-270" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;1 – 10 ms&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-271"><a href="#cb7-271" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;Miliwatts (mW) o $\mu$W&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-272"><a href="#cb7-272" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;Kilobytes (KB) a MB&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-273"><a href="#cb7-273" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;td&gt;&lt;strong&gt;Monitoreo continuo &lt;em&gt;always-on&lt;/em&gt;, marcapasos inteligentes, audífonos adaptativos, detección visual local de equipos en rondas hospitalarias.&lt;/strong&gt;&lt;/td&gt;</span></span>
+<span id="cb7-274"><a href="#cb7-274" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/tr&gt;</span></span>
+<span id="cb7-275"><a href="#cb7-275" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/tbody&gt;</span></span>
+<span id="cb7-276"><a href="#cb7-276" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/table&gt;</span></span>
+<span id="cb7-277"><a href="#cb7-277" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb7-278"><a href="#cb7-278" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-279"><a href="#cb7-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-280"><a href="#cb7-280" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-281"><a href="#cb7-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-282"><a href="#cb7-282" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3.2 ¿Por qué TinyML en Ingeniería Biomédica?</span></span>
+<span id="cb7-283"><a href="#cb7-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-284"><a href="#cb7-284" aria-hidden="true" tabindex="-1"></a>El procesamiento de IA directamente en el sensor o microcontrolador (*on-device AI*) aporta cuatro ventajas determinantes:</span>
+<span id="cb7-285"><a href="#cb7-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-286"><a href="#cb7-286" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Latencia Determinista en Tiempo Real (1–10 ms):** No depende de retardos de red celular o Wi-Fi para emitir un veredicto crítico (por ejemplo, parada cardíaca en desfibrilador o desconexión de bomba).</span>
+<span id="cb7-287"><a href="#cb7-287" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Privacidad y Cumplimiento Normativo (Habeas Data / HIPAA):** Las imágenes y las bioseñales del paciente se procesan localmente en la memoria SRAM del chip y se descartan inmediatamente; **los datos sensibles nunca abandonan el dispositivo**.</span>
+<span id="cb7-288"><a href="#cb7-288" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Autonomía y Confiabilidad sin Red:** El sistema sigue operando en ambulancias, zonas rurales o ante caídas del servidor hospitalario.</span>
+<span id="cb7-289"><a href="#cb7-289" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Eficiencia Energética Extrema:** Transmitir 1 byte por radiofrecuencia (Wi-Fi/4G) gasta hasta **1.000 veces más energía** que computar ese mismo byte localmente en una MCU.</span>
+<span id="cb7-290"><a href="#cb7-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-291"><a href="#cb7-291" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-292"><a href="#cb7-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-293"><a href="#cb7-293" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧪 4. Práctica de Laboratorio: Sistemas Inteligentes en Informática Médica</span></span>
+<span id="cb7-294"><a href="#cb7-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-295"><a href="#cb7-295" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb7-296"><a href="#cb7-296" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📋 Información del Laboratorio</span></span>
+<span id="cb7-297"><a href="#cb7-297" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Docente:** Prof. Jefferson Sarmiento Rojas, Ph.D (c)</span>
+<span id="cb7-298"><a href="#cb7-298" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Plataforma de Hardware:** Kit Seeed Studio XIAO ESP32S3 Sense</span>
+<span id="cb7-299"><a href="#cb7-299" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Entorno de Programación:** Arduino IDE 2.x con biblioteca ESP32 de Espressif Systems</span>
+<span id="cb7-300"><a href="#cb7-300" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Herramienta TinyML:** SenseCraft AI Studio (Web Toolkit)</span>
+<span id="cb7-301"><a href="#cb7-301" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Protocolo de Integración:** MQTT (Message Queuing Telemetry Transport)</span>
+<span id="cb7-302"><a href="#cb7-302" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-303"><a href="#cb7-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-304"><a href="#cb7-304" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.1 Características de la Plataforma XIAO ESP32S3 Sense</span></span>
+<span id="cb7-305"><a href="#cb7-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-306"><a href="#cb7-306" aria-hidden="true" tabindex="-1"></a>La **XIAO ESP32S3 Sense** es una plataforma de cómputo embebido de alto rendimiento diseñada específicamente para aplicaciones de visión artificial y reconocimiento de audio mediante TinyML.</span>
+<span id="cb7-307"><a href="#cb7-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-308"><a href="#cb7-308" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol=2}</span>
+<span id="cb7-309"><a href="#cb7-309" aria-hidden="true" tabindex="-1"></a><span class="al">![Tarjeta Seeed Studio XIAO ESP32S3 Sense con cámara OV2640 acoplada](img/lab/xiao_esp32s3_photo.png)</span>{fig-align="center" width="75%"}</span>
+<span id="cb7-310"><a href="#cb7-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-311"><a href="#cb7-311" aria-hidden="true" tabindex="-1"></a><span class="al">![Disposición general de pines (Pinout) de la XIAO ESP32S3 Sense](img/lab/xiao_esp32s3_pinout.png)</span>{fig-align="center" width="95%"}</span>
+<span id="cb7-312"><a href="#cb7-312" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-313"><a href="#cb7-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-314"><a href="#cb7-314" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Procesador:** MCU Espressif ESP32-S3 de 32 bits, doble núcleo Xtensa LX7 a 240 MHz, con soporte de instrucciones vectoriales para aceleración de redes neuronales.</span>
+<span id="cb7-315"><a href="#cb7-315" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Módulo de Visión:** Cámara desmontable **OV2640** (hasta 1600 × 1200 px), intercambiable con sensor OV5640.</span>
+<span id="cb7-316"><a href="#cb7-316" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Módulo de Audio:** Micrófono digital PDM integrado en la placa base con interfaz I2S.</span>
+<span id="cb7-317"><a href="#cb7-317" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Memoria Expandida:** **8 MB de PSRAM** (Pseudo-Static RAM vía interfaz OPI) y **8 MB de memoria Flash**, esenciales para albergar tensores neuronales. Ranura para tarjeta microSD FAT32 de hasta 32 GB.</span>
+<span id="cb7-318"><a href="#cb7-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Comunicaciones Inalámbricas:** Wi-Fi 802.11 b/g/n (2.4 GHz) y Bluetooth Low Energy (BLE 5.0) con conector para antena externa U.FL.</span>
+<span id="cb7-319"><a href="#cb7-319" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Factor de Forma:** Dimensiones ultra compactas de **21 × 17.5 mm**.</span>
+<span id="cb7-320"><a href="#cb7-320" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Gestión de Energía:** Circuito de carga para batería LiPo con consumo en sueño profundo (*Deep Sleep*) de apenas **14 $\mu$A**.</span>
+<span id="cb7-321"><a href="#cb7-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-322"><a href="#cb7-322" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-323"><a href="#cb7-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-324"><a href="#cb7-324" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.2 Planteamiento del Problema Hospitalario</span></span>
+<span id="cb7-325"><a href="#cb7-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-326"><a href="#cb7-326" aria-hidden="true" tabindex="-1"></a>Durante las rondas de inspección y vigilancia técnica hospitalaria, los practicantes de Ingeniería Biomédica se enfrentan a una amplia diversidad de equipos médicos (bombas de infusión, monitores de signos vitales, desfibriladores, analizadores de ECG) de distintas marcas y generaciones. </span>
+<span id="cb7-327"><a href="#cb7-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-328"><a href="#cb7-328" aria-hidden="true" tabindex="-1"></a>La falta de familiaridad inmediata con un dispositivo específico puede derivar en registros erróneos en el sistema de gestión hospitalaria o demoras para consultar el **manual técnico del fabricante**, poniendo en riesgo la calidad asistencial.</span>
+<span id="cb7-329"><a href="#cb7-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-330"><a href="#cb7-330" aria-hidden="true" tabindex="-1"></a>**Reto de Ingeniería:**</span>
+<span id="cb7-331"><a href="#cb7-331" aria-hidden="true" tabindex="-1"></a>Desarrollar un sistema embebido inteligente sobre la placa **XIAO ESP32S3 Sense** que capture imágenes del entorno, identifique el equipo médico en tiempo real mediante un modelo TinyML optimizado y transmita vía **MQTT** el identificador del equipo junto con el enlace URL a su manual de operación, facilitando el acceso instantáneo desde el smartphone o tablet del practicante.</span>
+<span id="cb7-332"><a href="#cb7-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-333"><a href="#cb7-333" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-334"><a href="#cb7-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-335"><a href="#cb7-335" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.3 Ejercicio 1: Configuración del Entorno de Desarrollo (Arduino IDE)</span></span>
+<span id="cb7-336"><a href="#cb7-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-337"><a href="#cb7-337" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Conecte la tarjeta XIAO ESP32S3 Sense al computador mediante un cable USB-C de datos.</span>
+<span id="cb7-338"><a href="#cb7-338" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Abra Arduino IDE (versión 2.x recomendada).</span>
+<span id="cb7-339"><a href="#cb7-339" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Diríjase a **Herramientas $\rightarrow$ Administrador de placas** (o el ícono lateral de placas).</span>
+<span id="cb7-340"><a href="#cb7-340" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>En el buscador escriba <span class="in">`ESP32`</span> e instale el paquete oficial **`esp32` by Espressif Systems**.</span>
+<span id="cb7-341"><a href="#cb7-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-342"><a href="#cb7-342" aria-hidden="true" tabindex="-1"></a>::: {.callout-warning}</span>
+<span id="cb7-343"><a href="#cb7-343" aria-hidden="true" tabindex="-1"></a><span class="fu">### ⚠️ Precaución con la Selección de Paquete</span></span>
+<span id="cb7-344"><a href="#cb7-344" aria-hidden="true" tabindex="-1"></a>No instale el paquete *"Placas Arduino ESP32 de Arduino"*, ya que está destinado a la placa Arduino Nano ESP32 y generará errores de compilación con las bibliotecas de Seeed Studio.</span>
+<span id="cb7-345"><a href="#cb7-345" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-346"><a href="#cb7-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-347"><a href="#cb7-347" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>En el menú superior de selección de placa, escriba <span class="in">`xiao esp32s3`</span> y seleccione la placa **`XIAO_ESP32S3`** junto con el puerto COM asignado por el sistema operativo.</span>
+<span id="cb7-348"><a href="#cb7-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-349"><a href="#cb7-349" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol=2}</span>
+<span id="cb7-350"><a href="#cb7-350" aria-hidden="true" tabindex="-1"></a><span class="al">![Administrador de Placas: Instalación de esp32 by Espressif](img/lab/arduino_board_manager.png)</span>{fig-align="center"}</span>
+<span id="cb7-351"><a href="#cb7-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-352"><a href="#cb7-352" aria-hidden="true" tabindex="-1"></a><span class="al">![Selección de placa XIAO_ESP32S3 y puerto COM](img/lab/arduino_select_xiao.png)</span>{fig-align="center"}</span>
+<span id="cb7-353"><a href="#cb7-353" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-354"><a href="#cb7-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-355"><a href="#cb7-355" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-356"><a href="#cb7-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-357"><a href="#cb7-357" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.4 Ejercicio 2: Verificación de Hardware (Blink y Monitor Serial)</span></span>
+<span id="cb7-358"><a href="#cb7-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-359"><a href="#cb7-359" aria-hidden="true" tabindex="-1"></a>Este ejercicio confirma que la placa responde a la programación y que el enlace de comunicación serie está operativo.</span>
+<span id="cb7-360"><a href="#cb7-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-361"><a href="#cb7-361" aria-hidden="true" tabindex="-1"></a><span class="in">```cpp</span></span>
+<span id="cb7-362"><a href="#cb7-362" aria-hidden="true" tabindex="-1"></a><span class="co">// Ejercicio 2: Verificación de LED y Telemetría Serial</span></span>
+<span id="cb7-363"><a href="#cb7-363" aria-hidden="true" tabindex="-1"></a><span class="co">// Placa: Seeed Studio XIAO ESP32S3 Sense</span></span>
+<span id="cb7-364"><a href="#cb7-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-365"><a href="#cb7-365" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LED_BUILT </span><span class="dv">21</span><span class="pp">  </span><span class="co">// Pin asignado al LED integrado en placa</span></span>
+<span id="cb7-366"><a href="#cb7-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-367"><a href="#cb7-367" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-368"><a href="#cb7-368" aria-hidden="true" tabindex="-1"></a>  pinMode<span class="op">(</span>LED_BUILT<span class="op">,</span> OUTPUT<span class="op">);</span> <span class="co">// Configura pin como salida digital</span></span>
+<span id="cb7-369"><a href="#cb7-369" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">9600</span><span class="op">);</span>         <span class="co">// Inicializa comunicación serial a 9600 bps</span></span>
+<span id="cb7-370"><a href="#cb7-370" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-371"><a href="#cb7-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-372"><a href="#cb7-372" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-373"><a href="#cb7-373" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>LED_BUILT<span class="op">,</span> LOW<span class="op">);</span>   <span class="co">// Enciende el LED (lógica invertida)</span></span>
+<span id="cb7-374"><a href="#cb7-374" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"LED Encendido"</span><span class="op">);</span></span>
+<span id="cb7-375"><a href="#cb7-375" aria-hidden="true" tabindex="-1"></a>  delay<span class="op">(</span><span class="dv">1000</span><span class="op">);</span>                    <span class="co">// Pausa de 1 segundo</span></span>
+<span id="cb7-376"><a href="#cb7-376" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-377"><a href="#cb7-377" aria-hidden="true" tabindex="-1"></a>  digitalWrite<span class="op">(</span>LED_BUILT<span class="op">,</span> HIGH<span class="op">);</span>  <span class="co">// Apaga el LED</span></span>
+<span id="cb7-378"><a href="#cb7-378" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"LED Apagado"</span><span class="op">);</span></span>
+<span id="cb7-379"><a href="#cb7-379" aria-hidden="true" tabindex="-1"></a>  delay<span class="op">(</span><span class="dv">1000</span><span class="op">);</span>                    <span class="co">// Pausa de 1 segundo</span></span>
+<span id="cb7-380"><a href="#cb7-380" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-381"><a href="#cb7-381" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-382"><a href="#cb7-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-383"><a href="#cb7-383" aria-hidden="true" tabindex="-1"></a>Abra el **Monitor Serie** en Arduino IDE configurado a <span class="in">`9600 baudios`</span> y compruebe la alternancia de estados.</span>
+<span id="cb7-384"><a href="#cb7-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-385"><a href="#cb7-385" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-386"><a href="#cb7-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-387"><a href="#cb7-387" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.5 Ejercicio 3: Adquisición de Señal Acústica con Micrófono PDM e I2S</span></span>
+<span id="cb7-388"><a href="#cb7-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-389"><a href="#cb7-389" aria-hidden="true" tabindex="-1"></a>La XIAO ESP32S3 Sense integra un micrófono digital **PDM (Pulse Density Modulation)** que entrega muestras de audio mediante el bus de comunicación **I2S**. Este periférico resulta fundamental para proyectos de fonocardiografía digital o detección acústica de anomalías en turbinas y motores médicos.</span>
+<span id="cb7-390"><a href="#cb7-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-391"><a href="#cb7-391" aria-hidden="true" tabindex="-1"></a><span class="in">```cpp</span></span>
+<span id="cb7-392"><a href="#cb7-392" aria-hidden="true" tabindex="-1"></a><span class="co">// Ejercicio 3: Lectura en Tiempo Real del Micrófono PDM Integrado</span></span>
+<span id="cb7-393"><a href="#cb7-393" aria-hidden="true" tabindex="-1"></a><span class="co">// Placa: Seeed Studio XIAO ESP32S3 Sense</span></span>
+<span id="cb7-394"><a href="#cb7-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-395"><a href="#cb7-395" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;ESP_I2S.h&gt;</span></span>
+<span id="cb7-396"><a href="#cb7-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-397"><a href="#cb7-397" aria-hidden="true" tabindex="-1"></a>I2SClass I2S<span class="op">;</span></span>
+<span id="cb7-398"><a href="#cb7-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-399"><a href="#cb7-399" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-400"><a href="#cb7-400" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">115200</span><span class="op">);</span></span>
+<span id="cb7-401"><a href="#cb7-401" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="op">(!</span>Serial<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-402"><a href="#cb7-402" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Espera hasta que el monitor serial esté conectado</span></span>
+<span id="cb7-403"><a href="#cb7-403" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-404"><a href="#cb7-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-405"><a href="#cb7-405" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Configura pines del micrófono PDM: Pin 42 (Reloj PDM) y Pin 41 (Datos PDM)</span></span>
+<span id="cb7-406"><a href="#cb7-406" aria-hidden="true" tabindex="-1"></a>  I2S<span class="op">.</span>setPinsPdmRx<span class="op">(</span><span class="dv">42</span><span class="op">,</span> <span class="dv">41</span><span class="op">);</span></span>
+<span id="cb7-407"><a href="#cb7-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-408"><a href="#cb7-408" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Inicializa I2S en modo PDM RX a 16 kHz, 16 bits por muestra, canal Mono</span></span>
+<span id="cb7-409"><a href="#cb7-409" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>I2S<span class="op">.</span>begin<span class="op">(</span>I2S_MODE_PDM_RX<span class="op">,</span> <span class="dv">16000</span><span class="op">,</span> I2S_DATA_BIT_WIDTH_16BIT<span class="op">,</span> I2S_SLOT_MODE_MONO<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb7-410"><a href="#cb7-410" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"¡Error al inicializar el bus I2S del micrófono!"</span><span class="op">);</span></span>
+<span id="cb7-411"><a href="#cb7-411" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">);</span> <span class="co">// Detención por error</span></span>
+<span id="cb7-412"><a href="#cb7-412" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-413"><a href="#cb7-413" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Micrófono PDM inicializado con éxito."</span><span class="op">);</span></span>
+<span id="cb7-414"><a href="#cb7-414" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-415"><a href="#cb7-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-416"><a href="#cb7-416" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-417"><a href="#cb7-417" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Lectura de una muestra de audio digital</span></span>
+<span id="cb7-418"><a href="#cb7-418" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> sample <span class="op">=</span> I2S<span class="op">.</span>read<span class="op">();</span></span>
+<span id="cb7-419"><a href="#cb7-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-420"><a href="#cb7-420" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Filtrado de valores espurios o silencios triviales</span></span>
+<span id="cb7-421"><a href="#cb7-421" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>sample <span class="op">!=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> sample <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">&amp;&amp;</span> sample <span class="op">!=</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-422"><a href="#cb7-422" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span>sample<span class="op">);</span> <span class="co">// Imprime el valor instantáneo de amplitud</span></span>
+<span id="cb7-423"><a href="#cb7-423" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-424"><a href="#cb7-424" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-425"><a href="#cb7-425" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-426"><a href="#cb7-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-427"><a href="#cb7-427" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip}</span>
+<span id="cb7-428"><a href="#cb7-428" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊 Visualización de la Bioseñal Acústica</span></span>
+<span id="cb7-429"><a href="#cb7-429" aria-hidden="true" tabindex="-1"></a>Abra **Herramientas $\rightarrow$ Serial Plotter** en Arduino IDE para observar la forma de onda acústica en tiempo real mientras habla o genera sonidos cerca de la placa.</span>
+<span id="cb7-430"><a href="#cb7-430" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-431"><a href="#cb7-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-432"><a href="#cb7-432" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-433"><a href="#cb7-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-434"><a href="#cb7-434" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.6 Ejercicio 4: Grabación de Audio WAV en MicroSD y Habilitación de OPI PSRAM</span></span>
+<span id="cb7-435"><a href="#cb7-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-436"><a href="#cb7-436" aria-hidden="true" tabindex="-1"></a>Dado que un buffer de audio de varios segundos satura los pocos cientos de kilobytes de memoria SRAM interna del microcontrolador, es obligatorio habilitar la memoria externa **PSRAM de 8 MB** integrada en el encapsulado del XIAO.</span>
+<span id="cb7-437"><a href="#cb7-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-438"><a href="#cb7-438" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Activación de PSRAM en Arduino IDE:</span></span>
+<span id="cb7-439"><a href="#cb7-439" aria-hidden="true" tabindex="-1"></a>Vaya al menú: **Herramientas $\rightarrow$ PSRAM $\rightarrow$ "OPI PSRAM"**.</span>
+<span id="cb7-440"><a href="#cb7-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-441"><a href="#cb7-441" aria-hidden="true" tabindex="-1"></a><span class="al">![Habilitación de OPI PSRAM en el menú de herramientas de Arduino IDE](img/lab/arduino_psram_opi.png)</span>{fig-align="center" width="70%"}</span>
+<span id="cb7-442"><a href="#cb7-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-443"><a href="#cb7-443" aria-hidden="true" tabindex="-1"></a><span class="in">```cpp</span></span>
+<span id="cb7-444"><a href="#cb7-444" aria-hidden="true" tabindex="-1"></a><span class="co">// Ejercicio 4: Grabador de Audio WAV en Tarjeta MicroSD</span></span>
+<span id="cb7-445"><a href="#cb7-445" aria-hidden="true" tabindex="-1"></a><span class="co">// Placa: Seeed Studio XIAO ESP32S3 Sense (Requiere OPI PSRAM habilitada)</span></span>
+<span id="cb7-446"><a href="#cb7-446" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-447"><a href="#cb7-447" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"ESP_I2S.h"</span></span>
+<span id="cb7-448"><a href="#cb7-448" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"FS.h"</span></span>
+<span id="cb7-449"><a href="#cb7-449" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"SD.h"</span></span>
+<span id="cb7-450"><a href="#cb7-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-451"><a href="#cb7-451" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-452"><a href="#cb7-452" aria-hidden="true" tabindex="-1"></a>  I2SClass i2s<span class="op">;</span></span>
+<span id="cb7-453"><a href="#cb7-453" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint8_t</span> <span class="op">*</span>wav_buffer<span class="op">;</span></span>
+<span id="cb7-454"><a href="#cb7-454" aria-hidden="true" tabindex="-1"></a>  <span class="dt">size_t</span> wav_size<span class="op">;</span></span>
+<span id="cb7-455"><a href="#cb7-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-456"><a href="#cb7-456" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">115200</span><span class="op">);</span></span>
+<span id="cb7-457"><a href="#cb7-457" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="op">(!</span>Serial<span class="op">)</span> delay<span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb7-458"><a href="#cb7-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-459"><a href="#cb7-459" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Iniciando bus I2S para micrófono..."</span><span class="op">);</span></span>
+<span id="cb7-460"><a href="#cb7-460" aria-hidden="true" tabindex="-1"></a>  i2s<span class="op">.</span>setPinsPdmRx<span class="op">(</span><span class="dv">42</span><span class="op">,</span> <span class="dv">41</span><span class="op">);</span> <span class="co">// Pines PDM Clock y PDM Data</span></span>
+<span id="cb7-461"><a href="#cb7-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-462"><a href="#cb7-462" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>i2s<span class="op">.</span>begin<span class="op">(</span>I2S_MODE_PDM_RX<span class="op">,</span> <span class="dv">16000</span><span class="op">,</span> I2S_DATA_BIT_WIDTH_16BIT<span class="op">,</span> I2S_SLOT_MODE_MONO<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb7-463"><a href="#cb7-463" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Error en inicialización de I2S"</span><span class="op">);</span></span>
+<span id="cb7-464"><a href="#cb7-464" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb7-465"><a href="#cb7-465" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-466"><a href="#cb7-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-467"><a href="#cb7-467" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Inicializando ranura MicroSD..."</span><span class="op">);</span></span>
+<span id="cb7-468"><a href="#cb7-468" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Pin CS de la ranura microSD en la XIAO ESP32S3 Sense: Pin 21</span></span>
+<span id="cb7-469"><a href="#cb7-469" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>SD<span class="op">.</span>begin<span class="op">(</span><span class="dv">21</span><span class="op">))</span> <span class="op">{</span></span>
+<span id="cb7-470"><a href="#cb7-470" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"¡Error al montar la tarjeta MicroSD! Verifique formato FAT32."</span><span class="op">);</span></span>
+<span id="cb7-471"><a href="#cb7-471" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb7-472"><a href="#cb7-472" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-473"><a href="#cb7-473" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"MicroSD montada correctamente."</span><span class="op">);</span></span>
+<span id="cb7-474"><a href="#cb7-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-475"><a href="#cb7-475" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Grabando 20 segundos de audio del entorno..."</span><span class="op">);</span></span>
+<span id="cb7-476"><a href="#cb7-476" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Graba 20 segundos alojando el buffer en la PSRAM</span></span>
+<span id="cb7-477"><a href="#cb7-477" aria-hidden="true" tabindex="-1"></a>  wav_buffer <span class="op">=</span> i2s<span class="op">.</span>recordWAV<span class="op">(</span><span class="dv">20</span><span class="op">,</span> <span class="op">&amp;</span>wav_size<span class="op">);</span></span>
+<span id="cb7-478"><a href="#cb7-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-479"><a href="#cb7-479" aria-hidden="true" tabindex="-1"></a>  File file <span class="op">=</span> SD<span class="op">.</span>open<span class="op">(</span><span class="st">"/audio_biomedico.wav"</span><span class="op">,</span> FILE_WRITE<span class="op">);</span></span>
+<span id="cb7-480"><a href="#cb7-480" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(!</span>file<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-481"><a href="#cb7-481" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Error al abrir archivo para escritura en SD."</span><span class="op">);</span></span>
+<span id="cb7-482"><a href="#cb7-482" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb7-483"><a href="#cb7-483" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-484"><a href="#cb7-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-485"><a href="#cb7-485" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Escribiendo datos binarios WAV en SD..."</span><span class="op">);</span></span>
+<span id="cb7-486"><a href="#cb7-486" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>file<span class="op">.</span>write<span class="op">(</span>wav_buffer<span class="op">,</span> wav_size<span class="op">)</span> <span class="op">!=</span> wav_size<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-487"><a href="#cb7-487" aria-hidden="true" tabindex="-1"></a>    Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Error en la escritura del buffer completo."</span><span class="op">);</span></span>
+<span id="cb7-488"><a href="#cb7-488" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb7-489"><a href="#cb7-489" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb7-490"><a href="#cb7-490" aria-hidden="true" tabindex="-1"></a>  file<span class="op">.</span>close<span class="op">();</span></span>
+<span id="cb7-491"><a href="#cb7-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-492"><a href="#cb7-492" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>println<span class="op">(</span><span class="st">"Grabación finalizada con éxito: /audio_biomedico.wav"</span><span class="op">);</span></span>
+<span id="cb7-493"><a href="#cb7-493" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-494"><a href="#cb7-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-495"><a href="#cb7-495" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb7-496"><a href="#cb7-496" aria-hidden="true" tabindex="-1"></a>  delay<span class="op">(</span><span class="dv">1000</span><span class="op">);</span></span>
+<span id="cb7-497"><a href="#cb7-497" aria-hidden="true" tabindex="-1"></a>  Serial<span class="op">.</span>print<span class="op">(</span><span class="st">"."</span><span class="op">);</span></span>
+<span id="cb7-498"><a href="#cb7-498" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb7-499"><a href="#cb7-499" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-500"><a href="#cb7-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-501"><a href="#cb7-501" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-502"><a href="#cb7-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-503"><a href="#cb7-503" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.7 Ejercicio 5 (Resolución del Reto): Visión Artificial Embebida con SenseCraft AI Studio</span></span>
+<span id="cb7-504"><a href="#cb7-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-505"><a href="#cb7-505" aria-hidden="true" tabindex="-1"></a>En este ejercicio aplicaremos el flujo de **Edge AI** sin escribir código a bajo nivel, utilizando la plataforma web oficial **SenseCraft AI Studio** de Seeed Studio.</span>
+<span id="cb7-506"><a href="#cb7-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-507"><a href="#cb7-507" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-508"><a href="#cb7-508" aria-hidden="true" tabindex="-1"></a><span class="in">[ Navegador Web ] ──(Web Serial API)──► [ XIAO ESP32S3 Sense ] ──► [ Cámara OV2640 ]</span></span>
+<span id="cb7-509"><a href="#cb7-509" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-510"><a href="#cb7-510" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-511"><a href="#cb7-511" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Paso 1: Conexión y Reconocimiento de la Placa</span></span>
+<span id="cb7-512"><a href="#cb7-512" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Abra Google Chrome o Microsoft Edge y acceda a <span class="co">[</span><span class="ot">SenseCraft Web Toolkit</span><span class="co">](https://seeed-studio.github.io/SenseCraft-Web-Toolkit/)</span>.</span>
+<span id="cb7-513"><a href="#cb7-513" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>En la lista de dispositivos compatibles, seleccione **XIAO ESP32S3 Sense**.</span>
+<span id="cb7-514"><a href="#cb7-514" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Haga clic en **Connect Device**, seleccione el puerto COM correspondiente y confirme la conexión.</span>
+<span id="cb7-515"><a href="#cb7-515" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-516"><a href="#cb7-516" aria-hidden="true" tabindex="-1"></a><span class="al">![Selección de la tarjeta XIAO ESP32S3 Sense en SenseCraft AI Studio](img/lab/sensecraft_select_board.png)</span>{fig-align="center" width="85%"}</span>
+<span id="cb7-517"><a href="#cb7-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-518"><a href="#cb7-518" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-519"><a href="#cb7-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-520"><a href="#cb7-520" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Paso 2: Verificación del Streaming de Cámara</span></span>
+<span id="cb7-521"><a href="#cb7-521" aria-hidden="true" tabindex="-1"></a>Cargue el firmware de prueba para verificar que el sensor OV2640 enfoca adecuadamente y transmite vídeo a la ventana del navegador.</span>
+<span id="cb7-522"><a href="#cb7-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-523"><a href="#cb7-523" aria-hidden="true" tabindex="-1"></a><span class="al">![Verificación de funcionamiento y captura de vídeo con cámara OV2640](img/lab/sensecraft_camera_test.png)</span>{fig-align="center" width="85%"}</span>
+<span id="cb7-524"><a href="#cb7-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-525"><a href="#cb7-525" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-526"><a href="#cb7-526" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-527"><a href="#cb7-527" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Paso 3: Construcción del Dataset Biomédico</span></span>
+<span id="cb7-528"><a href="#cb7-528" aria-hidden="true" tabindex="-1"></a>Para resolver el reto hospitalario, defina al menos **3 o 4 clases de equipos médicos**:</span>
+<span id="cb7-529"><a href="#cb7-529" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-530"><a href="#cb7-530" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Clase 1:** <span class="in">`Bomba_Infusion`</span></span>
+<span id="cb7-531"><a href="#cb7-531" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Clase 2:** <span class="in">`Monitor_Signos_Vitales`</span></span>
+<span id="cb7-532"><a href="#cb7-532" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Clase 3:** <span class="in">`Desfibrilador`</span></span>
+<span id="cb7-533"><a href="#cb7-533" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Clase 4 (Opcional):** <span class="in">`Electrocardiografo`</span> o <span class="in">`Fondo_Vacio`</span> (para evitar falsos positivos).</span>
+<span id="cb7-534"><a href="#cb7-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-535"><a href="#cb7-535" aria-hidden="true" tabindex="-1"></a>Mantenga presionado el botón de captura en cada clase mientras rota el dispositivo médico frente al lente de la cámara, variando la distancia, la inclinación y la iluminación (mínimo **50 a 100 imágenes por clase**).</span>
+<span id="cb7-536"><a href="#cb7-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-537"><a href="#cb7-537" aria-hidden="true" tabindex="-1"></a><span class="al">![Creación del dataset: Captura de muestras visuales para cada clase de dispositivo](img/lab/sensecraft_dataset_capture.png)</span>{fig-align="center" width="85%"}</span>
+<span id="cb7-538"><a href="#cb7-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-539"><a href="#cb7-539" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-540"><a href="#cb7-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-541"><a href="#cb7-541" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Paso 4: Entrenamiento y Optimización del Modelo</span></span>
+<span id="cb7-542"><a href="#cb7-542" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Haga clic en **Start Training**.</span>
+<span id="cb7-543"><a href="#cb7-543" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>SenseCraft procesará el dataset mediante una arquitectura convolucional ligera optimizada para microcontroladores (MobileNetV2 / SqueezeNet con cuantización INT8).</span>
+<span id="cb7-544"><a href="#cb7-544" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Revise la matriz de confusión y el valor de precisión (*Accuracy*). Si alguna clase muestra confusión, capture más imágenes con diferentes ángulos de luz.</span>
+<span id="cb7-545"><a href="#cb7-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-546"><a href="#cb7-546" aria-hidden="true" tabindex="-1"></a><span class="al">![Entrenamiento del clasificador neuronal embebido en SenseCraft](img/lab/sensecraft_train_model.png)</span>{fig-align="center" width="85%"}</span>
+<span id="cb7-547"><a href="#cb7-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-548"><a href="#cb7-548" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-549"><a href="#cb7-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-550"><a href="#cb7-550" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Paso 5: Despliegue en la Tarjeta (Flashing)</span></span>
+<span id="cb7-551"><a href="#cb7-551" aria-hidden="true" tabindex="-1"></a>Haga clic en **Deploy Model**. La plataforma compilará el modelo cuantizado en formato TensorFlow Lite for Microcontrollers (TFLite Micro) y lo grabará directamente en la memoria Flash y PSRAM de la XIAO ESP32S3 Sense.</span>
+<span id="cb7-552"><a href="#cb7-552" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-553"><a href="#cb7-553" aria-hidden="true" tabindex="-1"></a><span class="al">![Flasheo y despliegue del modelo neuronal compilado en la MCU](img/lab/sensecraft_deploy_model.png)</span>{fig-align="center" width="85%"}</span>
+<span id="cb7-554"><a href="#cb7-554" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-555"><a href="#cb7-555" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-556"><a href="#cb7-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-557"><a href="#cb7-557" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Paso 6: Verificación de Inferencia en Tiempo Real</span></span>
+<span id="cb7-558"><a href="#cb7-558" aria-hidden="true" tabindex="-1"></a>Una vez finalizada la carga, la tarjeta ejecutará el bucle de inferencia de manera totalmente autónoma a una velocidad de **15 a 30 FPS**. Al apuntar la cámara a un monitor de signos vitales o a una bomba de infusión, la etiqueta y el porcentaje de confianza se visualizarán en pantalla.</span>
+<span id="cb7-559"><a href="#cb7-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-560"><a href="#cb7-560" aria-hidden="true" tabindex="-1"></a><span class="al">![Validación de inferencia local en tiempo real con alta certeza predictiva](img/lab/sensecraft_inference_result.png)</span>{fig-align="center" width="85%"}</span>
+<span id="cb7-561"><a href="#cb7-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-562"><a href="#cb7-562" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-563"><a href="#cb7-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-564"><a href="#cb7-564" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.8 Integración con Arquitectura IoT / MQTT (Solución Integral)</span></span>
+<span id="cb7-565"><a href="#cb7-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-566"><a href="#cb7-566" aria-hidden="true" tabindex="-1"></a>Para completar el objetivo del reto hospitalario, el sistema embebido debe enlazar la inferencia local con la red IoT hospitalaria vista en la <span class="co">[</span><span class="ot">Clase 12</span><span class="co">](../clase12/index.qmd)</span>. </span>
+<span id="cb7-567"><a href="#cb7-567" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-568"><a href="#cb7-568" aria-hidden="true" tabindex="-1"></a>Cuando el modelo detecte una clase con confianza superior al **85%**, el microcontrolador publica un mensaje JSON estructurado al broker MQTT hospitalario en el tópico:</span>
+<span id="cb7-569"><a href="#cb7-569" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-570"><a href="#cb7-570" aria-hidden="true" tabindex="-1"></a><span class="in">`hospital/piso3/uci/equipos/identificacion`</span></span>
+<span id="cb7-571"><a href="#cb7-571" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-572"><a href="#cb7-572" aria-hidden="true" tabindex="-1"></a><span class="in">```json</span></span>
+<span id="cb7-573"><a href="#cb7-573" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb7-574"><a href="#cb7-574" aria-hidden="true" tabindex="-1"></a>  <span class="st">"timestamp"</span><span class="op">:</span> <span class="st">"2026-10-14T09:30:00Z"</span><span class="op">,</span></span>
+<span id="cb7-575"><a href="#cb7-575" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dispositivo_sensor"</span><span class="op">:</span> <span class="st">"XIAO-ESP32S3-CAM-01"</span><span class="op">,</span></span>
+<span id="cb7-576"><a href="#cb7-576" aria-hidden="true" tabindex="-1"></a>  <span class="st">"equipo_detectado"</span><span class="op">:</span> <span class="st">"Bomba de Infusión Volumétrica"</span><span class="op">,</span></span>
+<span id="cb7-577"><a href="#cb7-577" aria-hidden="true" tabindex="-1"></a>  <span class="st">"modelo"</span><span class="op">:</span> <span class="st">"B. Braun Infusomat Space"</span><span class="op">,</span></span>
+<span id="cb7-578"><a href="#cb7-578" aria-hidden="true" tabindex="-1"></a>  <span class="st">"confianza"</span><span class="op">:</span> <span class="fl">0.94</span><span class="op">,</span></span>
+<span id="cb7-579"><a href="#cb7-579" aria-hidden="true" tabindex="-1"></a>  <span class="st">"manual_tecnico_url"</span><span class="op">:</span> <span class="st">"https://hospital.urosario.edu.co/manuales/bbraun_infusomat.pdf"</span><span class="op">,</span></span>
+<span id="cb7-580"><a href="#cb7-580" aria-hidden="true" tabindex="-1"></a>  <span class="st">"estado_mantenimiento"</span><span class="op">:</span> <span class="st">"Vigente - Calibración 2026-II"</span></span>
+<span id="cb7-581"><a href="#cb7-581" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-582"><a href="#cb7-582" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-583"><a href="#cb7-583" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-584"><a href="#cb7-584" aria-hidden="true" tabindex="-1"></a>De este modo, cualquier smartphone o tablet del servicio hospitalario suscrito al tópico recibe de inmediato el enlace al manual operativo sin requerir búsqueda manual en archivadores físicos.</span>
+<span id="cb7-585"><a href="#cb7-585" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-586"><a href="#cb7-586" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb7-587"><a href="#cb7-587" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-588"><a href="#cb7-588" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Bibliografía y Referencias</span></span>
+<span id="cb7-589"><a href="#cb7-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-590"><a href="#cb7-590" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Reddi, V. J., et al.** (2024). *Introduction to Machine Learning Systems: From Logic to Arithmetic (Neural Computation)*. Harvard University / MLSysBook. Disponible en: <span class="co">[</span><span class="ot">https://mlsysbook.ai/vol1/nn_computation/nn_computation.html</span><span class="co">](https://mlsysbook.ai/vol1/nn_computation/nn_computation.html)</span></span>
+<span id="cb7-591"><a href="#cb7-591" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Sarmiento Rojas, J.** (2026). *Actividad Práctica de Laboratorio: Sistemas Inteligentes en Informática Médica*. Programa de Ingeniería Biomédica, Escuela de Medicina y Ciencias de la Salud, Universidad del Rosario. <span class="co">[</span><span class="ot">Descargar PDF</span><span class="co">](recursos/ACTIVIDAD_PRACTICA_LABORATORIO_IA.pdf)</span></span>
+<span id="cb7-592"><a href="#cb7-592" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Warden, P., &amp; Situnayake, D.** (2019). *TinyML: Machine Learning with TensorFlow Lite on Arduino and Ultra-Low-Power Microcontrollers*. O'Reilly Media.</span>
+<span id="cb7-593"><a href="#cb7-593" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Seeed Studio.** (2024). *Getting Started with Seeed Studio XIAO ESP32S3 (Sense)*. Seeed Wiki Documentation. Disponible en: <span class="co">[</span><span class="ot">https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/</span><span class="co">](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/)</span></span>
+<span id="cb7-594"><a href="#cb7-594" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Espressif Systems.** (2024). *ESP-IDF Programming Guide: ESP32-S3 Technical Reference Manual (Vector Instructions &amp; I2S PDM)*. Disponible en: <span class="co">[</span><span class="ot">https://docs.espressif.com/</span><span class="co">](https://docs.espressif.com/)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -792,6 +2228,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

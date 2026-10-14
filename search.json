@@ -208,9 +208,9 @@
   {
     "objectID": "corte3/clase13/index.html",
     "href": "corte3/clase13/index.html",
-    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML en Salud",
     "section": "",
-    "text": "💻 Ver Presentación de Diapositivas",
+    "text": "💻 Ver Presentación de Diapositivas\n  \n  \n     📄 Descargar Guía Práctica de Laboratorio (PDF)\n  \n  \n     🛠️ SenseCraft AI Studio (Web Workspace)\n  \n  \n     📖 MLSysBook: Neural Computation (Reddi et al.)",
     "crumbs": [
       "Guía de Asignatura",
       "🟨 Corte 3: Datos, IA & Ética",
@@ -218,11 +218,11 @@
     ]
   },
   {
-    "objectID": "corte3/clase13/index.html#objetivos-de-la-clase",
-    "href": "corte3/clase13/index.html#objetivos-de-la-clase",
-    "title": "Clase 13: Big Data, Machine Learning & TinyML",
-    "section": "🎯 Objetivos de la Clase",
-    "text": "🎯 Objetivos de la Clase\n\nObjetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "objectID": "corte3/clase13/index.html#resultados-de-aprendizaje-esperados-rae",
+    "href": "corte3/clase13/index.html#resultados-de-aprendizaje-esperados-rae",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML en Salud",
+    "section": "🎯 Resultados de Aprendizaje Esperados (RAE)",
+    "text": "🎯 Resultados de Aprendizaje Esperados (RAE)\nAl finalizar esta sesión y la práctica de laboratorio, el estudiante estará en capacidad de:\n\nIdentificar los principios fundamentales del aprendizaje automático embebido (TinyML) y su diferenciación frente a la computación en la nube (Cloud ML) y la programación tradicional basada en reglas.\nComprender la neurona artificial como primitiva computacional, analizando el flujo de operaciones de suma ponderada (MACs), funciones de activación no lineales y complejidad de memoria (Flash vs. SRAM) en arquitecturas feedforward.\nDiseñar y entrenar modelos TinyML para la clasificación visual de patrones biomédicos, evaluando métricas de precisión, latencia de inferencia y consumo de potencia.\nImplementar un sistema inteligente embebido sobre la tarjeta XIAO ESP32S3 Sense, configurando periféricos de audio digital (I2S/PDM), memoria PSRAM y cámara OV2640.\nVincular la inferencia en el borde (Edge AI) con arquitecturas de interoperabilidad IoT/MQTT, transmitiendo alertas y enlaces a documentación técnica hospitalaria de forma asíncrona.",
     "crumbs": [
       "Guía de Asignatura",
       "🟨 Corte 3: Datos, IA & Ética",
@@ -230,11 +230,11 @@
     ]
   },
   {
-    "objectID": "corte3/clase13/index.html#materiales-y-lecturas",
-    "href": "corte3/clase13/index.html#materiales-y-lecturas",
-    "title": "Clase 13: Big Data, Machine Learning & TinyML",
-    "section": "📖 Materiales y Lecturas",
-    "text": "📖 Materiales y Lecturas\n\n💡 Preparación Previa\nContenido y guía práctica en construcción por el docente.",
+    "objectID": "corte3/clase13/index.html#de-la-lógica-simbólica-a-la-aritmética-neuronal",
+    "href": "corte3/clase13/index.html#de-la-lógica-simbólica-a-la-aritmética-neuronal",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML en Salud",
+    "section": "🧠 1. De la Lógica Simbólica a la Aritmética Neuronal",
+    "text": "🧠 1. De la Lógica Simbólica a la Aritmética Neuronal\n\n1.1 Cambio de Paradigma: Programación Tradicional vs. Machine Learning\nDurante décadas, el desarrollo de software biomédico se basó en el paradigma de programación clásica o deducción simbólica: un ingeniero o equipo clínico definía un conjunto explícito de reglas (condicionales lógicos IF-THEN, umbrales hemodinámicos fijos) y el computador procesaba los datos de entrada para producir respuestas.\n\n\n\n\n\n\n\nProgramación Tradicional: Reglas y Datos producen Respuestas (Fuente: MLSysBook / Reddi et al., 2024)\n\n\nSin embargo, en señales biomédicas e imágenes diagnósticas (electrocardiografía, fonocardiografía, retinografía, monitores de signos vitales), la variabilidad biológica, el ruido electrónico y los artefactos de movimiento hacen inviable la formulación manual de reglas universales.\nEl Machine Learning (ML) invierte este flujo mediante un proceso inductivo:\n\\[\\text{Datos} + \\text{Respuestas (Etiquetas)} \\xrightarrow{\\text{Entrenamiento}} \\text{Reglas (Modelo Aprendido)}\\]\nEl algoritmo aprende de forma estadística una función de aproximación \\(f(\\mathbf{x}) \\approx y\\) a partir de ejemplos históricos anotados.\n\n\n\n1.2 Evolución Histórica de la Inteligencia Artificial\nLa inteligencia artificial no surgió de forma aislada; es la culminación de varias olas tecnológicas sucesivas:\n\n\n\n\n\n\n\nEvolución histórica: De la IA Simbólica al Machine Learning Estadístico y Deep Learning a Escala (Fuente: MLSysBook / Reddi et al., 2024)\n\n\n\n\n\n\n\n\n\n\n\n\n\nPeríodo\nParadigma\nHitos Principales\nCaracterísticas y Limitaciones\n\n\n\n\n1950s – 1970s\nInteligencia Artificial Simbólica\n• Taller de Dartmouth (1956)\n• Perceptrón simple de Rosenblatt (1958)\n• Crítica de Minsky & Papert al problema XOR (1969)\nSistemas expertos basados en lógica proposicional. Fracaso ante problemas no linealmente separables; desencadenó el primer Invierno de la IA.\n\n\n1980s – 2000s\nMachine Learning Estadístico\n• Retropropagación / Backprop (Rumelhart et al., 1986)\n• Redes Recurrentes LSTM (Hochreiter & Schmidhuber, 1997)\n• Support Vector Machines (SVM) y Bosques Aleatorios (2001)\nModelado estadístico a partir de datos. Dependencia crítica de la ingeniería manual de características (extracción artesanal de picos R en ECG o descriptores de textura).\n\n\n2010s – Presente\nDeep Learning & Redes a Escala\n• AlexNet y la revolución ImageNet en GPU (2012)\n• Arquitectura Transformer y Mecanismo de Atención (Vaswani et al., 2017)\n• Edge AI y TinyML en microcontroladores (Reddi et al., 2020+)\nExtracción jerárquica y automatizada de características (Feature Learning). Alto costo computacional que impulsó la aceleración por hardware (TPUs, NPUs) y la cuantización de modelos.\n\n\n\n\n\n\n\n\n1.3 El Cuello de Botella de la Ingeniería de Características\nEn el enfoque clásico de Machine Learning, el 80% del tiempo de ingeniería biomédica se invertía en construir transformadas manuales (Transformada Wavelet, Transformada Rápida de Fourier, momentos estadísticos). Si las características extraídas no capturaban la patología, ningún algoritmo lograba clasificarla correctamente.\nLas Redes Neuronales Profundas (Deep Learning) resuelven este obstáculo al aprender representaciones jerárquicas directamente desde los datos crudos:\n\nCapas iniciales: Detectan bordes, gradientes de intensidad y transiciones de frecuencia.\nCapas intermedias: Combinan bordes para formar texturas, formas geométricas o morfologías de ondas clínicas (complejo QRS, onda P).\nCapas finales: Representan el objeto completo o estado patológico (taquicardia ventricular, bomba de infusión volumétrica, electrocardiógrafo).\n\n\n\n\n1.4 La Neurona Artificial como Primitiva de Computación\nDe acuerdo con el modelo formal presentado en MLSysBook (Reddi et al., 2024), la computación neuronal se fundamenta en dos pasos matemáticos sucesivos:\nEntradas (x) ──► [ Suma Ponderada: z = w·x + b ] ──► [ Activación No Lineal: a = σ(z) ] ──► Salida (a)\n\n1. Suma Ponderada y Operación MAC (Multiply-Accumulate)\nDado un vector de entradas \\(\\mathbf{x} = [x_1, x_2, \\dots, x_n]^T\\), un vector de pesos \\(\\mathbf{w} = [w_1, w_2, \\dots, w_n]^T\\) y un escalar de sesgo (bias) \\(b\\):\n\\[z = \\sum_{i=1}^{n} w_i x_i + b = \\mathbf{w}^T \\mathbf{x} + b\\]\nCada multiplicación \\(w_i \\cdot x_i\\) seguida de una suma acumulativa constituye una operación MAC (Multiply-Accumulate), equivalente a 2 FLOPs (Floating Point Operations). El total de MACs define el presupuesto energético y el tiempo de reloj requerido por el microcontrolador.\n\n\n2. Funciones de Activación No Lineal\nSin una activación no lineal, una red neuronal de 100 capas colapsaría matemáticamente en una simple transformación lineal afín:\n\\[f(g(x)) = W_2(W_1 x + b_1) + b_2 = (W_2 W_1) x + (W_2 b_1 + b_2) = W' x + b'\\]\nPara romper la linealidad y permitir la aproximación universal de funciones complejas, se aplican funciones de activación:\n\nReLU (Rectified Linear Unit): \\(\\sigma(z) = \\max(0, z)\\). Extremadamente eficiente en hardware embebido (un condicional if (z &lt; 0) return 0;), base de TinyML.\nSigmoide: \\(\\sigma(z) = \\frac{1}{1 + e^{-z}}\\). Mapea a probabilidades en \\([0, 1]\\), pero costosa de calcular en procesadores sin unidad de punto flotante exponencial.\nSoftmax: Utilizada en la capa de salida para problemas de clasificación multiclase (por ejemplo, clasificar entre 4 tipos de equipos médicos):\n\n\\[\\text{Softmax}(z_i) = \\frac{e^{z_i}}{\\sum_{j=1}^{C} e^{z_j}}\\]",
     "crumbs": [
       "Guía de Asignatura",
       "🟨 Corte 3: Datos, IA & Ética",
@@ -242,11 +242,47 @@
     ]
   },
   {
-    "objectID": "corte3/clase13/index.html#práctica-de-laboratorio",
-    "href": "corte3/clase13/index.html#práctica-de-laboratorio",
-    "title": "Clase 13: Big Data, Machine Learning & TinyML",
-    "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\nActividad práctica en desarrollo.",
+    "objectID": "corte3/clase13/index.html#ciclo-de-vida-del-sistema-de-machine-learning-ml-systems-lifecycle",
+    "href": "corte3/clase13/index.html#ciclo-de-vida-del-sistema-de-machine-learning-ml-systems-lifecycle",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML en Salud",
+    "section": "🔄 2. Ciclo de Vida del Sistema de Machine Learning (ML Systems Lifecycle)",
+    "text": "🔄 2. Ciclo de Vida del Sistema de Machine Learning (ML Systems Lifecycle)\nUn modelo de inteligencia artificial en salud no es un archivo aislado; forma parte de una cadena productiva continua compuesta por 10 fases interconectadas con bucles de retroalimentación activa:\n\n\n\n\n\n\n\nCiclo de Vida de Sistemas de ML: Desde la adquisición y validación de datos hasta el despliegue e inferencia en producción (Fuente: MLSysBook / Reddi et al., 2024)\n\n\n\n  \n    \n      🟢 Fase de Datos (Data-Centric AI)\n      \n        \n          Data Collection: Flujo continuo de adquisición desde sensores IoMT, cámaras o HCE.\n          Data Ingestion: Formateo, indexación y estructuración en almacenes de datos.\n          Data Analysis & Curation: Detección de artefactos, desbalanceo de clases y valores atípicos.\n          Data Labeling: Anotación experta por personal clínico o técnico biomédico.\n          Data Validation: Verificación de integridad, consistencia y trazabilidad de los datos.\n          Data Preparation: Normalización, particionado (Train 70% / Val 15% / Test 15%) y versionado.\n        \n      \n    \n  \n  \n    \n      🔵 Fase de Modelo & Despliegue (System-Centric)\n      \n        \n          Model Training: Optimización de pesos mediante gradiente descendente estocástico (Adam, SGD).\n          Model Evaluation: Cálculo de KPIs clínicos (Sensibilidad, Especificidad, F1-Score, Curva ROC-AUC).\n          ML System Validation: Cuantización (FP32 a INT8), poda de pesos (*pruning*) y pruebas de estrés en hardware real.\n          ML System Deployment: Carga del firmware en el microcontrolador e inferencia en tiempo real con monitoreo online.\n        \n      \n    \n  \n\n\n\n\n\n\n\nTip🔄 Bucles de Retroalimentación en Producción\n\n\n\nComo muestra el diagrama de Reddi et al., cuando el sistema está desplegado en un hospital, el monitoreo del rendimiento online retroalimenta continuamente el pipeline: - Data fixes: Identifica imágenes mal clasificadas por iluminación o ángulo para corregir el etiquetado. - Data needs: Solicita la recolección de nuevas muestras para clases subrepresentadas o nuevos modelos de equipamiento médico ingresados al inventario hospitalario.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 13: Big Data, ML & CDSS"
+    ]
+  },
+  {
+    "objectID": "corte3/clase13/index.html#el-espectro-de-la-inteligencia-distribuida-cloud-ml-vs.-edge-ml-vs.-tinyml",
+    "href": "corte3/clase13/index.html#el-espectro-de-la-inteligencia-distribuida-cloud-ml-vs.-edge-ml-vs.-tinyml",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML en Salud",
+    "section": "🌐 3. El Espectro de la Inteligencia Distribuida: Cloud ML vs. Edge ML vs. TinyML",
+    "text": "🌐 3. El Espectro de la Inteligencia Distribuida: Cloud ML vs. Edge ML vs. TinyML\nLa computación inteligente en salud no opera en un único nodo centralizado, sino a lo largo de un espectro continuo de potencia de procesamiento y restricciones energéticas:\n\n\n\n\n\n\n\nEl Espectro de Inteligencia Distribuida: Desde la Nube hasta los Dispositivos de Ultra Bajo Consumo (Fuente: MLSysBook / Reddi et al., 2024)\n\n\n\n3.1 Tabla Comparativa de Paradigmas Computacionales\n\n\n\n\n\n\n\nParámetros Operacionales de Cloud ML, Edge ML, Mobile ML y TinyML (Fuente: MLSysBook / Reddi et al., 2024)\n\n\n\n\n\n\n\nParadigma\nUbicación del Cómputo\nLatencia Típica\nConsumo de Potencia\nMemoria Disponible\nCaso de Uso Óptimo en Salud\n\n\n\n\nCloud ML\nCentros de datos remotos (AWS, Azure, GCP)\n100 – 500 ms\nMegavatios (MW)\nTerabytes (TB)\nEntrenamiento de Modelos Fundacionales, procesamiento masivo de resonancias magnéticas (MRI/CT), genómica poblacional.\n\n\nEdge ML\nServidores locales hospitalarios / Gateways\n10 – 100 ms\n~100 W\nGigabytes (GB)\nServidores PACS de radiología local, estaciones de monitoreo central en Unidades de Cuidados Intensivos (UCI).\n\n\nMobile ML\nSmartphones clínicos, tablets asistenciales\n5 – 50 ms\n3 – 5 W\nGigabytes (GB)\nAplicaciones de teleconsulta médica, asistentes personales de triaje clínico, diagnóstico dermatológico en consulta.\n\n\nTinyML\nMicrocontroladores embebidos (MCU) y sensores\n1 – 10 ms\nMiliwatts (mW) o $\\mu$W\nKilobytes (KB) a MB\nMonitoreo continuo always-on, marcapasos inteligentes, audífonos adaptativos, detección visual local de equipos en rondas hospitalarias.\n\n\n\n\n\n\n\n\n3.2 ¿Por qué TinyML en Ingeniería Biomédica?\nEl procesamiento de IA directamente en el sensor o microcontrolador (on-device AI) aporta cuatro ventajas determinantes:\n\nLatencia Determinista en Tiempo Real (1–10 ms): No depende de retardos de red celular o Wi-Fi para emitir un veredicto crítico (por ejemplo, parada cardíaca en desfibrilador o desconexión de bomba).\nPrivacidad y Cumplimiento Normativo (Habeas Data / HIPAA): Las imágenes y las bioseñales del paciente se procesan localmente en la memoria SRAM del chip y se descartan inmediatamente; los datos sensibles nunca abandonan el dispositivo.\nAutonomía y Confiabilidad sin Red: El sistema sigue operando en ambulancias, zonas rurales o ante caídas del servidor hospitalario.\nEficiencia Energética Extrema: Transmitir 1 byte por radiofrecuencia (Wi-Fi/4G) gasta hasta 1.000 veces más energía que computar ese mismo byte localmente en una MCU.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 13: Big Data, ML & CDSS"
+    ]
+  },
+  {
+    "objectID": "corte3/clase13/index.html#práctica-de-laboratorio-sistemas-inteligentes-en-informática-médica",
+    "href": "corte3/clase13/index.html#práctica-de-laboratorio-sistemas-inteligentes-en-informática-médica",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML en Salud",
+    "section": "🧪 4. Práctica de Laboratorio: Sistemas Inteligentes en Informática Médica",
+    "text": "🧪 4. Práctica de Laboratorio: Sistemas Inteligentes en Informática Médica\n\n\n\n\n\n\nImportant📋 Información del Laboratorio\n\n\n\n\nDocente: Prof. Jefferson Sarmiento Rojas, Ph.D (c)\nPlataforma de Hardware: Kit Seeed Studio XIAO ESP32S3 Sense\nEntorno de Programación: Arduino IDE 2.x con biblioteca ESP32 de Espressif Systems\nHerramienta TinyML: SenseCraft AI Studio (Web Toolkit)\nProtocolo de Integración: MQTT (Message Queuing Telemetry Transport)\n\n\n\n\n4.1 Características de la Plataforma XIAO ESP32S3 Sense\nLa XIAO ESP32S3 Sense es una plataforma de cómputo embebido de alto rendimiento diseñada específicamente para aplicaciones de visión artificial y reconocimiento de audio mediante TinyML.\n\n\n\n\n\n\n\n\n\n\nTarjeta Seeed Studio XIAO ESP32S3 Sense con cámara OV2640 acoplada\n\n\n\n\n\n\n\n\n\n\n\nDisposición general de pines (Pinout) de la XIAO ESP32S3 Sense\n\n\n\n\n\n\nProcesador: MCU Espressif ESP32-S3 de 32 bits, doble núcleo Xtensa LX7 a 240 MHz, con soporte de instrucciones vectoriales para aceleración de redes neuronales.\nMódulo de Visión: Cámara desmontable OV2640 (hasta 1600 × 1200 px), intercambiable con sensor OV5640.\nMódulo de Audio: Micrófono digital PDM integrado en la placa base con interfaz I2S.\nMemoria Expandida: 8 MB de PSRAM (Pseudo-Static RAM vía interfaz OPI) y 8 MB de memoria Flash, esenciales para albergar tensores neuronales. Ranura para tarjeta microSD FAT32 de hasta 32 GB.\nComunicaciones Inalámbricas: Wi-Fi 802.11 b/g/n (2.4 GHz) y Bluetooth Low Energy (BLE 5.0) con conector para antena externa U.FL.\nFactor de Forma: Dimensiones ultra compactas de 21 × 17.5 mm.\nGestión de Energía: Circuito de carga para batería LiPo con consumo en sueño profundo (Deep Sleep) de apenas 14 \\(\\mu\\)A.\n\n\n\n\n4.2 Planteamiento del Problema Hospitalario\nDurante las rondas de inspección y vigilancia técnica hospitalaria, los practicantes de Ingeniería Biomédica se enfrentan a una amplia diversidad de equipos médicos (bombas de infusión, monitores de signos vitales, desfibriladores, analizadores de ECG) de distintas marcas y generaciones.\nLa falta de familiaridad inmediata con un dispositivo específico puede derivar en registros erróneos en el sistema de gestión hospitalaria o demoras para consultar el manual técnico del fabricante, poniendo en riesgo la calidad asistencial.\nReto de Ingeniería: Desarrollar un sistema embebido inteligente sobre la placa XIAO ESP32S3 Sense que capture imágenes del entorno, identifique el equipo médico en tiempo real mediante un modelo TinyML optimizado y transmita vía MQTT el identificador del equipo junto con el enlace URL a su manual de operación, facilitando el acceso instantáneo desde el smartphone o tablet del practicante.\n\n\n\n4.3 Ejercicio 1: Configuración del Entorno de Desarrollo (Arduino IDE)\n\nConecte la tarjeta XIAO ESP32S3 Sense al computador mediante un cable USB-C de datos.\nAbra Arduino IDE (versión 2.x recomendada).\nDiríjase a Herramientas \\(\\rightarrow\\) Administrador de placas (o el ícono lateral de placas).\nEn el buscador escriba ESP32 e instale el paquete oficial esp32 by Espressif Systems.\n\n\n\n\n\n\n\nWarning⚠️ Precaución con la Selección de Paquete\n\n\n\nNo instale el paquete “Placas Arduino ESP32 de Arduino”, ya que está destinado a la placa Arduino Nano ESP32 y generará errores de compilación con las bibliotecas de Seeed Studio.\n\n\n\nEn el menú superior de selección de placa, escriba xiao esp32s3 y seleccione la placa XIAO_ESP32S3 junto con el puerto COM asignado por el sistema operativo.\n\n\n\n\n\n\n\n\n\n\n\nAdministrador de Placas: Instalación de esp32 by Espressif\n\n\n\n\n\n\n\n\n\n\n\nSelección de placa XIAO_ESP32S3 y puerto COM\n\n\n\n\n\n\n\n\n4.4 Ejercicio 2: Verificación de Hardware (Blink y Monitor Serial)\nEste ejercicio confirma que la placa responde a la programación y que el enlace de comunicación serie está operativo.\n// Ejercicio 2: Verificación de LED y Telemetría Serial\n// Placa: Seeed Studio XIAO ESP32S3 Sense\n\n#define LED_BUILT 21  // Pin asignado al LED integrado en placa\n\nvoid setup() {\n  pinMode(LED_BUILT, OUTPUT); // Configura pin como salida digital\n  Serial.begin(9600);         // Inicializa comunicación serial a 9600 bps\n}\n\nvoid loop() {\n  digitalWrite(LED_BUILT, LOW);   // Enciende el LED (lógica invertida)\n  Serial.println(\"LED Encendido\");\n  delay(1000);                    // Pausa de 1 segundo\n  \n  digitalWrite(LED_BUILT, HIGH);  // Apaga el LED\n  Serial.println(\"LED Apagado\");\n  delay(1000);                    // Pausa de 1 segundo\n}\nAbra el Monitor Serie en Arduino IDE configurado a 9600 baudios y compruebe la alternancia de estados.\n\n\n\n4.5 Ejercicio 3: Adquisición de Señal Acústica con Micrófono PDM e I2S\nLa XIAO ESP32S3 Sense integra un micrófono digital PDM (Pulse Density Modulation) que entrega muestras de audio mediante el bus de comunicación I2S. Este periférico resulta fundamental para proyectos de fonocardiografía digital o detección acústica de anomalías en turbinas y motores médicos.\n// Ejercicio 3: Lectura en Tiempo Real del Micrófono PDM Integrado\n// Placa: Seeed Studio XIAO ESP32S3 Sense\n\n#include &lt;ESP_I2S.h&gt;\n\nI2SClass I2S;\n\nvoid setup() {\n  Serial.begin(115200);\n  while (!Serial) {\n    // Espera hasta que el monitor serial esté conectado\n  }\n\n  // Configura pines del micrófono PDM: Pin 42 (Reloj PDM) y Pin 41 (Datos PDM)\n  I2S.setPinsPdmRx(42, 41);\n\n  // Inicializa I2S en modo PDM RX a 16 kHz, 16 bits por muestra, canal Mono\n  if (!I2S.begin(I2S_MODE_PDM_RX, 16000, I2S_DATA_BIT_WIDTH_16BIT, I2S_SLOT_MODE_MONO)) {\n    Serial.println(\"¡Error al inicializar el bus I2S del micrófono!\");\n    while (1); // Detención por error\n  }\n  Serial.println(\"Micrófono PDM inicializado con éxito.\");\n}\n\nvoid loop() {\n  // Lectura de una muestra de audio digital\n  int sample = I2S.read();\n\n  // Filtrado de valores espurios o silencios triviales\n  if (sample != 0 && sample != -1 && sample != 1) {\n    Serial.println(sample); // Imprime el valor instantáneo de amplitud\n  }\n}\n\n\n\n\n\n\nTip📊 Visualización de la Bioseñal Acústica\n\n\n\nAbra Herramientas \\(\\rightarrow\\) Serial Plotter en Arduino IDE para observar la forma de onda acústica en tiempo real mientras habla o genera sonidos cerca de la placa.\n\n\n\n\n\n4.6 Ejercicio 4: Grabación de Audio WAV en MicroSD y Habilitación de OPI PSRAM\nDado que un buffer de audio de varios segundos satura los pocos cientos de kilobytes de memoria SRAM interna del microcontrolador, es obligatorio habilitar la memoria externa PSRAM de 8 MB integrada en el encapsulado del XIAO.\n\nActivación de PSRAM en Arduino IDE:\nVaya al menú: Herramientas \\(\\rightarrow\\) PSRAM \\(\\rightarrow\\) “OPI PSRAM”.\n\n\n\n\n\n\n\nHabilitación de OPI PSRAM en el menú de herramientas de Arduino IDE\n\n\n// Ejercicio 4: Grabador de Audio WAV en Tarjeta MicroSD\n// Placa: Seeed Studio XIAO ESP32S3 Sense (Requiere OPI PSRAM habilitada)\n\n#include \"ESP_I2S.h\"\n#include \"FS.h\"\n#include \"SD.h\"\n\nvoid setup() {\n  I2SClass i2s;\n  uint8_t *wav_buffer;\n  size_t wav_size;\n\n  Serial.begin(115200);\n  while (!Serial) delay(10);\n\n  Serial.println(\"Iniciando bus I2S para micrófono...\");\n  i2s.setPinsPdmRx(42, 41); // Pines PDM Clock y PDM Data\n\n  if (!i2s.begin(I2S_MODE_PDM_RX, 16000, I2S_DATA_BIT_WIDTH_16BIT, I2S_SLOT_MODE_MONO)) {\n    Serial.println(\"Error en inicialización de I2S\");\n    while (1);\n  }\n\n  Serial.println(\"Inicializando ranura MicroSD...\");\n  // Pin CS de la ranura microSD en la XIAO ESP32S3 Sense: Pin 21\n  if (!SD.begin(21)) {\n    Serial.println(\"¡Error al montar la tarjeta MicroSD! Verifique formato FAT32.\");\n    while (1);\n  }\n  Serial.println(\"MicroSD montada correctamente.\");\n\n  Serial.println(\"Grabando 20 segundos de audio del entorno...\");\n  // Graba 20 segundos alojando el buffer en la PSRAM\n  wav_buffer = i2s.recordWAV(20, &wav_size);\n\n  File file = SD.open(\"/audio_biomedico.wav\", FILE_WRITE);\n  if (!file) {\n    Serial.println(\"Error al abrir archivo para escritura en SD.\");\n    return;\n  }\n\n  Serial.println(\"Escribiendo datos binarios WAV en SD...\");\n  if (file.write(wav_buffer, wav_size) != wav_size) {\n    Serial.println(\"Error en la escritura del buffer completo.\");\n    return;\n  }\n  file.close();\n\n  Serial.println(\"Grabación finalizada con éxito: /audio_biomedico.wav\");\n}\n\nvoid loop() {\n  delay(1000);\n  Serial.print(\".\");\n}\n\n\n\n\n4.7 Ejercicio 5 (Resolución del Reto): Visión Artificial Embebida con SenseCraft AI Studio\nEn este ejercicio aplicaremos el flujo de Edge AI sin escribir código a bajo nivel, utilizando la plataforma web oficial SenseCraft AI Studio de Seeed Studio.\n[ Navegador Web ] ──(Web Serial API)──► [ XIAO ESP32S3 Sense ] ──► [ Cámara OV2640 ]\n\nPaso 1: Conexión y Reconocimiento de la Placa\n\nAbra Google Chrome o Microsoft Edge y acceda a SenseCraft Web Toolkit.\nEn la lista de dispositivos compatibles, seleccione XIAO ESP32S3 Sense.\nHaga clic en Connect Device, seleccione el puerto COM correspondiente y confirme la conexión.\n\n\n\n\n\n\n\n\nSelección de la tarjeta XIAO ESP32S3 Sense en SenseCraft AI Studio\n\n\n\n\n\nPaso 2: Verificación del Streaming de Cámara\nCargue el firmware de prueba para verificar que el sensor OV2640 enfoca adecuadamente y transmite vídeo a la ventana del navegador.\n\n\n\n\n\n\n\nVerificación de funcionamiento y captura de vídeo con cámara OV2640\n\n\n\n\n\nPaso 3: Construcción del Dataset Biomédico\nPara resolver el reto hospitalario, defina al menos 3 o 4 clases de equipos médicos:\n\nClase 1: Bomba_Infusion\nClase 2: Monitor_Signos_Vitales\nClase 3: Desfibrilador\nClase 4 (Opcional): Electrocardiografo o Fondo_Vacio (para evitar falsos positivos).\n\nMantenga presionado el botón de captura en cada clase mientras rota el dispositivo médico frente al lente de la cámara, variando la distancia, la inclinación y la iluminación (mínimo 50 a 100 imágenes por clase).\n\n\n\n\n\n\n\nCreación del dataset: Captura de muestras visuales para cada clase de dispositivo\n\n\n\n\n\nPaso 4: Entrenamiento y Optimización del Modelo\n\nHaga clic en Start Training.\nSenseCraft procesará el dataset mediante una arquitectura convolucional ligera optimizada para microcontroladores (MobileNetV2 / SqueezeNet con cuantización INT8).\nRevise la matriz de confusión y el valor de precisión (Accuracy). Si alguna clase muestra confusión, capture más imágenes con diferentes ángulos de luz.\n\n\n\n\n\n\n\n\nEntrenamiento del clasificador neuronal embebido en SenseCraft\n\n\n\n\n\nPaso 5: Despliegue en la Tarjeta (Flashing)\nHaga clic en Deploy Model. La plataforma compilará el modelo cuantizado en formato TensorFlow Lite for Microcontrollers (TFLite Micro) y lo grabará directamente en la memoria Flash y PSRAM de la XIAO ESP32S3 Sense.\n\n\n\n\n\n\n\nFlasheo y despliegue del modelo neuronal compilado en la MCU\n\n\n\n\n\nPaso 6: Verificación de Inferencia en Tiempo Real\nUna vez finalizada la carga, la tarjeta ejecutará el bucle de inferencia de manera totalmente autónoma a una velocidad de 15 a 30 FPS. Al apuntar la cámara a un monitor de signos vitales o a una bomba de infusión, la etiqueta y el porcentaje de confianza se visualizarán en pantalla.\n\n\n\n\n\n\n\nValidación de inferencia local en tiempo real con alta certeza predictiva\n\n\n\n\n\n\n4.8 Integración con Arquitectura IoT / MQTT (Solución Integral)\nPara completar el objetivo del reto hospitalario, el sistema embebido debe enlazar la inferencia local con la red IoT hospitalaria vista en la Clase 12.\nCuando el modelo detecte una clase con confianza superior al 85%, el microcontrolador publica un mensaje JSON estructurado al broker MQTT hospitalario en el tópico:\nhospital/piso3/uci/equipos/identificacion\n{\n  \"timestamp\": \"2026-10-14T09:30:00Z\",\n  \"dispositivo_sensor\": \"XIAO-ESP32S3-CAM-01\",\n  \"equipo_detectado\": \"Bomba de Infusión Volumétrica\",\n  \"modelo\": \"B. Braun Infusomat Space\",\n  \"confianza\": 0.94,\n  \"manual_tecnico_url\": \"https://hospital.urosario.edu.co/manuales/bbraun_infusomat.pdf\",\n  \"estado_mantenimiento\": \"Vigente - Calibración 2026-II\"\n}\nDe este modo, cualquier smartphone o tablet del servicio hospitalario suscrito al tópico recibe de inmediato el enlace al manual operativo sin requerir búsqueda manual en archivadores físicos.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 13: Big Data, ML & CDSS"
+    ]
+  },
+  {
+    "objectID": "corte3/clase13/index.html#bibliografía-y-referencias",
+    "href": "corte3/clase13/index.html#bibliografía-y-referencias",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML en Salud",
+    "section": "📚 Bibliografía y Referencias",
+    "text": "📚 Bibliografía y Referencias\n\nReddi, V. J., et al. (2024). Introduction to Machine Learning Systems: From Logic to Arithmetic (Neural Computation). Harvard University / MLSysBook. Disponible en: https://mlsysbook.ai/vol1/nn_computation/nn_computation.html\nSarmiento Rojas, J. (2026). Actividad Práctica de Laboratorio: Sistemas Inteligentes en Informática Médica. Programa de Ingeniería Biomédica, Escuela de Medicina y Ciencias de la Salud, Universidad del Rosario. Descargar PDF\nWarden, P., & Situnayake, D. (2019). TinyML: Machine Learning with TensorFlow Lite on Arduino and Ultra-Low-Power Microcontrollers. O’Reilly Media.\nSeeed Studio. (2024). Getting Started with Seeed Studio XIAO ESP32S3 (Sense). Seeed Wiki Documentation. Disponible en: https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/\nEspressif Systems. (2024). ESP-IDF Programming Guide: ESP32-S3 Technical Reference Manual (Vector Instructions & I2S PDM). Disponible en: https://docs.espressif.com/",
     "crumbs": [
       "Guía de Asignatura",
       "🟨 Corte 3: Datos, IA & Ética",
@@ -256,9 +292,9 @@
   {
     "objectID": "corte3/clase12/index.html",
     "href": "corte3/clase12/index.html",
-    "title": "Clase 12: Internet de las Cosas Médicas (IoMT)",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
     "section": "",
-    "text": "💻 Ver Presentación de Diapositivas",
+    "text": "💻 Ver Presentación de Diapositivas\n  \n  \n     🌐 Cliente WebSocket HiveMQ (Enlace Oficial)",
     "crumbs": [
       "Guía de Asignatura",
       "🟨 Corte 3: Datos, IA & Ética",
@@ -266,11 +302,11 @@
     ]
   },
   {
-    "objectID": "corte3/clase12/index.html#objetivos-de-la-clase",
-    "href": "corte3/clase12/index.html#objetivos-de-la-clase",
-    "title": "Clase 12: Internet de las Cosas Médicas (IoMT)",
-    "section": "🎯 Objetivos de la Clase",
-    "text": "🎯 Objetivos de la Clase\n\nObjetivo 1 (En desarrollo)\nObjetivo 2 (En desarrollo)",
+    "objectID": "corte3/clase12/index.html#objetivos-de-aprendizaje",
+    "href": "corte3/clase12/index.html#objetivos-de-aprendizaje",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "🎯 Objetivos de Aprendizaje",
+    "text": "🎯 Objetivos de Aprendizaje\nAl finalizar esta sesión, el estudiante estará en capacidad de:\n\nReconocer los hitos históricos y conceptuales del IoT, identificando su evolución hacia la Salud 4.0 / 5.0 y el ecosistema IoMT (Internet of Medical Things).\nDistinguir la arquitectura de un nodo embebido en salud: sensores, microcontroladores, enlaces de comunicación, actuadores y brokers en la nube.\nComprender y contrastar el protocolo MQTT frente a esquemas convencionales como HTTP/REST, dominando el paradigma Publish/Subscribe, el desacoplamiento tridimensional y los niveles de Calidad de Servicio (QoS 0, 1 y 2).\nDiseñar esquemas jerárquicos de tópicos MQTT aplicados a la telemetría y control de dispositivos en instalaciones hospitalarias.\nProgramar y simular un sensor de temperatura y humedad (DHT22) sobre un XIAO ESP32-C3 en Wokwi, publicando telemetría en JSON y recibiendo órdenes remotas para conmutar actuadores.\nVerificar y auditar en tiempo real la publicación y suscripción de datos utilizando el cliente web oficial HiveMQ WebSockets Client.",
     "crumbs": [
       "Guía de Asignatura",
       "🟨 Corte 3: Datos, IA & Ética",
@@ -278,11 +314,11 @@
     ]
   },
   {
-    "objectID": "corte3/clase12/index.html#materiales-y-lecturas",
-    "href": "corte3/clase12/index.html#materiales-y-lecturas",
-    "title": "Clase 12: Internet de las Cosas Médicas (IoMT)",
-    "section": "📖 Materiales y Lecturas",
-    "text": "📖 Materiales y Lecturas\n\n💡 Preparación Previa\nContenido y guía práctica en construcción por el docente.",
+    "objectID": "corte3/clase12/index.html#evolución-histórica-del-iot-al-iomt",
+    "href": "corte3/clase12/index.html#evolución-histórica-del-iot-al-iomt",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "🕒 1. Evolución Histórica: Del IoT al IoMT",
+    "text": "🕒 1. Evolución Histórica: Del IoT al IoMT\nEl Internet de las Cosas no nació de la noche a la mañana; es el resultado de décadas de convergencia entre redes de computadores, miniaturización electrónica y sensores de bajo costo.\n\n\n\n\n\nAño\nHito Tecnológico\nDescripción y Relevancia\nImpacto en Salud / Industria\n\n\n\n\n1982\nMáquina de Coca-Cola (Carnegie Mellon)\nEstudiantes de ciencias de la computación conectaron una máquina expendedora a ARPANET para saber por red si había botellas frías disponibles antes de caminar hasta ella.\nPrimer dispositivo o electrodoméstico conectado de la historia.\n\n\n1990\nInternet Toaster (John Romkey)\nPresentada en la conferencia INTEROP, fue la primera tostadora controlada completamente a través de comandos TCP/IP mediante una interfaz SNMP.\nDemostración pionera de control remoto de actuadores por Internet.\n\n\n1999\nKevin Ashton & MIT Auto-ID\nAshton acuña formalmente la frase \"Internet of Things\" en Procter & Gamble al proponer tags RFID para rastrear la cadena de suministro global. En este mismo año, Andy Stanford-Clark (IBM) y Arlen Nipper crean el protocolo MQTT para telemetría satelital.\nNacimiento formal del término IoT y creación del protocolo estándar de telemetría.\n\n\n2008\nPunto de Inflexión Poblacional\nCisco Systems estima que el número de dispositivos conectados a Internet superó por primera vez al número de personas vivas en la Tierra (proporción &gt; 1:1).\nTransición de un Internet de personas a un Internet de máquinas autónomas.\n\n\n2016\nBotnet Mirai\nAtaque masivo DDoS que infectó cientos de miles de cámaras y dispositivos IoT domésticos con contraseñas de fábrica para derribar servicios DNS en todo el mundo.\nLlamado de atención urgente sobre la ciberseguridad en dispositivos embebidos.\n\n\n2020 - 2026+\nIoMT, AIoT y TinyML\nConvergencia de biosensores portátiles (wearables), algoritmos de Inteligencia Artificial ejecutados en el microcontrolador (TinyML) y telemedicina continua.\nRevolución de la monitorización remota de pacientes, incubadoras y trazabilidad farmacéutica.\n\n\n\n\n\n\n¿Qué diferencia al IoT tradicional del IoMT?\nEn una aplicación de IoT convencional (como un bombillo inteligente o un termostato doméstico), una falla temporal o una pérdida de paquetes resulta tolerable. En el IoMT (Internet of Medical Things):\n\nCriticidad de vida o muerte: La pérdida del reporte de una arritmia cardíaca, la falla de un ventilador mecánico o una excursión térmica no detectada en vacunas puede costar vidas humanas o pérdidas millonarias.\nNormativa estricta: Dispositivos y software deben ceñirse a estándares de farmacovigilancia, FDA, Invima, normativas de dispositivos médicos (ISO 13485) y privacidad de datos (Ley de Habeas Data 1581 de 2012, HIPAA, GDPR).\nIntegridad de datos: Se requiere trazabilidad inmutable y confirmación de entrega en la red.",
     "crumbs": [
       "Guía de Asignatura",
       "🟨 Corte 3: Datos, IA & Ética",
@@ -290,11 +326,119 @@
     ]
   },
   {
-    "objectID": "corte3/clase12/index.html#práctica-de-laboratorio",
-    "href": "corte3/clase12/index.html#práctica-de-laboratorio",
-    "title": "Clase 12: Internet de las Cosas Médicas (IoMT)",
-    "section": "🧪 Práctica de Laboratorio",
-    "text": "🧪 Práctica de Laboratorio\nActividad práctica en desarrollo.",
+    "objectID": "corte3/clase12/index.html#anatomía-de-un-dispositivo-iomt",
+    "href": "corte3/clase12/index.html#anatomía-de-un-dispositivo-iomt",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "🧠 2. Anatomía de un Dispositivo IoMT",
+    "text": "🧠 2. Anatomía de un Dispositivo IoMT\nEn su nivel más elemental, cualquier dispositivo de Internet de las Cosas Médicas se compone de cuatro capas interconectadas:\n\n\n\n\n\nflowchart LR\n    A[\"🌡️ Sensores Fisiológicos / Físicos\"] --&gt; B[\"📟 Microcontrolador / SoC (Lógica & Procesamiento)\"]\n    B --&gt; C[\"📡 Enlace de Red (Wi-Fi, BLE, LoRa, Ethernet)\"]\n    C --&gt; D[\"☁️ Broker / Servidor Nube (MQTT / IoT Hub)\"]\n    D --&gt; E[\"🚨 Actuadores / Alarmas Clínicas\"]\n    D --&gt; F[\"📊 Dashboards & Historial Clínico\"]\n\n\n\n\n\n\n\nSensores (Captura): Transductores que transforman magnitudes físicas (temperatura, humedad, voltaje galvánico, fotopletismografía PPG, acelerometría) en señales eléctricas calibradas.\nMicrocontrolador / SoC (Computación en el Borde): Circuitos integrados de bajo consumo (como Seeed Studio XIAO ESP32-C3 o ESP32) que ejecutan el firmware, leen los sensores y ejecutan la lógica local de control (if / else).\nConectividad (Transporte): Módulos de radiofrecuencia (Wi-Fi IEEE 802.11, Bluetooth Low Energy BLE, LoRaWAN, Cellular NB-IoT) que transportan los paquetes.\nBroker / Plataforma en la Nube: Servidor central encargado de recibir los mensajes de múltiples dispositivos, enrutarlos, almacenarlos y accionar alarmas en tiempo real.\nActuadores & Alarmas: Dispositivos de salida (LEDs de alerta, relés para encendido de refrigeradores auxiliares, sirenas sonoras o indicadores visuales).",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 12: IoMT & Wearables"
+    ]
+  },
+  {
+    "objectID": "corte3/clase12/index.html#el-protocolo-mqtt-fundamentos-y-comparación-con-http",
+    "href": "corte3/clase12/index.html#el-protocolo-mqtt-fundamentos-y-comparación-con-http",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "📡 3. El Protocolo MQTT: Fundamentos y Comparación con HTTP",
+    "text": "📡 3. El Protocolo MQTT: Fundamentos y Comparación con HTTP\n\n¿Por qué no usar simplemente peticiones HTTP (GET / POST)?\nEn aplicaciones web convencionales, el protocolo estándar es HTTP/1.1 o HTTP/2, basado en un modelo Cliente-Servidor de Petición/Respuesta (Request/Response). Aunque HTTP es excelente para páginas web y APIs REST, presenta graves deficiencias en microcontroladores y dispositivos médicos alimentados por batería:\n\n\n\n\n\nCaracterística\nHTTP (REST)\nMQTT (Message Queuing Telemetry Transport)\n\n\n\n\nParadigma\nPetición / Respuesta (Request / Response, Síncrono)\nPublicación / Suscripción (Publish / Subscribe, Asíncrono)\n\n\nCabecera del paquete\nPesada (mínimo centenas de bytes a varios KB con headers HTTP)\nUltraligera (cabecera fija mínima de tan solo 2 bytes)\n\n\nConsumo de Batería y CPU\nAlto (crea y destruye sockets TCP en cada reporte)\nExtremadamente bajo (conexión TCP persistente con Keep-Alive)\n\n\nModelo de Datos\nSondeo constante (Polling) para enterarse de novedades\nEmpuje en tiempo real (Push) inmediato hacia los suscriptores\n\n\nConocimiento mutuo\nEl cliente debe conocer la dirección IP / URL exacta del servidor\nDesacoplamiento total: Clientes solo conocen al Broker\n\n\n\n\n\n\n\nEl Desacoplamiento Tridimensional de MQTT\nUna de las mayores virtudes pedagógicas y operativas de MQTT es que rompe la dependencia directa entre los dispositivos:\n\nDesacoplamiento Espacial: El sensor que mide la temperatura no tiene idea de qué computadores, teléfonos o navegadores están leyendo su dato. Solo publica en un canal (tópico) en el Broker.\nDesacoplamiento Temporal: El publicador y el suscriptor no tienen que estar conectados a la red al mismo tiempo. Mediante banderas como Retained Messages o sesiones persistentes, un suscriptor que se conecte después puede recibir de inmediato el último estado conocido.\nDesacoplamiento de Sincronización: La operación de publicación es asíncrona y no bloqueante. El microcontrolador envía su lectura y continúa de inmediato ejecutando su ciclo de control sin esperar a que otros la procesen.\n\n\n\nNiveles de Calidad de Servicio (QoS - Quality of Service)\nMQTT ofrece tres niveles nativos de garantía en la entrega de paquetes según la criticidad del dato:\n\nQoS 0 — “At most once” (A lo sumo una vez / Fuego y olvido):\nEl mensaje se envía sin confirmación a nivel de aplicación. Se apoya únicamente en la confiabilidad de la capa TCP subyacente. Si se corta el enlace, el paquete se pierde. Es ideal para telemetría no crítica de alta frecuencia.\nQoS 1 — “At least once” (Al menos una vez):\nEl emisor retransmite el mensaje hasta recibir un paquete de reconocimiento (PUBACK) del Broker. Se garantiza que el mensaje llega, pero si hay fluctuaciones de red pueden presentarse mensajes duplicados.\nQoS 2 — “Exactly once” (Exactamente una vez):\nEs el nivel más confiable y estricto. Se realiza un protocolo de apretón de manos (handshake) en 4 pasos (PUBLISH \\(\\rightarrow\\) PUBREC \\(\\rightarrow\\) PUBREL \\(\\rightarrow\\) PUBCOMP). Garantiza que el mensaje llega exactamente una sola vez, sin pérdidas ni duplicados. Es el nivel idóneo para eventos médicos críticos, tales como dosificación de medicamentos por bombas de infusión o alarmas de parada cardiorrespiratoria.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 12: IoMT & Wearables"
+    ]
+  },
+  {
+    "objectID": "corte3/clase12/index.html#sintaxis-y-jerarquía-de-tópicos-mqtt",
+    "href": "corte3/clase12/index.html#sintaxis-y-jerarquía-de-tópicos-mqtt",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "🗂️ 4. Sintaxis y Jerarquía de Tópicos MQTT",
+    "text": "🗂️ 4. Sintaxis y Jerarquía de Tópicos MQTT\nLos tópicos (topics) en MQTT son cadenas de texto organizadas en forma de árbol jerárquico separadas por diagonales (/). Son sensibles a mayúsculas y minúsculas (case-sensitive).\n\nReglas de diseño de tópicos:\n\nNo utilizar espacios ni caracteres especiales con tildes.\nDiseñar de lo más general a lo más específico (ej. institución/servicio/equipo/variable).\nWildcards (Comodines) para Suscripción:\n\n+ (Comodín de un solo nivel): Reemplaza exactamente un nivel del árbol.\n\nEjemplo: hospital/farmacia/+/temperatura permite recibir la temperatura de todas las neveras de la farmacia (nevera_01, nevera_02, etc.).\n\n# (Comodín multinivel): Debe ubicarse siempre al final del tópico y captura todos los subniveles inferiores.\n\nEjemplo: hospital/farmacia/# suscribe a todos los mensajes (temperatura, humedad, estados de puerta, alarmas y actuadores).",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 12: IoMT & Wearables"
+    ]
+  },
+  {
+    "objectID": "corte3/clase12/index.html#caso-clínico-de-estudio-cadena-de-frío-en-farmacia-hospitalaria",
+    "href": "corte3/clase12/index.html#caso-clínico-de-estudio-cadena-de-frío-en-farmacia-hospitalaria",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "🏥 5. Caso Clínico de Estudio: Cadena de Frío en Farmacia Hospitalaria",
+    "text": "🏥 5. Caso Clínico de Estudio: Cadena de Frío en Farmacia Hospitalaria\n\nJustificación Biomédica y Farmacéutica\nEn los servicios de salud (farmacia central, oncología, vacunación, banco de sangre), la conservación de medicamentos biológicos, vacunas (antirrábica, influenza, COVID-19, hepatitis B) e insulinas exige una temperatura constante en el rango estricto de:\n\\[\\mathbf{2.0^\\circ\\text{C} \\le \\text{Temperatura} \\le 8.0^\\circ\\text{C}}\\]\nLa humedad relativa debe controlarse típicamente entre el 30% y el 60% para impedir la condensación y el deterioro de los empaques primarios.\n\nExcursión térmica por calor (\\(&gt; 8.0^\\circ\\text{C}\\)): Ocasiona desnaturalización irreversible de proteínas en vacunas y pérdida total de efectividad terapéutica.\nExcursión térmica por congelamiento (\\(&lt; 2.0^\\circ\\text{C}\\)): Las vacunas con adyuvantes a base de sales de aluminio se desestabilizan y pierden su inmunogenicidad.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 12: IoMT & Wearables"
+    ]
+  },
+  {
+    "objectID": "corte3/clase12/index.html#arquitectura-del-sistema",
+    "href": "corte3/clase12/index.html#arquitectura-del-sistema",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "🏗️ 6. Arquitectura del Sistema",
+    "text": "🏗️ 6. Arquitectura del Sistema\nLa siguiente figura ilustra la arquitectura de monitoreo de la cadena de frío implementada para el hospital:\n\n\n\n\nArquitectura IoMT para Monitoreo de Cadena de Frío en Farmacia Hospitalaria\n\n\n\n\nDescripción de los Componentes:\n\nRefrigerador de Farmacia Hospitalaria: Unidad médica con estantes para fármacos y vacunas.\nNodos de Sensado (Microcontrolador ESP32 + Sensor DHT22 + Actuador LED): Instrumentan la temperatura y humedad, transmiten telemetría y escuchan comandos de actuación.\nFlujo de Publicación (MQTT Publish): El nodo se conecta a la red Wi-Fi y publica periódicamente sus lecturas en formato JSON hacia el broker.\nBroker MQTT Central (HiveMQ / Genérico): Servidor central en la nube (broker.hivemq.com), encargado del enrutamiento asíncrono.\nConsumidores del Sistema:\n\nVisualización en Tiempo Real: Dashboard web oficial conectado mediante MQTT sobre WebSockets (HiveMQ WebSocket Client).\nControl Remoto Bidireccional: El operador puede enviar órdenes de encendido o apagado (on / off) desde el navegador hacia el microcontrolador para activar alarmas o luces de inspección.\nAlmacenamiento y Registro: Servicios suscriptores en base de datos para trazabilidad y auditoría clínica.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 12: IoMT & Wearables"
+    ]
+  },
+  {
+    "objectID": "corte3/clase12/index.html#práctica-de-laboratorio-implementación-en-wokwi-y-hivemq",
+    "href": "corte3/clase12/index.html#práctica-de-laboratorio-implementación-en-wokwi-y-hivemq",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "🧪 7. Práctica de Laboratorio: Implementación en Wokwi y HiveMQ",
+    "text": "🧪 7. Práctica de Laboratorio: Implementación en Wokwi y HiveMQ\nEn esta práctica programaremos el microcontrolador Seeed Studio XIAO ESP32-C3 con un sensor DHT22 y un LED indicador en el simulador en la nube Wokwi, transmitiendo datos en tiempo real al broker HiveMQ y probando la comunicación bidireccional desde el HiveMQ WebSockets Client.\n\n\n\n\n\n\nTip🛠️ Plataforma de Simulación Virtual: Wokwi\n\n\n\nRealizaremos la simulación completa en Wokwi (ESP32 Simulator), utilizando la tarjeta Seeed Studio XIAO ESP32-C3 con sensor DHT22 (pin D2) y un LED actuador (pin D4). No se requiere hardware físico para realizar el laboratorio.\n\n\n\n\n📦 Configuración de Bibliotecas en Wokwi (libraries.txt)\nEn la pestaña Library Manager de Wokwi, agregue las siguientes dos bibliotecas:\nDHT sensor library\nPubSubClient\n\n\n\n🔌 Esquema de Hardware en Wokwi (diagram.json)\nEn la pestaña diagram.json de Wokwi, pegue la siguiente configuración correspondiente al montaje en protoboard con XIAO ESP32-C3, sensor DHT22 (conectado a D2), LED (conectado a D4) y resistencia de \\(1000\\,\\Omega\\):\n{\n  \"version\": 1,\n  \"author\": \"Uri Shaked\",\n  \"editor\": \"wokwi\",\n  \"parts\": [\n    { \"type\": \"wokwi-breadboard-half\", \"id\": \"bb1\", \"top\": 25.8, \"left\": -122, \"attrs\": {} },\n    {\n      \"type\": \"board-xiao-esp32-c3\",\n      \"id\": \"esp\",\n      \"top\": 81.02,\n      \"left\": -104.63,\n      \"rotate\": 270,\n      \"attrs\": {}\n    },\n    { \"type\": \"wokwi-dht22\", \"id\": \"dht1\", \"top\": 38.7, \"left\": 13.8, \"attrs\": {} },\n    { \"type\": \"wokwi-led\", \"id\": \"led1\", \"top\": 44.4, \"left\": 119, \"attrs\": { \"color\": \"red\" } },\n    {\n      \"type\": \"wokwi-resistor\",\n      \"id\": \"r1\",\n      \"top\": 128.2,\n      \"left\": 114.35,\n      \"rotate\": 270,\n      \"attrs\": { \"value\": \"1000\" }\n    }\n  ],\n  \"connections\": [\n    [ \"bb1:3t.b\", \"bb1:tp.2\", \"red\", [ \"v0\" ] ],\n    [ \"bb1:2t.b\", \"bb1:tn.1\", \"black\", [ \"v0\" ] ],\n    [ \"bb1:14b.h\", \"bb1:11b.h\", \"red\", [ \"v0\" ] ],\n    [ \"bb1:11b.g\", \"bb1:tp.9\", \"red\", [ \"v0\" ] ],\n    [ \"bb1:16b.h\", \"bb1:17b.h\", \"black\", [ \"v0\" ] ],\n    [ \"bb1:17b.i\", \"bb1:20b.i\", \"black\", [ \"v0\" ] ],\n    [ \"bb1:20b.h\", \"bb1:tn.16\", \"black\", [ \"v0\" ] ],\n    [ \"bb1:3b.i\", \"bb1:15b.i\", \"blue\", [ \"v0\" ] ],\n    [ \"bb1:25t.c\", \"bb1:22t.c\", \"black\", [ \"v0\" ] ],\n    [ \"bb1:tn.18\", \"bb1:22t.b\", \"black\", [ \"v0\" ] ],\n    [ \"bb1:5b.j\", \"bb1:26b.j\", \"gold\", [ \"v0\" ] ],\n    [ \"dht1:VCC\", \"bb1:14b.g\", \"\", [ \"$bb\" ] ],\n    [ \"dht1:SDA\", \"bb1:15b.g\", \"\", [ \"$bb\" ] ],\n    [ \"dht1:NC\", \"bb1:16b.g\", \"\", [ \"$bb\" ] ],\n    [ \"dht1:GND\", \"bb1:17b.g\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D0\", \"bb1:1b.g\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D1\", \"bb1:2b.g\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D2\", \"bb1:3b.g\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D3\", \"bb1:4b.g\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D4\", \"bb1:5b.g\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D5\", \"bb1:6b.g\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D6\", \"bb1:7b.g\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D7\", \"bb1:7t.c\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D8\", \"bb1:6t.c\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D9\", \"bb1:5t.c\", \"\", [ \"$bb\" ] ],\n    [ \"esp:D10\", \"bb1:4t.c\", \"\", [ \"$bb\" ] ],\n    [ \"esp:3V3\", \"bb1:3t.c\", \"\", [ \"$bb\" ] ],\n    [ \"esp:GND\", \"bb1:2t.c\", \"\", [ \"$bb\" ] ],\n    [ \"esp:5V\", \"bb1:1t.c\", \"\", [ \"$bb\" ] ],\n    [ \"led1:A\", \"bb1:26t.b\", \"\", [ \"$bb\" ] ],\n    [ \"led1:C\", \"bb1:25t.b\", \"\", [ \"$bb\" ] ],\n    [ \"r1:1\", \"bb1:26b.h\", \"\", [ \"$bb\" ] ],\n    [ \"r1:2\", \"bb1:26t.d\", \"\", [ \"$bb\" ] ]\n  ],\n  \"dependencies\": {}\n}\n\n\n\n💻 Código Fuente en C++ (sketch.ino)\nCopie y pegue el siguiente código en la pestaña sketch.ino de Wokwi. Este código incluye: * Generación automática del ID único de cliente MQTT utilizando la dirección MAC física del ESP32. * Conexión a la red Wi-Fi virtual Wokwi-GUEST. * Conexión con el broker gratuito HiveMQ (broker.hivemq.com en puerto 1883). * Publicación periódica del JSON con temperatura, humedad y estado clínico de la cadena de frío. * Función de escucha (callback) para encender o apagar el actuador LED desde el cliente web mediante el tópico Led o hospital/farmacia/nevera_01/led.\n// ==============================================================================\n// SISTEMA IoMT DE TELEMETRÍA Y CONTROL DE CADENA DE FRÍO - FARMACIA HOSPITALARIA\n// Asignatura: Informática Médica (IFMER 2026-II) - Universidad del Rosario\n// Docente: Prof. Jefferson Sarmiento Rojas\n// Placa: Seeed Studio XIAO ESP32-C3 | Sensor: DHT22 en D2 | LED en D4\n// Broker: HiveMQ (broker.hivemq.com:1883)\n// ==============================================================================\n\n// 1. Importar librerías\n#include \"WiFi.h\"          // Conexión WiFi\n#include \"PubSubClient.h\"  // Cliente MQTT\n#include \"DHT.h\"           // Sensor DHT22\n\n// Pin de salida que gobierna el LED actuador\nconst int lamp = D4;\n\n// 2. Configuración de red inalámbrica\nconst char* ssid = \"Wokwi-GUEST\";           // Red virtual de Wokwi\nconst char* password = \"\";                  // Sin contraseña en simulador\nconst char* mqtt_server = \"broker.hivemq.com\"; // Broker MQTT público y gratuito HiveMQ\n\n// 3. Cliente WiFi y cliente MQTT\nWiFiClient espClient;\nPubSubClient client(espClient);\nunsigned long lastSend;\nint status = WL_IDLE_STATUS;\n\n// Nombre de cliente MQTT generado automáticamente\nString clientName;\n\n// 4. Configuración del sensor\n#define DHTPIN D2      // Pin de datos del DHT22 conectado a D2\n#define DHTTYPE DHT22  // Referencia del sensor DHT22\n\nDHT dht(DHTPIN, DHTTYPE);\n\nfloat h, t;            // Variables de humedad y temperatura\n\n// 5. Mensaje que se publica en formato JSON\nString payload;\n\n// ==============================================================================\n// GENERAR NOMBRE DE CLIENTE MQTT A PARTIR DE LA MAC DEL ESP32\n// ==============================================================================\nvoid generarNombreCliente() {\n  uint64_t mac = ESP.getEfuseMac();\n  char nombre[30];\n\n  snprintf(\n    nombre,\n    sizeof(nombre),\n    \"ESP32_%012llX\",\n    mac\n  );\n\n  clientName = String(nombre);\n\n  Serial.print(\"Nombre cliente MQTT generado: \");\n  Serial.println(clientName);\n}\n\n// ==============================================================================\n// DECLARACIÓN DE CALLBACK PARA MENSAJES ENTRANTES (ÓRDENES REMOTAS)\n// ==============================================================================\nvoid callback(char* topic, byte* message, unsigned int length) {\n  Serial.print(\"Llegó un mensaje del tópico: \");\n  Serial.print(topic);\n  Serial.print(\". Mensaje: \");\n\n  String messageTemp = \"\";\n  for (int i = 0; i &lt; length; i++) {\n    Serial.print((char)message[i]);\n    messageTemp += (char)message[i];\n  }\n  Serial.println();\n\n  // Control remoto del actuador LED\n  if (String(topic) == \"hospital/farmacia/nevera_01/led\" || String(topic) == \"Led\") {\n    if (messageTemp == \"on\" || messageTemp == \"ON\") {\n      digitalWrite(lamp, HIGH);\n      Serial.println(\"&gt;&gt;&gt; ACTUADOR: LED encendido por orden remota\");\n    }\n    else if (messageTemp == \"off\" || messageTemp == \"OFF\") {\n      digitalWrite(lamp, LOW);\n      Serial.println(\"&gt;&gt;&gt; ACTUADOR: LED apagado por orden remota\");\n    }\n  }\n}\n\n// ==============================================================================\n// RECONEXIÓN AL BROKER MQTT\n// ==============================================================================\nvoid reconnect() {\n  while (!client.connected()) {\n    Serial.print(\"Intentando conectar al broker HiveMQ...\");\n\n    if (client.connect(clientName.c_str())) {\n      Serial.println(\" ¡Conectado exitosamente!\");\n\n      // Suscripción a los tópicos de control remoto para el actuador LED\n      client.subscribe(\"hospital/farmacia/nevera_01/led\");\n      client.subscribe(\"Led\");\n      Serial.println(\"Suscrito a los tópicos de control: Led y hospital/farmacia/nevera_01/led\");\n\n    } else {\n      Serial.print(\" Fallo de conexión, rc=\");\n      Serial.print(client.state());\n      Serial.println(\" Intentando nuevamente en 3 segundos...\");\n      delay(3000);\n    }\n  }\n}\n\n// ==============================================================================\n// CONEXIÓN A LA RED INALÁMBRICA WI-FI\n// ==============================================================================\nvoid setup_wifi() {\n  delay(10);\n  Serial.println();\n  Serial.print(\"Conectando a la red: \");\n  Serial.println(ssid);\n\n  WiFi.begin(ssid, password);\n\n  while (WiFi.status() != WL_CONNECTED) {\n    delay(200);\n    Serial.print(\".\");\n  }\n\n  Serial.println(\"\");\n  Serial.print(\"Conexión WiFi establecida. Dirección IP asignada: \");\n  Serial.println(WiFi.localIP());\n}\n\n// ==============================================================================\n// CONFIGURACIÓN INICIAL (SETUP)\n// ==============================================================================\nvoid setup() {\n  Serial.begin(9600);\n\n  // Generar ID único usando la MAC\n  generarNombreCliente();\n\n  // Conectar a Wi-Fi\n  setup_wifi();\n\n  // Configurar servidor MQTT y función de escucha\n  client.setServer(mqtt_server, 1883);\n  client.setCallback(callback);\n\n  // Inicializar periféricos\n  pinMode(lamp, OUTPUT);\n  dht.begin();\n\n  lastSend = 0;\n  delay(2000);\n}\n\n// ==============================================================================\n// LECTURA DEL SENSOR DHT22\n// ==============================================================================\nvoid GetSensor() {\n  h = dht.readHumidity();\n  t = dht.readTemperature();\n\n  if (isnan(h) || isnan(t)) {\n    Serial.println(\"[ERROR] Falla al leer el sensor DHT22!\");\n    return;\n  }\n}\n\n// ==============================================================================\n// ARMADO DEL MENSAJE EN FORMATO JSON\n// ==============================================================================\nvoid CrearJson() {\n  String temperatura = String(t, 2);\n  String humedad = String(h, 2);\n\n  // Construcción del paquete JSON\n  payload = \"{\";\n  payload += \"\\\"temp\\\":\";\n  payload += temperatura;\n  payload += \",\";\n  payload += \"\\\"hum\\\":\";\n  payload += humedad;\n\n  // Lógica médica para cadena de frío en farmacia: rango 2.0 °C a 8.0 °C\n  if (t &gt; 8.0 || t &lt; 2.0) {\n    payload += \",\\\"alerta\\\":true\";\n    payload += \",\\\"estado\\\":\\\"EXCURSION_TERMICA\\\"\";\n  } else {\n    payload += \",\\\"alerta\\\":false\";\n    payload += \",\\\"estado\\\":\\\"NORMAL\\\"\";\n  }\n\n  payload += \"}\";\n}\n\n// ==============================================================================\n// PUBLICACIÓN DE LA TELEMETRÍA\n// ==============================================================================\nvoid PublicarMensaje() {\n  char attributes[150];\n  payload.toCharArray(attributes, 150);\n\n  // Publicación en el tópico hospitalario y en el tópico general\n  client.publish(\"hospital/farmacia/nevera_01/telemetria\", attributes);\n  client.publish(\"TopicURSensorTempHum\", attributes);\n\n  Serial.print(\"[MQTT Enviado] -&gt; \");\n  Serial.println(attributes);\n}\n\n// ==============================================================================\n// CICLO PRINCIPAL (LOOP)\n// ==============================================================================\nvoid loop() {\n  if (!client.connected()) {\n    reconnect();\n  }\n\n  // Medir y publicar cada 2 segundos\n  if (millis() - lastSend &gt; 2000) {\n    GetSensor();\n    CrearJson();\n    PublicarMensaje();\n    lastSend = millis();\n  }\n\n  client.loop(); // Mantiene activa la conexión MQTT y procesa callbacks\n}",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 12: IoMT & Wearables"
+    ]
+  },
+  {
+    "objectID": "corte3/clase12/index.html#validación-en-vivo-con-hivemq-websocket-client",
+    "href": "corte3/clase12/index.html#validación-en-vivo-con-hivemq-websocket-client",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "🌐 8. Validación en Vivo con HiveMQ WebSocket Client",
+    "text": "🌐 8. Validación en Vivo con HiveMQ WebSocket Client\nPara auditar y probar la solución no se requiere programar herramientas externas; utilizaremos directamente la herramienta oficial en la nube:\n👉 https://www.hivemq.com/demos/websocket-client/\n\n\n\n\n\n\nImportant📋 Procedimiento de Prueba Paso a Paso\n\n\n\n\n1. Conexión al Broker\n\nAbra la página del cliente: https://www.hivemq.com/demos/websocket-client/.\nVerifique que el Host sea broker.hivemq.com y el Port sea 8884 (puerto seguro WSS).\nHaga clic en el botón verde “Connect”. El indicador cambiará a “Connected”.\n\n\n\n2. Suscribirse a la Telemetría de la Nevera\n\nEn la sección Subscriptions, haga clic en “Add New Topic Subscription”.\nEscriba el tópico: hospital/farmacia/nevera_01/telemetria (o también TopicURSensorTempHum).\nDeje QoS en 0 o 1 y haga clic en “Subscribe”.\nInicie la simulación en Wokwi. Cada 2 segundos observará los paquetes JSON llegando en vivo:\n{\"temp\":4.50,\"hum\":50.00,\"alerta\":false,\"estado\":\"NORMAL\"}\n\n\n\n3. Control Remoto del Actuador (Encender / Apagar el LED)\n\nEn la sección Publish del cliente HiveMQ:\n\nTopic: hospital/farmacia/nevera_01/led (o Led)\nMessage: on\nHaga clic en “Publish”.\n👉 Resultado en Wokwi: El LED rojo conectado al pin D4 se encenderá de inmediato y en el monitor serial aparecerá el mensaje: &gt;&gt;&gt; ACTUADOR: LED encendido por orden remota.\nAhora cambie el mensaje a off y haga clic en “Publish”.\n👉 Resultado en Wokwi: El LED rojo se apagará.\n\n\n\n\n4. Simulación de Falla de Cadena de Frío\n\nEn Wokwi, haga clic sobre el sensor DHT22.\nMueva el deslizador de temperatura a \\(15^\\circ\\text{C}\\) (simulando apertura prolongada de puerta o daño en el compresor).\nObserve en el cliente HiveMQ cómo el campo cambia automáticamente a:\n{\"temp\":15.00,\"hum\":50.00,\"alerta\":true,\"estado\":\"EXCURSION_TERMICA\"}",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 12: IoMT & Wearables"
+    ]
+  },
+  {
+    "objectID": "corte3/clase12/index.html#simulador-websockets-incrustado-en-la-guía",
+    "href": "corte3/clase12/index.html#simulador-websockets-incrustado-en-la-guía",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "🕹️ 9. Simulador WebSockets Incrustado en la Guía",
+    "text": "🕹️ 9. Simulador WebSockets Incrustado en la Guía\nPara comodidad durante la clase, también puedes probar la recepción y emisión de mensajes directamente en esta página web:\n\n  \n     Banco de Pruebas Web (HiveMQ WebSockets)\n    Desconectado\n  \n  \n    \n      \n      \n        Control del LED de Alarma (Envío hacia Wokwi)\n        Envía órdenes al tópico hospital/farmacia/nevera_01/led para encender o apagar el LED en la simulación:\n        \n        \n          \n             Conectar al Broker\n          \n          \n             Encender LED (\"on\")\n          \n          \n             Apagar LED (\"off\")\n          \n        \n\n        \n          Broker: broker.hivemq.com:8884 (WSS)\n          Tópico telemetría: hospital/farmacia/nevera_01/telemetria\n        \n      \n\n      \n      \n        Monitor de Mensajes Recibidos en Vivo\n        \n          &gt; Conecte al broker para ver telemetría de Wokwi...\n        \n        \n          Limpiar consola",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 12: IoMT & Wearables"
+    ]
+  },
+  {
+    "objectID": "corte3/clase12/index.html#reto-evaluativo-y-entregables",
+    "href": "corte3/clase12/index.html#reto-evaluativo-y-entregables",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "📝 10. Reto Evaluativo y Entregables",
+    "text": "📝 10. Reto Evaluativo y Entregables\nCada equipo de trabajo deberá completar las siguientes actividades:\n\nConfiguración de Simulación en Wokwi:\n\nMontar el circuito con XIAO ESP32-C3, DHT22 y LED en protoboard utilizando el diagram.json proporcionado.\nCompilar y cargar el código C++ en sketch.ino.\n\nValidación con HiveMQ WebSocket Client:\n\nConectarse a broker.hivemq.com desde la herramienta web.\nSuscribirse al tópico de telemetría y documentar la llegada periódica de lecturas en formato JSON.\nEncender y apagar el LED desde el navegador enviando las órdenes on y off.\n\nSimulación de Alarma Médica:\n\nModificar la temperatura en Wokwi a un valor fuera de rango (\\(&gt; 8.0^\\circ\\text{C}\\) o \\(&lt; 2.0^\\circ\\text{C}\\)).\nCapturar la evidencia donde el JSON refleja \"alerta\": true y \"estado\": \"EXCURSION_TERMICA\".\n\nEntregables:\n\nEnlace público de la simulación funcional en Wokwi.\nCapturas de pantalla de la recepción de datos y control del LED desde el cliente web de HiveMQ.\nBreve análisis de farmacovigilancia sobre el impacto de la pérdida de cadena de frío en medicamentos biológicos.",
+    "crumbs": [
+      "Guía de Asignatura",
+      "🟨 Corte 3: Datos, IA & Ética",
+      "Clase 12: IoMT & Wearables"
+    ]
+  },
+  {
+    "objectID": "corte3/clase12/index.html#referencias-de-consulta",
+    "href": "corte3/clase12/index.html#referencias-de-consulta",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT",
+    "section": "📚 11. Referencias de Consulta",
+    "text": "📚 11. Referencias de Consulta\n\nHiveMQ Public MQTT Broker & WebSocket Client:\nhttps://www.hivemq.com/demos/websocket-client/\nWokwi Online Simulator for ESP32 and Arduino:\nhttps://wokwi.com/\nOASIS Standard:\nMQTT Version 5.0 and 3.1.1 Specification. https://mqtt.org/\nOrganización Panamericana de la Salud (OPS/OMS):\nCadena de frío de las vacunas: Manual del operador. Módulo de Trazabilidad y Monitoreo de Temperatura.",
     "crumbs": [
       "Guía de Asignatura",
       "🟨 Corte 3: Datos, IA & Ética",
@@ -1953,18 +2097,263 @@
     ]
   },
   {
-    "objectID": "corte3/clase12/slides.html#diapositivas-en-desarrollo",
-    "href": "corte3/clase12/slides.html#diapositivas-en-desarrollo",
-    "title": "Clase 12: Internet de las Cosas Médicas (IoMT)",
-    "section": "Diapositivas en Desarrollo",
-    "text": "Diapositivas en Desarrollo\n\nPróximamente se publicará el contenido de las diapositivas de esta sesión."
+    "objectID": "corte3/clase12/slides.html#agenda-de-la-sesión",
+    "href": "corte3/clase12/slides.html#agenda-de-la-sesión",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Agenda de la Sesión",
+    "text": "Agenda de la Sesión\n\nEvolución Tecnológica: Del IoT al IoMT (1982 - 2026+).\nAnatomía de una “Cosa” en Salud: Sensores, SoC, conectividad, actuadores y nube.\nProtocolo MQTT: ¿Por qué no HTTP? Publish/Subscribe y QoS (0, 1, 2).\nDiseño Jerárquico de Tópicos: Buenas prácticas hospitalarias.\nCaso Clínico: Cadena de frío de fármacos en farmacia hospitalaria.\nArquitectura del Sistema: Sensores \\(\\rightarrow\\) Broker HiveMQ \\(\\rightarrow\\) Web/Alertas/DB.\nTaller Práctico: XIAO ESP32-C3 + DHT22 en Wokwi y pruebas con HiveMQ WebSockets."
   },
   {
-    "objectID": "corte3/clase13/slides.html#diapositivas-en-desarrollo",
-    "href": "corte3/clase13/slides.html#diapositivas-en-desarrollo",
+    "objectID": "corte3/clase12/slides.html#hitos-históricos-clave",
+    "href": "corte3/clase12/slides.html#hitos-históricos-clave",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Hitos Históricos Clave",
+    "text": "Hitos Históricos Clave\n\n1982 - Máquina de Coca-Cola (Carnegie Mellon):\nPrimer electrodoméstico en red; reportaba botellas disponibles y si estaban frías.\n1990 - Internet Toaster (John Romkey):\nPrimera tostadora encendida mediante comandos TCP/IP (SNMP).\n1999 - Nacimiento del Término & Estándar:\n\nKevin Ashton (MIT Auto-ID) acuña “Internet of Things”.\nAndy Stanford-Clark y Arlen Nipper crean MQTT.\n\n2008 - Cruce de Población:\nMás dispositivos conectados a Internet que personas en el planeta.\n2016 - Ataque Botnet Mirai:\nMillones de dispositivos IoT vulnerados alertan sobre ciberseguridad.\n2024 - 2026+ - Era AIoT & IoMT:\nInteligencia artificial en el microcontrolador (TinyML) y telemetría clínica masiva."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#qué-es-el-iomt",
+    "href": "corte3/clase12/slides.html#qué-es-el-iomt",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "¿Qué es el IoMT?",
+    "text": "¿Qué es el IoMT?\n\n\n\n\n\n\nInternet of Medical Things (IoMT)\n\n\nColección de dispositivos médicos, sensores fisiológicos y aplicaciones de software interconectados a la infraestructura informática de salud mediante redes telemáticas.\n\n\n\n\nTolerancia Cero a Fallos: Una alarma cardiaca o de cadena de frío no puede perderse.\nNormativa Rigurosa: FDA, Invima, ISO 13485 y privacidad de datos clínicos (Habeas Data / HIPAA).\nEntornos Críticos: Cuidados intensivos, salas de cirugía, transporte neonatal y bancos de vacunas."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#industria-4.0-5.0-en-salud",
+    "href": "corte3/clase12/slides.html#industria-4.0-5.0-en-salud",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Industria 4.0 / 5.0 en Salud",
+    "text": "Industria 4.0 / 5.0 en Salud\nLos cuatro pilares tecnológicos convergentes:\n\nInternet de las Cosas (IoT / IoMT): Adquisición ubicua y continua.\nSistemas Ciberfísicos (CPS): Integración íntima entre hardware físico y algoritmos.\nBig Data: Almacenamiento y procesamiento masivo de bioseñales.\nInteligencia Computacional (IA / TinyML): Diagnóstico predictivo y apoyo a decisiones clínicas."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#componentes-esenciales",
+    "href": "corte3/clase12/slides.html#componentes-esenciales",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Componentes Esenciales",
+    "text": "Componentes Esenciales\n\n1. Sensores (Captura):\nTransductores de magnitudes físicas o bioeléctricas (temperatura, humedad, PPG, ECG, presión).\n2. Microcontrolador / SoC (Cálculo en el Borde):\nEj. XIAO ESP32-C3, microprocesador con lógica de control (if/else), empaquetado y seguridad.\n3. Conectividad (Transporte):\nWi-Fi, Bluetooth Low Energy (BLE), LoRaWAN, Cellular NB-IoT.\n4. Broker / Nube (Middleware):\nGestor de colas y mensajería en tiempo real.\n5. Actuadores & Alarmas:\nLEDs de alerta, relés, alarmas sonoras, notificaciones a personal médico."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#http-vs.-mqtt",
+    "href": "corte3/clase12/slides.html#http-vs.-mqtt",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "HTTP vs. MQTT",
+    "text": "HTTP vs. MQTT\n\n\n\n\n\n\n\n\nParámetro\nHTTP / REST\nMQTT (Telemetría)\n\n\n\n\nParadigma\nRequest / Response (Síncrono)\nPublish / Subscribe (Asíncrono)\n\n\nCabecera\nPesada (&gt; 500 bytes - varios KB)\nUltraligera (2 bytes)\n\n\nConsumo Batería\nAlto (abre/cierra sockets TCP)\nMínimo (socket persistente)\n\n\nFlujo de Datos\nSondeo (Polling) ineficiente\nEmpuje (Push) instantáneo\n\n\nTopología\nPunto a punto (conoce IP)\nDesacoplado por Broker"
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#el-desacoplamiento-tridimensional",
+    "href": "corte3/clase12/slides.html#el-desacoplamiento-tridimensional",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "El Desacoplamiento Tridimensional",
+    "text": "El Desacoplamiento Tridimensional\nMQTT desacopla completamente el emisor del receptor:\n\nEspacial: El sensor no sabe quién consume el dato; solo conoce al Broker.\nTemporal: Los dispositivos no necesitan estar conectados a la red al mismo instante (mensajes retenidos).\nDe Sincronización: El sensor publica de manera asíncrona y no se bloquea esperando confirmaciones pesadas."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#calidades-de-servicio-qos",
+    "href": "corte3/clase12/slides.html#calidades-de-servicio-qos",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Calidades de Servicio (QoS)",
+    "text": "Calidades de Servicio (QoS)\n\nQoS 0 — “At most once” (A lo sumo una vez):\nFuego y olvido (fire and forget). Confía en TCP. Adecuado para lecturas frecuentes no críticas.\nQoS 1 — “At least once” (Al menos una vez):\nGarantiza entrega mediante acuse de recibo (PUBACK). Puede haber duplicados en caídas de red.\nQoS 2 — “Exactly once” (Exactamente una vez):\nProtocolo de 4 pasos (PUBREC, PUBREL, PUBCOMP). Garantía estricta de una sola entrega.\nUso médico: Dosificación de fármacos, alarmas de paro vital."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#sintaxis-jerárquica",
+    "href": "corte3/clase12/slides.html#sintaxis-jerárquica",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Sintaxis Jerárquica",
+    "text": "Sintaxis Jerárquica\n\nOrganizados en forma de árbol con diagonales: /.\nSon sensibles a mayúsculas y minúsculas (case-sensitive).\nComodines (Wildcards) para Suscripción:\n\n+ : Reemplaza un único nivel.\nEjemplo: hospital/farmacia/+/temperatura\n# : Multinivel (captura todo lo que cuelga por debajo).\nEjemplo: hospital/farmacia/#"
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#monitoreo-de-cadena-de-frío-en-farmacia",
+    "href": "corte3/clase12/slides.html#monitoreo-de-cadena-de-frío-en-farmacia",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Monitoreo de Cadena de Frío en Farmacia",
+    "text": "Monitoreo de Cadena de Frío en Farmacia\n\nMedicamentos Críticos: Vacunas (COVID, influenza, rabia), medicamentos oncológicos biológicos e insulinas.\nVentana de Conservación Estricta: \\[\\mathbf{2.0^\\circ\\text{C} \\le \\text{Temperatura} \\le 8.0^\\circ\\text{C}}\\]\nHumedad Relativa: 30% a 60% para evitar condensación y deterioro de empaques.\nConsecuencias de Excursión Térmica:\n\n\\(&gt; 8^\\circ\\text{C}\\) (Calor): Desnaturalización proteica y pérdida de potencia inmunológica.\n\\(&lt; 2^\\circ\\text{C}\\) (Congelamiento): Precipitación de sales adyuvantes de aluminio y daño tisular."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#diagrama-del-sistema-iomt",
+    "href": "corte3/clase12/slides.html#diagrama-del-sistema-iomt",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Diagrama del Sistema IoMT",
+    "text": "Diagrama del Sistema IoMT\n\n\nOrigen: Nevera con nodo XIAO ESP32-C3 + DHT22 y LED indicador.\nTransporte: Publicación MQTT hacia broker.hivemq.com.\nDestinos: WebSockets Dashboard (Web/Móvil), Control de Actuadores, Ingesta en BD."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#broker-público-cliente-websockets",
+    "href": "corte3/clase12/slides.html#broker-público-cliente-websockets",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Broker Público & Cliente WebSockets",
+    "text": "Broker Público & Cliente WebSockets\n\nServidor Broker: broker.hivemq.com\nPuerto TCP (Hardware): 1883\nPuerto WebSockets (Browser seguro): 8884 (WSS, /mqtt)\nHerramienta oficial en línea: https://www.hivemq.com/demos/websocket-client/\n\nPermite probar de forma inmediata: 1. Suscripción a telemetría hospitalaria en tiempo real. 2. Publicación de órdenes remotas para encender/apagar el LED del microcontrolador."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#montaje-con-xiao-esp32-c3",
+    "href": "corte3/clase12/slides.html#montaje-con-xiao-esp32-c3",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Montaje con XIAO ESP32-C3",
+    "text": "Montaje con XIAO ESP32-C3\n       XIAO ESP32-C3               SENSOR DHT22\n    +-----------------+         +-----------------+\n    |            3V3  | ------&gt; | VCC (Pin 1)     |\n    |            GND  | ------&gt; | GND (Pin 4)     |\n    |             D2  | ------&gt; | DATA (Pin 2)    |\n    |             D4  | --[R]-&gt; | LED ROJO ALERTA |\n    +-----------------+         +-----------------+\n\nPlaca: Seeed Studio XIAO ESP32-C3 en protoboard.\nPin D2: Pin de datos del sensor DHT22.\nPin D4: Salida digital gobernando el LED con resistencia de \\(1000\\,\\Omega\\).\nBibliotecas: DHT sensor library y PubSubClient."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#formato-de-telemetría-json",
+    "href": "corte3/clase12/slides.html#formato-de-telemetría-json",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Formato de Telemetría JSON",
+    "text": "Formato de Telemetría JSON\nPublicación periódica cada 2 segundos\n{\n  \"temp\": 4.50,\n  \"hum\": 50.00,\n  \"alerta\": false,\n  \"estado\": \"NORMAL\"\n}\n\nTópico de telemetría:\nhospital/farmacia/nevera_01/telemetria (y TopicURSensorTempHum)\nID Único Automático:\nGenerado a partir de la MAC del ESP32 (ESP32_XXXXXXXXXXXX)."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#control-remoto-bidireccional-actuador",
+    "href": "corte3/clase12/slides.html#control-remoto-bidireccional-actuador",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Control Remoto Bidireccional (Actuador)",
+    "text": "Control Remoto Bidireccional (Actuador)\nEscucha mediante función callback()\nvoid callback(char* topic, byte* message, unsigned int length) {\n  // Si llega \"on\" al tópico Led o hospital/farmacia/nevera_01/led\n  if (messageTemp == \"on\") {\n    digitalWrite(lamp, HIGH); // Enciende el LED en Wokwi\n  } else if (messageTemp == \"off\") {\n    digitalWrite(lamp, LOW);  // Apaga el LED en Wokwi\n  }\n}\nPermite comandar desde cualquier parte del mundo el encendido o apagado de la alarma en la simulación."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#pruebas-con-hivemq-websocket-client",
+    "href": "corte3/clase12/slides.html#pruebas-con-hivemq-websocket-client",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Pruebas con HiveMQ WebSocket Client",
+    "text": "Pruebas con HiveMQ WebSocket Client\n\nConectar a broker.hivemq.com en puerto 8884.\nSuscripción: Agregar tópico hospital/farmacia/nevera_01/telemetria.\n👉 Ver las lecturas de Wokwi llegando en vivo cada 2 s.\nPublicación: Enviar al tópico hospital/farmacia/nevera_01/led (o Led):\n\nMensaje \"on\" \\(\\rightarrow\\) El LED en Wokwi se enciende.\nMensaje \"off\" \\(\\rightarrow\\) El LED en Wokwi se apaga.\n\nSimular Falla: Deslizar la temperatura a \\(15^\\circ\\text{C}\\) en Wokwi y verificar el reporte de \"alerta\": true."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#entregables-de-la-sesión",
+    "href": "corte3/clase12/slides.html#entregables-de-la-sesión",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Entregables de la Sesión",
+    "text": "Entregables de la Sesión\n\nCircuito Funcional en Wokwi: Montaje en protoboard con XIAO ESP32-C3, DHT22 y LED.\nConexión MQTT Exitosa: Telemetría en JSON transmitida hacia broker.hivemq.com.\nControl Bidireccional: Demostrar encendido y apagado del LED desde el cliente web de HiveMQ.\nSimulación de Alarma: Registro de excursión de temperatura fuera del rango \\(2^\\circ\\text{C}\\) a \\(8^\\circ\\text{C}\\)."
+  },
+  {
+    "objectID": "corte3/clase12/slides.html#contacto-material-del-curso",
+    "href": "corte3/clase12/slides.html#contacto-material-del-curso",
+    "title": "Clase 12: Internet de las Cosas Médicas (IoMT) & Telemetría MQTT",
+    "section": "Contacto & Material del Curso",
+    "text": "Contacto & Material del Curso\n\nDocente: Prof. Jefferson Sarmiento Rojas, Ph.D (c)\nCorreo: jefferson.sarmiento@urosario.edu.co\nPlataforma: https://urosario.edu.co/ifmer2026\nUniversidad del Rosario | Escuela de Medicina y Ciencias de la Salud"
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#agenda-de-la-sesión",
+    "href": "corte3/clase13/slides.html#agenda-de-la-sesión",
     "title": "Clase 13: Big Data, Machine Learning & TinyML",
-    "section": "Diapositivas en Desarrollo",
-    "text": "Diapositivas en Desarrollo\n\nPróximamente se publicará el contenido de las diapositivas de esta sesión."
+    "section": "Agenda de la Sesión",
+    "text": "Agenda de la Sesión\n\nEl Cambio de Paradigma: De la programación tradicional a la computación neuronal.\nEvolución Histórica: De la IA simbólica al Deep Learning a escala (1956 - 2026).\nFundamentos Neuronales: Suma ponderada (MACs), activación no lineal y memoria.\nCiclo de Vida de Sistemas de ML: Pipeline de 10 etapas y bucles de retroalimentación.\nEspectro de Inteligencia Distribuida: Cloud ML vs. Edge ML vs. Mobile vs. TinyML.\nReto Hospitalario: Identificación visual de equipos biomédicos en rondas técnicas.\nLaboratorio XIAO ESP32S3 Sense: Audio PDM/I2S, memoria OPI PSRAM y SenseCraft AI."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#programación-clásica-vs.-machine-learning",
+    "href": "corte3/clase13/slides.html#programación-clásica-vs.-machine-learning",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Programación Clásica vs. Machine Learning",
+    "text": "Programación Clásica vs. Machine Learning\n\n\nProgramación Clásica (Deducción)\n\nEl ingeniero programa reglas explícitas (IF-THEN).\nProcesa datos para obtener respuestas.\nFalla ante la variabilidad biológica y el ruido clínico.\n\n\n\nMachine Learning (Inducción)\n\nEntregamos datos y respuestas (etiquetas).\nEl algoritmo aprende estadísticamente las reglas (modelo).\nGeneraliza patrones complejos en bioseñales e imágenes.\n\n\\[\\text{Datos} + \\text{Etiquetas} \\rightarrow \\text{Modelo}\\]"
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#de-dartmouth-al-edge-ai",
+    "href": "corte3/clase13/slides.html#de-dartmouth-al-edge-ai",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "De Dartmouth al Edge AI",
+    "text": "De Dartmouth al Edge AI\n\n\n1950s - 1970s (IA Simbólica): Sistemas expertos y limitaciones del perceptrón.\n1980s - 2000s (ML Estadístico): Backprop, LSTMs, SVMs y cuello de botella de features manuales.\n2010s - 2026+ (Deep Learning & TinyML): Feature learning automático y modelos en MCUs."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#suma-ponderada-y-activación-no-lineal",
+    "href": "corte3/clase13/slides.html#suma-ponderada-y-activación-no-lineal",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Suma Ponderada y Activación No Lineal",
+    "text": "Suma Ponderada y Activación No Lineal\n\\[z = \\sum_{i=1}^n w_i x_i + b = \\mathbf{w}^T \\mathbf{x} + b \\quad \\longrightarrow \\quad a = \\sigma(z)\\]\n\n\nOperación MAC (Multiply-Accumulate)\n\nCada \\(w_i \\cdot x_i + \\text{acc}\\) es 1 MAC (2 FLOPs).\nDetermina el presupuesto de cómputo y consumo de batería en el microcontrolador.\n\n\nFunciones de Activación\n\nReLU: \\(\\max(0, z)\\) — Ultra eficiente en hardware embebido (un condicional if).\nSigmoide: \\(\\frac{1}{1 + e^{-z}}\\) — Mapea a \\([0, 1]\\).\nSoftmax: Capa final para clasificación multiclase."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#pipeline-de-10-fases-mlsysbook-reddi-et-al.",
+    "href": "corte3/clase13/slides.html#pipeline-de-10-fases-mlsysbook-reddi-et-al.",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Pipeline de 10 Fases (MLSysBook / Reddi et al.)",
+    "text": "Pipeline de 10 Fases (MLSysBook / Reddi et al.)\n\n\nData-Centric AI: Ingesta, curaduría, etiquetado y validación de calidad.\nModel & Deployment: Entrenamiento, evaluación con KPIs, cuantización y monitoreo online.\nFeedback Loops: Data fixes (corregir etiquetas) y Data needs (incorporar nuevos equipos)."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#dónde-debe-ejecutarse-el-modelo",
+    "href": "corte3/clase13/slides.html#dónde-debe-ejecutarse-el-modelo",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "¿Dónde Debe Ejecutarse el Modelo?",
+    "text": "¿Dónde Debe Ejecutarse el Modelo?\n\n\nCloud ML: Servidores en la nube (AWS/GCP), alta potencia (MW), alta latencia (100-500 ms).\nEdge ML: Servidores locales en hospital/UCI, latencia media (10-100 ms).\nTinyML: Microcontroladores en el sensor, latencia ultra baja (1-10 ms), consumo en miliwatts (mW)."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#latencia-consumo-memoria-y-aplicaciones",
+    "href": "corte3/clase13/slides.html#latencia-consumo-memoria-y-aplicaciones",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Latencia, Consumo, Memoria y Aplicaciones",
+    "text": "Latencia, Consumo, Memoria y Aplicaciones\n\n\n¿Por qué TinyML en Salud?\n\nPrivacidad (Habeas Data): Las imágenes nunca viajan a internet.\nTiempo Real: Detección en 1-10 ms sin depender de Wi-Fi o 4G.\nEficiencia Energética: Computar localmente consume 1000x menos energía que transmitir por RF."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#rondas-de-vigilancia-e-inducción-técnica",
+    "href": "corte3/clase13/slides.html#rondas-de-vigilancia-e-inducción-técnica",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Rondas de Vigilancia e Inducción Técnica",
+    "text": "Rondas de Vigilancia e Inducción Técnica\n\nProblema: En servicios como UCI, Urgencias y Quirófano conviven decenas de bombas de infusión, monitores y desfibriladores de distintas marcas.\nRiesgo: Confusión en la operación, errores en bitácoras o demora en ubicar el manual técnico.\nSolución de Ingeniería:\n\nCámara embebida con TinyML para reconocer visualmente el equipo en tiempo real.\nPublicación MQTT inmediata con el enlace URL al manual técnico del dispositivo."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#especificaciones-de-hardware",
+    "href": "corte3/clase13/slides.html#especificaciones-de-hardware",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Especificaciones de Hardware",
+    "text": "Especificaciones de Hardware\n\n\n\n\n\nMCU: ESP32-S3 Dual-Core Xtensa a 240 MHz con aceleración vectorial.\nVisión: Cámara desmontable OV2640 (1600 × 1200 px).\nAudio: Micrófono digital PDM integrado (bus I2S).\nMemoria: 8 MB PSRAM (OPI) + 8 MB Flash + MicroSD (FAT32).\nConectividad: Wi-Fi 2.4 GHz + BLE 5.0.\nTamaño: 21 × 17.5 mm."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#conexiones-clave-en-la-xiao-esp32s3",
+    "href": "corte3/clase13/slides.html#conexiones-clave-en-la-xiao-esp32s3",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Conexiones Clave en la XIAO ESP32S3",
+    "text": "Conexiones Clave en la XIAO ESP32S3\n\n\nLED de usuario: GPIO 21\nI2S Micrófono PDM: GPIO 42 (Reloj PDM) / GPIO 41 (Datos PDM)\nMicroSD CS: GPIO 21 (compartido)"
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#pasos-1-y-2-placa-y-blink",
+    "href": "corte3/clase13/slides.html#pasos-1-y-2-placa-y-blink",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Pasos 1 y 2: Placa y Blink",
+    "text": "Pasos 1 y 2: Placa y Blink\n\n\n * Instalar esp32 by Espressif Systems.\n\n * Seleccionar placa XIAO_ESP32S3 y puerto COM.\n\n\nEjercicio 2: Probar encendido/apagado del LED integrado en pin 21 con telemetría serial a 9600 bps."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#ejercicio-3-lectura-del-micrófono",
+    "href": "corte3/clase13/slides.html#ejercicio-3-lectura-del-micrófono",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Ejercicio 3: Lectura del Micrófono",
+    "text": "Ejercicio 3: Lectura del Micrófono\n#include &lt;ESP_I2S.h&gt;\nI2SClass I2S;\n\nvoid setup() {\n  Serial.begin(115200);\n  I2S.setPinsPdmRx(42, 41); // PDM Clock = 42, PDM Data = 41\n  I2S.begin(I2S_MODE_PDM_RX, 16000, I2S_DATA_BIT_WIDTH_16BIT, I2S_SLOT_MODE_MONO);\n}\n\nvoid loop() {\n  int sample = I2S.read();\n  if (sample != 0 && sample != -1 && sample != 1) {\n    Serial.println(sample); // Visualizar en Serial Plotter\n  }\n}"
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#ejercicio-4-almacenamiento-en-microsd",
+    "href": "corte3/clase13/slides.html#ejercicio-4-almacenamiento-en-microsd",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Ejercicio 4: Almacenamiento en MicroSD",
+    "text": "Ejercicio 4: Almacenamiento en MicroSD\n\n\n * Habilitar Tools -&gt; PSRAM: \"OPI PSRAM\" en Arduino IDE para disponer de 8 MB de RAM.\n\n\nGraba 20 segundos de señal acústica en formato WAV a 16 kHz.\nBuffer alojado en PSRAM externa.\nEscritura directa en archivo /audio_biomedico.wav en la MicroSD formateada en FAT32."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#flujo-de-trabajo-sin-código",
+    "href": "corte3/clase13/slides.html#flujo-de-trabajo-sin-código",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Flujo de Trabajo sin Código",
+    "text": "Flujo de Trabajo sin Código\n1. Conectar Navegador ──► 2. Test Cámara ──► 3. Dataset Equipos\n         │                                         │\n         ▼                                         ▼\n6. Inferencia Local  ◄── 5. Desplegar Modelo ◄── 4. Entrenar\n\nConexión por Web Serial API desde Google Chrome o Microsoft Edge.\nAcceso: seeed-studio.github.io/SenseCraft-Web-Toolkit/"
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#pasos-1-y-2",
+    "href": "corte3/clase13/slides.html#pasos-1-y-2",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Pasos 1 y 2",
+    "text": "Pasos 1 y 2\n\n\nSelección de Tarjeta\n Seleccionar XIAO ESP32S3 Sense y conectar puerto serie.\n\nPrueba de Vídeo\n Comprobar enfoque y tasa de cuadros del sensor OV2640."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#pasos-3-y-4",
+    "href": "corte3/clase13/slides.html#pasos-3-y-4",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Pasos 3 y 4",
+    "text": "Pasos 3 y 4\n\n\nCaptura de Clases\n * Bomba_Infusion * Monitor_Signos * Desfibrilador\n\nEntrenamiento Embebido\n * Red convolucional cuantizada en INT8 para TensorFlow Lite Micro."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#pasos-5-y-6",
+    "href": "corte3/clase13/slides.html#pasos-5-y-6",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Pasos 5 y 6",
+    "text": "Pasos 5 y 6\n\n\nFlasheo de Modelo\n Grabación directa en memoria Flash/PSRAM de la MCU.\n\nInferencia Local (15-30 FPS)\n Reconocimiento autónomo del equipo médico sin internet."
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#arquitectura-de-solución-completa",
+    "href": "corte3/clase13/slides.html#arquitectura-de-solución-completa",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Arquitectura de Solución Completa",
+    "text": "Arquitectura de Solución Completa\n[ Cámara XIAO ESP32S3 ]\n         │ (Inferencia TinyML &gt; 85%)\n         ▼\n[ Publicación MQTT JSON ]\n         │ Tópico: hospital/piso3/uci/equipos/identificacion\n         ▼\n[ Broker HiveMQ ]\n         │\n         ▼\n[ Tablet / Smartphone del Practicante ]\n  ──► Enlace directo al Manual de Operación y Mantenimiento"
+  },
+  {
+    "objectID": "corte3/clase13/slides.html#entregables-del-laboratorio",
+    "href": "corte3/clase13/slides.html#entregables-del-laboratorio",
+    "title": "Clase 13: Big Data, Machine Learning & TinyML",
+    "section": "Entregables del Laboratorio",
+    "text": "Entregables del Laboratorio\n\nEvidencia de Funcionamiento:\n\nDemostración en vivo o vídeo del clasificador TinyML reconociendo al menos 3 equipos biomédicos.\n\nRegistro de Telemetría:\n\nCaptura del monitor serial o cliente MQTT mostrando la clase, certeza predictiva y URL del manual.\n\nAnálisis Crítico:\n\nReporte de latencia de inferencia (FPS), robustez ante cambios de iluminación y limitaciones del hardware."
   },
   {
     "objectID": "corte3/clase14/slides.html#diapositivas-en-desarrollo",
@@ -2002,7 +2391,7 @@
     "href": "corte3/index.html#contenido-semana-por-semana",
     "title": "Corte 3: Datos, Inteligencia Artificial y Ética",
     "section": "📅 Contenido Semana por Semana",
-    "text": "📅 Contenido Semana por Semana\n\n\n🟨 Semana 12 - Clase 12: Internet de las Cosas Médicas (IoMT)\n\nConceptos: Wearables, sensores fisiológicos remotos, arquitectura IoT médica.\nPráctica: Captura e inspección de datos de bioinstrumentación.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟨 Semana 13 - Clase 13: Big Data e Inteligencia Artificial en Salud\n\nConceptos: Las 4 V del Big Data, Machine Learning, TinyML (IA en el dispositivo), CDSS.\nPráctica: Análisis exploratorio de un dataset de salud y clasificación predictiva.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟨 Semana 14 - Clase 14: Ética, Seguridad y Normativa\n\nConceptos: Privacidad de datos del paciente, HIPAA/GDPR, Ciberseguridad (Ransomware), Sesgos algorítmicos.\nPráctica: Estudio de caso sobre ataques ransomware y ética en algoritmos diagnósticos.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟨 Semana 15 - Clase 15: Proyecto Final / Evaluaciones\n\nEvaluación Sumativa: Sustentación del Proyecto Final Integrador (20%) y Evaluación Integradora (13.3%).\nRecursos: Ver Guía de Evaluación y Proyecto",
+    "text": "📅 Contenido Semana por Semana\n\n\n🟨 Semana 12 - Clase 12: Internet de las Cosas Médicas (IoMT) & Protocolo MQTT\n\nConceptos: Evolución del IoT al IoMT, Industria 4.0/5.0, arquitectura embebida en salud, protocolo MQTT (Publish/Subscribe, Broker, QoS 0/1/2, tópicos jerárquicos) y cadena de frío hospitalaria.\nPráctica: Monitoreo y telemetría de una nevera de farmacia hospitalaria con ESP32 + sensor DHT22 sobre el broker en la nube HiveMQ y cliente WebSockets.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟨 Semana 13 - Clase 13: Big Data, Machine Learning & TinyML en Salud\n\nConceptos: De la lógica tradicional a la computación neuronal (Reddi et al. / MLSysBook), primitiva de la neurona artificial (MACs, activación no lineal), ciclo de vida del sistema de ML (10 fases), espectro de inteligencia distribuida (Cloud ML vs. Edge ML vs. TinyML) y ventajas clínicas del on-device AI.\nPráctica: Laboratorio con Seeed Studio XIAO ESP32S3 Sense: adquisición de audio digital PDM/I2S, configuración de OPI PSRAM, y entrenamiento/despliegue de visión artificial con SenseCraft AI Studio para identificación de equipos biomédicos y enlace MQTT a manuales técnicos.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas | 📄 Guía de Laboratorio (PDF)\n\n\n\n\n\n🟨 Semana 14 - Clase 14: Ética, Seguridad y Normativa\n\nConceptos: Privacidad de datos del paciente, HIPAA/GDPR, Ciberseguridad (Ransomware), Sesgos algorítmicos.\nPráctica: Estudio de caso sobre ataques ransomware y ética en algoritmos diagnósticos.\nRecursos: Ver Guía de Clase | 💻 Ver Presentación Diapositivas\n\n\n\n\n\n🟨 Semana 15 - Clase 15: Proyecto Final / Evaluaciones\n\nEvaluación Sumativa: Sustentación del Proyecto Final Integrador (20%) y Evaluación Integradora (13.3%).\nRecursos: Ver Guía de Evaluación y Proyecto",
     "crumbs": [
       "Guía de Asignatura",
       "🟨 Corte 3: Datos, IA & Ética",

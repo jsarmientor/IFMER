@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)">
-  <meta name="dcterms.date" content="2026-07-23">
+  <meta name="dcterms.date" content="2026-10-14">
   <title>Informática Médica - IFMER 2026-II – Clase 13: Big Data, Machine Learning &amp; TinyML</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,6 +29,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-06e768f098560084c2d7120de8ad04fb.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -137,30 +203,426 @@
 Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c) 
 </div>
         <p class="quarto-title-affiliation">
-            Universidad del Rosario
+            Universidad del Rosario | Escuela de Medicina y Ciencias de la Salud
           </p>
     </div>
 </div>
 
-  <p class="date">2026-07-23</p>
+  <p class="date">2026-10-14</p>
 </section>
 <section>
-<section id="clase-13-big-data-machine-learning-tinyml" class="title-slide slide level1 center">
-<h1>🚧 Clase 13: Big Data, Machine Learning &amp; TinyML</h1>
+<section id="inteligencia-en-el-extremo-biomédico" class="title-slide slide level1 center">
+<h1>🧠 Inteligencia en el Extremo Biomédico</h1>
 
 </section>
-<section id="diapositivas-en-desarrollo" class="slide level2">
-<h2>Diapositivas en Desarrollo</h2>
+<section id="agenda-de-la-sesión" class="slide level2">
+<h2>Agenda de la Sesión</h2>
+<ol type="1">
+<li><strong>El Cambio de Paradigma:</strong> De la programación tradicional a la computación neuronal.</li>
+<li><strong>Evolución Histórica:</strong> De la IA simbólica al Deep Learning a escala (1956 - 2026).</li>
+<li><strong>Fundamentos Neuronales:</strong> Suma ponderada (MACs), activación no lineal y memoria.</li>
+<li><strong>Ciclo de Vida de Sistemas de ML:</strong> Pipeline de 10 etapas y bucles de retroalimentación.</li>
+<li><strong>Espectro de Inteligencia Distribuida:</strong> Cloud ML vs.&nbsp;Edge ML vs.&nbsp;Mobile vs.&nbsp;TinyML.</li>
+<li><strong>Reto Hospitalario:</strong> Identificación visual de equipos biomédicos en rondas técnicas.</li>
+<li><strong>Laboratorio XIAO ESP32S3 Sense:</strong> Audio PDM/I2S, memoria OPI PSRAM y SenseCraft AI.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="el-cambio-de-paradigma" class="title-slide slide level1 center">
+<h1>🔄 El Cambio de Paradigma</h1>
+
+</section>
+<section id="programación-clásica-vs.-machine-learning" class="slide level2">
+<h2>Programación Clásica vs.&nbsp;Machine Learning</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="programación-clásica-deducción">Programación Clásica (Deducción)</h3>
 <ul>
-<li>Próximamente se publicará el contenido de las diapositivas de esta sesión.</li>
+<li>El ingeniero programa <strong>reglas</strong> explícitas (<code>IF-THEN</code>).</li>
+<li>Procesa <strong>datos</strong> para obtener <strong>respuestas</strong>.</li>
+<li>Falla ante la variabilidad biológica y el ruido clínico.</li>
+</ul>
+<p><img data-src="img/traditional_programming.png" style="width:90.0%"></p>
+</div><div class="column" style="width:50%;">
+<h3 id="machine-learning-inducción">Machine Learning (Inducción)</h3>
+<ul>
+<li>Entregamos <strong>datos</strong> y <strong>respuestas (etiquetas)</strong>.</li>
+<li>El algoritmo aprende estadísticamente las <strong>reglas (modelo)</strong>.</li>
+<li>Generaliza patrones complejos en bioseñales e imágenes.</li>
+</ul>
+<p><span class="math display">\[\text{Datos} + \text{Etiquetas} \rightarrow \text{Modelo}\]</span></p>
+</div></div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="olas-de-evolución-de-la-ia" class="title-slide slide level1 center">
+<h1>📜 Olas de Evolución de la IA</h1>
+
+</section>
+<section id="de-dartmouth-al-edge-ai" class="slide level2">
+<h2>De Dartmouth al Edge AI</h2>
+
+<img data-src="img/ai_ml_dl_timeline.png" style="width:100.0%" class="r-stretch"><ul>
+<li><strong>1950s - 1970s (IA Simbólica):</strong> Sistemas expertos y limitaciones del perceptrón.</li>
+<li><strong>1980s - 2000s (ML Estadístico):</strong> Backprop, LSTMs, SVMs y cuello de botella de features manuales.</li>
+<li><strong>2010s - 2026+ (Deep Learning &amp; TinyML):</strong> Feature learning automático y modelos en MCUs.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="primitiva-computacional-la-neurona" class="title-slide slide level1 center">
+<h1>⚡ Primitiva Computacional: La Neurona</h1>
+
+</section>
+<section id="suma-ponderada-y-activación-no-lineal" class="slide level2">
+<h2>Suma Ponderada y Activación No Lineal</h2>
+<p><span class="math display">\[z = \sum_{i=1}^n w_i x_i + b = \mathbf{w}^T \mathbf{x} + b \quad \longrightarrow \quad a = \sigma(z)\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="operación-mac-multiply-accumulate">Operación MAC (Multiply-Accumulate)</h3>
+<ul>
+<li>Cada <span class="math inline">\(w_i \cdot x_i + \text{acc}\)</span> es 1 MAC (2 FLOPs).</li>
+<li>Determina el presupuesto de cómputo y consumo de batería en el microcontrolador.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="funciones-de-activación">Funciones de Activación</h3>
+<ul>
+<li><strong>ReLU:</strong> <span class="math inline">\(\max(0, z)\)</span> — Ultra eficiente en hardware embebido (un condicional <code>if</code>).</li>
+<li><strong>Sigmoide:</strong> <span class="math inline">\(\frac{1}{1 + e^{-z}}\)</span> — Mapea a <span class="math inline">\([0, 1]\)</span>.</li>
+<li><strong>Softmax:</strong> Capa final para clasificación multiclase.</li>
+</ul>
+</div></div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ciclo-de-vida-del-sistema-de-ml" class="title-slide slide level1 center">
+<h1>🔄 Ciclo de Vida del Sistema de ML</h1>
+
+</section>
+<section id="pipeline-de-10-fases-mlsysbook-reddi-et-al." class="slide level2">
+<h2>Pipeline de 10 Fases (MLSysBook / Reddi et al.)</h2>
+
+<img data-src="img/ml_lifecycle_pipeline.png" style="width:100.0%" class="r-stretch"><ul>
+<li><strong>Data-Centric AI:</strong> Ingesta, curaduría, etiquetado y validación de calidad.</li>
+<li><strong>Model &amp; Deployment:</strong> Entrenamiento, evaluación con KPIs, cuantización y monitoreo online.</li>
+<li><strong>Feedback Loops:</strong> <em>Data fixes</em> (corregir etiquetas) y <em>Data needs</em> (incorporar nuevos equipos).</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="espectro-de-inteligencia-distribuida" class="title-slide slide level1 center">
+<h1>🌐 Espectro de Inteligencia Distribuida</h1>
+
+</section>
+<section id="dónde-debe-ejecutarse-el-modelo" class="slide level2">
+<h2>¿Dónde Debe Ejecutarse el Modelo?</h2>
+
+<img data-src="img/distributed_intelligence_spectrum.png" style="width:100.0%" class="r-stretch"><ul>
+<li><strong>Cloud ML:</strong> Servidores en la nube (AWS/GCP), alta potencia (MW), alta latencia (100-500 ms).</li>
+<li><strong>Edge ML:</strong> Servidores locales en hospital/UCI, latencia media (10-100 ms).</li>
+<li><strong>TinyML:</strong> Microcontroladores en el sensor, latencia ultra baja (1-10 ms), consumo en miliwatts (mW).</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="comparativa-de-paradigmas" class="title-slide slide level1 center">
+<h1>📊 Comparativa de Paradigmas</h1>
+
+</section>
+<section id="latencia-consumo-memoria-y-aplicaciones" class="slide level2">
+<h2>Latencia, Consumo, Memoria y Aplicaciones</h2>
+
+<img data-src="img/ml_paradigms_table.png" style="width:90.0%" class="r-stretch"><ul>
+<li><strong>¿Por qué TinyML en Salud?</strong>
+<ol type="1">
+<li><strong>Privacidad (Habeas Data):</strong> Las imágenes nunca viajan a internet.</li>
+<li><strong>Tiempo Real:</strong> Detección en 1-10 ms sin depender de Wi-Fi o 4G.</li>
+<li><strong>Eficiencia Energética:</strong> Computar localmente consume 1000x menos energía que transmitir por RF.</li>
+</ol></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="el-reto-clínico-hospitalario" class="title-slide slide level1 center">
+<h1>🏥 El Reto Clínico Hospitalario</h1>
+
+</section>
+<section id="rondas-de-vigilancia-e-inducción-técnica" class="slide level2">
+<h2>Rondas de Vigilancia e Inducción Técnica</h2>
+<ul>
+<li><strong>Problema:</strong> En servicios como UCI, Urgencias y Quirófano conviven decenas de bombas de infusión, monitores y desfibriladores de distintas marcas.</li>
+<li><strong>Riesgo:</strong> Confusión en la operación, errores en bitácoras o demora en ubicar el manual técnico.</li>
+<li><strong>Solución de Ingeniería:</strong>
+<ul>
+<li>Cámara embebida con TinyML para reconocer visualmente el equipo en tiempo real.</li>
+<li>Publicación MQTT inmediata con el enlace URL al manual técnico del dispositivo.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="plataforma-seeed-xiao-esp32s3-sense" class="title-slide slide level1 center">
+<h1>🛠️ Plataforma: Seeed XIAO ESP32S3 Sense</h1>
+
+</section>
+<section id="especificaciones-de-hardware" class="slide level2">
+<h2>Especificaciones de Hardware</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/lab/xiao_esp32s3_photo.png" style="width:85.0%"></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><strong>MCU:</strong> ESP32-S3 Dual-Core Xtensa a 240 MHz con aceleración vectorial.</li>
+<li><strong>Visión:</strong> Cámara desmontable <strong>OV2640</strong> (1600 × 1200 px).</li>
+<li><strong>Audio:</strong> Micrófono digital PDM integrado (bus I2S).</li>
+<li><strong>Memoria:</strong> 8 MB PSRAM (OPI) + 8 MB Flash + MicroSD (FAT32).</li>
+<li><strong>Conectividad:</strong> Wi-Fi 2.4 GHz + BLE 5.0.</li>
+<li><strong>Tamaño:</strong> 21 × 17.5 mm.</li>
+</ul>
+</div></div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="disposición-de-pines-pinout" class="title-slide slide level1 center">
+<h1>📌 Disposición de Pines (Pinout)</h1>
+
+</section>
+<section id="conexiones-clave-en-la-xiao-esp32s3" class="slide level2">
+<h2>Conexiones Clave en la XIAO ESP32S3</h2>
+
+<img data-src="img/lab/xiao_esp32s3_pinout.png" style="width:85.0%" class="r-stretch"><ul>
+<li><strong>LED de usuario:</strong> GPIO 21</li>
+<li><strong>I2S Micrófono PDM:</strong> GPIO 42 (Reloj PDM) / GPIO 41 (Datos PDM)</li>
+<li><strong>MicroSD CS:</strong> GPIO 21 (compartido)</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="configuración-en-arduino-ide" class="title-slide slide level1 center">
+<h1>💻 Configuración en Arduino IDE</h1>
+
+</section>
+<section id="pasos-1-y-2-placa-y-blink" class="slide level2">
+<h2>Pasos 1 y 2: Placa y Blink</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/lab/arduino_board_manager.png" style="width:90.0%"> * Instalar <code>esp32</code> by Espressif Systems.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/lab/arduino_select_xiao.png" style="width:90.0%"> * Seleccionar placa <code>XIAO_ESP32S3</code> y puerto COM.</p>
+</div></div>
+<ul>
+<li><strong>Ejercicio 2:</strong> Probar encendido/apagado del LED integrado en pin 21 con telemetría serial a 9600 bps.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="adquisición-de-audio-digital-i2s-pdm" class="title-slide slide level1 center">
+<h1>🎙️ Adquisición de Audio Digital (I2S / PDM)</h1>
+
+</section>
+<section id="ejercicio-3-lectura-del-micrófono" class="slide level2">
+<h2>Ejercicio 3: Lectura del Micrófono</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb1-1"><a></a><span class="pp">#include </span><span class="im">&lt;ESP_I2S.h&gt;</span></span>
+<span id="cb1-2"><a></a>I2SClass I2S<span class="op">;</span></span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-5"><a></a>  Serial<span class="op">.</span>begin<span class="op">(</span><span class="dv">115200</span><span class="op">);</span></span>
+<span id="cb1-6"><a></a>  I2S<span class="op">.</span>setPinsPdmRx<span class="op">(</span><span class="dv">42</span><span class="op">,</span> <span class="dv">41</span><span class="op">);</span> <span class="co">// PDM Clock = 42, PDM Data = 41</span></span>
+<span id="cb1-7"><a></a>  I2S<span class="op">.</span>begin<span class="op">(</span>I2S_MODE_PDM_RX<span class="op">,</span> <span class="dv">16000</span><span class="op">,</span> I2S_DATA_BIT_WIDTH_16BIT<span class="op">,</span> I2S_SLOT_MODE_MONO<span class="op">);</span></span>
+<span id="cb1-8"><a></a><span class="op">}</span></span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="dt">void</span> loop<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb1-11"><a></a>  <span class="dt">int</span> sample <span class="op">=</span> I2S<span class="op">.</span>read<span class="op">();</span></span>
+<span id="cb1-12"><a></a>  <span class="cf">if</span> <span class="op">(</span>sample <span class="op">!=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> sample <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">&amp;&amp;</span> sample <span class="op">!=</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-13"><a></a>    Serial<span class="op">.</span>println<span class="op">(</span>sample<span class="op">);</span> <span class="co">// Visualizar en Serial Plotter</span></span>
+<span id="cb1-14"><a></a>  <span class="op">}</span></span>
+<span id="cb1-15"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="memoria-opi-psram-y-grabación-wav" class="title-slide slide level1 center">
+<h1>💾 Memoria OPI PSRAM y Grabación WAV</h1>
+
+</section>
+<section id="ejercicio-4-almacenamiento-en-microsd" class="slide level2">
+<h2>Ejercicio 4: Almacenamiento en MicroSD</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="img/lab/arduino_psram_opi.png" style="width:95.0%"> * Habilitar <code>Tools -&gt; PSRAM: "OPI PSRAM"</code> en Arduino IDE para disponer de 8 MB de RAM.</p>
+</div><div class="column" style="width:55%;">
+<ul>
+<li>Graba 20 segundos de señal acústica en formato WAV a 16 kHz.</li>
+<li>Buffer alojado en PSRAM externa.</li>
+<li>Escritura directa en archivo <code>/audio_biomedico.wav</code> en la MicroSD formateada en FAT32.</li>
+</ul>
+</div></div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="visión-artificial-con-sensecraft-ai" class="title-slide slide level1 center">
+<h1>🚀 Visión Artificial con SenseCraft AI</h1>
+
+</section>
+<section id="flujo-de-trabajo-sin-código" class="slide level2">
+<h2>Flujo de Trabajo sin Código</h2>
+<pre><code>1. Conectar Navegador ──► 2. Test Cámara ──► 3. Dataset Equipos
+         │                                         │
+         ▼                                         ▼
+6. Inferencia Local  ◄── 5. Desplegar Modelo ◄── 4. Entrenar</code></pre>
+<ul>
+<li>Conexión por <strong>Web Serial API</strong> desde Google Chrome o Microsoft Edge.</li>
+<li>Acceso: <a href="https://seeed-studio.github.io/SenseCraft-Web-Toolkit/">seeed-studio.github.io/SenseCraft-Web-Toolkit/</a></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="sensecraft-conexión-y-cámara" class="title-slide slide level1 center">
+<h1>📸 SenseCraft: Conexión y Cámara</h1>
+
+</section>
+<section id="pasos-1-y-2" class="slide level2">
+<h2>Pasos 1 y 2</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="selección-de-tarjeta">Selección de Tarjeta</h3>
+<p><img data-src="img/lab/sensecraft_select_board.png" style="width:90.0%"> Seleccionar <code>XIAO ESP32S3 Sense</code> y conectar puerto serie.</p>
+</div><div class="column" style="width:50%;">
+<h3 id="prueba-de-vídeo">Prueba de Vídeo</h3>
+<p><img data-src="img/lab/sensecraft_camera_test.png" style="width:90.0%"> Comprobar enfoque y tasa de cuadros del sensor OV2640.</p>
+</div></div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="creación-de-dataset-y-entrenamiento" class="title-slide slide level1 center">
+<h1>🏷️ Creación de Dataset y Entrenamiento</h1>
+
+</section>
+<section id="pasos-3-y-4" class="slide level2">
+<h2>Pasos 3 y 4</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="captura-de-clases">Captura de Clases</h3>
+<p><img data-src="img/lab/sensecraft_dataset_capture.png" style="width:90.0%"> * <code>Bomba_Infusion</code> * <code>Monitor_Signos</code> * <code>Desfibrilador</code></p>
+</div><div class="column" style="width:50%;">
+<h3 id="entrenamiento-embebido">Entrenamiento Embebido</h3>
+<p><img data-src="img/lab/sensecraft_train_model.png" style="width:90.0%"> * Red convolucional cuantizada en INT8 para TensorFlow Lite Micro.</p>
+</div></div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="despliegue-e-inferencia-en-tiempo-real" class="title-slide slide level1 center">
+<h1>🎯 Despliegue e Inferencia en Tiempo Real</h1>
+
+</section>
+<section id="pasos-5-y-6" class="slide level2">
+<h2>Pasos 5 y 6</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="flasheo-de-modelo">Flasheo de Modelo</h3>
+<p><img data-src="img/lab/sensecraft_deploy_model.png" style="width:90.0%"> Grabación directa en memoria Flash/PSRAM de la MCU.</p>
+</div><div class="column" style="width:50%;">
+<h3 id="inferencia-local-15-30-fps">Inferencia Local (15-30 FPS)</h3>
+<p><img data-src="img/lab/sensecraft_inference_result.png" style="width:90.0%"> Reconocimiento autónomo del equipo médico sin internet.</p>
+</div></div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="integración-iot-despacho-de-manuales-vía-mqtt" class="title-slide slide level1 center">
+<h1>📡 Integración IoT: Despacho de Manuales vía MQTT</h1>
+
+</section>
+<section id="arquitectura-de-solución-completa" class="slide level2">
+<h2>Arquitectura de Solución Completa</h2>
+<pre><code>[ Cámara XIAO ESP32S3 ]
+         │ (Inferencia TinyML &gt; 85%)
+         ▼
+[ Publicación MQTT JSON ]
+         │ Tópico: hospital/piso3/uci/equipos/identificacion
+         ▼
+[ Broker HiveMQ ]
+         │
+         ▼
+[ Tablet / Smartphone del Practicante ]
+  ──► Enlace directo al Manual de Operación y Mantenimiento</code></pre>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="criterios-de-evaluación" class="title-slide slide level1 center">
+<h1>📋 Criterios de Evaluación</h1>
+
+</section>
+<section id="entregables-del-laboratorio" class="slide level2">
+<h2>Entregables del Laboratorio</h2>
+<ol type="1">
+<li><strong>Evidencia de Funcionamiento:</strong>
+<ul>
+<li>Demostración en vivo o vídeo del clasificador TinyML reconociendo al menos <strong>3 equipos biomédicos</strong>.</li>
+</ul></li>
+<li><strong>Registro de Telemetría:</strong>
+<ul>
+<li>Captura del monitor serial o cliente MQTT mostrando la clase, certeza predictiva y URL del manual.</li>
+</ul></li>
+<li><strong>Análisis Crítico:</strong>
+<ul>
+<li>Reporte de latencia de inferencia (FPS), robustez ante cambios de iluminación y limitaciones del hardware.</li>
+</ul></li>
+</ol>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section id="referencias" class="title-slide slide level1 center">
+<h1>📚 Referencias</h1>
+<ul>
+<li><strong>Reddi, V. J., et al.&nbsp;(2024).</strong> <em>Introduction to Machine Learning Systems: Neural Computation</em>. Harvard University / MLSysBook. <a href="https://mlsysbook.ai/vol1/nn_computation/nn_computation.html">mlsysbook.ai</a></li>
+<li><strong>Sarmiento Rojas, J. (2026).</strong> <em>Guía de Laboratorio: Sistemas Inteligentes en Informática Médica</em>. Universidad del Rosario.</li>
+<li><strong>Warden, P., &amp; Situnayake, D. (2019).</strong> <em>TinyML: Machine Learning with TensorFlow Lite on Arduino</em>. O’Reilly.</li>
+<li><strong>Seeed Studio (2024).</strong> <em>XIAO ESP32S3 Sense Documentation &amp; SenseCraft AI Studio</em>.</li>
 </ul>
 
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Informática Médica - IFMER 2026-II</p>
+<p>Informática Médica - IFMER 2026-II | Big Data &amp; TinyML</p>
 </div>
 </div></div>
 

@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)">
-  <meta name="dcterms.date" content="2026-07-23">
-  <title>Informática Médica - IFMER 2026-II – Clase 12: Internet de las Cosas Médicas (IoMT)</title>
+  <meta name="dcterms.date" content="2026-10-14">
+  <title>Informática Médica - IFMER 2026-II – Clase 12: Internet de las Cosas Médicas (IoMT) &amp; Telemetría MQTT</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,6 +29,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-06e768f098560084c2d7120de8ad04fb.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -128,7 +194,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Clase 12: Internet de las Cosas Médicas (IoMT)</h1>
+  <h1 class="title">Clase 12: Internet de las Cosas Médicas (IoMT) &amp; Telemetría MQTT</h1>
   <p class="subtitle">Informática Médica - IFMER 2026-II</p>
 
 <div class="quarto-title-authors">
@@ -142,17 +208,365 @@ Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)
     </div>
 </div>
 
-  <p class="date">2026-07-23</p>
+  <p class="date">2026-10-14</p>
 </section>
 <section>
-<section id="clase-12-internet-de-las-cosas-médicas-iomt" class="title-slide slide level1 center">
-<h1>🚧 Clase 12: Internet de las Cosas Médicas (IoMT)</h1>
+<section id="bienvenida-al-corte-3" class="title-slide slide level1 center">
+<h1>🚀 Bienvenida al Corte 3</h1>
 
 </section>
-<section id="diapositivas-en-desarrollo" class="slide level2">
-<h2>Diapositivas en Desarrollo</h2>
+<section id="agenda-de-la-sesión" class="slide level2">
+<h2>Agenda de la Sesión</h2>
+<ol type="1">
+<li><strong>Evolución Tecnológica:</strong> Del IoT al IoMT (1982 - 2026+).</li>
+<li><strong>Anatomía de una “Cosa” en Salud:</strong> Sensores, SoC, conectividad, actuadores y nube.</li>
+<li><strong>Protocolo MQTT:</strong> ¿Por qué no HTTP? Publish/Subscribe y QoS (0, 1, 2).</li>
+<li><strong>Diseño Jerárquico de Tópicos:</strong> Buenas prácticas hospitalarias.</li>
+<li><strong>Caso Clínico:</strong> Cadena de frío de fármacos en farmacia hospitalaria.</li>
+<li><strong>Arquitectura del Sistema:</strong> Sensores <span class="math inline">\(\rightarrow\)</span> Broker HiveMQ <span class="math inline">\(\rightarrow\)</span> Web/Alertas/DB.</li>
+<li><strong>Taller Práctico:</strong> XIAO ESP32-C3 + DHT22 en Wokwi y pruebas con HiveMQ WebSockets.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="línea-de-tiempo-del-iot" class="title-slide slide level1 center">
+<h1>📜 Línea de Tiempo del IoT</h1>
+
+</section>
+<section id="hitos-históricos-clave" class="slide level2">
+<h2>Hitos Históricos Clave</h2>
 <ul>
-<li>Próximamente se publicará el contenido de las diapositivas de esta sesión.</li>
+<li><strong>1982 - Máquina de Coca-Cola (Carnegie Mellon):</strong><br>
+Primer electrodoméstico en red; reportaba botellas disponibles y si estaban frías.</li>
+<li><strong>1990 - Internet Toaster (John Romkey):</strong><br>
+Primera tostadora encendida mediante comandos TCP/IP (SNMP).</li>
+<li><strong>1999 - Nacimiento del Término &amp; Estándar:</strong>
+<ul>
+<li>Kevin Ashton (MIT Auto-ID) acuña <em>“Internet of Things”</em>.</li>
+<li>Andy Stanford-Clark y Arlen Nipper crean <strong>MQTT</strong>.</li>
+</ul></li>
+<li><strong>2008 - Cruce de Población:</strong><br>
+Más dispositivos conectados a Internet que personas en el planeta.</li>
+<li><strong>2016 - Ataque Botnet Mirai:</strong><br>
+Millones de dispositivos IoT vulnerados alertan sobre ciberseguridad.</li>
+<li><strong>2024 - 2026+ - Era AIoT &amp; IoMT:</strong><br>
+Inteligencia artificial en el microcontrolador (TinyML) y telemetría clínica masiva.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="del-iot-al-iomt" class="title-slide slide level1 center">
+<h1>🏥 Del IoT al IoMT</h1>
+
+</section>
+<section id="qué-es-el-iomt" class="slide level2">
+<h2>¿Qué es el IoMT?</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Internet of Medical Things (IoMT)</strong></p>
+</div>
+<div class="callout-content">
+<p>Colección de dispositivos médicos, sensores fisiológicos y aplicaciones de software interconectados a la infraestructura informática de salud mediante redes telemáticas.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Tolerancia Cero a Fallos:</strong> Una alarma cardiaca o de cadena de frío no puede perderse.</li>
+<li><strong>Normativa Rigurosa:</strong> FDA, Invima, ISO 13485 y privacidad de datos clínicos (Habeas Data / HIPAA).</li>
+<li><strong>Entornos Críticos:</strong> Cuidados intensivos, salas de cirugía, transporte neonatal y bancos de vacunas.</li>
+</ul>
+</section>
+<section id="industria-4.0-5.0-en-salud" class="slide level2">
+<h2>Industria 4.0 / 5.0 en Salud</h2>
+<p>Los cuatro pilares tecnológicos convergentes:</p>
+<ol type="1">
+<li><strong>Internet de las Cosas (IoT / IoMT):</strong> Adquisición ubicua y continua.</li>
+<li><strong>Sistemas Ciberfísicos (CPS):</strong> Integración íntima entre hardware físico y algoritmos.</li>
+<li><strong>Big Data:</strong> Almacenamiento y procesamiento masivo de bioseñales.</li>
+<li><strong>Inteligencia Computacional (IA / TinyML):</strong> Diagnóstico predictivo y apoyo a decisiones clínicas.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="anatomía-de-un-dispositivo-iomt" class="title-slide slide level1 center">
+<h1>📟 Anatomía de un Dispositivo IoMT</h1>
+
+</section>
+<section id="componentes-esenciales" class="slide level2">
+<h2>Componentes Esenciales</h2>
+<ul>
+<li><strong>1. Sensores (Captura):</strong><br>
+Transductores de magnitudes físicas o bioeléctricas (temperatura, humedad, PPG, ECG, presión).</li>
+<li><strong>2. Microcontrolador / SoC (Cálculo en el Borde):</strong><br>
+Ej. XIAO ESP32-C3, microprocesador con lógica de control (<code>if/else</code>), empaquetado y seguridad.</li>
+<li><strong>3. Conectividad (Transporte):</strong><br>
+Wi-Fi, Bluetooth Low Energy (BLE), LoRaWAN, Cellular NB-IoT.</li>
+<li><strong>4. Broker / Nube (Middleware):</strong><br>
+Gestor de colas y mensajería en tiempo real.</li>
+<li><strong>5. Actuadores &amp; Alarmas:</strong><br>
+LEDs de alerta, relés, alarmas sonoras, notificaciones a personal médico.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="protocolos-de-comunicación" class="title-slide slide level1 center">
+<h1>📡 Protocolos de Comunicación</h1>
+
+</section>
+<section id="http-vs.-mqtt" class="slide level2">
+<h2>HTTP vs.&nbsp;MQTT</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parámetro</th>
+<th style="text-align: left;">HTTP / REST</th>
+<th style="text-align: left;">MQTT (Telemetría)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Paradigma</strong></td>
+<td style="text-align: left;">Request / Response (Síncrono)</td>
+<td style="text-align: left;">Publish / Subscribe (Asíncrono)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Cabecera</strong></td>
+<td style="text-align: left;">Pesada (&gt; 500 bytes - varios KB)</td>
+<td style="text-align: left;"><strong>Ultraligera (2 bytes)</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Consumo Batería</strong></td>
+<td style="text-align: left;">Alto (abre/cierra sockets TCP)</td>
+<td style="text-align: left;"><strong>Mínimo (socket persistente)</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Flujo de Datos</strong></td>
+<td style="text-align: left;">Sondeo (<em>Polling</em>) ineficiente</td>
+<td style="text-align: left;"><strong>Empuje (<em>Push</em>) instantáneo</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Topología</strong></td>
+<td style="text-align: left;">Punto a punto (conoce IP)</td>
+<td style="text-align: left;"><strong>Desacoplado por Broker</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="el-desacoplamiento-tridimensional" class="slide level2">
+<h2>El Desacoplamiento Tridimensional</h2>
+<p>MQTT desacopla completamente el emisor del receptor:</p>
+<ol type="1">
+<li><strong>Espacial:</strong> El sensor no sabe quién consume el dato; solo conoce al Broker.</li>
+<li><strong>Temporal:</strong> Los dispositivos no necesitan estar conectados a la red al mismo instante (mensajes retenidos).</li>
+<li><strong>De Sincronización:</strong> El sensor publica de manera asíncrona y no se bloquea esperando confirmaciones pesadas.</li>
+</ol>
+</section>
+<section id="calidades-de-servicio-qos" class="slide level2">
+<h2>Calidades de Servicio (QoS)</h2>
+<ul>
+<li><strong>QoS 0 — “At most once” (A lo sumo una vez):</strong><br>
+Fuego y olvido (<em>fire and forget</em>). Confía en TCP. Adecuado para lecturas frecuentes no críticas.</li>
+<li><strong>QoS 1 — “At least once” (Al menos una vez):</strong><br>
+Garantiza entrega mediante acuse de recibo (<code>PUBACK</code>). Puede haber duplicados en caídas de red.</li>
+<li><strong>QoS 2 — “Exactly once” (Exactamente una vez):</strong><br>
+Protocolo de 4 pasos (<code>PUBREC</code>, <code>PUBREL</code>, <code>PUBCOMP</code>). Garantía estricta de una sola entrega.<br>
+<em>Uso médico:</em> Dosificación de fármacos, alarmas de paro vital.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="tópicos-mqtt-topics" class="title-slide slide level1 center">
+<h1>🗂️ Tópicos MQTT (Topics)</h1>
+
+</section>
+<section id="sintaxis-jerárquica" class="slide level2">
+<h2>Sintaxis Jerárquica</h2>
+<ul>
+<li>Organizados en forma de árbol con diagonales: <code>/</code>.</li>
+<li>Son <strong>sensibles a mayúsculas y minúsculas</strong> (<em>case-sensitive</em>).</li>
+<li><strong>Comodines (Wildcards) para Suscripción:</strong>
+<ul>
+<li><code>+</code> : Reemplaza un único nivel.<br>
+<em>Ejemplo:</em> <code>hospital/farmacia/+/temperatura</code></li>
+<li><code>#</code> : Multinivel (captura todo lo que cuelga por debajo).<br>
+<em>Ejemplo:</em> <code>hospital/farmacia/#</code></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="caso-clínico-hospitalario" class="title-slide slide level1 center">
+<h1>💉 Caso Clínico Hospitalario</h1>
+
+</section>
+<section id="monitoreo-de-cadena-de-frío-en-farmacia" class="slide level2">
+<h2>Monitoreo de Cadena de Frío en Farmacia</h2>
+<ul>
+<li><strong>Medicamentos Críticos:</strong> Vacunas (COVID, influenza, rabia), medicamentos oncológicos biológicos e insulinas.</li>
+<li><strong>Ventana de Conservación Estricta:</strong> <span class="math display">\[\mathbf{2.0^\circ\text{C} \le \text{Temperatura} \le 8.0^\circ\text{C}}\]</span></li>
+<li><strong>Humedad Relativa:</strong> 30% a 60% para evitar condensación y deterioro de empaques.</li>
+<li><strong>Consecuencias de Excursión Térmica:</strong>
+<ul>
+<li><span class="math inline">\(&gt; 8^\circ\text{C}\)</span> (Calor): Desnaturalización proteica y pérdida de potencia inmunológica.</li>
+<li><span class="math inline">\(&lt; 2^\circ\text{C}\)</span> (Congelamiento): Precipitación de sales adyuvantes de aluminio y daño tisular.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="arquitectura-de-la-solución" class="title-slide slide level1 center">
+<h1>🏗️ Arquitectura de la Solución</h1>
+
+</section>
+<section id="diagrama-del-sistema-iomt" class="slide level2">
+<h2>Diagrama del Sistema IoMT</h2>
+
+<img data-src="arquitectura_broker_farmacia.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><ul>
+<li><strong>Origen:</strong> Nevera con nodo XIAO ESP32-C3 + DHT22 y LED indicador.</li>
+<li><strong>Transporte:</strong> Publicación MQTT hacia <code>broker.hivemq.com</code>.</li>
+<li><strong>Destinos:</strong> WebSockets Dashboard (Web/Móvil), Control de Actuadores, Ingesta en BD.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="el-broker-hivemq" class="title-slide slide level1 center">
+<h1>🌐 El Broker HiveMQ</h1>
+
+</section>
+<section id="broker-público-cliente-websockets" class="slide level2">
+<h2>Broker Público &amp; Cliente WebSockets</h2>
+<ul>
+<li><strong>Servidor Broker:</strong> <code>broker.hivemq.com</code></li>
+<li><strong>Puerto TCP (Hardware):</strong> <code>1883</code></li>
+<li><strong>Puerto WebSockets (Browser seguro):</strong> <code>8884</code> (WSS, <code>/mqtt</code>)</li>
+<li><strong>Herramienta oficial en línea:</strong> <a href="https://www.hivemq.com/demos/websocket-client/">https://www.hivemq.com/demos/websocket-client/</a></li>
+</ul>
+<p>Permite probar de forma inmediata: 1. Suscripción a telemetría hospitalaria en tiempo real. 2. Publicación de órdenes remotas para encender/apagar el LED del microcontrolador.</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="laboratorio-práctico-en-wokwi" class="title-slide slide level1 center">
+<h1>🧪 Laboratorio Práctico en Wokwi</h1>
+
+</section>
+<section id="montaje-con-xiao-esp32-c3" class="slide level2">
+<h2>Montaje con XIAO ESP32-C3</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>       XIAO ESP32-C3               SENSOR DHT22</span>
+<span id="cb1-2"><a></a>    +-----------------+         +-----------------+</span>
+<span id="cb1-3"><a></a>    |            3V3  | ------&gt; | VCC (Pin 1)     |</span>
+<span id="cb1-4"><a></a>    |            GND  | ------&gt; | GND (Pin 4)     |</span>
+<span id="cb1-5"><a></a>    |             D2  | ------&gt; | DATA (Pin 2)    |</span>
+<span id="cb1-6"><a></a>    |             D4  | --[R]-&gt; | LED ROJO ALERTA |</span>
+<span id="cb1-7"><a></a>    +-----------------+         +-----------------+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><strong>Placa:</strong> Seeed Studio XIAO ESP32-C3 en protoboard.</li>
+<li><strong>Pin D2:</strong> Pin de datos del sensor DHT22.</li>
+<li><strong>Pin D4:</strong> Salida digital gobernando el LED con resistencia de <span class="math inline">\(1000\,\Omega\)</span>.</li>
+<li><strong>Bibliotecas:</strong> <code>DHT sensor library</code> y <code>PubSubClient</code>.</li>
+</ul>
+</section>
+<section id="formato-de-telemetría-json" class="slide level2">
+<h2>Formato de Telemetría JSON</h2>
+<h3 id="publicación-periódica-cada-2-segundos">Publicación periódica cada 2 segundos</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a></a><span class="fu">{</span></span>
+<span id="cb2-2"><a></a>  <span class="dt">"temp"</span><span class="fu">:</span> <span class="fl">4.50</span><span class="fu">,</span></span>
+<span id="cb2-3"><a></a>  <span class="dt">"hum"</span><span class="fu">:</span> <span class="fl">50.00</span><span class="fu">,</span></span>
+<span id="cb2-4"><a></a>  <span class="dt">"alerta"</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb2-5"><a></a>  <span class="dt">"estado"</span><span class="fu">:</span> <span class="st">"NORMAL"</span></span>
+<span id="cb2-6"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><p><strong>Tópico de telemetría:</strong><br>
+<code>hospital/farmacia/nevera_01/telemetria</code> (y <code>TopicURSensorTempHum</code>)</p></li>
+<li><p><strong>ID Único Automático:</strong><br>
+Generado a partir de la MAC del ESP32 (<code>ESP32_XXXXXXXXXXXX</code>).</p></li>
+</ul>
+</section>
+<section id="control-remoto-bidireccional-actuador" class="slide level2">
+<h2>Control Remoto Bidireccional (Actuador)</h2>
+<h3 id="escucha-mediante-función-callback">Escucha mediante función <code>callback()</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource cpp number-lines code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a></a><span class="dt">void</span> callback<span class="op">(</span><span class="dt">char</span><span class="op">*</span> topic<span class="op">,</span> byte<span class="op">*</span> message<span class="op">,</span> <span class="dt">unsigned</span> <span class="dt">int</span> length<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-2"><a></a>  <span class="co">// Si llega "on" al tópico Led o hospital/farmacia/nevera_01/led</span></span>
+<span id="cb3-3"><a></a>  <span class="cf">if</span> <span class="op">(</span>messageTemp <span class="op">==</span> <span class="st">"on"</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-4"><a></a>    digitalWrite<span class="op">(</span>lamp<span class="op">,</span> HIGH<span class="op">);</span> <span class="co">// Enciende el LED en Wokwi</span></span>
+<span id="cb3-5"><a></a>  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>messageTemp <span class="op">==</span> <span class="st">"off"</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-6"><a></a>    digitalWrite<span class="op">(</span>lamp<span class="op">,</span> LOW<span class="op">);</span>  <span class="co">// Apaga el LED en Wokwi</span></span>
+<span id="cb3-7"><a></a>  <span class="op">}</span></span>
+<span id="cb3-8"><a></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Permite comandar desde cualquier parte del mundo el encendido o apagado de la alarma en la simulación.</p>
+</section>
+<section id="pruebas-con-hivemq-websocket-client" class="slide level2">
+<h2>Pruebas con HiveMQ WebSocket Client</h2>
+<ol type="1">
+<li>Conectar a <code>broker.hivemq.com</code> en puerto <code>8884</code>.</li>
+<li><strong>Suscripción:</strong> Agregar tópico <code>hospital/farmacia/nevera_01/telemetria</code>.<br>
+👉 Ver las lecturas de Wokwi llegando en vivo cada 2 s.</li>
+<li><strong>Publicación:</strong> Enviar al tópico <code>hospital/farmacia/nevera_01/led</code> (o <code>Led</code>):
+<ul>
+<li>Mensaje <code>"on"</code> <span class="math inline">\(\rightarrow\)</span> El LED en Wokwi se <strong>enciende</strong>.</li>
+<li>Mensaje <code>"off"</code> <span class="math inline">\(\rightarrow\)</span> El LED en Wokwi se <strong>apaga</strong>.</li>
+</ul></li>
+<li><strong>Simular Falla:</strong> Deslizar la temperatura a <span class="math inline">\(15^\circ\text{C}\)</span> en Wokwi y verificar el reporte de <code>"alerta": true</code>.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="reto-del-estudiante" class="title-slide slide level1 center">
+<h1>🎯 Reto del Estudiante</h1>
+
+</section>
+<section id="entregables-de-la-sesión" class="slide level2">
+<h2>Entregables de la Sesión</h2>
+<ol type="1">
+<li><strong>Circuito Funcional en Wokwi:</strong> Montaje en protoboard con XIAO ESP32-C3, DHT22 y LED.</li>
+<li><strong>Conexión MQTT Exitosa:</strong> Telemetría en JSON transmitida hacia <code>broker.hivemq.com</code>.</li>
+<li><strong>Control Bidireccional:</strong> Demostrar encendido y apagado del LED desde el cliente web de HiveMQ.</li>
+<li><strong>Simulación de Alarma:</strong> Registro de excursión de temperatura fuera del rango <span class="math inline">\(2^\circ\text{C}\)</span> a <span class="math inline">\(8^\circ\text{C}\)</span>.</li>
+</ol>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="preguntas-discusión" class="title-slide slide level1 center">
+<h1>❓ Preguntas &amp; Discusión</h1>
+
+</section>
+<section id="contacto-material-del-curso" class="slide level2">
+<h2>Contacto &amp; Material del Curso</h2>
+<ul>
+<li><strong>Docente:</strong> Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)</li>
+<li><strong>Correo:</strong> <a href="mailto:jefferson.sarmiento@urosario.edu.co">jefferson.sarmiento@urosario.edu.co</a></li>
+<li><strong>Plataforma:</strong> <a href="https://urosario.edu.co/ifmer2026">https://urosario.edu.co/ifmer2026</a></li>
+<li><strong>Universidad del Rosario</strong> | Escuela de Medicina y Ciencias de la Salud</li>
 </ul>
 
 
@@ -160,7 +574,7 @@ Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Informática Médica - IFMER 2026-II</p>
+<p>Informática Médica - IFMER 2026-II | IoMT &amp; MQTT</p>
 </div>
 </div></div>
 
