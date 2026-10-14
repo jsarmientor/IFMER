@@ -1,34 +1,831 @@
 ---
-title: "Clase 12: Internet de las Cosas Médicas (IoMT)"
-subtitle: "Semana 12 | Corte 3"
+title: "Clase 12: Internet de las Cosas Médicas (IoMT) y Protocolo MQTT"
+subtitle: "Semana 12 | Corte 3 — Sensores, Telemetría Biomédica y Cadena de Frío Hospitalaria"
 author: "Prof. Jefferson Sarmiento Rojas"
-date: "2026-07-23"
+date: "2026-10-14"
 format:
   html:
     toc: true
+    toc-depth: 3
+    code-fold: show
+    code-tools: true
   pdf:
     toc: true
 ---
 
-<a href="slides.html" target="_blank" class="btn-slide">💻 Ver Presentación de Diapositivas</a>
+```{=html}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+  <a href="slides.html" target="_blank" class="btn btn-primary">
+    <i class="bi bi-display"></i> 💻 Ver Presentación de Diapositivas
+  </a>
+  <a href="https://www.hivemq.com/demos/websocket-client/" target="_blank" class="btn btn-outline-danger">
+    <i class="bi bi-broadcast"></i> 🌐 Cliente WebSocket HiveMQ (Enlace Oficial)
+  </a>
+</div>
+```
 
-## 🎯 Objetivos de la Clase
-
-- [ ] Objetivo 1 (En desarrollo)
-- [ ] Objetivo 2 (En desarrollo)
-
----
-
-## 📖 Materiales y Lecturas
-
-::: {.callout-flipped}
-##### 💡 Preparación Previa
-*Contenido y guía práctica en construcción por el docente.*
-
+::: {.callout-note}
+### 💡 Resumen Ejecutivo de la Sesión
+En esta sesión inauguramos el **Tercer Corte (Datos, Inteligencia Artificial y Ética)** abordando el origen de la telemetría clínica: el **Internet de las Cosas Médicas (IoMT)**. Conoceremos la evolución del IoT desde sus inicios, la anatomía de un sistema embebido hospitalario y analizaremos a fondo el protocolo **MQTT** (Message Queuing Telemetry Transport), estándar de facto para la transmisión ligera y asíncrona de señales biomédicas. Finalmente, implementaremos una solución de ingeniería biomédica para el **monitoreo de cadena de frío en una nevera de farmacia hospitalaria**, asegurando la viabilidad térmica de vacunas y medicamentos termolábiles mediante microcontroladores (**XIAO ESP32-C3** en simulador Wokwi), sensores de temperatura y humedad (**DHT22**), actuadores (LED de alarma), y el broker en la nube **HiveMQ** junto a su cliente web interactivo.
 :::
 
 ---
 
-## 🧪 Práctica de Laboratorio
+## 🎯 Objetivos de Aprendizaje
 
-*Actividad práctica en desarrollo.*
+Al finalizar esta sesión, el estudiante estará en capacidad de:
+
+1. **Reconocer los hitos históricos y conceptuales del IoT**, identificando su evolución hacia la **Salud 4.0 / 5.0** y el ecosistema **IoMT** (Internet of Medical Things).
+2. **Distinguir la arquitectura de un nodo embebido en salud**: sensores, microcontroladores, enlaces de comunicación, actuadores y brokers en la nube.
+3. **Comprender y contrastar el protocolo MQTT** frente a esquemas convencionales como HTTP/REST, dominando el paradigma *Publish/Subscribe*, el desacoplamiento tridimensional y los niveles de Calidad de Servicio (**QoS 0, 1 y 2**).
+4. **Diseñar esquemas jerárquicos de tópicos MQTT** aplicados a la telemetría y control de dispositivos en instalaciones hospitalarias.
+5. **Programar y simular un sensor de temperatura y humedad (DHT22) sobre un XIAO ESP32-C3 en Wokwi**, publicando telemetría en JSON y recibiendo órdenes remotas para conmutar actuadores.
+6. **Verificar y auditar en tiempo real la publicación y suscripción de datos** utilizando el cliente web oficial [HiveMQ WebSockets Client](https://www.hivemq.com/demos/websocket-client/).
+
+---
+
+## 🕒 1. Evolución Histórica: Del IoT al IoMT
+
+El Internet de las Cosas no nació de la noche a la mañana; es el resultado de décadas de convergencia entre redes de computadores, miniaturización electrónica y sensores de bajo costo.
+
+```{=html}
+<div class="table-responsive">
+<table class="table table-hover align-middle">
+  <thead class="table-dark">
+    <tr>
+      <th>Año</th>
+      <th>Hito Tecnológico</th>
+      <th>Descripción y Relevancia</th>
+      <th>Impacto en Salud / Industria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1982</strong></td>
+      <td><strong>Máquina de Coca-Cola (Carnegie Mellon)</strong></td>
+      <td>Estudiantes de ciencias de la computación conectaron una máquina expendedora a ARPANET para saber por red si había botellas frías disponibles antes de caminar hasta ella.</td>
+      <td>Primer dispositivo o electrodoméstico conectado de la historia.</td>
+    </tr>
+    <tr>
+      <td><strong>1990</strong></td>
+      <td><strong>Internet Toaster (John Romkey)</strong></td>
+      <td>Presentada en la conferencia INTEROP, fue la primera tostadora controlada completamente a través de comandos TCP/IP mediante una interfaz SNMP.</td>
+      <td>Demostración pionera de control remoto de actuadores por Internet.</td>
+    </tr>
+    <tr>
+      <td><strong>1999</strong></td>
+      <td><strong>Kevin Ashton & MIT Auto-ID</strong></td>
+      <td>Ashton acuña formalmente la frase <em>"Internet of Things"</em> en Procter & Gamble al proponer tags RFID para rastrear la cadena de suministro global. En este mismo año, <strong>Andy Stanford-Clark (IBM) y Arlen Nipper crean el protocolo MQTT</strong> para telemetría satelital.</td>
+      <td>Nacimiento formal del término IoT y creación del protocolo estándar de telemetría.</td>
+    </tr>
+    <tr>
+      <td><strong>2008</strong></td>
+      <td><strong>Punto de Inflexión Poblacional</strong></td>
+      <td>Cisco Systems estima que el número de dispositivos conectados a Internet superó por primera vez al número de personas vivas en la Tierra (proporción &gt; 1:1).</td>
+      <td>Transición de un Internet de personas a un Internet de máquinas autónomas.</td>
+    </tr>
+    <tr>
+      <td><strong>2016</strong></td>
+      <td><strong>Botnet Mirai</strong></td>
+      <td>Ataque masivo DDoS que infectó cientos de miles de cámaras y dispositivos IoT domésticos con contraseñas de fábrica para derribar servicios DNS en todo el mundo.</td>
+      <td>Llamado de atención urgente sobre la <strong>ciberseguridad</strong> en dispositivos embebidos.</td>
+    </tr>
+    <tr>
+      <td><strong>2020 - 2026+</strong></td>
+      <td><strong>IoMT, AIoT y TinyML</strong></td>
+      <td>Convergencia de biosensores portátiles (wearables), algoritmos de Inteligencia Artificial ejecutados en el microcontrolador (TinyML) y telemedicina continua.</td>
+      <td>Revolución de la monitorización remota de pacientes, incubadoras y trazabilidad farmacéutica.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+```
+
+### ¿Qué diferencia al IoT tradicional del IoMT?
+
+En una aplicación de IoT convencional (como un bombillo inteligente o un termostato doméstico), una falla temporal o una pérdida de paquetes resulta tolerable. En el **IoMT (Internet of Medical Things)**:
+
+* **Criticidad de vida o muerte:** La pérdida del reporte de una arritmia cardíaca, la falla de un ventilador mecánico o una excursión térmica no detectada en vacunas puede costar vidas humanas o pérdidas millonarias.
+* **Normativa estricta:** Dispositivos y software deben ceñirse a estándares de farmacovigilancia, FDA, Invima, normativas de dispositivos médicos (ISO 13485) y privacidad de datos (Ley de Habeas Data 1581 de 2012, HIPAA, GDPR).
+* **Integridad de datos:** Se requiere trazabilidad inmutable y confirmación de entrega en la red.
+
+---
+
+## 🧠 2. Anatomía de un Dispositivo IoMT
+
+En su nivel más elemental, cualquier dispositivo de Internet de las Cosas Médicas se compone de cuatro capas interconectadas:
+
+```{mermaid}
+flowchart LR
+    A["🌡️ Sensores Fisiológicos / Físicos"] --> B["📟 Microcontrolador / SoC (Lógica & Procesamiento)"]
+    B --> C["📡 Enlace de Red (Wi-Fi, BLE, LoRa, Ethernet)"]
+    C --> D["☁️ Broker / Servidor Nube (MQTT / IoT Hub)"]
+    D --> E["🚨 Actuadores / Alarmas Clínicas"]
+    D --> F["📊 Dashboards & Historial Clínico"]
+```
+
+1. **Sensores (Captura):** Transductores que transforman magnitudes físicas (temperatura, humedad, voltaje galvánico, fotopletismografía PPG, acelerometría) en señales eléctricas calibradas.
+2. **Microcontrolador / SoC (Computación en el Borde):** Circuitos integrados de bajo consumo (como Seeed Studio XIAO ESP32-C3 o ESP32) que ejecutan el firmware, leen los sensores y ejecutan la lógica local de control (`if / else`).
+3. **Conectividad (Transporte):** Módulos de radiofrecuencia (Wi-Fi IEEE 802.11, Bluetooth Low Energy BLE, LoRaWAN, Cellular NB-IoT) que transportan los paquetes.
+4. **Broker / Plataforma en la Nube:** Servidor central encargado de recibir los mensajes de múltiples dispositivos, enrutarlos, almacenarlos y accionar alarmas en tiempo real.
+5. **Actuadores & Alarmas:** Dispositivos de salida (LEDs de alerta, relés para encendido de refrigeradores auxiliares, sirenas sonoras o indicadores visuales).
+
+---
+
+## 📡 3. El Protocolo MQTT: Fundamentos y Comparación con HTTP
+
+### ¿Por qué no usar simplemente peticiones HTTP (GET / POST)?
+
+En aplicaciones web convencionales, el protocolo estándar es **HTTP/1.1** o **HTTP/2**, basado en un modelo **Cliente-Servidor de Petición/Respuesta (Request/Response)**. Aunque HTTP es excelente para páginas web y APIs REST, presenta graves deficiencias en microcontroladores y dispositivos médicos alimentados por batería:
+
+```{=html}
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+  <thead class="table-primary">
+    <tr>
+      <th>Característica</th>
+      <th>HTTP (REST)</th>
+      <th>MQTT (Message Queuing Telemetry Transport)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Paradigma</strong></td>
+      <td>Petición / Respuesta (Request / Response, Síncrono)</td>
+      <td>Publicación / Suscripción (Publish / Subscribe, Asíncrono)</td>
+    </tr>
+    <tr>
+      <td><strong>Cabecera del paquete</strong></td>
+      <td>Pesada (mínimo centenas de bytes a varios KB con headers HTTP)</td>
+      <td><strong>Ultraligera</strong> (cabecera fija mínima de tan solo <strong>2 bytes</strong>)</td>
+    </tr>
+    <tr>
+      <td><strong>Consumo de Batería y CPU</strong></td>
+      <td>Alto (crea y destruye sockets TCP en cada reporte)</td>
+      <td><strong>Extremadamente bajo</strong> (conexión TCP persistente con <em>Keep-Alive</em>)</td>
+    </tr>
+    <tr>
+      <td><strong>Modelo de Datos</strong></td>
+      <td>Sondeo constante (<em>Polling</em>) para enterarse de novedades</td>
+      <td>Empuje en tiempo real (<em>Push</em>) inmediato hacia los suscriptores</td>
+    </tr>
+    <tr>
+      <td><strong>Conocimiento mutuo</strong></td>
+      <td>El cliente debe conocer la dirección IP / URL exacta del servidor</td>
+      <td><strong>Desacoplamiento total:</strong> Clientes solo conocen al Broker</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+```
+
+### El Desacoplamiento Tridimensional de MQTT
+
+Una de las mayores virtudes pedagógicas y operativas de MQTT es que rompe la dependencia directa entre los dispositivos:
+
+1. **Desacoplamiento Espacial:** El sensor que mide la temperatura no tiene idea de qué computadores, teléfonos o navegadores están leyendo su dato. Solo publica en un canal (*tópico*) en el Broker.
+2. **Desacoplamiento Temporal:** El publicador y el suscriptor no tienen que estar conectados a la red al mismo tiempo. Mediante banderas como *Retained Messages* o sesiones persistentes, un suscriptor que se conecte después puede recibir de inmediato el último estado conocido.
+3. **Desacoplamiento de Sincronización:** La operación de publicación es asíncrona y no bloqueante. El microcontrolador envía su lectura y continúa de inmediato ejecutando su ciclo de control sin esperar a que otros la procesen.
+
+### Niveles de Calidad de Servicio (QoS - Quality of Service)
+
+MQTT ofrece tres niveles nativos de garantía en la entrega de paquetes según la criticidad del dato:
+
+* **QoS 0 — "At most once" (A lo sumo una vez / Fuego y olvido):**  
+  El mensaje se envía sin confirmación a nivel de aplicación. Se apoya únicamente en la confiabilidad de la capa TCP subyacente. Si se corta el enlace, el paquete se pierde. Es ideal para telemetría no crítica de alta frecuencia.
+* **QoS 1 — "At least once" (Al menos una vez):**  
+  El emisor retransmite el mensaje hasta recibir un paquete de reconocimiento (`PUBACK`) del Broker. Se garantiza que el mensaje llega, pero si hay fluctuaciones de red pueden presentarse mensajes duplicados.
+* **QoS 2 — "Exactly once" (Exactamente una vez):**  
+  Es el nivel más confiable y estricto. Se realiza un protocolo de apretón de manos (*handshake*) en 4 pasos (`PUBLISH` $\rightarrow$ `PUBREC` $\rightarrow$ `PUBREL` $\rightarrow$ `PUBCOMP`). Garantiza que el mensaje llega exactamente una sola vez, sin pérdidas ni duplicados. Es el nivel idóneo para eventos médicos críticos, tales como **dosificación de medicamentos por bombas de infusión** o **alarmas de parada cardiorrespiratoria**.
+
+---
+
+## 🗂️ 4. Sintaxis y Jerarquía de Tópicos MQTT
+
+Los tópicos (*topics*) en MQTT son cadenas de texto organizadas en forma de árbol jerárquico separadas por diagonales (`/`). Son **sensibles a mayúsculas y minúsculas** (*case-sensitive*).
+
+### Reglas de diseño de tópicos:
+* No utilizar espacios ni caracteres especiales con tildes.
+* Diseñar de lo más general a lo más específico (ej. `institución/servicio/equipo/variable`).
+* **Wildcards (Comodines) para Suscripción:**
+  * `+` (Comodín de un solo nivel): Reemplaza exactamente un nivel del árbol.
+    * Ejemplo: `hospital/farmacia/+/temperatura` permite recibir la temperatura de todas las neveras de la farmacia (`nevera_01`, `nevera_02`, etc.).
+  * `#` (Comodín multinivel): Debe ubicarse siempre al final del tópico y captura todos los subniveles inferiores.
+    * Ejemplo: `hospital/farmacia/#` suscribe a todos los mensajes (temperatura, humedad, estados de puerta, alarmas y actuadores).
+
+---
+
+## 🏥 5. Caso Clínico de Estudio: Cadena de Frío en Farmacia Hospitalaria
+
+### Justificación Biomédica y Farmacéutica
+En los servicios de salud (farmacia central, oncología, vacunación, banco de sangre), la conservación de medicamentos biológicos, vacunas (antirrábica, influenza, COVID-19, hepatitis B) e insulinas exige una temperatura constante en el rango estricto de:
+
+$$\mathbf{2.0^\circ\text{C} \le \text{Temperatura} \le 8.0^\circ\text{C}}$$
+
+La humedad relativa debe controlarse típicamente entre el **30% y el 60%** para impedir la condensación y el deterioro de los empaques primarios. 
+
+* **Excursión térmica por calor ($> 8.0^\circ\text{C}$):** Ocasiona desnaturalización irreversible de proteínas en vacunas y pérdida total de efectividad terapéutica.
+* **Excursión térmica por congelamiento ($< 2.0^\circ\text{C}$):** Las vacunas con adyuvantes a base de sales de aluminio se desestabilizan y pierden su inmunogenicidad.
+
+---
+
+## 🏗️ 6. Arquitectura del Sistema
+
+La siguiente figura ilustra la arquitectura de monitoreo de la cadena de frío implementada para el hospital:
+
+::: {.text-center .my-4}
+![Arquitectura IoMT para Monitoreo de Cadena de Frío en Farmacia Hospitalaria](arquitectura_broker_farmacia.png){.img-fluid .rounded .shadow width="90%"}
+:::
+
+### Descripción de los Componentes:
+
+1. **Refrigerador de Farmacia Hospitalaria:** Unidad médica con estantes para fármacos y vacunas.
+2. **Nodos de Sensado (Microcontrolador ESP32 + Sensor DHT22 + Actuador LED):** Instrumentan la temperatura y humedad, transmiten telemetría y escuchan comandos de actuación.
+3. **Flujo de Publicación (MQTT Publish):** El nodo se conecta a la red Wi-Fi y publica periódicamente sus lecturas en formato JSON hacia el broker.
+4. **Broker MQTT Central (HiveMQ / Genérico):** Servidor central en la nube (`broker.hivemq.com`), encargado del enrutamiento asíncrono.
+5. **Consumidores del Sistema:**
+   * **Visualización en Tiempo Real:** Dashboard web oficial conectado mediante **MQTT sobre WebSockets** ([HiveMQ WebSocket Client](https://www.hivemq.com/demos/websocket-client/)).
+   * **Control Remoto Bidireccional:** El operador puede enviar órdenes de encendido o apagado (`on` / `off`) desde el navegador hacia el microcontrolador para activar alarmas o luces de inspección.
+   * **Almacenamiento y Registro:** Servicios suscriptores en base de datos para trazabilidad y auditoría clínica.
+
+---
+
+## 🧪 7. Práctica de Laboratorio: Implementación en Wokwi y HiveMQ
+
+En esta práctica programaremos el microcontrolador **Seeed Studio XIAO ESP32-C3** con un sensor **DHT22** y un **LED indicador** en el simulador en la nube **Wokwi**, transmitiendo datos en tiempo real al broker **HiveMQ** y probando la comunicación bidireccional desde el **HiveMQ WebSockets Client**.
+
+::: {.callout-tip}
+#### 🛠️ Plataforma de Simulación Virtual: Wokwi
+Realizaremos la simulación completa en [Wokwi (ESP32 Simulator)](https://wokwi.com/), utilizando la tarjeta **Seeed Studio XIAO ESP32-C3** con sensor **DHT22** (pin **D2**) y un **LED actuador** (pin **D4**). No se requiere hardware físico para realizar el laboratorio.
+:::
+
+---
+
+### 📦 Configuración de Bibliotecas en Wokwi (`libraries.txt`)
+
+En la pestaña **Library Manager** de Wokwi, agregue las siguientes dos bibliotecas:
+
+```text
+DHT sensor library
+PubSubClient
+```
+
+---
+
+### 🔌 Esquema de Hardware en Wokwi (`diagram.json`)
+
+En la pestaña `diagram.json` de Wokwi, pegue la siguiente configuración correspondiente al montaje en protoboard con **XIAO ESP32-C3**, sensor **DHT22** (conectado a **D2**), **LED** (conectado a **D4**) y resistencia de $1000\,\Omega$:
+
+```json
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 25.8, "left": -122, "attrs": {} },
+    {
+      "type": "board-xiao-esp32-c3",
+      "id": "esp",
+      "top": 81.02,
+      "left": -104.63,
+      "rotate": 270,
+      "attrs": {}
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 38.7, "left": 13.8, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 44.4, "left": 119, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 128.2,
+      "left": 114.35,
+      "rotate": 270,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "bb1:3t.b", "bb1:tp.2", "red", [ "v0" ] ],
+    [ "bb1:2t.b", "bb1:tn.1", "black", [ "v0" ] ],
+    [ "bb1:14b.h", "bb1:11b.h", "red", [ "v0" ] ],
+    [ "bb1:11b.g", "bb1:tp.9", "red", [ "v0" ] ],
+    [ "bb1:16b.h", "bb1:17b.h", "black", [ "v0" ] ],
+    [ "bb1:17b.i", "bb1:20b.i", "black", [ "v0" ] ],
+    [ "bb1:20b.h", "bb1:tn.16", "black", [ "v0" ] ],
+    [ "bb1:3b.i", "bb1:15b.i", "blue", [ "v0" ] ],
+    [ "bb1:25t.c", "bb1:22t.c", "black", [ "v0" ] ],
+    [ "bb1:tn.18", "bb1:22t.b", "black", [ "v0" ] ],
+    [ "bb1:5b.j", "bb1:26b.j", "gold", [ "v0" ] ],
+    [ "dht1:VCC", "bb1:14b.g", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:15b.g", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:16b.g", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:17b.g", "", [ "$bb" ] ],
+    [ "esp:D0", "bb1:1b.g", "", [ "$bb" ] ],
+    [ "esp:D1", "bb1:2b.g", "", [ "$bb" ] ],
+    [ "esp:D2", "bb1:3b.g", "", [ "$bb" ] ],
+    [ "esp:D3", "bb1:4b.g", "", [ "$bb" ] ],
+    [ "esp:D4", "bb1:5b.g", "", [ "$bb" ] ],
+    [ "esp:D5", "bb1:6b.g", "", [ "$bb" ] ],
+    [ "esp:D6", "bb1:7b.g", "", [ "$bb" ] ],
+    [ "esp:D7", "bb1:7t.c", "", [ "$bb" ] ],
+    [ "esp:D8", "bb1:6t.c", "", [ "$bb" ] ],
+    [ "esp:D9", "bb1:5t.c", "", [ "$bb" ] ],
+    [ "esp:D10", "bb1:4t.c", "", [ "$bb" ] ],
+    [ "esp:3V3", "bb1:3t.c", "", [ "$bb" ] ],
+    [ "esp:GND", "bb1:2t.c", "", [ "$bb" ] ],
+    [ "esp:5V", "bb1:1t.c", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:26t.b", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:25t.b", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:26b.h", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:26t.d", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
+```
+
+---
+
+### 💻 Código Fuente en C++ (`sketch.ino`)
+
+Copie y pegue el siguiente código en la pestaña `sketch.ino` de Wokwi. Este código incluye:
+* Generación automática del ID único de cliente MQTT utilizando la dirección MAC física del ESP32.
+* Conexión a la red Wi-Fi virtual `Wokwi-GUEST`.
+* Conexión con el broker gratuito **HiveMQ** (`broker.hivemq.com` en puerto `1883`).
+* Publicación periódica del JSON con temperatura, humedad y estado clínico de la cadena de frío.
+* Función de escucha (*callback*) para encender o apagar el actuador LED desde el cliente web mediante el tópico `Led` o `hospital/farmacia/nevera_01/led`.
+
+```cpp
+// ==============================================================================
+// SISTEMA IoMT DE TELEMETRÍA Y CONTROL DE CADENA DE FRÍO - FARMACIA HOSPITALARIA
+// Asignatura: Informática Médica (IFMER 2026-II) - Universidad del Rosario
+// Docente: Prof. Jefferson Sarmiento Rojas
+// Placa: Seeed Studio XIAO ESP32-C3 | Sensor: DHT22 en D2 | LED en D4
+// Broker: HiveMQ (broker.hivemq.com:1883)
+// ==============================================================================
+
+// 1. Importar librerías
+#include "WiFi.h"          // Conexión WiFi
+#include "PubSubClient.h"  // Cliente MQTT
+#include "DHT.h"           // Sensor DHT22
+
+// Pin de salida que gobierna el LED actuador
+const int lamp = D4;
+
+// 2. Configuración de red inalámbrica
+const char* ssid = "Wokwi-GUEST";           // Red virtual de Wokwi
+const char* password = "";                  // Sin contraseña en simulador
+const char* mqtt_server = "broker.hivemq.com"; // Broker MQTT público y gratuito HiveMQ
+
+// 3. Cliente WiFi y cliente MQTT
+WiFiClient espClient;
+PubSubClient client(espClient);
+unsigned long lastSend;
+int status = WL_IDLE_STATUS;
+
+// Nombre de cliente MQTT generado automáticamente
+String clientName;
+
+// 4. Configuración del sensor
+#define DHTPIN D2      // Pin de datos del DHT22 conectado a D2
+#define DHTTYPE DHT22  // Referencia del sensor DHT22
+
+DHT dht(DHTPIN, DHTTYPE);
+
+float h, t;            // Variables de humedad y temperatura
+
+// 5. Mensaje que se publica en formato JSON
+String payload;
+
+// ==============================================================================
+// GENERAR NOMBRE DE CLIENTE MQTT A PARTIR DE LA MAC DEL ESP32
+// ==============================================================================
+void generarNombreCliente() {
+  uint64_t mac = ESP.getEfuseMac();
+  char nombre[30];
+
+  snprintf(
+    nombre,
+    sizeof(nombre),
+    "ESP32_%012llX",
+    mac
+  );
+
+  clientName = String(nombre);
+
+  Serial.print("Nombre cliente MQTT generado: ");
+  Serial.println(clientName);
+}
+
+// ==============================================================================
+// DECLARACIÓN DE CALLBACK PARA MENSAJES ENTRANTES (ÓRDENES REMOTAS)
+// ==============================================================================
+void callback(char* topic, byte* message, unsigned int length) {
+  Serial.print("Llegó un mensaje del tópico: ");
+  Serial.print(topic);
+  Serial.print(". Mensaje: ");
+
+  String messageTemp = "";
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)message[i]);
+    messageTemp += (char)message[i];
+  }
+  Serial.println();
+
+  // Control remoto del actuador LED
+  if (String(topic) == "hospital/farmacia/nevera_01/led" || String(topic) == "Led") {
+    if (messageTemp == "on" || messageTemp == "ON") {
+      digitalWrite(lamp, HIGH);
+      Serial.println(">>> ACTUADOR: LED encendido por orden remota");
+    }
+    else if (messageTemp == "off" || messageTemp == "OFF") {
+      digitalWrite(lamp, LOW);
+      Serial.println(">>> ACTUADOR: LED apagado por orden remota");
+    }
+  }
+}
+
+// ==============================================================================
+// RECONEXIÓN AL BROKER MQTT
+// ==============================================================================
+void reconnect() {
+  while (!client.connected()) {
+    Serial.print("Intentando conectar al broker HiveMQ...");
+
+    if (client.connect(clientName.c_str())) {
+      Serial.println(" ¡Conectado exitosamente!");
+
+      // Suscripción a los tópicos de control remoto para el actuador LED
+      client.subscribe("hospital/farmacia/nevera_01/led");
+      client.subscribe("Led");
+      Serial.println("Suscrito a los tópicos de control: Led y hospital/farmacia/nevera_01/led");
+
+    } else {
+      Serial.print(" Fallo de conexión, rc=");
+      Serial.print(client.state());
+      Serial.println(" Intentando nuevamente en 3 segundos...");
+      delay(3000);
+    }
+  }
+}
+
+// ==============================================================================
+// CONEXIÓN A LA RED INALÁMBRICA WI-FI
+// ==============================================================================
+void setup_wifi() {
+  delay(10);
+  Serial.println();
+  Serial.print("Conectando a la red: ");
+  Serial.println(ssid);
+
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(200);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.print("Conexión WiFi establecida. Dirección IP asignada: ");
+  Serial.println(WiFi.localIP());
+}
+
+// ==============================================================================
+// CONFIGURACIÓN INICIAL (SETUP)
+// ==============================================================================
+void setup() {
+  Serial.begin(9600);
+
+  // Generar ID único usando la MAC
+  generarNombreCliente();
+
+  // Conectar a Wi-Fi
+  setup_wifi();
+
+  // Configurar servidor MQTT y función de escucha
+  client.setServer(mqtt_server, 1883);
+  client.setCallback(callback);
+
+  // Inicializar periféricos
+  pinMode(lamp, OUTPUT);
+  dht.begin();
+
+  lastSend = 0;
+  delay(2000);
+}
+
+// ==============================================================================
+// LECTURA DEL SENSOR DHT22
+// ==============================================================================
+void GetSensor() {
+  h = dht.readHumidity();
+  t = dht.readTemperature();
+
+  if (isnan(h) || isnan(t)) {
+    Serial.println("[ERROR] Falla al leer el sensor DHT22!");
+    return;
+  }
+}
+
+// ==============================================================================
+// ARMADO DEL MENSAJE EN FORMATO JSON
+// ==============================================================================
+void CrearJson() {
+  String temperatura = String(t, 2);
+  String humedad = String(h, 2);
+
+  // Construcción del paquete JSON
+  payload = "{";
+  payload += "\"temp\":";
+  payload += temperatura;
+  payload += ",";
+  payload += "\"hum\":";
+  payload += humedad;
+
+  // Lógica médica para cadena de frío en farmacia: rango 2.0 °C a 8.0 °C
+  if (t > 8.0 || t < 2.0) {
+    payload += ",\"alerta\":true";
+    payload += ",\"estado\":\"EXCURSION_TERMICA\"";
+  } else {
+    payload += ",\"alerta\":false";
+    payload += ",\"estado\":\"NORMAL\"";
+  }
+
+  payload += "}";
+}
+
+// ==============================================================================
+// PUBLICACIÓN DE LA TELEMETRÍA
+// ==============================================================================
+void PublicarMensaje() {
+  char attributes[150];
+  payload.toCharArray(attributes, 150);
+
+  // Publicación en el tópico hospitalario y en el tópico general
+  client.publish("hospital/farmacia/nevera_01/telemetria", attributes);
+  client.publish("TopicURSensorTempHum", attributes);
+
+  Serial.print("[MQTT Enviado] -> ");
+  Serial.println(attributes);
+}
+
+// ==============================================================================
+// CICLO PRINCIPAL (LOOP)
+// ==============================================================================
+void loop() {
+  if (!client.connected()) {
+    reconnect();
+  }
+
+  // Medir y publicar cada 2 segundos
+  if (millis() - lastSend > 2000) {
+    GetSensor();
+    CrearJson();
+    PublicarMensaje();
+    lastSend = millis();
+  }
+
+  client.loop(); // Mantiene activa la conexión MQTT y procesa callbacks
+}
+```
+
+---
+
+## 🌐 8. Validación en Vivo con HiveMQ WebSocket Client
+
+Para auditar y probar la solución no se requiere programar herramientas externas; utilizaremos directamente la herramienta oficial en la nube:
+
+👉 **[https://www.hivemq.com/demos/websocket-client/](https://www.hivemq.com/demos/websocket-client/)**
+
+::: {.callout-important}
+### 📋 Procedimiento de Prueba Paso a Paso
+
+#### 1. Conexión al Broker
+* Abra la página del cliente: [https://www.hivemq.com/demos/websocket-client/](https://www.hivemq.com/demos/websocket-client/).
+* Verifique que el **Host** sea `broker.hivemq.com` y el **Port** sea `8884` (puerto seguro WSS).
+* Haga clic en el botón verde **"Connect"**. El indicador cambiará a **"Connected"**.
+
+#### 2. Suscribirse a la Telemetría de la Nevera
+* En la sección **Subscriptions**, haga clic en **"Add New Topic Subscription"**.
+* Escriba el tópico: `hospital/farmacia/nevera_01/telemetria` (o también `TopicURSensorTempHum`).
+* Deje QoS en `0` o `1` y haga clic en **"Subscribe"**.
+* Inicie la simulación en Wokwi. Cada 2 segundos observará los paquetes JSON llegando en vivo:
+  ```json
+  {"temp":4.50,"hum":50.00,"alerta":false,"estado":"NORMAL"}
+  ```
+
+#### 3. Control Remoto del Actuador (Encender / Apagar el LED)
+* En la sección **Publish** del cliente HiveMQ:
+  * **Topic:** `hospital/farmacia/nevera_01/led` (o `Led`)
+  * **Message:** `on`
+  * Haga clic en **"Publish"**.  
+    👉 **Resultado en Wokwi:** El LED rojo conectado al pin D4 se **encenderá** de inmediato y en el monitor serial aparecerá el mensaje: `>>> ACTUADOR: LED encendido por orden remota`.
+  * Ahora cambie el mensaje a `off` y haga clic en **"Publish"**.  
+    👉 **Resultado en Wokwi:** El LED rojo se **apagará**.
+
+#### 4. Simulación de Falla de Cadena de Frío
+* En Wokwi, haga clic sobre el sensor **DHT22**.
+* Mueva el deslizador de temperatura a **$15^\circ\text{C}$** (simulando apertura prolongada de puerta o daño en el compresor).
+* Observe en el cliente HiveMQ cómo el campo cambia automáticamente a:
+  ```json
+  {"temp":15.00,"hum":50.00,"alerta":true,"estado":"EXCURSION_TERMICA"}
+  ```
+:::
+
+---
+
+## 🕹️ 9. Simulador WebSockets Incrustado en la Guía
+
+Para comodidad durante la clase, también puedes probar la recepción y emisión de mensajes **directamente en esta página web**:
+
+```{=html}
+<div class="card shadow-sm border-primary my-4">
+  <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+    <h5 class="mb-0"><i class="bi bi-cpu"></i> Banco de Pruebas Web (HiveMQ WebSockets)</h5>
+    <span id="mqtt-status-badge" class="badge bg-warning text-dark">Desconectado</span>
+  </div>
+  <div class="card-body">
+    <div class="row g-3">
+      <!-- Columna 1: Controles de prueba -->
+      <div class="col-md-6">
+        <h6 class="fw-bold text-secondary">Control del LED de Alarma (Envío hacia Wokwi)</h6>
+        <p class="small text-muted mb-2">Envía órdenes al tópico <code>hospital/farmacia/nevera_01/led</code> para encender o apagar el LED en la simulación:</p>
+        
+        <div class="d-flex gap-2 flex-wrap mb-3">
+          <button id="btn-conectar-mqtt" class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-plug"></i> Conectar al Broker
+          </button>
+          <button id="btn-led-on" class="btn btn-success btn-sm" disabled>
+            <i class="bi bi-lightbulb-fill"></i> Encender LED ("on")
+          </button>
+          <button id="btn-led-off" class="btn btn-dark btn-sm" disabled>
+            <i class="bi bi-lightbulb-off"></i> Apagar LED ("off")
+          </button>
+        </div>
+
+        <div class="alert alert-info py-2 small mb-0">
+          <strong>Broker:</strong> <code>broker.hivemq.com:8884</code> (WSS)<br>
+          <strong>Tópico telemetría:</strong> <code>hospital/farmacia/nevera_01/telemetria</code>
+        </div>
+      </div>
+
+      <!-- Columna 2: Monitor de mensajes -->
+      <div class="col-md-6">
+        <h6 class="fw-bold text-secondary">Monitor de Mensajes Recibidos en Vivo</h6>
+        <div id="mqtt-terminal" class="bg-dark text-light p-3 rounded font-monospace small" style="height: 190px; overflow-y: auto;">
+          <div class="text-muted">> Conecte al broker para ver telemetría de Wokwi...</div>
+        </div>
+        <div class="mt-2 text-end">
+          <button id="btn-limpiar-term" class="btn btn-sm btn-link text-decoration-none">Limpiar consola</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const broker = "broker.hivemq.com";
+  const port = 8884;
+  const path = "/mqtt";
+  const clientId = "WebClient_IFMER_Demo_" + Math.floor(Math.random() * 100000);
+
+  let client = null;
+  let isConnected = false;
+
+  const statusBadge = document.getElementById("mqtt-status-badge");
+  const btnConectar = document.getElementById("btn-conectar-mqtt");
+  const btnLedOn = document.getElementById("btn-led-on");
+  const btnLedOff = document.getElementById("btn-led-off");
+  const terminal = document.getElementById("mqtt-terminal");
+  const btnLimpiar = document.getElementById("btn-limpiar-term");
+
+  function logTerminal(msg, colorClass = "text-light") {
+    const timestamp = new Date().toLocaleTimeString();
+    const line = document.createElement("div");
+    line.className = colorClass;
+    line.innerHTML = `<span class="text-secondary">[${timestamp}]</span> ${msg}`;
+    terminal.appendChild(line);
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  btnLimpiar.addEventListener("click", function() {
+    terminal.innerHTML = "";
+  });
+
+  btnConectar.addEventListener("click", function() {
+    if (isConnected) {
+      client.disconnect();
+      return;
+    }
+
+    logTerminal("Iniciando conexión WebSocket con broker.hivemq.com...", "text-warning");
+    client = new Paho.MQTT.Client(broker, port, path, clientId);
+
+    client.onConnectionLost = function(responseObject) {
+      isConnected = false;
+      statusBadge.textContent = "Desconectado";
+      statusBadge.className = "badge bg-danger";
+      btnConectar.innerHTML = '<i class="bi bi-plug"></i> Conectar al Broker';
+      btnLedOn.disabled = true;
+      btnLedOff.disabled = true;
+      logTerminal("Conexión cerrada.", "text-danger");
+    };
+
+    client.onMessageArrived = function(message) {
+      const topic = message.destinationName;
+      const payload = message.payloadString;
+      let color = "text-info";
+      if (payload.includes("EXCURSION")) {
+        color = "text-danger fw-bold";
+      } else if (topic.includes("telemetria")) {
+        color = "text-success";
+      }
+      logTerminal(`📥 <strong>${topic}</strong>: ${payload}`, color);
+    };
+
+    const options = {
+      useSSL: true,
+      timeout: 5,
+      onSuccess: function() {
+        isConnected = true;
+        statusBadge.textContent = "Conectado";
+        statusBadge.className = "badge bg-success";
+        btnConectar.innerHTML = '<i class="bi bi-x-circle"></i> Desconectar';
+        btnLedOn.disabled = false;
+        btnLedOff.disabled = false;
+        logTerminal("✅ Conexión establecida con éxito.", "text-success");
+
+        client.subscribe("hospital/farmacia/nevera_01/#", { qos: 0 });
+        client.subscribe("TopicURSensorTempHum", { qos: 0 });
+        logTerminal("📡 Suscrito a los tópicos de telemetría hospitalaria.", "text-primary");
+      },
+      onFailure: function(err) {
+        isConnected = false;
+        statusBadge.textContent = "Error";
+        statusBadge.className = "badge bg-danger";
+        logTerminal("❌ Error de conexión: " + err.errorMessage, "text-danger");
+      }
+    };
+
+    client.connect(options);
+  });
+
+  function enviarOrden(cmd) {
+    if (!isConnected) return;
+    const msg = new Paho.MQTT.Message(cmd);
+    msg.destinationName = "hospital/farmacia/nevera_01/led";
+    msg.qos = 0;
+    client.send(msg);
+
+    // También enviar en el tópico directo
+    const msg2 = new Paho.MQTT.Message(cmd);
+    msg2.destinationName = "Led";
+    msg2.qos = 0;
+    client.send(msg2);
+
+    logTerminal(`📤 Publicada orden [${cmd}] hacia el actuador en Wokwi`, "text-warning");
+  }
+
+  btnLedOn.addEventListener("click", function() {
+    enviarOrden("on");
+  });
+
+  btnLedOff.addEventListener("click", function() {
+    enviarOrden("off");
+  });
+});
+</script>
+```
+
+---
+
+## 📝 10. Reto Evaluativo y Entregables
+
+Cada equipo de trabajo deberá completar las siguientes actividades:
+
+1. **Configuración de Simulación en Wokwi:**
+   * Montar el circuito con **XIAO ESP32-C3**, **DHT22** y **LED** en protoboard utilizando el `diagram.json` proporcionado.
+   * Compilar y cargar el código C++ en `sketch.ino`.
+2. **Validación con HiveMQ WebSocket Client:**
+   * Conectarse a `broker.hivemq.com` desde la herramienta web.
+   * Suscribirse al tópico de telemetría y documentar la llegada periódica de lecturas en formato JSON.
+   * Encender y apagar el LED desde el navegador enviando las órdenes `on` y `off`.
+3. **Simulación de Alarma Médica:**
+   * Modificar la temperatura en Wokwi a un valor fuera de rango ($> 8.0^\circ\text{C}$ o $< 2.0^\circ\text{C}$).
+   * Capturar la evidencia donde el JSON refleja `"alerta": true` y `"estado": "EXCURSION_TERMICA"`.
+4. **Entregables:**
+   * Enlace público de la simulación funcional en Wokwi.
+   * Capturas de pantalla de la recepción de datos y control del LED desde el cliente web de HiveMQ.
+   * Breve análisis de farmacovigilancia sobre el impacto de la pérdida de cadena de frío en medicamentos biológicos.
+
+---
+
+## 📚 11. Referencias de Consulta
+
+1. **HiveMQ Public MQTT Broker & WebSocket Client:**  
+   [https://www.hivemq.com/demos/websocket-client/](https://www.hivemq.com/demos/websocket-client/)
+2. **Wokwi Online Simulator for ESP32 and Arduino:**  
+   [https://wokwi.com/](https://wokwi.com/)
+3. **OASIS Standard:**  
+   *MQTT Version 5.0 and 3.1.1 Specification*. [https://mqtt.org/](https://mqtt.org/)
+4. **Organización Panamericana de la Salud (OPS/OMS):**  
+   *Cadena de frío de las vacunas: Manual del operador*. Módulo de Trazabilidad y Monitoreo de Temperatura.

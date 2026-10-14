@@ -1,7 +1,7 @@
 ---
 title: "Clase 04: Servicios Web, API REST, JSON y Bases de Datos NoSQL"
 subtitle: "Informática Médica - IFMER 2026-II"
-author: "Prof. Jefferson Sarmiento Rojas, Pedro Antonio Aya"
+author: "Prof. Jefferson Sarmiento Rojas"
 institute: "Universidad del Rosario"
 date: "2026-08-19"
 format:

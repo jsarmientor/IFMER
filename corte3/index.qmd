@@ -26,9 +26,9 @@ En este último corte, se abordará la frontera de la innovación en Salud Digit
 
 ::: {.card .mb-3}
 ::: {.card-body}
-### 🟨 [Semana 12 - Clase 12: Internet de las Cosas Médicas (IoMT)](clase12/index.qmd)
-- **Conceptos:** Wearables, sensores fisiológicos remotos, arquitectura IoT médica.
-- **Práctica:** Captura e inspección de datos de bioinstrumentación.
+### 🟨 [Semana 12 - Clase 12: Internet de las Cosas Médicas (IoMT) & Protocolo MQTT](clase12/index.qmd)
+- **Conceptos:** Evolución del IoT al IoMT, Industria 4.0/5.0, arquitectura embebida en salud, protocolo MQTT (Publish/Subscribe, Broker, QoS 0/1/2, tópicos jerárquicos) y cadena de frío hospitalaria.
+- **Práctica:** Monitoreo y telemetría de una nevera de farmacia hospitalaria con ESP32 + sensor DHT22 sobre el broker en la nube HiveMQ y cliente WebSockets.
 - **Recursos:** [Ver Guía de Clase](clase12/index.qmd) | [💻 Ver Presentación Diapositivas](clase12/slides.qmd)
 
 :::
@@ -36,10 +36,10 @@ En este último corte, se abordará la frontera de la innovación en Salud Digit
 
 ::: {.card .mb-3}
 ::: {.card-body}
-### 🟨 [Semana 13 - Clase 13: Big Data e Inteligencia Artificial en Salud](clase13/index.qmd)
-- **Conceptos:** Las 4 V del Big Data, Machine Learning, TinyML (IA en el dispositivo), CDSS.
-- **Práctica:** Análisis exploratorio de un dataset de salud y clasificación predictiva.
-- **Recursos:** [Ver Guía de Clase](clase13/index.qmd) | [💻 Ver Presentación Diapositivas](clase13/slides.qmd)
+### 🟨 [Semana 13 - Clase 13: Big Data, Machine Learning & TinyML en Salud](clase13/index.qmd)
+- **Conceptos:** De la lógica tradicional a la computación neuronal (Reddi et al. / MLSysBook), primitiva de la neurona artificial (MACs, activación no lineal), ciclo de vida del sistema de ML (10 fases), espectro de inteligencia distribuida (Cloud ML vs. Edge ML vs. TinyML) y ventajas clínicas del on-device AI.
+- **Práctica:** Laboratorio con Seeed Studio XIAO ESP32S3 Sense: adquisición de audio digital PDM/I2S, configuración de OPI PSRAM, y entrenamiento/despliegue de visión artificial con SenseCraft AI Studio para identificación de equipos biomédicos y enlace MQTT a manuales técnicos.
+- **Recursos:** [Ver Guía de Clase](clase13/index.qmd) | [💻 Ver Presentación Diapositivas](clase13/slides.qmd) | [📄 Guía de Laboratorio (PDF)](clase13/recursos/ACTIVIDAD_PRACTICA_LABORATORIO_IA.pdf)
 
 :::
 :::
