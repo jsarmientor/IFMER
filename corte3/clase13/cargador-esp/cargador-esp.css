@@ -1,0 +1,168 @@
+/* ---------------------------------------------------------------------------
+   Cargador web ESP32 + monitor serie — hoja de estilo
+   Todo cuelga de .cargador-esp, así que no toca nada del sitio que lo aloja.
+   Para cambiar los colores basta con redefinir las variables de abajo:
+
+       .cargador-esp { --cg-primario: #7a1f3d; --cg-radio: 4px; }
+
+   --------------------------------------------------------------------------- */
+
+.cargador-esp {
+  --cg-primario:  #0b3c5d;   /* botones y títulos */
+  --cg-primario2: #0e4f78;   /* botones al pasar el ratón */
+  --cg-borde:     #dfe6ec;
+  --cg-fondo:     #ffffff;
+  --cg-cabecera:  #f4f7f9;
+  --cg-texto:     #1f2d38;
+  --cg-apagado:   #6b7c88;
+  --cg-rotulo:    #8195a3;
+  --cg-ok:        #2e7d4f;
+  --cg-mal:       #c8102e;
+  --cg-radio:     12px;
+
+  border: 1px solid var(--cg-borde);
+  border-radius: var(--cg-radio);
+  background: var(--cg-fondo);
+  color: var(--cg-texto);
+  margin: 1.6rem 0;
+  overflow: hidden;
+}
+
+.cargador-esp *,
+.cargador-esp *::before,
+.cargador-esp *::after { box-sizing: border-box; }
+
+.cargador-esp .cg-cab {
+  background: var(--cg-cabecera);
+  border-bottom: 1px solid var(--cg-borde);
+  padding: .7rem .95rem;
+}
+.cargador-esp .cg-cab2 { border-top: 1px solid var(--cg-borde); }
+.cargador-esp .cg-tit  { font-weight: 700; color: var(--cg-primario); margin-right: .5rem; }
+.cargador-esp .cg-sub  { font-size: .86rem; color: var(--cg-apagado); }
+
+.cargador-esp .cg-aviso {
+  margin: .8rem .95rem 0;
+  padding: .7rem .85rem;
+  border-radius: 9px;
+  background: #fdf3f4;
+  border: 1px solid #f0c6cd;
+  color: #8a1f2b;
+  font-size: .9rem;
+}
+
+.cargador-esp .cg-cuerpo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .9rem;
+  align-items: flex-end;
+  padding: .95rem;
+}
+
+.cargador-esp .cg-campo {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  flex: 1 1 15rem;
+  margin: 0;
+}
+.cargador-esp .cg-campo.cg-corto { flex: 0 1 11rem; }
+.cargador-esp .cg-campo > span {
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--cg-rotulo);
+}
+
+.cargador-esp select,
+.cargador-esp input[type="file"] {
+  border: 1px solid var(--cg-borde);
+  border-radius: 7px;
+  padding: .45rem .55rem;
+  font: inherit;
+  font-size: .92rem;
+  background: #fcfdfe;
+  color: var(--cg-texto);
+  max-width: 100%;
+}
+
+.cargador-esp .cg-btn {
+  background: var(--cg-primario);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: .6rem 1.2rem;
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cargador-esp .cg-btn:hover    { background: var(--cg-primario2); }
+.cargador-esp .cg-btn:disabled { background: #9fb4c4; cursor: not-allowed; }
+.cargador-esp .cg-btn2 {
+  background: #fff;
+  color: var(--cg-primario);
+  border: 1px solid #c3d3de;
+}
+.cargador-esp .cg-btn2:hover    { background: #eef3f6; }
+.cargador-esp .cg-btn2:disabled { background: #f4f7f9; color: #9fb4c4; border-color: #e2eaef; }
+
+.cargador-esp .cg-barra {
+  height: 9px;
+  background: #eef3f6;
+  margin: 0 .95rem .6rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.cargador-esp .cg-barra span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--cg-ok);
+  transition: width .2s;
+}
+
+.cargador-esp .cg-resultado {
+  display: flex;
+  gap: .7rem;
+  align-items: flex-start;
+  margin: 0 .95rem .8rem;
+  padding: .85rem 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  line-height: 1.45;
+  border: 1px solid;
+}
+.cargador-esp .cg-resultado strong { font-size: 1.12rem; }
+.cargador-esp .cg-icono {
+  flex: 0 0 auto;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.cargador-esp .cg-ok  { background: #eef8f1; border-color: #a8d5b8; color: #1f5c39; }
+.cargador-esp .cg-ok  .cg-icono { background: var(--cg-ok); }
+.cargador-esp .cg-mal { background: #fdf3f4; border-color: #f0c6cd; color: #8a1f2b; }
+.cargador-esp .cg-mal .cg-icono { background: var(--cg-mal); }
+
+.cargador-esp .cg-consola {
+  margin: 0 .95rem .95rem;
+  padding: .7rem .8rem;
+  background: #1b2733;
+  color: #d7e3ea;
+  border-radius: 8px;
+  font-size: .82rem;
+  line-height: 1.5;
+  max-height: 15rem;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+.cargador-esp .cg-serie { background: #10202b; color: #cfe6d8; max-height: 19rem; }
+
+@media print { .cargador-esp { display: none; } }
