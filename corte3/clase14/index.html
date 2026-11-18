@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas">
-<meta name="dcterms.date" content="2026-07-23">
+<meta name="author" content="Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c)">
+<meta name="dcterms.date" content="2026-11-17">
 
-<title>Clase 14: Ética, Seguridad y Ciberseguridad – Informática Médica - IFMER 2026-II</title>
+<title>Clase 14: Guía del Proyecto Final Integrador – Informática Médica - IFMER 2026-II</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -135,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../corte3/index.html">🟨 Corte 3: Datos, IA &amp; Ética</a></li><li class="breadcrumb-item"><a href="../../corte3/clase14/index.html">Clase 14: Ética &amp; Ciberseguridad</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../corte3/index.html">🟨 Corte 3: Datos, IA &amp; Ética</a></li><li class="breadcrumb-item"><a href="../../corte3/clase14/index.html">Clase 14: Guía Proyecto Final Integrador</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -291,7 +326,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../corte3/clase14/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Clase 14: Ética &amp; Ciberseguridad</span></a>
+ <span class="menu-text">Clase 14: Guía Proyecto Final Integrador</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -313,18 +348,32 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#objetivos-de-la-clase" id="toc-objetivos-de-la-clase" class="nav-link active" data-scroll-target="#objetivos-de-la-clase">🎯 Objetivos de la Clase</a></li>
-  <li><a href="#materiales-y-lecturas" id="toc-materiales-y-lecturas" class="nav-link" data-scroll-target="#materiales-y-lecturas">📖 Materiales y Lecturas</a></li>
-  <li><a href="#práctica-de-laboratorio" id="toc-práctica-de-laboratorio" class="nav-link" data-scroll-target="#práctica-de-laboratorio">🧪 Práctica de Laboratorio</a></li>
+  <li><a href="#del-reto-de-la-clase-06-al-proyecto-final-integrador" id="toc-del-reto-de-la-clase-06-al-proyecto-final-integrador" class="nav-link" data-scroll-target="#del-reto-de-la-clase-06-al-proyecto-final-integrador">🌉 1. Del Reto de la Clase 06 al Proyecto Final Integrador</a>
+  <ul class="collapse">
+  <li><a href="#el-requerimiento-normativo-resolución-866-de-2021-ihce-rda" id="toc-el-requerimiento-normativo-resolución-866-de-2021-ihce-rda" class="nav-link" data-scroll-target="#el-requerimiento-normativo-resolución-866-de-2021-ihce-rda">1.1 El Requerimiento Normativo: Resolución 866 de 2021 (IHCE / RDA)</a></li>
+  </ul></li>
+  <li><a href="#guía-gráfica-interactiva-simulador-del-producto-esperado" id="toc-guía-gráfica-interactiva-simulador-del-producto-esperado" class="nav-link" data-scroll-target="#guía-gráfica-interactiva-simulador-del-producto-esperado">🖥️ 2. Guía Gráfica Interactiva: Simulador del Producto Esperado</a>
+  <ul class="collapse">
+  <li><a href="#arquitectura-de-archivos-y-código-base-de-la-interfaz-web-ruta-a-vs.-ruta-b" id="toc-arquitectura-de-archivos-y-código-base-de-la-interfaz-web-ruta-a-vs.-ruta-b" class="nav-link" data-scroll-target="#arquitectura-de-archivos-y-código-base-de-la-interfaz-web-ruta-a-vs.-ruta-b">2.1 Arquitectura de Archivos y Código Base de la Interfaz Web (Ruta A vs.&nbsp;Ruta B)</a></li>
+  </ul></li>
+  <li><a href="#cómo-funciona-la-evaluación-con-agentes-de-ia-y-cómo-preparar-sus-insumos" id="toc-cómo-funciona-la-evaluación-con-agentes-de-ia-y-cómo-preparar-sus-insumos" class="nav-link" data-scroll-target="#cómo-funciona-la-evaluación-con-agentes-de-ia-y-cómo-preparar-sus-insumos">🤖 3. ¿Cómo Funciona la Evaluación con Agentes de IA y Cómo Preparar sus Insumos?</a>
+  <ul class="collapse">
+  <li><a href="#qué-insumos-debe-preparar-y-subir-el-grupo-al-evaluador" id="toc-qué-insumos-debe-preparar-y-subir-el-grupo-al-evaluador" class="nav-link" data-scroll-target="#qué-insumos-debe-preparar-y-subir-el-grupo-al-evaluador">3.1 ¿Qué insumos debe preparar y subir el grupo al Evaluador?</a></li>
+  <li><a href="#arquitectura-de-la-cuadrilla-de-4-agentes-evaluadores" id="toc-arquitectura-de-la-cuadrilla-de-4-agentes-evaluadores" class="nav-link" data-scroll-target="#arquitectura-de-la-cuadrilla-de-4-agentes-evaluadores">3.2 Arquitectura de la Cuadrilla de 4 Agentes Evaluadores</a></li>
+  <li><a href="#paso-a-paso-para-autoevaluar-su-proyecto-antes-de-la-entrega" id="toc-paso-a-paso-para-autoevaluar-su-proyecto-antes-de-la-entrega" class="nav-link" data-scroll-target="#paso-a-paso-para-autoevaluar-su-proyecto-antes-de-la-entrega">3.3 Paso a Paso para Autoevaluar su Proyecto antes de la Entrega</a></li>
+  </ul></li>
+  <li><a href="#evaluador-automático-multi-agente-y-rúbrica-interactiva" id="toc-evaluador-automático-multi-agente-y-rúbrica-interactiva" class="nav-link" data-scroll-target="#evaluador-automático-multi-agente-y-rúbrica-interactiva">🧪 4. Evaluador Automático Multi-Agente y Rúbrica Interactiva</a></li>
+  <li><a href="#lista-de-chequeo-del-entregable-final-clase-14-sustentación-clase-15" id="toc-lista-de-chequeo-del-entregable-final-clase-14-sustentación-clase-15" class="nav-link" data-scroll-target="#lista-de-chequeo-del-entregable-final-clase-14-sustentación-clase-15">📦 5. Lista de Chequeo del Entregable Final (Clase 14 → Sustentación Clase 15)</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../corte3/index.html">🟨 Corte 3: Datos, IA &amp; Ética</a></li><li class="breadcrumb-item"><a href="../../corte3/clase14/index.html">Clase 14: Ética &amp; Ciberseguridad</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../corte3/index.html">🟨 Corte 3: Datos, IA &amp; Ética</a></li><li class="breadcrumb-item"><a href="../../corte3/clase14/index.html">Clase 14: Guía Proyecto Final Integrador</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Clase 14: Ética, Seguridad y Ciberseguridad</h1>
-<p class="subtitle lead">Semana 14 | Corte 3</p>
+<h1 class="title">Clase 14: Guía del Proyecto Final Integrador</h1>
+<p class="subtitle lead">Semana 14 | Corte 3 — De la Normativa (Res. 866/2021) a la Aplicación Web (PHP CRUD o HL7 FHIR + SMART on FHIR) y Autoevaluación con Agentes IA</p>
 </div>
 
 
@@ -334,14 +383,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Prof.&nbsp;Jefferson Sarmiento Rojas </p>
+             <p>Prof.&nbsp;Jefferson Sarmiento Rojas, Ph.D (c) </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 23, 2026</p>
+      <p class="date">November 17, 2026</p>
     </div>
   </div>
   
@@ -353,26 +402,2163 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<style>
+main table.table {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  table-layout: auto;
+}
+main table.table col { width: auto !important; }
+main table.table th,
+main table.table td {
+  white-space: normal;
+  vertical-align: top;
+  overflow-wrap: break-word;
+}
+main table.table th { white-space: nowrap; padding: .6rem .7rem; }
+main table.table td { padding: .5rem .7rem; font-size: .92rem; }
+main table.table code { white-space: nowrap; font-size: .88em; }
+
+/* Estilos para los simuladores interactivos de Clase 14 */
+.pf-box {
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+.pf-tabs {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: .75rem;
+  margin-bottom: 1rem;
+}
+.pf-tab {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #1e293b;
+  padding: .5rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: .88rem;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.pf-tab.active {
+  background: #941100;
+  color: #ffffff;
+  border-color: #941100;
+}
+.pf-tab.active-alt {
+  background: #002855;
+  color: #ffffff;
+  border-color: #002855;
+}
+.pf-tab.active-teal {
+  background: #0d9488;
+  color: #ffffff;
+  border-color: #0d9488;
+}
+.pf-badge {
+  display: inline-block;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 700;
+}
+.pf-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+.pf-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.pf-input, .pf-select {
+  width: 100%;
+  padding: .42rem .6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: .84rem;
+  background: #fff;
+}
+.pf-label {
+  display: block;
+  font-size: .78rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: .2rem;
+}
+.pf-btn {
+  border: 0;
+  border-radius: 6px;
+  padding: .48rem .95rem;
+  font-weight: 700;
+  font-size: .84rem;
+  cursor: pointer;
+  color: #fff;
+}
+.pf-agent-card {
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #002855;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: .9rem 1rem;
+  margin-bottom: .75rem;
+}
+.rubric-cell-btn {
+  cursor: pointer;
+  transition: background .15s ease, transform .1s ease;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: .45rem;
+  font-size: .8rem;
+}
+.rubric-cell-btn:hover {
+  background: #f1f5f9;
+}
+.rubric-cell-btn.selected {
+  background: #fef2f2;
+  border: 2px solid #941100;
+  font-weight: 600;
+}
+@media print {
+  .pf-tabs, .no-print { display: none !important; }
+}
+</style>
 <p><a href="slides.html" target="_blank" class="btn-slide">💻 Ver Presentación de Diapositivas</a></p>
 <section id="objetivos-de-la-clase" class="level2">
 <h2 class="anchored" data-anchor-id="objetivos-de-la-clase">🎯 Objetivos de la Clase</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">Objetivo 1 (En desarrollo)</label></li>
-<li><label><input type="checkbox">Objetivo 2 (En desarrollo)</label></li>
+<li><label><input type="checkbox">Consolidar el requerimiento del <strong>Proyecto Final Integrador</strong> planteado desde la <a href="../../corte1/clase06/index.html">Clase 06 (<code>Paso 13</code>)</a>, tomando como fuente de verdad el <strong>Anexo Técnico de la Resolución 866 de 2021</strong> (Ministerio de Salud y Protección Social).</label></li>
+<li><label><input type="checkbox">Explorar en el <strong>Simulador Gráfico del Producto Esperado</strong> las dos arquitecturas válidas para desarrollar la interfaz web del proyecto final:</label>
+<ol type="1">
+<li><strong>Ruta A:</strong> Aplicación Web <strong>CRUD con HTML + Bootstrap + PHP + MySQL</strong> (basada en el diseño inicial de la tabla <code>pacientes</code> a partir del diccionario de datos y consultas preparadas).</li>
+<li><strong>Ruta B:</strong> Aplicación Web Interoperable <strong>HL7 FHIR R4 + SMART on FHIR</strong> (interfaz web en HTML + JS con consumo RESTful de recursos <code>Patient</code>, <code>Condition</code> / <code>Observation</code> alineados al RDA/IHCE y contexto de lanzamiento OAuth2/SMART).</li>
+</ol></li>
+<li><label><input type="checkbox">Evaluar el proyecto antes de la entrega final mediante la <strong>Rúbrica Autocalificable Multi-Agente</strong>, comprendiendo qué evalúa cada agente (Diseño de Datos y Norma Res. 866, Funcionalidad Web CRUD/FHIR, Calidad de Código/Validaciones y Discurso Oral/Video).</label></li>
 </ul>
 <hr>
 </section>
-<section id="materiales-y-lecturas" class="level2">
-<h2 class="anchored" data-anchor-id="materiales-y-lecturas">📖 Materiales y Lecturas</h2>
-<section id="preparación-previa" class="level5 callout-flipped">
-<h5 class="anchored" data-anchor-id="preparación-previa">💡 Preparación Previa</h5>
-<p><em>Contenido y guía práctica en construcción por el docente.</em></p>
+<section id="del-reto-de-la-clase-06-al-proyecto-final-integrador" class="level2">
+<h2 class="anchored" data-anchor-id="del-reto-de-la-clase-06-al-proyecto-final-integrador">🌉 1. Del Reto de la Clase 06 al Proyecto Final Integrador</h2>
+<section id="de-dónde-venimos-y-hacia-dónde-vamos" class="level5 callout-flipped">
+<h5 class="anchored" data-anchor-id="de-dónde-venimos-y-hacia-dónde-vamos">💡 De dónde venimos y hacia dónde vamos</h5>
+<p>En la <strong><a href="../../corte1/clase06/index.html">Clase 06</a></strong> aprendimos el método de ingeniería de datos clínicos sobre un archivo real (<code>BD.xlsx</code>, 67 equipos biomédicos × 31 columnas): <strong>Auditar la fuente → Seleccionar y tipificar las variables → Construir el Diccionario de Datos → Crear la tabla inicial en MySQL → Implementar un CRUD funcional.</strong></p>
+<p>En aquel <strong>Paso 13</strong> dejamos planteado el gran reto: aplicar exactamente el mismo rigor metodológico al registro e identificación de <strong>pacientes</strong>, donde la fuente de verdad ya no es un Excel del hospital, sino <strong>la ley colombiana</strong>. Hoy en la <strong>Clase 14</strong> consolidamos la guía del <strong>Proyecto Final Integrador</strong> con las dos opciones tecnológicas (<strong>PHP CRUD</strong> o <strong>HL7 FHIR + SMART on FHIR</strong>) y el sistema de <strong>evaluación automatizada por agentes</strong>.</p>
 </section>
+<section id="el-requerimiento-normativo-resolución-866-de-2021-ihce-rda" class="level3">
+<h3 class="anchored" data-anchor-id="el-requerimiento-normativo-resolución-866-de-2021-ihce-rda">1.1 El Requerimiento Normativo: Resolución 866 de 2021 (IHCE / RDA)</h3>
+<p>El sistema que cada grupo entregará debe gestionar la <strong>Identificación y Atención Básica del Paciente</strong> cumpliendo el <strong>Anexo Técnico de la Resolución 866 de 2021</strong> del Ministerio de Salud y Protección Social (<em>Conjunto de datos relevantes para la Interoperabilidad de la Historia Clínica Electrónica - IHCE</em>).</p>
+<ol type="1">
+<li><strong>Consulta Normativa:</strong> Revisar el Anexo Técnico de la Resolución 866 de 2021 (Variables de Identificación del Usuario/Paciente y Datos de Contacto/Atención). 📄 <a href="https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-866-de-2021.pdf">Descargar Resolución 866 de 2021 — MinSalud (PDF)</a></li>
+<li><strong>Diccionario de Datos Normativo:</strong> Seleccionar y tipificar las variables según la norma (por ejemplo: por qué el <code>Número de Documento</code> jamás puede ser <code>INT</code> —perdería ceros a la izquierda en registros civiles o pasaportes alfanuméricos—, y por qué el <code>Municipio</code> usa el código oficial <strong>DIVIPOLA – DANE</strong>).</li>
+<li><strong>Implementación Tecnológica (Elija UNA de las dos rutas):</strong></li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Característica</th>
+<th style="text-align: left;">🛠️ Ruta A: Aplicación Web CRUD (PHP + MySQL)</th>
+<th style="text-align: left;">🌐 Ruta B: Aplicación Web HL7 FHIR R4 + SMART on FHIR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Enfoque Arquitectónico e Interfaz Web (Obligatoria)</strong></td>
+<td style="text-align: left;"><strong>Interfaz Web funcional</strong> (<code>index.php</code> + <code>modificar.php</code> con HTML5/Bootstrap) servida desde XAMPP (<code>Apache + PHP 8 + MySQL</code>).</td>
+<td style="text-align: left;"><strong>Interfaz Web funcional</strong> (<code>launch.html</code> + <code>index.html</code> + <code>app.js</code> con HTML5/Bootstrap + <code>fetch</code> / <code>fhirclient</code>) conectada a un servidor FHIR R4 (HAPI FHIR / SMART Sandbox). <em>(⚠️ <strong>No basta usar Postman</strong>: debe existir una interfaz gráfica web operativa).</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Modelo de Datos (Diseño Inicial)</strong></td>
+<td style="text-align: left;">Diseño inicial de la tabla <strong><code>pacientes</code></strong> en MySQL (<code>CREATE TABLE pacientes</code>) con llave primaria (<code>IdPaciente</code>), tipos de datos atómicos (<code>VARCHAR</code>, <code>DATE</code>, <code>CHAR</code>) y correspondencia exacta con su Diccionario de Datos.</td>
+<td style="text-align: left;">Recurso <strong><code>Patient</code></strong> (perfil RDA Colombia con identificadores RNEC y código DIVIPOLA) vinculado al menos a un recurso clínico (<strong><code>Observation</code></strong> o <strong><code>Condition</code></strong> CIE-10/SNOMED).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Operaciones desde la Interfaz Web (CRUD)</strong></td>
+<td style="text-align: left;">Formulario web <code>CREATE</code> (<code>INSERT</code>), tabla web con buscador <code>READ</code> (<code>SELECT</code>), formulario pre-diligenciado <code>UPDATE</code>, botón de <strong>baja lógica</strong> (<code>EstadoPaciente = 0</code>) o eliminación controlada.</td>
+<td style="text-align: left;">Formulario web <code>CREATE</code> (<code>POST /Patient</code>), tabla web con buscador <code>READ</code> (<code>GET /Patient?identifier=...</code>), edición en el formulario <code>UPDATE</code> (<code>PUT /Patient/{id}</code>), botón de <strong>inactivación lógica</strong> (<code>"active": false</code>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Calidad de Código y Buenas Prácticas</strong></td>
+<td style="text-align: left;">Consultas preparadas (<code>prepare()</code> + <code>bind_param()</code>), <code>htmlspecialchars()</code>, control de excepciones (<code>try/catch</code> para duplicados <code>#1062</code>).</td>
+<td style="text-align: left;">Lanzamiento <strong>SMART on FHIR</strong> (<code>launch.html</code> + <code>index.html</code>), manejo de scopes (<code>launch</code>, <code>patient/*.read</code>, <code>patient/*.write</code>), renderizado seguro (<code>textContent</code>) y trazabilidad <code>meta.versionId</code>.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </section>
-<section id="práctica-de-laboratorio" class="level2">
-<h2 class="anchored" data-anchor-id="práctica-de-laboratorio">🧪 Práctica de Laboratorio</h2>
-<p><em>Actividad práctica en desarrollo.</em></p>
+</section>
+<section id="guía-gráfica-interactiva-simulador-del-producto-esperado" class="level2">
+<h2 class="anchored" data-anchor-id="guía-gráfica-interactiva-simulador-del-producto-esperado">🖥️ 2. Guía Gráfica Interactiva: Simulador del Producto Esperado</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>🎯 ¿Cómo debe verse y comportarse su proyecto final?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Utilice este <strong>prototipo interactivo</strong> como guía de referencia (<em>“Producto Esperado”</em>). Puede alternar entre las tres pestañas para: 1. Explorar el <strong>Diccionario Normativo (Res. 866/2021)</strong> y ver cómo cada variable se traduce tanto a <strong>SQL (PHP)</strong> como a <strong>HL7 FHIR R4</strong>. 2. Probar en vivo la <strong>Interfaz Esperada de la Ruta A (PHP + MySQL CRUD)</strong>, incluyendo validaciones, bloqueo de duplicados y baja lógica. 3. Probar en vivo la <strong>Interfaz Esperada de la Ruta B (HL7 FHIR + SMART on FHIR)</strong>, viendo cómo el contexto SMART y el formulario construyen el JSON FHIR R4 en tiempo real y simulan las peticiones HTTP REST.</p>
+</div>
+</div>
+<div class="pf-box" id="sim-esperado">
+  <div class="pf-tabs">
+    <button class="pf-tab active" data-target="tab-ruta-a" onclick="window.pfSwitchTab('tab-ruta-a', this)">🛠️ Vista Esperada Opción A: PHP + MySQL CRUD</button>
+    <button class="pf-tab" data-target="tab-ruta-b" onclick="window.pfSwitchTab('tab-ruta-b', this)">🌐 Vista Esperada Opción B: HL7 FHIR + SMART on FHIR</button>
+    <button class="pf-tab" data-target="tab-norma" onclick="window.pfSwitchTab('tab-norma', this)">📜 Mapeo Normativo: Res. 866/2021 (SQL ↔ FHIR)</button>
+  </div>
+
+  <!-- ==================== PESTAÑA 1: RUTA A (PHP + MYSQL CRUD) ==================== -->
+  <div id="tab-ruta-a" class="pf-pane">
+    <div style="background:#002855;color:#fff;padding:.75rem 1rem;border-radius:8px;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;">
+      <div>
+        <span class="pf-badge" style="background:#941100;color:#fff;">RUTA A · XAMPP</span>
+        <strong style="margin-left:.4rem;">http://localhost/ProyectoPacientes866/index.php</strong>
+      </div>
+      <span style="font-size:.8rem;color:#cbd5e1;">Diseño Inicial Tabla <code>pacientes</code> · Diccionario Res. 866/2021 · Consultas Preparadas</span>
+    </div>
+
+    <div class="pf-grid-2">
+      <!-- Formulario CRUD Paciente -->
+      <div class="pf-card">
+        <h5 style="margin-top:0;color:#941100;border-bottom:1px solid #e2e8f0;padding-bottom:.4rem;" id="php-form-title" class="anchored">➕ Registrar Paciente (Resolución 866 de 2021)</h5>
+        <input type="hidden" id="php-id" value="">
+        <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:.6rem;margin-bottom:.6rem;">
+          <div>
+            <label class="pf-label">Tipo Documento * (VARCHAR/CHAR)</label>
+            <select id="php-tipodoc" class="pf-select">
+              <option value="CC">CC - Cédula de Ciudadanía</option>
+              <option value="TI">TI - Tarjeta de Identidad</option>
+              <option value="RC">RC - Registro Civil</option>
+              <option value="CE">CE - Cédula de Extranjería</option>
+              <option value="PT">PT - Permiso Protección Temp.</option>
+            </select>
+          </div>
+          <div>
+            <label class="pf-label">Número Documento * (VARCHAR(20) UNIQUE)</label>
+            <input type="text" id="php-numdoc" class="pf-input" placeholder="Ej. 0010203040 o AB12345">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.6rem;">
+          <div>
+            <label class="pf-label">Primer Apellido *</label>
+            <input type="text" id="php-ape1" class="pf-input" placeholder="Ej. Gómez">
+          </div>
+          <div>
+            <label class="pf-label">Segundo Apellido (NULL)</label>
+            <input type="text" id="php-ape2" class="pf-input" placeholder="Ej. Rivas (opcional)">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.6rem;">
+          <div>
+            <label class="pf-label">Nombres Completos *</label>
+            <input type="text" id="php-nombres" class="pf-input" placeholder="Ej. Laura Camila">
+          </div>
+          <div>
+            <label class="pf-label">Fecha Nacimiento * (DATE)</label>
+            <input type="date" id="php-fnac" class="pf-input" value="1995-06-12">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.6rem;">
+          <div>
+            <label class="pf-label">Sexo Biológico * (VARCHAR)</label>
+            <select id="php-sexo" class="pf-select">
+              <option value="02 - Mujer">02 - Mujer</option>
+              <option value="01 - Hombre">01 - Hombre</option>
+              <option value="03 - Intersexual">03 - Intersexual</option>
+            </select>
+          </div>
+          <div>
+            <label class="pf-label">Municipio DIVIPOLA * (CHAR(5) DANE)</label>
+            <select id="php-mpio" class="pf-select">
+              <option value="11001 - Bogotá, D.C.">11001 - Bogotá, D.C.</option>
+              <option value="05001 - Medellín">05001 - Medellín</option>
+              <option value="76001 - Cali">76001 - Cali</option>
+              <option value="25175 - Chía">25175 - Chía</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.6rem;">
+          <div>
+            <label class="pf-label">EPS / EAPB * (VARCHAR)</label>
+            <select id="php-eps" class="pf-select">
+              <option value="EPS002 - Salud Total">EPS002 - Salud Total</option>
+              <option value="EPS005 - Sanitas">EPS005 - Sanitas</option>
+              <option value="EPS010 - Sura">EPS010 - Sura</option>
+              <option value="EPS037 - Nueva EPS">EPS037 - Nueva EPS</option>
+            </select>
+          </div>
+          <div>
+            <label class="pf-label">Diagnóstico Ingreso (CIE-10)</label>
+            <select id="php-cie10" class="pf-select">
+              <option value="I10X - Hipertensión esencial">I10X - Hipertensión esencial</option>
+              <option value="E119 - Diabetes mellitus tipo 2">E119 - Diabetes mellitus tipo 2</option>
+              <option value="J459 - Asma no especificada">J459 - Asma no especificada</option>
+              <option value="Z000 - Examen médico general">Z000 - Examen médico general</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="background:#f1f5f9;padding:.45rem .65rem;border-radius:6px;margin-bottom:.7rem;font-size:.78rem;">
+          <label style="cursor:pointer;display:flex;align-items:center;gap:.4rem;margin:0;">
+            <input type="checkbox" id="php-habeas" checked="">
+            <span>Autorizo tratamiento de datos sensibles de salud (<strong>Ley 1581/2012 &amp; Res. 866/2021</strong>).</span>
+          </label>
+        </div>
+
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+          <button class="pf-btn" style="background:#941100;" onclick="window.pfPhpGuardar()" id="php-btn-save">💾 Guardar Paciente (CREATE)</button>
+          <button class="pf-btn" style="background:#64748b;" onclick="window.pfPhpLimpiar()">↺ Limpiar</button>
+        </div>
+        <div id="php-msg" style="margin-top:.6rem;font-size:.82rem;font-weight:700;"></div>
+      </div>
+
+      <!-- Listado + Buscador + Inspector SQL -->
+      <div class="pf-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-bottom:.6rem;flex-wrap:wrap;">
+          <h5 style="margin:0;color:#002855;" class="anchored">📋 Pacientes Activos (<code>EstadoPaciente = 1</code>)</h5>
+          <label style="font-size:.78rem;cursor:pointer;">
+            <input type="checkbox" id="php-show-inactive" onchange="window.pfPhpRender()"> Ver inactivos (baja lógica)
+          </label>
+        </div>
+        <div style="display:flex;gap:.4rem;margin-bottom:.65rem;">
+          <input type="text" id="php-search" class="pf-input" placeholder="🔍 Buscar por documento, apellido o municipio (prueba: ' OR '1'='1)..." oninput="window.pfPhpRender()">
+        </div>
+
+        <div style="overflow-x:auto;max-height:245px;border:1px solid #e2e8f0;border-radius:6px;">
+          
+<table class="caption-top" style="width:100%;border-collapse:collapse;font-size:.78rem;">
+<thead>
+<tr class="header" style="background:#002855;color:#fff;">
+<th data-quarto-table-cell-role="th" style="padding: .4rem">Doc</th>
+<th data-quarto-table-cell-role="th" style="padding: .4rem">Paciente</th>
+<th data-quarto-table-cell-role="th" style="padding: .4rem">Sexo / Edad</th>
+<th data-quarto-table-cell-role="th" style="padding: .4rem">DIVIPOLA / EPS</th>
+<th data-quarto-table-cell-role="th" style="padding: .4rem">Estado</th>
+<th data-quarto-table-cell-role="th" style="padding: .4rem">Acciones</th>
+</tr>
+</thead>
+<tbody id="php-tbody">
+</tbody>
+</table>
+
+        </div>
+
+        <div style="margin-top:.75rem;">
+          <div style="font-size:.76rem;font-weight:700;color:#475569;margin-bottom:.25rem;">🔒 Sentencia SQL preparada ejecutada por el backend PHP:</div>
+          <pre id="php-sql-log" style="background:#0f172a;color:#38bdf8;padding:.65rem;border-radius:6px;font-size:.74rem;margin:0;overflow-x:auto;">-- Interactúe con el formulario o el buscador para ver la consulta preparada en vivo.</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PESTAÑA 2: RUTA B (WEB APP HL7 FHIR + SMART ON FHIR) ==================== -->
+  <div id="tab-ruta-b" class="pf-pane" style="display:none;">
+    <div style="background:#0f766e;color:#fff;padding:.75rem 1rem;border-radius:8px;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;">
+      <div>
+        <span class="pf-badge" style="background:#002855;color:#fff;">RUTA B · WEB APP SMART ON FHIR R4</span>
+        <strong style="margin-left:.4rem;">http://localhost:5500/index.html ↔ https://hapi.fhir.org/baseR4</strong>
+      </div>
+      <span style="font-size:.78rem;background:rgba(255,255,255,.18);padding:.2rem .6rem;border-radius:6px;">
+        🔑 OAuth2 Scopes: <code>launch/patient patient/Patient.read patient/Patient.write patient/Observation.*</code>
+      </span>
+    </div>
+
+    <div class="pf-grid-2">
+      <!-- Columna Izquierda: Formulario Web Clínico FHIR + SMART -->
+      <div class="pf-card">
+        <h5 style="margin-top:0;color:#0f766e;border-bottom:1px solid #e2e8f0;padding-bottom:.4rem;" id="fhir-form-title" class="anchored">➕ Formulario Web de Registro FHIR (`Patient` + `Observation` RDA)</h5>
+        <input type="hidden" id="fhir-edit-id" value="">
+
+        <div style="background:#f0fdfa;border:1px solid #99f6e4;padding:.45rem .65rem;border-radius:6px;margin-bottom:.65rem;font-size:.75rem;">
+          <div><strong>Sesión SMART on FHIR (`FHIR.oauth2.ready()`):</strong></div>
+          <div style="color:#0f766e;font-family:monospace;margin-top:.15rem;">
+            Practitioner: Dr. Sarmiento | iss: .../v/r4/fhir | token: Bearer eyJ0eXAi...
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:.6rem;margin-bottom:.6rem;">
+          <div>
+            <label class="pf-label">Tipo Doc RNEC *</label>
+            <select id="fhir-doc-type" class="pf-select" onchange="window.pfFhirSync()">
+              <option value="CC">CC - Cédula de Ciudadanía</option>
+              <option value="TI">TI - Tarjeta de Identidad</option>
+              <option value="RC">RC - Registro Civil</option>
+              <option value="CE">CE - Cédula de Extranjería</option>
+              <option value="PT">PT - Permiso Protección Temp.</option>
+            </select>
+          </div>
+          <div>
+            <label class="pf-label">Número Documento (`identifier.value`) *</label>
+            <input type="text" id="fhir-doc-val" class="pf-input" value="1020304050" placeholder="Ej. 0010203040" oninput="window.pfFhirSync()">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.6rem;">
+          <div>
+            <label class="pf-label">Nombres (`name.given`) *</label>
+            <input type="text" id="fhir-given" class="pf-input" value="Laura Camila" placeholder="Ej. Laura Camila" oninput="window.pfFhirSync()">
+          </div>
+          <div>
+            <label class="pf-label">Apellidos (`name.family`) *</label>
+            <input type="text" id="fhir-family" class="pf-input" value="Gómez Rivas" placeholder="Ej. Gómez Rivas" oninput="window.pfFhirSync()">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.6rem;">
+          <div>
+            <label class="pf-label">Sexo (`Patient.gender`) *</label>
+            <select id="fhir-gender" class="pf-select" onchange="window.pfFhirSync()">
+              <option value="female">female (02 - Mujer)</option>
+              <option value="male">male (01 - Hombre)</option>
+              <option value="other">other (03 - Intersexual)</option>
+            </select>
+          </div>
+          <div>
+            <label class="pf-label">Fecha Nacimiento (`birthDate`) *</label>
+            <input type="date" id="fhir-birth" class="pf-input" value="1995-06-12" oninput="window.pfFhirSync()">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.6rem;">
+          <div>
+            <label class="pf-label">Municipio Residencia (DIVIPOLA DANE) *</label>
+            <select id="fhir-city" class="pf-select" onchange="window.pfFhirSync()">
+              <option value="11001|Bogotá, D.C.">11001 - Bogotá, D.C.</option>
+              <option value="05001|Medellín">05001 - Medellín</option>
+              <option value="76001|Cali">76001 - Cali</option>
+              <option value="25175|Chía">25175 - Chía</option>
+            </select>
+          </div>
+          <div>
+            <label class="pf-label">Signo Vital Asociado (`Observation` LOINC)</label>
+            <select id="fhir-obs" class="pf-select" onchange="window.pfFhirSync()">
+              <option value="8867-4|Frec. Cardíaca|76|/min">8867-4: Frec. Cardíaca (76 /min)</option>
+              <option value="8310-5|Temperatura|36.8|Cel">8310-5: Temperatura (36.8 °C)</option>
+              <option value="2708-6|SpO2 Arterial|97|%">2708-6: SpO2 Arterial (97 %)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="background:#f1f5f9;padding:.42rem .65rem;border-radius:6px;margin-bottom:.65rem;font-size:.76rem;">
+          <label style="cursor:pointer;display:flex;align-items:center;gap:.4rem;margin:0;">
+            <input type="checkbox" id="fhir-habeas" checked="">
+            <span>Consentimiento informado de interoperabilidad IHCE / RDA (<strong>Ley 1581 &amp; Res. 866/2021</strong>).</span>
+          </label>
+        </div>
+
+        <div style="display:flex;gap:.45rem;flex-wrap:wrap;">
+          <button class="pf-btn" style="background:#0f766e;" id="fhir-btn-save" onclick="window.pfFhirGuardar()">💾 Guardar en Tabla FHIR (POST / PUT)</button>
+          <button class="pf-btn" style="background:#002855;" onclick="window.pfFhirLivePost()">🌐 Enviar en Vivo a HAPI FHIR Real</button>
+          <button class="pf-btn" style="background:#64748b;" onclick="window.pfFhirLimpiar()">↺ Limpiar</button>
+        </div>
+        <div id="fhir-http-status" style="margin-top:.55rem;font-size:.8rem;font-weight:700;color:#0f766e;"></div>
+      </div>
+
+      <!-- Columna Derecha: Tabla Web de Recursos en el Servidor FHIR + Inspector JSON/Fetch -->
+      <div class="pf-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-bottom:.55rem;flex-wrap:wrap;">
+          <h5 style="margin:0;color:#002855;" class="anchored">📋 Tabla Web de Pacientes en Servidor FHIR (<code>GET /Patient</code>)</h5>
+          <label style="font-size:.76rem;cursor:pointer;">
+            <input type="checkbox" id="fhir-show-inactive" onchange="window.pfFhirRenderTable()"> Ver inactivos (<code>active=false</code>)
+          </label>
+        </div>
+
+        <div style="display:flex;gap:.4rem;margin-bottom:.6rem;">
+          <input type="text" id="fhir-search" class="pf-input" placeholder="🔍 Filtrar recursos en la interfaz web (GET /Patient?identifier=... o ?name=...)..." oninput="window.pfFhirRenderTable()">
+        </div>
+
+        <div style="overflow-x:auto;max-height:210px;border:1px solid #e2e8f0;border-radius:6px;margin-bottom:.65rem;">
+          
+<table class="caption-top" style="width:100%;border-collapse:collapse;font-size:.76rem;">
+<thead>
+<tr class="header" style="background:#0f766e;color:#fff;">
+<th data-quarto-table-cell-role="th" style="padding: .38rem">ID FHIR / RNEC</th>
+<th data-quarto-table-cell-role="th" style="padding: .38rem">Paciente (name)</th>
+<th data-quarto-table-cell-role="th" style="padding: .38rem">DIVIPOLA / Observation</th>
+<th data-quarto-table-cell-role="th" style="padding: .38rem">Estado</th>
+<th data-quarto-table-cell-role="th" style="padding: .38rem">Acciones Web</th>
+</tr>
+</thead>
+<tbody id="fhir-tbody">
+</tbody>
+</table>
+
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem;">
+          <span style="font-size:.75rem;font-weight:700;color:#475569;">📦 Recurso JSON HL7 FHIR R4 / Petición HTTP generada por la Interfaz Web:</span>
+          <span class="pf-badge" style="background:#e0f2fe;color:#0369a1;">FHIR R4 Valid</span>
+        </div>
+        <pre id="fhir-json-preview" style="background:#0f172a;color:#a7f3d0;padding:.6rem;border-radius:8px;font-size:.72rem;line-height:1.35;max-height:175px;overflow:auto;margin:0;"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PESTAÑA 3: MAPEO NORMATIVO RES 866 ==================== -->
+  <div id="tab-norma" class="pf-pane" style="display:none;">
+    <p style="margin-top:0;font-size:.9rem;color:#334155;">
+      Esta tabla muestra cómo la <strong>misma variable normativa</strong> del Anexo Técnico de la <strong>Resolución 866 de 2021</strong> se implementa en la <strong>Ruta A (SQL)</strong> o en la <strong>Ruta B (HL7 FHIR R4)</strong>:
+    </p>
+    <div style="overflow-x:auto;">
+      
+<table class="caption-top table">
+<thead>
+<tr class="header" style="background:#941100;color:#fff;">
+<th data-quarto-table-cell-role="th" style="padding: .5rem">Variable Res. 866/2021</th>
+<th data-quarto-table-cell-role="th" style="padding: .5rem">Por qué lo exige la norma</th>
+<th data-quarto-table-cell-role="th" style="padding: .5rem">Ruta A: Campo y Tipo en MySQL</th>
+<th data-quarto-table-cell-role="th" style="padding: .5rem">Ruta B: Ruta en Recurso HL7 FHIR R4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" style="border-bottom:1px solid #e2e8f0;">
+<td style="padding: .45rem; font-weight: 700">1. Tipo de documento de identificación</td>
+<td style="padding: .45rem">Distingue CC, TI, RC, CE, PA, PT, CN, AS, MS.</td>
+<td style="padding: .45rem"><code>TipoDocumento VARCHAR(5) NOT NULL</code></td>
+<td style="padding: .45rem"><code>Patient.identifier.type.coding.code</code></td>
+</tr>
+<tr class="even" style="border-bottom:1px solid #e2e8f0;background:#f8fafc;">
+<td style="padding: .45rem; font-weight: 700">2. Número de documento de identificación</td>
+<td style="padding: .45rem">Puede iniciar en <code>0</code> o contener letras (Pasaporte/PT). ¡Jamás usar <code>INT</code>!</td>
+<td style="padding: .45rem"><code>NumeroDocumento VARCHAR(20) NOT NULL UNIQUE</code></td>
+<td style="padding: .45rem"><code>Patient.identifier.value</code> (string)</td>
+</tr>
+<tr class="odd" style="border-bottom:1px solid #e2e8f0;">
+<td style="padding: .45rem; font-weight: 700">3. Primer y Segundo Apellido / Nombres</td>
+<td style="padding: .45rem">Separados atómicamente para cruce con Registraduría (RNEC).</td>
+<td style="padding: .45rem"><code>PrimerApellido VARCHAR(60) NOT NULL</code>, <code>SegundoApellido VARCHAR(60) NULL</code>, <code>Nombres VARCHAR(80) NOT NULL</code></td>
+<td style="padding: .45rem"><code>Patient.name[0].family</code> + <code>Patient.name[0].given[]</code></td>
+</tr>
+<tr class="even" style="border-bottom:1px solid #e2e8f0;background:#f8fafc;">
+<td style="padding: .45rem; font-weight: 700">4. Fecha y hora de nacimiento</td>
+<td style="padding: .45rem">Cálculo exacto de edad pediátrica/adulta; la edad no se guarda fija, se calcula.</td>
+<td style="padding: .45rem"><code>FechaNacimiento DATE NOT NULL</code></td>
+<td style="padding: .45rem"><code>Patient.birthDate</code> (YYYY-MM-DD)</td>
+</tr>
+<tr class="odd" style="border-bottom:1px solid #e2e8f0;">
+<td style="padding: .45rem; font-weight: 700">5. Sexo biológico</td>
+<td style="padding: .45rem">Lista cerrada de la norma (01 Hombre, 02 Mujer, 03 Intersexual).</td>
+<td style="padding: .45rem"><code>SexoBiologico VARCHAR(20) NOT NULL</code></td>
+<td style="padding: .45rem"><code>Patient.gender</code> + extensión biológica RDA</td>
+</tr>
+<tr class="even" style="border-bottom:1px solid #e2e8f0;background:#f8fafc;">
+<td style="padding: .45rem; font-weight: 700">6. Municipio de residencia habitual</td>
+<td style="padding: .45rem">Codificación oficial DANE DIVIPOLA (5 dígitos: 2 depto + 3 mpio, ej. <code>11001</code>).</td>
+<td style="padding: .45rem"><code>CodigoDivipola CHAR(5) NOT NULL</code> / <code>Municipio VARCHAR(60)</code></td>
+<td style="padding: .45rem"><code>Patient.address[0].city</code> + extensión DIVIPOLA</td>
+</tr>
+<tr class="odd" style="border-bottom:1px solid #e2e8f0;">
+<td style="padding: .45rem; font-weight: 700">7. Aseguradora / EAPB y Diagnóstico CIE-10</td>
+<td style="padding: .45rem">Trazabilidad de pagador y codificación clínica internacional (SISPRO).</td>
+<td style="padding: .45rem"><code>Eps VARCHAR(60) NOT NULL</code>, <code>CodigoCie10 VARCHAR(10)</code></td>
+<td style="padding: .45rem"><code>Coverage</code> / <code>Condition.code.coding</code> (ICD-10)</td>
+</tr>
+<tr class="even" style="background:#f8fafc;">
+<td style="padding: .45rem; font-weight: 700">8. Trazabilidad y estado del registro</td>
+<td style="padding: .45rem">En salud la historia clínica no se destruye físicamente; se inactiva conservando auditoría.</td>
+<td style="padding: .45rem"><code>EstadoPaciente TINYINT(1) NOT NULL DEFAULT 1</code></td>
+<td style="padding: .45rem"><code>Patient.active</code> (boolean: <code>true</code> / <code>false</code>)</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---- Estado inicial para el simulador PHP CRUD ----
+  var pacientes = [
+    {id: 1, tipodoc: "CC", numdoc: "1020304050", ape1: "Gómez", ape2: "Rivas", nombres: "Laura Camila", fnac: "1995-06-12", sexo: "02 - Mujer", mpio: "11001 - Bogotá, D.C.", eps: "EPS005 - Sanitas", cie10: "I10X - Hipertensión esencial", estado: 1},
+    {id: 2, tipodoc: "RC", numdoc: "0011223344", ape1: "Martínez", ape2: "Pérez", nombres: "Mateo", fnac: "2021-03-19", sexo: "01 - Hombre", mpio: "05001 - Medellín", eps: "EPS010 - Sura", cie10: "J459 - Asma no especificada", estado: 1},
+    {id: 3, tipodoc: "PT", numdoc: "PT9988776", ape1: "Rodríguez", ape2: "", nombres: "Valentina", fnac: "1988-11-04", sexo: "02 - Mujer", mpio: "76001 - Cali", eps: "EPS037 - Nueva EPS", cie10: "E119 - Diabetes mellitus tipo 2", estado: 1}
+  ];
+  var nextId = 4;
+
+  window.pfSwitchTab = function(tabId, btn){
+    var panes = document.querySelectorAll("#sim-esperado .pf-pane");
+    panes.forEach(function(p){ p.style.display = (p.id === tabId) ? "block" : "none"; });
+    var btns = document.querySelectorAll("#sim-esperado .pf-tab");
+    btns.forEach(function(b){ b.className = "pf-tab"; });
+    btn.className = "pf-tab active";
+  };
+
+  function calcEdad(fnac){
+    if(!fnac) return "—";
+    var hoy = new Date(2026, 10, 17);
+    var nac = new Date(fnac);
+    var edad = hoy.getFullYear() - nac.getFullYear();
+    return edad + " años";
+  }
+
+  window.pfPhpRender = function(){
+    var tbody = document.getElementById("php-tbody");
+    var q = (document.getElementById("php-search").value || "").trim();
+    var showInact = document.getElementById("php-show-inactive").checked;
+    var sqlLog = document.getElementById("php-sql-log");
+    tbody.innerHTML = "";
+
+    // Mostrar cómo la consulta preparada neutraliza inyección SQL
+    if(q.indexOf("' OR ") !== -1 || q.indexOf("1=1") !== -1){
+      sqlLog.textContent = "-- 🛡️ INTENTO DE INYECCIÓN SQL DETECTADO Y BLOQUEADO POR CONSULTA PREPARADA:\n"
+        + "$stmt = $mysqli->prepare(\"SELECT * FROM pacientes WHERE EstadoPaciente = ? AND (NumeroDocumento LIKE ? OR PrimerApellido LIKE ?)\");\n"
+        + "$like = \"%" + q + "%\"; // Se busca literalmente la cadena, NO se ejecuta como comando SQL.\n"
+        + "$stmt->bind_param('iss', $estado, $like, $like);";
+    } else if(q !== ""){
+      sqlLog.textContent = "$stmt = $mysqli->prepare(\"SELECT * FROM pacientes WHERE EstadoPaciente = ? AND (NumeroDocumento LIKE ? OR PrimerApellido LIKE ?)\");\n"
+        + "$like = \"%" + q + "%\";\n$stmt->bind_param('iss', $estado, $like, $like);";
+    }
+
+    var filtrados = pacientes.filter(function(p){
+      if(!showInact && p.estado === 0) return false;
+      if(!q) return true;
+      var ql = q.toLowerCase();
+      return p.numdoc.toLowerCase().indexOf(ql) !== -1 ||
+             p.ape1.toLowerCase().indexOf(ql) !== -1 ||
+             p.nombres.toLowerCase().indexOf(ql) !== -1 ||
+             p.mpio.toLowerCase().indexOf(ql) !== -1;
+    });
+
+    if(!filtrados.length){
+      var tr0 = document.createElement("tr");
+      var td0 = document.createElement("td");
+      td0.colSpan = 6;
+      td0.style.cssText = "padding:.75rem;text-align:center;color:#64748b;";
+      td0.textContent = "Cero registros coinciden con el parámetro preparado.";
+      tr0.appendChild(td0);
+      tbody.appendChild(tr0);
+      return;
+    }
+
+    filtrados.forEach(function(p){
+      var tr = document.createElement("tr");
+      tr.style.cssText = "border-bottom:1px solid #e2e8f0;" + (p.estado === 0 ? "background:#fef2f2;opacity:.75;" : "");
+
+      var tdDoc = document.createElement("td");
+      tdDoc.style.padding = ".4rem";
+      tdDoc.innerHTML = "<strong>" + p.tipodoc + "</strong> <code>" + p.numdoc + "</code>";
+
+      var tdNom = document.createElement("td");
+      tdNom.style.padding = ".4rem";
+      tdNom.textContent = p.ape1 + (p.ape2 ? " " + p.ape2 : "") + ", " + p.nombres;
+
+      var tdSexo = document.createElement("td");
+      tdSexo.style.padding = ".4rem";
+      tdSexo.textContent = p.sexo.split(" - ")[1] + " (" + calcEdad(p.fnac) + ")";
+
+      var tdMpio = document.createElement("td");
+      tdMpio.style.padding = ".4rem";
+      tdMpio.innerHTML = "<div>" + p.mpio + "</div><div style='font-size:.7rem;color:#64748b;'>" + p.eps + "</div>";
+
+      var tdEst = document.createElement("td");
+      tdEst.style.padding = ".4rem";
+      tdEst.innerHTML = p.estado === 1
+        ? "<span class='pf-badge' style='background:#dcfce7;color:#166534;'>Activo (1)</span>"
+        : "<span class='pf-badge' style='background:#fee2e2;color:#991b1b;'>Inactivo (0)</span>";
+
+      var tdAcc = document.createElement("td");
+      tdAcc.style.padding = ".4rem";
+      var btnEd = document.createElement("button");
+      btnEd.className = "pf-btn";
+      btnEd.style.cssText = "background:#002855;padding:.25rem .5rem;font-size:.72rem;margin-right:.25rem;";
+      btnEd.textContent = "Editar";
+      btnEd.onclick = function(){ window.pfPhpEditar(p.id); };
+      tdAcc.appendChild(btnEd);
+
+      if(p.estado === 1){
+        var btnBaja = document.createElement("button");
+        btnBaja.className = "pf-btn";
+        btnBaja.style.cssText = "background:#941100;padding:.25rem .5rem;font-size:.72rem;";
+        btnBaja.textContent = "Dar de baja";
+        btnBaja.onclick = function(){ window.pfPhpBaja(p.id); };
+        tdAcc.appendChild(btnBaja);
+      }
+
+      tr.appendChild(tdDoc);
+      tr.appendChild(tdNom);
+      tr.appendChild(tdSexo);
+      tr.appendChild(tdMpio);
+      tr.appendChild(tdEst);
+      tr.appendChild(tdAcc);
+      tbody.appendChild(tr);
+    });
+  };
+
+  window.pfPhpGuardar = function(){
+    var id = document.getElementById("php-id").value;
+    var tipodoc = document.getElementById("php-tipodoc").value;
+    var numdoc = document.getElementById("php-numdoc").value.trim();
+    var ape1 = document.getElementById("php-ape1").value.trim();
+    var ape2 = document.getElementById("php-ape2").value.trim();
+    var nombres = document.getElementById("php-nombres").value.trim();
+    var fnac = document.getElementById("php-fnac").value;
+    var sexo = document.getElementById("php-sexo").value;
+    var mpio = document.getElementById("php-mpio").value;
+    var eps = document.getElementById("php-eps").value;
+    var cie10 = document.getElementById("php-cie10").value;
+    var habeas = document.getElementById("php-habeas").checked;
+    var msg = document.getElementById("php-msg");
+    var sqlLog = document.getElementById("php-sql-log");
+
+    if(!habeas){
+      msg.style.color = "#dc2626";
+      msg.textContent = "⚠️ Error ético/legal (Ley 1581): No puede registrar datos clínicos sin autorización de Habeas Data.";
+      return;
+    }
+    if(!numdoc || !ape1 || !nombres || !fnac){
+      msg.style.color = "#dc2626";
+      msg.textContent = "⚠️ Campos obligatorios faltantes según Anexo Técnico Res. 866/2021.";
+      return;
+    }
+
+    var dup = pacientes.some(function(p){ return p.numdoc.toLowerCase() === numdoc.toLowerCase() && String(p.id) !== String(id); });
+    if(dup){
+      msg.style.color = "#dc2626";
+      msg.textContent = "❌ Error MySQL #1062 (UNIQUE constraint): Ya existe un paciente con el documento " + numdoc + " (atrapado con try/catch).";
+      sqlLog.textContent = "// try/catch (mysqli_sql_exception $e) -> Código 1062 detectado:\n// Violación de CONSTRAINT uq_numdoc UNIQUE (NumeroDocumento)";
+      return;
+    }
+
+    if(id === ""){
+      pacientes.push({
+        id: nextId++, tipodoc: tipodoc, numdoc: numdoc, ape1: ape1, ape2: ape2,
+        nombres: nombres, fnac: fnac, sexo: sexo, mpio: mpio, eps: eps, cie10: cie10, estado: 1
+      });
+      msg.style.color = "#15803d";
+      msg.textContent = "✅ PACIENTE REGISTRADO (SegundoApellido guardado como " + (ape2 ? "'" + ape2 + "'" : "NULL") + ").";
+      sqlLog.textContent = "$stmt = $mysqli->prepare(\"INSERT INTO pacientes (TipoDoc, NumeroDocumento, PrimerApellido, SegundoApellido, Nombres, FechaNacimiento, IdSexo, CodigoDivipola, IdEps, CodigoCie10) VALUES (?,?,?,?,?,?,?,?,?,?)\");\n"
+        + "$stmt->bind_param('ssssssssss', '" + tipodoc + "', '" + numdoc + "', '" + ape1 + "', " + (ape2 ? "'" + ape2 + "'" : "NULL") + ", '" + nombres + "', '" + fnac + "', ...);\n$stmt->execute();";
+    } else {
+      pacientes.forEach(function(p){
+        if(String(p.id) === String(id)){
+          p.tipodoc = tipodoc; p.numdoc = numdoc; p.ape1 = ape1; p.ape2 = ape2;
+          p.nombres = nombres; p.fnac = fnac; p.sexo = sexo; p.mpio = mpio; p.eps = eps; p.cie10 = cie10;
+        }
+      });
+      msg.style.color = "#0369a1";
+      msg.textContent = "✏️ REGISTRO MODIFICADO · Filas afectadas: 1 (modificar.php → api/actualizar.php).";
+      sqlLog.textContent = "$stmt = $mysqli->prepare(\"UPDATE pacientes SET TipoDoc=?, NumeroDocumento=?, PrimerApellido=?, SegundoApellido=?, Nombres=? WHERE IdPaciente=?\");\n"
+        + "$stmt->bind_param('sssssi', '" + tipodoc + "', '" + numdoc + "', '" + ape1 + "', " + (ape2 ? "'" + ape2 + "'" : "NULL") + ", '" + nombres + "', " + id + ");";
+    }
+    window.pfPhpLimpiar(true);
+    window.pfPhpRender();
+  };
+
+  window.pfPhpEditar = function(id){
+    var p = pacientes.find(function(x){ return x.id === id; });
+    if(!p) return;
+    document.getElementById("php-id").value = p.id;
+    document.getElementById("php-tipodoc").value = p.tipodoc;
+    document.getElementById("php-numdoc").value = p.numdoc;
+    document.getElementById("php-ape1").value = p.ape1;
+    document.getElementById("php-ape2").value = p.ape2;
+    document.getElementById("php-nombres").value = p.nombres;
+    document.getElementById("php-fnac").value = p.fnac;
+    document.getElementById("php-sexo").value = p.sexo;
+    document.getElementById("php-mpio").value = p.mpio;
+    document.getElementById("php-eps").value = p.eps;
+    document.getElementById("php-cie10").value = p.cie10;
+    document.getElementById("php-form-title").textContent = "✏️ Modificar Paciente #" + p.id + " (Formulario pre-diligenciado con selected)";
+    document.getElementById("php-btn-save").textContent = "✏️ Actualizar Paciente (UPDATE)";
+  };
+
+  window.pfPhpBaja = function(id){
+    pacientes.forEach(function(p){ if(p.id === id) p.estado = 0; });
+    var msg = document.getElementById("php-msg");
+    msg.style.color = "#b45309";
+    msg.textContent = "⚠️ PACIENTE INACTIVADO (Baja lógica: EstadoPaciente = 0). No se usa DELETE físico para preservar trazabilidad clínica.";
+    document.getElementById("php-sql-log").textContent = "// api/eliminar.php — Baja lógica obligatoria en salud:\n$stmt = $mysqli->prepare(\"UPDATE pacientes SET EstadoPaciente = 0 WHERE IdPaciente = ?\");\n$stmt->bind_param('i', " + id + ");\n$stmt->execute();";
+    window.pfPhpRender();
+  };
+
+  window.pfPhpLimpiar = function(keepMsg){
+    document.getElementById("php-id").value = "";
+    document.getElementById("php-numdoc").value = "";
+    document.getElementById("php-ape1").value = "";
+    document.getElementById("php-ape2").value = "";
+    document.getElementById("php-nombres").value = "";
+    document.getElementById("php-form-title").textContent = "➕ Registrar Paciente (Resolución 866 de 2021)";
+    document.getElementById("php-btn-save").textContent = "💾 Guardar Paciente (CREATE)";
+    if(!keepMsg) document.getElementById("php-msg").textContent = "";
+  };
+
+  // ---- Estado y sincronización para Ruta B (Web App HL7 FHIR + SMART on FHIR) ----
+  var fhirPacientes = [
+    {id: "pat-urosario-1020304050", docType: "CC", docVal: "1020304050", given: "Laura Camila", family: "Gómez Rivas", gender: "female", birth: "1995-06-12", city: "11001|Bogotá, D.C.", obs: "8867-4|Frec. Cardíaca|76|/min", active: true, version: 1},
+    {id: "pat-urosario-0011223344", docType: "RC", docVal: "0011223344", given: "Mateo", family: "Martínez Pérez", gender: "male", birth: "2021-03-19", city: "05001|Medellín", obs: "2708-6|SpO2 Arterial|97|%", active: true, version: 1},
+    {id: "pat-urosario-PT9988776", docType: "PT", docVal: "PT9988776", given: "Valentina", family: "Rodríguez", gender: "female", birth: "1988-11-04", city: "76001|Cali", obs: "8310-5|Temperatura|36.8|Cel", active: true, version: 2}
+  ];
+  var fhirActive = true;
+  var fhirVersion = "1";
+
+  window.pfFhirRenderTable = function(){
+    var tbody = document.getElementById("fhir-tbody");
+    if(!tbody) return;
+    var q = (document.getElementById("fhir-search").value || "").trim().toLowerCase();
+    var showInact = document.getElementById("fhir-show-inactive").checked;
+    tbody.innerHTML = "";
+
+    var list = fhirPacientes.filter(function(p){
+      if(!showInact && !p.active) return false;
+      if(!q) return true;
+      return p.docVal.toLowerCase().indexOf(q) !== -1 ||
+             p.given.toLowerCase().indexOf(q) !== -1 ||
+             p.family.toLowerCase().indexOf(q) !== -1 ||
+             p.city.toLowerCase().indexOf(q) !== -1;
+    });
+
+    if(!list.length){
+      var tr0 = document.createElement("tr");
+      var td0 = document.createElement("td");
+      td0.colSpan = 5;
+      td0.style.cssText = "padding:.7rem;text-align:center;color:#64748b;";
+      td0.textContent = "Bundle vacío (total: 0) para el criterio GET /Patient.";
+      tr0.appendChild(td0);
+      tbody.appendChild(tr0);
+      return;
+    }
+
+    list.forEach(function(p){
+      var tr = document.createElement("tr");
+      tr.style.cssText = "border-bottom:1px solid #e2e8f0;" + (!p.active ? "background:#fef2f2;opacity:.75;" : "");
+
+      var tdId = document.createElement("td");
+      tdId.style.padding = ".38rem";
+      tdId.innerHTML = "<div style='font-family:monospace;font-size:.7rem;color:#0f766e;'>" + p.id + " (v" + p.version + ")</div><strong>" + p.docType + "</strong> <code>" + p.docVal + "</code>";
+
+      var tdName = document.createElement("td");
+      tdName.style.padding = ".38rem";
+      tdName.innerHTML = "<div><strong>" + p.family + "</strong>, " + p.given + "</div><div style='font-size:.7rem;color:#64748b;'>" + p.gender + " · " + p.birth + "</div>";
+
+      var cityParts = p.city.split("|");
+      var obsParts = p.obs.split("|");
+      var tdInfo = document.createElement("td");
+      tdInfo.style.padding = ".38rem";
+      tdInfo.innerHTML = "<div>" + cityParts[0] + " - " + cityParts[1] + "</div><div style='font-size:.7rem;color:#0369a1;'>LOINC " + obsParts[0] + ": " + obsParts[2] + " " + obsParts[3] + "</div>";
+
+      var tdEst = document.createElement("td");
+      tdEst.style.padding = ".38rem";
+      tdEst.innerHTML = p.active
+        ? "<span class='pf-badge' style='background:#dcfce7;color:#166534;'>active: true</span>"
+        : "<span class='pf-badge' style='background:#fee2e2;color:#991b1b;'>active: false</span>";
+
+      var tdAcc = document.createElement("td");
+      tdAcc.style.padding = ".38rem";
+      var bEd = document.createElement("button");
+      bEd.className = "pf-btn";
+      bEd.style.cssText = "background:#002855;padding:.22rem .45rem;font-size:.7rem;margin-right:.2rem;";
+      bEd.textContent = "Editar (PUT)";
+      bEd.onclick = function(){ window.pfFhirEditar(p.id); };
+      tdAcc.appendChild(bEd);
+
+      if(p.active){
+        var bDel = document.createElement("button");
+        bDel.className = "pf-btn";
+        bDel.style.cssText = "background:#941100;padding:.22rem .45rem;font-size:.7rem;";
+        bDel.textContent = "Inactivar";
+        bDel.onclick = function(){ window.pfFhirBaja(p.id); };
+        tdAcc.appendChild(bDel);
+      }
+
+      tr.appendChild(tdId);
+      tr.appendChild(tdName);
+      tr.appendChild(tdInfo);
+      tr.appendChild(tdEst);
+      tr.appendChild(tdAcc);
+      tbody.appendChild(tr);
+    });
+  };
+
+  window.pfFhirSync = function(){
+    var docType = document.getElementById("fhir-doc-type").value;
+    var docVal = document.getElementById("fhir-doc-val").value.trim() || "1020304050";
+    var given = (document.getElementById("fhir-given").value.trim() || "Laura").split(/\s+/);
+    var family = document.getElementById("fhir-family").value.trim() || "Gómez";
+    var gender = document.getElementById("fhir-gender").value;
+    var birth = document.getElementById("fhir-birth").value;
+    var cityParts = document.getElementById("fhir-city").value.split("|");
+    var obsParts = document.getElementById("fhir-obs").value.split("|");
+
+    var bundle = {
+      resourceType: "Bundle",
+      type: "transaction",
+      meta: {
+        profile: ["https://fhir.minsalud.gov.co/rda/StructureDefinition/BundleRDA"],
+        versionId: fhirVersion,
+        lastUpdated: new Date().toISOString()
+      },
+      entry: [
+        {
+          resource: {
+            resourceType: "Patient",
+            id: "pat-urosario-" + docVal,
+            active: fhirActive,
+            identifier: [{
+              use: "official",
+              type: { coding: [{ system: "http://terminology.hl7.org/CodeSystem/v2-0203", code: docType }] },
+              system: "https://fhir.minsalud.gov.co/rda/NamingSystem/RNEC",
+              value: docVal
+            }],
+            name: [{ use: "official", family: family, given: given }],
+            gender: gender,
+            birthDate: birth,
+            address: [{
+              use: "home",
+              city: cityParts[1],
+              extension: [{
+                url: "https://fhir.minsalud.gov.co/rda/StructureDefinition/DivipolaMunicipio",
+                valueCoding: { system: "https://www.dane.gov.co/divipola", code: cityParts[0], display: cityParts[1] }
+              }]
+            }]
+          },
+          request: { method: "PUT", url: "Patient/pat-urosario-" + docVal }
+        },
+        {
+          resource: {
+            resourceType: "Observation",
+            status: "final",
+            code: { coding: [{ system: "http://loinc.org", code: obsParts[0], display: obsParts[1] }] },
+            subject: { reference: "Patient/pat-urosario-" + docVal },
+            valueQuantity: { value: parseFloat(obsParts[2]), unit: obsParts[3], system: "http://unitsofmeasure.org" }
+          },
+          request: { method: "POST", url: "Observation" }
+        }
+      ]
+    };
+
+    document.getElementById("fhir-json-preview").textContent = JSON.stringify(bundle, null, 2);
+  };
+
+  window.pfFhirGuardar = function(){
+    var st = document.getElementById("fhir-http-status");
+    var editId = document.getElementById("fhir-edit-id").value;
+    var docType = document.getElementById("fhir-doc-type").value;
+    var docVal = document.getElementById("fhir-doc-val").value.trim();
+    var given = document.getElementById("fhir-given").value.trim();
+    var family = document.getElementById("fhir-family").value.trim();
+    var gender = document.getElementById("fhir-gender").value;
+    var birth = document.getElementById("fhir-birth").value;
+    var city = document.getElementById("fhir-city").value;
+    var obs = document.getElementById("fhir-obs").value;
+    var habeas = document.getElementById("fhir-habeas").checked;
+
+    if(!habeas){
+      st.style.color = "#dc2626";
+      st.textContent = "⚠️ Error ético/legal (Ley 1581): Requiere consentimiento informado antes de transmitir el recurso FHIR.";
+      return;
+    }
+    if(!docVal || !given || !family || !birth){
+      st.style.color = "#dc2626";
+      st.textContent = "⚠️ Complete los campos obligatorios del recurso Patient (Res. 866/2021).";
+      return;
+    }
+
+    var newId = "pat-urosario-" + docVal;
+    var dup = fhirPacientes.some(function(p){ return p.docVal.toLowerCase() === docVal.toLowerCase() && p.id !== editId; });
+    if(dup){
+      st.style.color = "#dc2626";
+      st.textContent = "❌ HTTP 422 Unprocessable Entity (OperationOutcome): Ya existe un recurso Patient con el identificador RNEC " + docVal + ".";
+      return;
+    }
+
+    if(!editId){
+      fhirPacientes.push({
+        id: newId, docType: docType, docVal: docVal, given: given, family: family,
+        gender: gender, birth: birth, city: city, obs: obs, active: true, version: 1
+      });
+      fhirActive = true; fhirVersion = "1";
+      st.style.color = "#15803d";
+      st.textContent = "✅ HTTP 201 Created — POST /Patient desde la Interfaz Web (Recurso agregado a la tabla: " + newId + ").";
+    } else {
+      fhirPacientes.forEach(function(p){
+        if(p.id === editId){
+          p.docType = docType; p.docVal = docVal; p.given = given; p.family = family;
+          p.gender = gender; p.birth = birth; p.city = city; p.obs = obs; p.version += 1;
+          fhirVersion = String(p.version);
+        }
+      });
+      st.style.color = "#0369a1";
+      st.textContent = "✏️ HTTP 200 OK — PUT /Patient/" + editId + " actualizado desde la Interfaz Web (meta.versionId = " + fhirVersion + ").";
+    }
+    window.pfFhirSync();
+    window.pfFhirLimpiar(true);
+    window.pfFhirRenderTable();
+  };
+
+  window.pfFhirEditar = function(id){
+    var p = fhirPacientes.find(function(x){ return x.id === id; });
+    if(!p) return;
+    document.getElementById("fhir-edit-id").value = p.id;
+    document.getElementById("fhir-doc-type").value = p.docType;
+    document.getElementById("fhir-doc-val").value = p.docVal;
+    document.getElementById("fhir-given").value = p.given;
+    document.getElementById("fhir-family").value = p.family;
+    document.getElementById("fhir-gender").value = p.gender;
+    document.getElementById("fhir-birth").value = p.birth;
+    document.getElementById("fhir-city").value = p.city;
+    document.getElementById("fhir-obs").value = p.obs;
+    fhirActive = p.active;
+    fhirVersion = String(p.version);
+    document.getElementById("fhir-form-title").textContent = "✏️ Editar Recurso FHIR " + p.id + " (PUT /Patient)";
+    document.getElementById("fhir-btn-save").textContent = "✏️ Actualizar Recurso en Servidor (PUT)";
+    window.pfFhirSync();
+  };
+
+  window.pfFhirBaja = function(id){
+    var st = document.getElementById("fhir-http-status");
+    fhirPacientes.forEach(function(p){
+      if(p.id === id){ p.active = false; p.version += 1; fhirVersion = String(p.version); }
+    });
+    fhirActive = false;
+    st.style.color = "#941100";
+    st.textContent = "🗑️ HTTP 200 OK — PUT /Patient/" + id + " con {\"active\": false}. Baja lógica aplicada desde la Interfaz Web.";
+    window.pfFhirSync();
+    window.pfFhirRenderTable();
+  };
+
+  window.pfFhirLimpiar = function(keepMsg){
+    document.getElementById("fhir-edit-id").value = "";
+    document.getElementById("fhir-form-title").textContent = "➕ Formulario Web de Registro FHIR (`Patient` + `Observation` RDA)";
+    document.getElementById("fhir-btn-save").textContent = "💾 Guardar en Tabla FHIR (POST / PUT)";
+    if(!keepMsg) document.getElementById("fhir-http-status").textContent = "";
+  };
+
+  window.pfFhirLivePost = async function(){
+    var st = document.getElementById("fhir-http-status");
+    st.style.color = "#0369a1";
+    st.textContent = "⏳ Enviando petición fetch() POST real a https://hapi.fhir.org/baseR4/Patient ...";
+    try {
+      var docType = document.getElementById("fhir-doc-type").value;
+      var docVal = document.getElementById("fhir-doc-val").value.trim() || "1020304050";
+      var given = (document.getElementById("fhir-given").value.trim() || "Laura").split(/\s+/);
+      var family = document.getElementById("fhir-family").value.trim() || "Gómez";
+      var gender = document.getElementById("fhir-gender").value;
+      var birth = document.getElementById("fhir-birth").value;
+      var pat = {
+        resourceType: "Patient",
+        active: true,
+        identifier: [{ use: "official", system: "https://fhir.minsalud.gov.co/rda/NamingSystem/RNEC", value: docVal }],
+        name: [{ use: "official", family: family, given: given }],
+        gender: gender,
+        birthDate: birth
+      };
+      var res = await fetch("https://hapi.fhir.org/baseR4/Patient", {
+        method: "POST",
+        headers: { "Content-Type": "application/fhir+json", "Accept": "application/fhir+json" },
+        body: JSON.stringify(pat)
+      });
+      var data = await res.json();
+      st.style.color = "#15803d";
+      st.textContent = "🌐 ¡Respuesta REAL de HAPI FHIR! HTTP " + res.status + " — ID asignado por el servidor: Patient/" + data.id;
+      document.getElementById("fhir-json-preview").textContent = JSON.stringify(data, null, 2);
+    } catch (e) {
+      st.style.color = "#b45309";
+      st.textContent = "ℹ️ Modo local activo (sin conexión externa a hapi.fhir.org): " + e.message;
+    }
+  };
+
+  window.pfPhpRender();
+  window.pfFhirRenderTable();
+  window.pfFhirSync();
+})();
+</script>
+<hr>
+<section id="arquitectura-de-archivos-y-código-base-de-la-interfaz-web-ruta-a-vs.-ruta-b" class="level3">
+<h3 class="anchored" data-anchor-id="arquitectura-de-archivos-y-código-base-de-la-interfaz-web-ruta-a-vs.-ruta-b">2.1 Arquitectura de Archivos y Código Base de la Interfaz Web (Ruta A vs.&nbsp;Ruta B)</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>⚠️ Regla de Oro: ¡Ambas rutas requieren una Interfaz Web Funcional!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si su grupo elige la <strong>Ruta B (HL7 FHIR + SMART on FHIR)</strong>, <strong>NO basta con mostrar peticiones sueltas en Postman</strong>. Al igual que los grupos de PHP, deben construir una <strong>aplicación web con interfaz gráfica (<code>HTML + Bootstrap + JavaScript</code>)</strong> desde la cual el usuario médico pueda registrar pacientes (<code>POST</code>), buscarlos y listarlos en una tabla (<code>GET</code>), editarlos (<code>PUT</code>) e inactivarlos (<code>active: false</code>).</p>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:48%;">
+<section id="estructura-de-archivos-ruta-a-php-mysql" class="level4">
+<h4 class="anchored" data-anchor-id="estructura-de-archivos-ruta-a-php-mysql">🛠️ Estructura de Archivos — Ruta A (PHP + MySQL)</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>C:\xampp\htdocs\ProyectoPacientes866\</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>├── database.sql         ← Diseño inicial: CREATE TABLE pacientes</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>├── index.php            ← Interfaz Web: Formulario + Tabla</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>├── modificar.php        ← Interfaz Web: Edición pre-llenada</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>└── api/</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    ├── conexion.php     ← Conexión mysqli</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    ├── guardar.php      ← CREATE (prepare + bind_param)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    ├── actualizar.php   ← UPDATE (prepare + bind_param)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    └── eliminar.php     ← DELETE lógico (EstadoPaciente=0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</div><div class="column" style="width:52%;">
+<section id="estructura-de-archivos-ruta-b-web-app-fhir-smart" class="level4">
+<h4 class="anchored" data-anchor-id="estructura-de-archivos-ruta-b-web-app-fhir-smart">🌐 Estructura de Archivos — Ruta B (Web App FHIR + SMART)</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ProyectoPacientesFHIR/</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>├── launch.html          ← Lanzador OAuth2 SMART on FHIR</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>├── index.html           ← Interfaz Web: Formulario + Tabla FHIR</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>├── css/</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>│   └── styles.css       ← Estilos Bootstrap 5 / Hospital</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>└── js/</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    └── app.js           ← CRUD con fetch() / fhirclient:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                           crearPacientePOST(), listarGET(),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                           actualizarPUT(), inactivarPaciente()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>💻 Ver Código Base de Referencia para la Interfaz Web en Ruta B (<code>launch.html</code> + <code>index.html</code> + <code>js/app.js</code>)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Los grupos que elijan la <strong>Ruta B (HL7 FHIR + SMART on FHIR)</strong> pueden tomar como punto de partida esta arquitectura cliente web conectada directamente al servidor FHIR:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- 1. launch.html (Punto de entrada SMART on FHIR OAuth2) --&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"es"</span><span class="dt">&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"UTF-8"</span><span class="dt">&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Lanzamiento SMART on FHIR - IHCE<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    FHIR<span class="op">.</span><span class="at">oauth2</span><span class="op">.</span><span class="fu">authorize</span>({</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">clientId</span><span class="op">:</span> <span class="st">"ifmer-urosario-rda-client"</span><span class="op">,</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">scope</span><span class="op">:</span> <span class="st">"launch launch/patient patient/Patient.read patient/Patient.write patient/Observation.read patient/Observation.write openid fhirUser"</span><span class="op">,</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">redirectUri</span><span class="op">:</span> <span class="st">"index.html"</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 2. js/app.js — Lógica CRUD desde la Interfaz Web contra el Servidor FHIR R4</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> FHIR_BASE <span class="op">=</span> <span class="st">"https://hapi.fhir.org/baseR4"</span><span class="op">;</span> <span class="co">// O cliente SMART: FHIR.oauth2.ready()</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">// CREATE (POST /Patient desde el formulario web)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">guardarPacienteWeb</span>(evento) {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  evento<span class="op">.</span><span class="fu">preventDefault</span>()<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> recursoPatient <span class="op">=</span> {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">resourceType</span><span class="op">:</span> <span class="st">"Patient"</span><span class="op">,</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">active</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">identifier</span><span class="op">:</span> [{</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">use</span><span class="op">:</span> <span class="st">"official"</span><span class="op">,</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> { <span class="dt">coding</span><span class="op">:</span> [{ <span class="dt">system</span><span class="op">:</span> <span class="st">"http://terminology.hl7.org/CodeSystem/v2-0203"</span><span class="op">,</span> <span class="dt">code</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"tipoDoc"</span>)<span class="op">.</span><span class="at">value</span> }] }<span class="op">,</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">system</span><span class="op">:</span> <span class="st">"https://fhir.minsalud.gov.co/rda/NamingSystem/RNEC"</span><span class="op">,</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">value</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"numDoc"</span>)<span class="op">.</span><span class="at">value</span><span class="op">.</span><span class="fu">trim</span>()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    }]<span class="op">,</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> [{</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      <span class="dt">use</span><span class="op">:</span> <span class="st">"official"</span><span class="op">,</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>      <span class="dt">family</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"apellidos"</span>)<span class="op">.</span><span class="at">value</span><span class="op">.</span><span class="fu">trim</span>()<span class="op">,</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>      <span class="dt">given</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"nombres"</span>)<span class="op">.</span><span class="at">value</span><span class="op">.</span><span class="fu">trim</span>()<span class="op">.</span><span class="fu">split</span>(<span class="ss">/</span><span class="sc">\s+</span><span class="ss">/</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    }]<span class="op">,</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">gender</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"genero"</span>)<span class="op">.</span><span class="at">value</span><span class="op">,</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">birthDate</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"fechaNac"</span>)<span class="op">.</span><span class="at">value</span><span class="op">,</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">address</span><span class="op">:</span> [{</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      <span class="dt">city</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"municipioNombre"</span>)<span class="op">.</span><span class="at">value</span><span class="op">,</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>      <span class="dt">extension</span><span class="op">:</span> [{</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> <span class="st">"https://fhir.minsalud.gov.co/rda/StructureDefinition/DivipolaMunicipio"</span><span class="op">,</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="dt">valueCoding</span><span class="op">:</span> { <span class="dt">system</span><span class="op">:</span> <span class="st">"https://www.dane.gov.co/divipola"</span><span class="op">,</span> <span class="dt">code</span><span class="op">:</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"codigoDivipola"</span>)<span class="op">.</span><span class="at">value</span> }</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      }]</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    }]</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> resp <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="vs">`</span><span class="sc">${</span>FHIR_BASE<span class="sc">}</span><span class="vs">/Patient`</span><span class="op">,</span> {</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="dt">method</span><span class="op">:</span> <span class="st">"POST"</span><span class="op">,</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="dt">headers</span><span class="op">:</span> { <span class="st">"Content-Type"</span><span class="op">:</span> <span class="st">"application/fhir+json"</span><span class="op">,</span> <span class="st">"Accept"</span><span class="op">:</span> <span class="st">"application/fhir+json"</span> }<span class="op">,</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="dt">body</span><span class="op">:</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(recursoPatient)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> creado <span class="op">=</span> <span class="cf">await</span> resp<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> <span class="fu">listarPacientesEnTablaWeb</span>()<span class="op">;</span> <span class="co">// Refresca la tabla HTML</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co">// READ (GET /Patient y renderizado seguro con textContent en la tabla HTML)</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">listarPacientesEnTablaWeb</span>(filtro <span class="op">=</span> <span class="st">""</span>) {</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> url <span class="op">=</span> filtro</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="op">?</span> <span class="vs">`</span><span class="sc">${</span>FHIR_BASE<span class="sc">}</span><span class="vs">/Patient?identifier=</span><span class="sc">${</span><span class="pp">encodeURIComponent</span>(filtro)<span class="sc">}</span><span class="vs">&amp;_count=15`</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="op">:</span> <span class="vs">`</span><span class="sc">${</span>FHIR_BASE<span class="sc">}</span><span class="vs">/Patient?_sort=-_lastUpdated&amp;_count=15`</span><span class="op">;</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> resp <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(url<span class="op">,</span> { <span class="dt">headers</span><span class="op">:</span> { <span class="st">"Accept"</span><span class="op">:</span> <span class="st">"application/fhir+json"</span> } })<span class="op">;</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> bundle <span class="op">=</span> <span class="cf">await</span> resp<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tbody <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"tablaPacientesFhir"</span>)<span class="op">;</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  tbody<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  (bundle<span class="op">.</span><span class="at">entry</span> <span class="op">||</span> [])<span class="op">.</span><span class="fu">forEach</span>(item <span class="kw">=&gt;</span> {</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> p <span class="op">=</span> item<span class="op">.</span><span class="at">resource</span><span class="op">;</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> tr <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"tr"</span>)<span class="op">;</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> tdDoc <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"td"</span>)<span class="op">;</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    tdDoc<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> p<span class="op">.</span><span class="at">identifier</span><span class="op">?.</span>[<span class="dv">0</span>]<span class="op">?.</span><span class="at">value</span> <span class="op">||</span> <span class="st">"Sin doc"</span><span class="op">;</span> <span class="co">// Anti-XSS con textContent</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> tdNombre <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"td"</span>)<span class="op">;</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    tdNombre<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>p<span class="op">.</span><span class="at">name</span><span class="op">?.</span>[<span class="dv">0</span>]<span class="op">?.</span><span class="at">family</span> <span class="op">||</span> <span class="st">""</span><span class="sc">}</span><span class="vs">, </span><span class="sc">${</span>(p<span class="op">.</span><span class="at">name</span><span class="op">?.</span>[<span class="dv">0</span>]<span class="op">?.</span><span class="at">given</span> <span class="op">||</span> [])<span class="op">.</span><span class="fu">join</span>(<span class="st">" "</span>)<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    tr<span class="op">.</span><span class="fu">append</span>(tdDoc<span class="op">,</span> tdNombre)<span class="op">;</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    tbody<span class="op">.</span><span class="fu">appendChild</span>(tr)<span class="op">;</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="co">// BAJA LÓGICA (PUT /Patient/{id} cambiando active: false sin destruir el historial)</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">inactivarPacienteWeb</span>(idPaciente) {</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> resGet <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="vs">`</span><span class="sc">${</span>FHIR_BASE<span class="sc">}</span><span class="vs">/Patient/</span><span class="sc">${</span>idPaciente<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> paciente <span class="op">=</span> <span class="cf">await</span> resGet<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>  paciente<span class="op">.</span><span class="at">active</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span> <span class="co">// Baja lógica normativa</span></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> <span class="fu">fetch</span>(<span class="vs">`</span><span class="sc">${</span>FHIR_BASE<span class="sc">}</span><span class="vs">/Patient/</span><span class="sc">${</span>idPaciente<span class="sc">}</span><span class="vs">`</span><span class="op">,</span> {</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>    <span class="dt">method</span><span class="op">:</span> <span class="st">"PUT"</span><span class="op">,</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>    <span class="dt">headers</span><span class="op">:</span> { <span class="st">"Content-Type"</span><span class="op">:</span> <span class="st">"application/fhir+json"</span> }<span class="op">,</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    <span class="dt">body</span><span class="op">:</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(paciente)</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>  <span class="cf">await</span> <span class="fu">listarPacientesEnTablaWeb</span>()<span class="op">;</span></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="cómo-funciona-la-evaluación-con-agentes-de-ia-y-cómo-preparar-sus-insumos" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-funciona-la-evaluación-con-agentes-de-ia-y-cómo-preparar-sus-insumos">🤖 3. ¿Cómo Funciona la Evaluación con Agentes de IA y Cómo Preparar sus Insumos?</h2>
+<p>Para evaluar su Proyecto Final Integrador de manera objetiva, transparente y reproducible, este módulo incorpora un <strong>Sistema Multi-Agente de Autocalificación</strong>. Antes de la sustentación oficial de la <strong>Clase 15</strong>, cada grupo debe validar su proyecto utilizando esta herramienta.</p>
+<section id="qué-insumos-debe-preparar-y-subir-el-grupo-al-evaluador" class="level3">
+<h3 class="anchored" data-anchor-id="qué-insumos-debe-preparar-y-subir-el-grupo-al-evaluador">3.1 ¿Qué insumos debe preparar y subir el grupo al Evaluador?</h3>
+<p>El sistema requiere un <strong>Paquete Híbrido de Entrega</strong> compuesto por <strong>Código Fuente + Video de Demostración y Transcripción del Discurso Oral</strong>. A continuación se explica por qué ambos insumos son indispensables para los agentes evaluadores:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Insumo de Entrega</th>
+<th style="text-align: left;">¿Qué auditan los Agentes de IA en este insumo?</th>
+<th style="text-align: left;">¿Qué ocurre si el grupo no lo incluye?</th>
+<th style="text-align: left;">Requisito para la Entrega</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>1. Archivos de Código Fuente (<code>.sql</code>, <code>.php</code>, <code>.html</code>, <code>.js</code>, <code>.json</code>)</strong></td>
+<td style="text-align: left;">Los <strong>Agentes 1, 2 y 3</strong> inspeccionan el diseño inicial de la tabla <code>pacientes</code> (o recurso <code>Patient</code> en FHIR), los tipos de datos según la <strong>Resolución 866 de 2021</strong>, la interfaz web (<code>&lt;form&gt;</code> y <code>&lt;table&gt;</code>), las 4 operaciones del flujo CRUD/REST (<code>INSERT</code>/<code>POST</code>, <code>SELECT</code>/<code>GET</code>, <code>UPDATE</code>/<code>PUT</code>, baja lógica) y el uso de consultas preparadas (<code>prepare()</code>).</td>
+<td style="text-align: left;">Los <strong>Criterios 1 a 5</strong> reciben automáticamente <strong>0.0 / 5.0</strong>.</td>
+<td style="text-align: left;">✅ <strong>Obligatorio</strong> (subir archivos o pegar el código integrado en el panel 1️⃣).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>2. Video de Sustentación (<code>.mp4</code> / <code>.webm</code>, 3 a 5 min)</strong></td>
+<td style="text-align: left;">El <strong>Agente 4</strong> verifica la evidencia del archivo de video (duración reglamentaria de 3 a 6 minutos, peso y formato) donde el grupo muestra la <strong>interfaz web funcionando en vivo</strong> con todas sus operaciones.</td>
+<td style="text-align: left;">El <strong>Criterio 7 (Demostración Funcional en Video)</strong> recibe automáticamente <strong>0.0 / 5.0</strong> (y <strong>1.0 / 5.0</strong> si dura menos de 1 minuto).</td>
+<td style="text-align: left;">✅ <strong>Obligatorio</strong> (subir el archivo <code>.mp4</code>/<code>.webm</code> en el panel 2️⃣).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>3. Transcripción del Discurso Oral del Grupo</strong></td>
+<td style="text-align: left;">El <strong>Agente 4</strong> analiza la argumentación técnica y normativa del equipo (extensión mínima de 110 palabras y rigor terminológico sobre la <strong>Resolución 866 de 2021</strong>, tipos de datos <code>VARCHAR</code>/<code>DATE</code>, CRUD y validaciones).</td>
+<td style="text-align: left;">El <strong>Criterio 6 (Claridad del Discurso Oral)</strong> recibe automáticamente <strong>0.0 / 5.0</strong> si está vacío o <strong>1.0 / 5.0</strong> si es superficial.</td>
+<td style="text-align: left;">✅ <strong>Obligatorio</strong> (pegar la transcripción o guion detallado de la intervención oral en el panel 2️⃣).</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="arquitectura-de-la-cuadrilla-de-4-agentes-evaluadores" class="level3">
+<h3 class="anchored" data-anchor-id="arquitectura-de-la-cuadrilla-de-4-agentes-evaluadores">3.2 Arquitectura de la Cuadrilla de 4 Agentes Evaluadores</h3>
+<p>Cuando usted pulsa el botón <strong>🚀 Ejecutar Autocalificación con los 4 Agentes</strong>, un <strong>Agente Orquestador</strong> distribuye sus archivos de código, su video y su transcripción entre <strong>4 Agentes Especializados</strong>, cada uno responsable de auditar una dimensión específica de la rúbrica oficial:</p>
+<div style="background:#ffffff;border:1px solid #cbd5e1;border-radius:10px;padding:1rem;margin:1rem 0;overflow-x:auto;">
+  <svg viewbox="0 0 920 220" style="width:100%;max-width:920px;height:auto;display:block;margin:0 auto;" font-family="system-ui, -apple-system, Segoe UI, sans-serif">
+    <defs>
+      <marker id="ag-arr" viewbox="0 0 10 10" refx="9" refy="5" markerwidth="6" markerheight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"></path>
+      </marker>
+    </defs>
+    <!-- Insumos -->
+    <rect x="12" y="62" width="190" height="96" rx="8" fill="#f8fafc" stroke="#002855" stroke-width="2"></rect>
+    <text x="107" y="90" font-size="12.5" font-weight="700" text-anchor="middle" fill="#002855">📦 Insumos del Grupo</text>
+    <text x="107" y="114" font-size="11" text-anchor="middle" fill="#334155">1. Código (.php/.sql o .js/.json)</text>
+    <text x="107" y="134" font-size="11" text-anchor="middle" fill="#334155">2. Video (.mp4) + Transcripción</text>
+
+    <!-- Orquestador -->
+    <line x1="202" y1="110" x2="248" y2="110" stroke="#475569" stroke-width="2" marker-end="url(#ag-arr)"></line>
+    <rect x="252" y="75" width="145" height="70" rx="8" fill="#002855"></rect>
+    <text x="324" y="105" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff">🧠 Orquestador</text>
+    <text x="324" y="125" font-size="11" text-anchor="middle" fill="#cbd5e1">Multi-Agente</text>
+
+    <!-- Flechas a los 4 agentes -->
+    <path d="M 397 95 L 448 32" stroke="#475569" stroke-width="1.8" fill="none" marker-end="url(#ag-arr)"></path>
+    <path d="M 397 105 L 448 84" stroke="#475569" stroke-width="1.8" fill="none" marker-end="url(#ag-arr)"></path>
+    <path d="M 397 115 L 448 136" stroke="#475569" stroke-width="1.8" fill="none" marker-end="url(#ag-arr)"></path>
+    <path d="M 397 125 L 448 188" stroke="#475569" stroke-width="1.8" fill="none" marker-end="url(#ag-arr)"></path>
+
+    <!-- 4 Agentes -->
+    <rect x="452" y="10" width="235" height="42" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"></rect>
+    <text x="569" y="29" font-size="11.5" font-weight="700" text-anchor="middle" fill="#1e3a8a">🗄️ Agente 1 (25%): Datos y Res. 866</text>
+    <text x="569" y="44" font-size="10" text-anchor="middle" fill="#475569">Diseño inicial CREATE TABLE / Recurso FHIR</text>
+
+    <rect x="452" y="62" width="235" height="42" rx="6" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"></rect>
+    <text x="569" y="81" font-size="11.5" font-weight="700" text-anchor="middle" fill="#0f766e">⚙️ Agente 2 (30%): Funcionalidad CRUD</text>
+    <text x="569" y="96" font-size="10" text-anchor="middle" fill="#475569">CREATE, READ, UPDATE y Baja Lógica</text>
+
+    <rect x="452" y="114" width="235" height="42" rx="6" fill="#fef2f2" stroke="#941100" stroke-width="1.5"></rect>
+    <text x="569" y="133" font-size="11.5" font-weight="700" text-anchor="middle" fill="#941100">🛡️ Agente 3 (20%): Calidad y Validación</text>
+    <text x="569" y="148" font-size="10" text-anchor="middle" fill="#475569">prepare(), htmlspecialchars(), OAuth2 SMART</text>
+
+    <rect x="452" y="166" width="235" height="42" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"></rect>
+    <text x="569" y="185" font-size="11.5" font-weight="700" text-anchor="middle" fill="#b45309">🎙️ Agente 4 (25%): Discurso y Video</text>
+    <text x="569" y="200" font-size="10" text-anchor="middle" fill="#475569">Claridad oral, rigor normativo y demo en vivo</text>
+
+    <!-- Flechas hacia Nota Final -->
+    <path d="M 687 32 L 736 95" stroke="#475569" stroke-width="1.8" fill="none" marker-end="url(#ag-arr)"></path>
+    <path d="M 687 84 L 736 105" stroke="#475569" stroke-width="1.8" fill="none" marker-end="url(#ag-arr)"></path>
+    <path d="M 687 136 L 736 115" stroke="#475569" stroke-width="1.8" fill="none" marker-end="url(#ag-arr)"></path>
+    <path d="M 687 188 L 736 125" stroke="#475569" stroke-width="1.8" fill="none" marker-end="url(#ag-arr)"></path>
+
+    <!-- Nota Final -->
+    <rect x="740" y="68" width="168" height="84" rx="8" fill="#941100"></rect>
+    <text x="824" y="98" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff">📊 Rúbrica Autocalificada</text>
+    <text x="824" y="118" font-size="11" text-anchor="middle" fill="#fecaca">Nota 0.0 – 5.0</text>
+    <text x="824" y="136" font-size="10.5" text-anchor="middle" fill="#ffffff">+ Acta JSON / Feedback</text>
+  </svg>
+</div>
+</section>
+<section id="paso-a-paso-para-autoevaluar-su-proyecto-antes-de-la-entrega" class="level3">
+<h3 class="anchored" data-anchor-id="paso-a-paso-para-autoevaluar-su-proyecto-antes-de-la-entrega">3.3 Paso a Paso para Autoevaluar su Proyecto antes de la Entrega</h3>
+<ol type="1">
+<li><strong>Paso 1 — Seleccione su ruta y cargue su código fuente:</strong> En la sección <strong>1️⃣ Datos del Grupo y Modalidad</strong>, escriba los nombres de los integrantes, elija <strong>Ruta A (PHP + MySQL CRUD)</strong> o <strong>Ruta B (HL7 FHIR R4 + SMART on FHIR)</strong> y suba sus archivos (<code>.sql</code>, <code>.php</code>, <code>.html</code>, <code>.js</code>, <code>.json</code>).</li>
+<li><strong>Paso 2 — Adjunte su video de demostración y transcripción:</strong> En la sección <strong>2️⃣ Insumo de Video y Discurso del Grupo</strong>, suba el archivo de video (<code>.mp4</code> o <code>.webm</code>) donde se observe la aplicación web funcionando y pegue la transcripción del discurso oral de los integrantes.</li>
+<li><strong>Paso 3 — Ejecute los 4 Agentes y revise el diagnóstico en vivo:</strong> Haga clic en <strong>🚀 Ejecutar Autocalificación con los 4 Agentes</strong>. Observe la barra de progreso y la <strong>Consola en Vivo</strong> mientras cada agente audita su entrega, asigna el nivel de desempeño en los <strong>7 criterios de la rúbrica</strong> y señala qué aspectos debe corregir para alcanzar <strong>5.0 / 5.0</strong>.</li>
+<li><strong>Paso 4 — Descargue su Acta de Autoevaluación (<code>acta_autocalificacion_ifmer.json</code>):</strong> Una vez corregidos los hallazgos señalados por los agentes, pulse <strong>📄 Exportar Acta JSON / Imprimir</strong> e incluya el archivo generado dentro del paquete <code>.zip</code> de entrega final.</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="evaluador-automático-multi-agente-y-rúbrica-interactiva" class="level2">
+<h2 class="anchored" data-anchor-id="evaluador-automático-multi-agente-y-rúbrica-interactiva">🧪 4. Evaluador Automático Multi-Agente y Rúbrica Interactiva</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>🚀 Pruebe aquí su entrega antes de la sustentación (Autoevaluación Formativa y Sumativa)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suba sus archivos de código (<code>.sql</code>, <code>.php</code>, <code>.json</code>, <code>.js</code>, <code>.html</code>) y su video/guion de sustentación, ejecute la <strong>Cuadrilla de 4 Agentes Evaluadores</strong> y obtenga su calificación preliminar en escala <strong>0.0 a 5.0</strong> junto con la retroalimentación detallada por criterio.</p>
+</div>
+</div>
+<div class="pf-box" id="autograder-app">
+  <div style="background:linear-gradient(135deg,#941100 0%,#002855 100%);color:#fff;padding:1rem 1.25rem;border-radius:10px;margin-bottom:1.2rem;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;">
+      <div>
+        <h4 style="margin:0;color:#fff;" class="anchored">🤖 Consola Multi-Agente de Autocalificación — Proyecto Final IFMER</h4>
+        <p style="margin:.25rem 0 0;font-size:.84rem;color:#e2e8f0;">
+          Audita Diseño Inicial de Datos (Res. 866/2021) + Operaciones CRUD / FHIR + Calidad de Código + Discurso y Video Demo
+        </p>
+      </div>
+      <div style="text-align:right;background:rgba(255,255,255,.14);padding:.5rem .9rem;border-radius:8px;">
+        <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;">Nota Definitiva Calculada</div>
+        <div id="ag-total-score" style="font-size:1.8rem;font-weight:800;line-height:1.1;">— / 5.0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paso 1: Configuración e Insumos -->
+  <div class="pf-grid-2" style="margin-bottom:1rem;">
+    <div class="pf-card">
+      <h5 style="margin-top:0;color:#002855;" class="anchored">1️⃣ Datos del Grupo y Modalidad</h5>
+      <div style="margin-bottom:.6rem;">
+        <label class="pf-label">Integrantes del Grupo</label>
+        <input type="text" id="ag-grupo" class="pf-input" placeholder="Ej. Grupo 04 — Ana Gómez, Carlos Ruiz, Sofía Díaz">
+      </div>
+      <div style="margin-bottom:.6rem;">
+        <label class="pf-label">Arquitectura Elegida por el Grupo</label>
+        <select id="ag-track" class="pf-select">
+          <option value="php">🛠️ Ruta A: Aplicación CRUD en HTML + PHP + MySQL (Res. 866/2021)</option>
+          <option value="fhir">🌐 Ruta B: Aplicación HL7 FHIR R4 + SMART on FHIR (IHCE / RDA)</option>
+        </select>
+      </div>
+      <div style="margin-bottom:.6rem;">
+        <label class="pf-label">Subir Archivos de Código (`.sql`, `.php`, `.json`, `.js`, `.html`)</label>
+        <input type="file" id="ag-files" class="pf-input" multiple="" accept=".sql,.php,.json,.js,.html,.txt,.md" onchange="window.agReadFiles(this)">
+      </div>
+      <div>
+        <label class="pf-label">Código / Script SQL o Bundle JSON FHIR a Auditar</label>
+        <textarea id="ag-code" class="pf-input" rows="6" style="font-family:monospace;font-size:.76rem;" placeholder="Pegue aquí su database.sql + guardar.php (Ruta A) o su código SMART on FHIR + JSON Patient (Ruta B), o suba los archivos arriba..."></textarea>
+      </div>
+    </div>
+
+    <div class="pf-card">
+      <h5 style="margin-top:0;color:#941100;" class="anchored">2️⃣ Insumo de Video y Discurso del Grupo</h5>
+      <div style="margin-bottom:.6rem;">
+        <label class="pf-label">Archivo de Video (`.mp4`, `.webm`) — Obligatorio para Criterio 7 (Demostración en Vivo)</label>
+        <div style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;">
+          <input type="file" id="ag-video" class="pf-input" style="flex:1;" accept="video/*" onchange="window.agLoadVideo(this)">
+          <button type="button" class="pf-btn" style="background:#64748b;padding:.38rem .65rem;font-size:.74rem;" onclick="window.agSimularVideo(false)">🗑️ Quitar video</button>
+        </div>
+        <div id="ag-video-meta" style="font-size:.76rem;color:#dc2626;font-weight:700;margin-top:.25rem;">⚠️ Ningún archivo de video subido todavía (Si no sube video de 3–5 min, el Criterio 7 calificará 0.0 / 5.0).</div>
+      </div>
+      <div style="margin-bottom:.6rem;">
+        <label class="pf-label">Transcripción del Discurso Oral / Guion Explicativo de la Sustentación</label>
+        <textarea id="ag-speech" class="pf-input" rows="5" style="font-size:.8rem;" placeholder="Pegue aquí la transcripción automática del video (Teams/YouTube) o el resumen detallado de la intervención oral de cada integrante explicando la Resolución 866, el diseño inicial de datos, las pruebas CRUD y las validaciones del código..."></textarea>
+      </div>
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;padding:.5rem .7rem;border-radius:6px;">
+        <label class="pf-label" style="margin-bottom:.15rem;">🔑 (Opcional) API Key de Google Gemini para Evaluación Multimodal Profunda</label>
+        <input type="password" id="ag-apikey" class="pf-input" placeholder="AIzaSy... (Si se deja vacío, ejecuta el Motor Multi-Agente Local Estático)">
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones de Acción -->
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-bottom:1.2rem;padding:.75rem;background:#fff;border:1px solid #e2e8f0;border-radius:8px;">
+    <button class="pf-btn" style="background:#941100;font-size:.9rem;padding:.6rem 1.2rem;" onclick="window.agRunAgents()">🚀 Ejecutar Autocalificación con los 4 Agentes</button>
+    <button class="pf-btn" style="background:#475569;" onclick="window.agExportReport()">📄 Exportar Acta JSON / Imprimir</button>
+  </div>
+
+  <!-- Barra de Progreso General y Consola en Vivo de lo que hace cada Agente -->
+  <div style="background:#0f172a;color:#e2e8f0;padding:.85rem 1rem;border-radius:8px;margin-bottom:1.1rem;border:1px solid #334155;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;flex-wrap:wrap;gap:.5rem;">
+      <span id="ag-master-status" style="font-size:.82rem;font-weight:700;color:#38bdf8;">⚡ Estado del Orquestador: Listo para iniciar auditoría Multi-Agente</span>
+      <span id="ag-master-pct" style="font-size:.82rem;font-weight:800;color:#a7f3d0;">0%</span>
+    </div>
+    <div style="width:100%;height:10px;background:#1e293b;border-radius:999px;overflow:hidden;margin-bottom:.65rem;">
+      <div id="ag-master-bar" style="width:0%;height:100%;background:linear-gradient(90deg,#38bdf8,#10b981);transition:width .35s ease;"></div>
+    </div>
+    <div style="font-size:.73rem;color:#94a3b8;margin-bottom:.25rem;font-weight:700;">📟 Consola en Vivo — ¿Qué está haciendo cada agente?:</div>
+    <pre id="ag-live-log" style="background:#020617;color:#a7f3d0;padding:.6rem .75rem;border-radius:6px;font-size:.74rem;line-height:1.45;max-height:150px;overflow-y:auto;margin:0;font-family:monospace;">[Sistema] Suba sus archivos de código, su video (.mp4/.webm) y su transcripción, y pulse "🚀 Ejecutar Autocalificación con los 4 Agentes".</pre>
+  </div>
+
+  <!-- Panel de Salida de los 4 Agentes con Progreso Individual -->
+  <div id="ag-agents-output" style="margin-bottom:1.25rem;">
+    <div class="pf-agent-card" id="ag1-card" style="border-left-color:#002855;transition:all .25s ease;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;">
+        <strong>🗄️ Agente 1: Auditor de Diseño Inicial de Datos y Normativa (Resolución 866 de 2021) — Peso: 25%</strong>
+        <span class="pf-badge" style="background:#e2e8f0;color:#1e293b;" id="ag1-score">En espera</span>
+      </div>
+      <div style="width:100%;height:6px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:.45rem 0;">
+        <div id="ag1-bar" style="width:0%;height:100%;background:#002855;transition:width .3s ease;"></div>
+      </div>
+      <div id="ag1-step" style="font-size:.75rem;font-weight:700;color:#0369a1;margin-bottom:.25rem;">Tarea: Verificar tipos de datos (VARCHAR/DATE) y diseño inicial de la tabla pacientes / recurso FHIR...</div>
+      <div id="ag1-feedback" style="font-size:.82rem;color:#475569;">Esperando ejecución...</div>
+    </div>
+
+    <div class="pf-agent-card" id="ag2-card" style="border-left-color:#0f766e;transition:all .25s ease;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;">
+        <strong>⚙️ Agente 2: Evaluador de Interfaz Web y Operaciones CRUD / FHIR REST — Peso: 30%</strong>
+        <span class="pf-badge" style="background:#e2e8f0;color:#1e293b;" id="ag2-score">En espera</span>
+      </div>
+      <div style="width:100%;height:6px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:.45rem 0;">
+        <div id="ag2-bar" style="width:0%;height:100%;background:#0d9488;transition:width .3s ease;"></div>
+      </div>
+      <div id="ag2-step" style="font-size:.75rem;font-weight:700;color:#0f766e;margin-bottom:.25rem;">Tarea: Inspeccionar formulario web, tabla dinámica, CREATE, READ, UPDATE y Baja Lógica...</div>
+      <div id="ag2-feedback" style="font-size:.82rem;color:#475569;">Esperando ejecución...</div>
+    </div>
+
+    <div class="pf-agent-card" id="ag3-card" style="border-left-color:#941100;transition:all .25s ease;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;">
+        <strong>🛡️ Agente 3: Auditor de Calidad de Código, Validaciones y Seguridad — Peso: 20%</strong>
+        <span class="pf-badge" style="background:#e2e8f0;color:#1e293b;" id="ag3-score">En espera</span>
+      </div>
+      <div style="width:100%;height:6px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:.45rem 0;">
+        <div id="ag3-bar" style="width:0%;height:100%;background:#941100;transition:width .3s ease;"></div>
+      </div>
+      <div id="ag3-step" style="font-size:.75rem;font-weight:700;color:#941100;margin-bottom:.25rem;">Tarea: Verificar consultas preparadas (prepare/bind_param), escape XSS y scopes SMART OAuth2...</div>
+      <div id="ag3-feedback" style="font-size:.82rem;color:#475569;">Esperando ejecución...</div>
+    </div>
+
+    <div class="pf-agent-card" id="ag4-card" style="border-left-color:#d97706;transition:all .25s ease;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;">
+        <strong>🎙️ Agente 4: Evaluador de Discurso Oral, Argumentación y Video Demo — Peso: 25%</strong>
+        <span class="pf-badge" style="background:#e2e8f0;color:#1e293b;" id="ag4-score">En espera</span>
+      </div>
+      <div style="width:100%;height:6px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:.45rem 0;">
+        <div id="ag4-bar" style="width:0%;height:100%;background:#d97706;transition:width .3s ease;"></div>
+      </div>
+      <div id="ag4-step" style="font-size:.75rem;font-weight:700;color:#b45309;margin-bottom:.25rem;">Tarea: Analizar vocabulario técnico-normativo, estructura oral y demostración funcional...</div>
+      <div id="ag4-feedback" style="font-size:.82rem;color:#475569;">Esperando ejecución...</div>
+    </div>
+  </div>
+
+  <!-- Tabla de Rúbrica Analítica Interactiva (Construida por DOM para evitar que Quarto trunque el script) -->
+  <h5 style="margin:0 0 .6rem;color:#002855;" class="anchored">📊 Rúbrica Analítica Oficial Autocalificable (Haga clic en cualquier celda para ajustar manualmente o ejecute los agentes)</h5>
+  <div id="ag-rubric-wrap" style="overflow-x:auto;"></div>
+</div>
+
+<script>
+(function(){
+  var CRITERIA = [
+    {
+      id: "c1", agent: 1, weight: 0.15,
+      title: "1. Cumplimiento Normativo (Res. 866/2021) y Diccionario",
+      levels: {
+        5.0: "Incluye todas las variables obligatorias de la Res. 866/2021 (TipoDoc, NumeroDocumento VARCHAR, Apellidos y Nombres atómicos, FechaNacimiento DATE, Sexo, DIVIPOLA y EPS) sin usar INT en documento ni edad estática.",
+        4.0: "Documento en VARCHAR y FechaNacimiento en DATE, pero omite 1 o 2 variables obligatorias de la Res. 866/2021 (ej. SegundoApellido, DIVIPOLA o EPS).",
+        3.0: "Cumplimiento parcial (menos de 5 variables normativas) o nombres/apellidos no atómicos en un solo campo.",
+        1.0: "Tipifica Número de Documento como INT, guarda Edad estática, ignora la Resolución 866/2021 o no entrega código (0.0)."
+      },
+      score: 0.0
+    },
+    {
+      id: "c2", agent: 1, weight: 0.10,
+      title: "2. Diseño Inicial de la Tabla SQL (CREATE TABLE) o Estructura FHIR R4",
+      levels: {
+        5.0: "Ruta A: CREATE TABLE pacientes con PRIMARY KEY AUTO_INCREMENT, UNIQUE en NumeroDocumento, NOT NULL en campos obligatorios y EstadoPaciente TINYINT(1) DEFAULT 1. Ruta B: Recurso Patient + NamingSystem RNEC + Extensión DIVIPOLA.",
+        4.0: "Define CREATE TABLE pacientes con PRIMARY KEY (o recurso Patient válido), pero omite la restricción UNIQUE en el documento o el campo de estado por defecto.",
+        3.0: "Tabla SQL o JSON FHIR incompleto, sin restricciones NOT NULL/UNIQUE o sin codificación oficial DANE/RNEC.",
+        1.0: "No incluye la sentencia CREATE TABLE pacientes (o estructura JSON Patient inválida) o no entrega código (0.0)."
+      },
+      score: 0.0
+    },
+    {
+      id: "c3", agent: 2, weight: 0.20,
+      title: "3. Interfaz Web Funcional y Operaciones CRUD (Create, Read, Update)",
+      levels: {
+        5.0: "Incluye Interfaz Web HTML (<form>, <table>, controles) + las 3 operaciones completas: INSERT/POST, SELECT/GET con filtro de búsqueda y UPDATE/PUT precargando datos.",
+        4.0: "Incluye Interfaz Web y las 3 operaciones (Create, Read, Update), pero el SELECT no tiene filtro de búsqueda o el formulario de edición no preserva selected.",
+        3.0: "Falta 1 operación principal (ej. no tiene UPDATE) o entrega solo scripts backend/JSON sin haber construido la Interfaz Web HTML.",
+        1.0: "Solo implementa 1 operación aislada, el código está incompleto o no entrega código (0.0)."
+      },
+      score: 0.0
+    },
+    {
+      id: "c4", agent: 2, weight: 0.10,
+      title: "4. Baja Lógica y Manejo de Excepciones (Delete Seguro)",
+      levels: {
+        5.0: "Implementa baja lógica (UPDATE EstadoPaciente = 0 o Patient.active = false) Y captura errores de duplicados/red con bloques try/catch o verificación código 1062 / HTTP status.",
+        4.0: "Implementa baja lógica correctamente conservando la trazabilidad, pero no incluye manejo de excepciones (try/catch o control de documento duplicado).",
+        3.0: "Maneja errores básicos pero no filtra los pacientes inactivos (EstadoPaciente = 1) en el listado principal.",
+        1.0: "Usa DELETE FROM físico borrando la historia clínica, o no implementa la operación de baja/inactivación (0.0 si no hay código)."
+      },
+      score: 0.0
+    },
+    {
+      id: "c5", agent: 3, weight: 0.20,
+      title: "5. Calidad de Código, Consultas Preparadas y Validaciones",
+      levels: {
+        5.0: "Ruta A: Todas las consultas usan prepare() + bind_param(), sanitiza salidas con htmlspecialchars() y cero concatenación SQL. Ruta B: OAuth2 SMART scopes + validación de campos + textContent.",
+        4.0: "Usa prepare() + bind_param() sin inyección SQL (o scopes SMART), pero omite htmlspecialchars()/textContent en la tabla de salida.",
+        3.0: "Usa prepare() solo en 1 consulta o valida parcialmente sin cubrir todas las entradas del usuario.",
+        1.0: "Concatena variables directamente en SQL ('$cedula') siendo vulnerable a SQL Injection, o no entrega código (0.0)."
+      },
+      score: 0.0
+    },
+    {
+      id: "c6", agent: 4, weight: 0.15,
+      title: "6. Discurso Oral: Claridad, Rigor Técnico-Normativo y Fluidez",
+      levels: {
+        5.0: "Transcripción completa (≥ 110 palabras) que articula con rigor al menos 7 conceptos técnicos/normativos (Res. 866, VARCHAR, DATE, DIVIPOLA, CRUD, prepare/SMART, baja lógica).",
+        4.0: "Discurso claro (≥ 70 palabras) que integra entre 5 y 6 conceptos técnicos y normativos del proyecto.",
+        3.0: "Discurso breve o superficial (≥ 35 palabras o solo 3–4 términos técnicos) con poca justificación normativa.",
+        1.0: "Discurso deficiente (< 35 palabras, sin vocabulario técnico) o 0.0 si no adjunta transcripción."
+      },
+      score: 0.0
+    },
+    {
+      id: "c7", agent: 4, weight: 0.10,
+      title: "7. Demostración en Vivo (Video Demo) y Pruebas de Validación",
+      levels: {
+        5.0: "Archivo de video (.mp4/.webm de 3.0 a 6.0 min) subido y verificado + código CRUD funcional (Criterio 3 ≥ 4.0) demostrado en vivo.",
+        4.0: "Archivo de video subido (2.0 a 2.9 min o > 6.0 min) con código funcional.",
+        3.0: "Video corto (1.0 a 1.9 min) o el código entregado no tiene las operaciones CRUD completas para respaldar el video.",
+        1.0: "Video menor a 1 minuto (insuficiente para demostrar el sistema) o 0.0 si NO sube archivo de video."
+      },
+      score: 0.0
+    }
+  ];
+
+  var videoMetaInfo = null;
+  var animTimers = [];
+
+  function buildRubricDOM(){
+    var wrap = document.getElementById("ag-rubric-wrap");
+    if(!wrap) return;
+    wrap.innerHTML = "";
+    var tbl = document.createElement("table");
+    tbl.style.cssText = "width:100%;border-collapse:collapse;font-size:.8rem;background:#fff;border:1px solid #cbd5e1;";
+
+    var thead = document.createElement("thead");
+    var trh = document.createElement("tr");
+    trh.style.cssText = "background:#002855;color:#fff;";
+    var headers = [
+      ["Agente / Dimensión (Peso)", "18%", "left"],
+      ["Excelente (5.0)", "20%", "left"],
+      ["Sobresaliente (4.0)", "20%", "left"],
+      ["Aceptable (3.0)", "20%", "left"],
+      ["Insuficiente (1.0 / 0.0)", "15%", "left"],
+      ["Nota", "7%", "center"]
+    ];
+    headers.forEach(function(h){
+      var th = document.createElement("th");
+      th.style.cssText = "padding:.5rem;width:" + h[1] + ";text-align:" + h[2] + ";";
+      th.textContent = h[0];
+      trh.appendChild(th);
+    });
+    thead.appendChild(trh);
+    tbl.appendChild(thead);
+
+    var tbody = document.createElement("tbody");
+    var total = 0;
+    var anyGraded = false;
+
+    CRITERIA.forEach(function(c){
+      if(c.score > 0 || window._agHasRun) anyGraded = true;
+      total += c.score * c.weight;
+      var tr = document.createElement("tr");
+      tr.style.borderBottom = "1px solid #cbd5e1";
+
+      var tdTitle = document.createElement("td");
+      tdTitle.style.cssText = "padding:.5rem;font-weight:700;color:#0f172a;background:#f8fafc;";
+      tdTitle.innerHTML = c.title + "<div style='font-size:.72rem;color:#64748b;margin-top:.2rem;'>Peso: " + Math.round(c.weight * 100) + "% · Agente " + c.agent + "</div>";
+      tr.appendChild(tdTitle);
+
+      [5.0, 4.0, 3.0, 1.0].forEach(function(val){
+        var td = document.createElement("td");
+        td.style.padding = ".35rem";
+        var div = document.createElement("div");
+        var isSelected = (val === 1.0 && window._agHasRun && c.score <= 1.0) || (c.score === val);
+        div.className = "rubric-cell-btn" + (isSelected ? " selected" : "");
+        div.textContent = c.levels[val];
+        div.onclick = function(){
+          window._agHasRun = true;
+          c.score = val;
+          buildRubricDOM();
+        };
+        td.appendChild(div);
+        tr.appendChild(td);
+      });
+
+      var tdScore = document.createElement("td");
+      tdScore.style.cssText = "padding:.5rem;text-align:center;font-weight:800;font-size:.95rem;color:#941100;background:#f8fafc;";
+      tdScore.textContent = (c.score > 0 || window._agHasRun) ? c.score.toFixed(1) : "—";
+      tr.appendChild(tdScore);
+
+      tbody.appendChild(tr);
+    });
+
+    tbl.appendChild(tbody);
+    wrap.appendChild(tbl);
+    document.getElementById("ag-total-score").textContent = anyGraded ? (total.toFixed(2) + " / 5.0") : "— / 5.0";
+  }
+
+  function appendLog(line){
+    var logEl = document.getElementById("ag-live-log");
+    if(!logEl) return;
+    logEl.textContent += "\n" + line;
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  window.agReadFiles = function(input){
+    var files = Array.prototype.slice.call(input.files || []);
+    if(!files.length) return;
+    var combined = [];
+    var readCount = 0;
+    files.forEach(function(f){
+      var reader = new FileReader();
+      reader.onload = function(e){
+        combined.push("// ====== ARCHIVO: " + f.name + " ======\n" + e.target.result);
+        readCount++;
+        if(readCount === files.length){
+          document.getElementById("ag-code").value = combined.join("\n\n");
+          appendLog("[Archivo cargado] " + files.length + " archivo(s) listos para inspección estricta por los agentes.");
+        }
+      };
+      reader.readAsText(f);
+    });
+  };
+
+  window.agLoadVideo = function(input){
+    var f = (input.files && input.files[0]) ? input.files[0] : null;
+    var metaBox = document.getElementById("ag-video-meta");
+    if(!f){
+      videoMetaInfo = null;
+      metaBox.style.color = "#dc2626";
+      metaBox.textContent = "⚠️ Ningún archivo de video subido todavía (Si no sube video de 3–5 min, el Criterio 7 calificará 0.0 / 5.0).";
+      return;
+    }
+    var url = URL.createObjectURL(f);
+    var v = document.createElement("video");
+    v.preload = "metadata";
+    v.onloadedmetadata = function(){
+      URL.revokeObjectURL(url);
+      var mins = (v.duration / 60).toFixed(1);
+      videoMetaInfo = { name: f.name, sizeMB: (f.size / (1024*1024)).toFixed(1), durationSec: v.duration };
+      metaBox.style.color = "#0f766e";
+      metaBox.textContent = "✅ Video detectado: " + f.name + " (" + videoMetaInfo.sizeMB + " MB · Duración: " + mins + " min)";
+      appendLog("[Video cargado] " + f.name + " (" + mins + " min) listo para el Agente 4.");
+    };
+    v.src = url;
+  };
+
+  window.agSimularVideo = function(activar){
+    var metaBox = document.getElementById("ag-video-meta");
+    videoMetaInfo = null;
+    document.getElementById("ag-video").value = "";
+    metaBox.style.color = "#dc2626";
+    metaBox.textContent = "⚠️ Ningún archivo de video subido todavía (Si no sube video de 3–5 min, el Criterio 7 calificará 0.0 / 5.0).";
+    appendLog("[Video removido] Sin archivo de video: Criterio 7 calificará 0.0 / 5.0.");
+  };
+
+  function styleAgentBadge(el, scoreNum){
+    if(scoreNum >= 4.0){
+      el.style.background = "#dcfce7";
+      el.style.color = "#166534";
+      el.textContent = "✅ " + scoreNum.toFixed(1) + " / 5.0";
+    } else if(scoreNum >= 3.0){
+      el.style.background = "#fef3c7";
+      el.style.color = "#92400e";
+      el.textContent = "⚠️ " + scoreNum.toFixed(1) + " / 5.0";
+    } else {
+      el.style.background = "#fee2e2";
+      el.style.color = "#991b1b";
+      el.textContent = "❌ " + scoreNum.toFixed(1) + " / 5.0";
+    }
+  }
+
+  window.agRunAgents = function(){
+    animTimers.forEach(function(t){ clearTimeout(t); });
+    animTimers = [];
+    window._agHasRun = true;
+
+    var track = document.getElementById("ag-track").value;
+    var code = (document.getElementById("ag-code").value || "");
+    var speech = (document.getElementById("ag-speech").value || "");
+    var sl = speech.toLowerCase();
+
+    // --- Evaluación Estricta de los 4 Agentes ---
+    var c1 = 1.0, c2 = 1.0, c3 = 1.0, c4 = 1.0, c5 = 1.0, fb1 = [], fb2 = [], fb3 = [];
+
+    if(!code.trim()){
+      c1 = 0.0; c2 = 0.0; c3 = 0.0; c4 = 0.0; c5 = 0.0;
+      fb1 = ["❌ <strong>0.0 / 5.0:</strong> No se subió ningún archivo ni bloque de código fuente. Criterios 1 y 2 calificados en 0.0."];
+      fb2 = ["❌ <strong>0.0 / 5.0:</strong> Sin código fuente para auditar la Interfaz Web ni las operaciones CRUD. Criterios 3 y 4 calificados en 0.0."];
+      fb3 = ["❌ <strong>0.0 / 5.0:</strong> Sin código fuente para auditar consultas preparadas o validaciones. Criterio 5 calificado en 0.0."];
+    } else if(track === "php"){
+      // Agente 1 (Ruta A): Verificación estricta de campos de la Resolución 866 de 2021
+      var hasVarcharDoc = /numerodocumento\s+varchar/i.test(code) || /num_documento\s+varchar/i.test(code);
+      var hasIntDoc = /cedula\s+int/i.test(code) || /numerodocumento\s+int/i.test(code) || /documento\s+int/i.test(code);
+      var hasStaticAge = /\bedad\s+int/i.test(code);
+      var hasDate = /fechanacimiento\s+date/i.test(code) || /fecha_nacimiento\s+date/i.test(code);
+
+      var normFields = [
+        { name: "TipoDocumento", ok: /tipodocumento|tipo_documento/i.test(code) },
+        { name: "PrimerApellido", ok: /primerapellido|primer_apellido/i.test(code) },
+        { name: "SegundoApellido", ok: /segundoapellido|segundo_apellido/i.test(code) },
+        { name: "Nombres", ok: /\bnombres\b|\bprimernombre\b/i.test(code) },
+        { name: "SexoBiologico", ok: /sexobiologico|sexo/i.test(code) },
+        { name: "CodigoDivipola/Municipio", ok: /divipola|municipio/i.test(code) },
+        { name: "EPS/Aseguradora", ok: /\beps\b|aseguradora|eapb/i.test(code) }
+      ];
+      var foundFields = normFields.filter(function(f){ return f.ok; }).map(function(f){ return f.name; });
+      var missingFields = normFields.filter(function(f){ return !f.ok; }).map(function(f){ return f.name; });
+
+      if(hasIntDoc || hasStaticAge){
+        c1 = 1.0;
+        fb1.push("❌ <strong>Criterio 1 (1.0 / 5.0):</strong> Violación crítica del Anexo Técnico Res. 866/2021: tipifica el documento como <code>INT</code> o almacena la <code>Edad</code> estática en lugar de calcularla desde <code>FechaNacimiento DATE</code>.");
+      } else if(hasVarcharDoc && hasDate && missingFields.length === 0){
+        c1 = 5.0;
+        fb1.push("✅ <strong>Criterio 1 (5.0 / 5.0):</strong> Cumplimiento estricto de la Res. 866/2021: <code>NumeroDocumento VARCHAR</code>, <code>FechaNacimiento DATE</code> y las 7 variables normativas completas (" + foundFields.join(", ") + ").");
+      } else if(hasVarcharDoc && hasDate && missingFields.length <= 2){
+        c1 = 4.0;
+        fb1.push("⚠️ <strong>Criterio 1 (4.0 / 5.0):</strong> Tipos <code>VARCHAR</code> y <code>DATE</code> correctos, pero faltan variables del diccionario Res. 866/2021: <code>" + missingFields.join(", ") + "</code>.");
+      } else if(hasVarcharDoc || hasDate){
+        c1 = 3.0;
+        fb1.push("⚠️ <strong>Criterio 1 (3.0 / 5.0):</strong> Modelo incompleto frente a la Res. 866/2021. Variables faltantes: <code>" + missingFields.join(", ") + "</code>.");
+      } else {
+        c1 = 1.0;
+        fb1.push("❌ <strong>Criterio 1 (1.0 / 5.0):</strong> No se encontraron los tipos de datos exigidos por la Resolución 866 de 2021 (<code>NumeroDocumento VARCHAR</code>, <code>FechaNacimiento DATE</code>).");
+      }
+
+      // Criterio 2 (Ruta A): Diseño inicial CREATE TABLE pacientes
+      var hasCreateTable = /create\s+table\s+(if\s+not\s+exists\s+)?pacientes/i.test(code);
+      var hasPK = /primary\s+key/i.test(code) && /auto_increment/i.test(code);
+      var hasUniqueDoc = /unique/i.test(code);
+      var notNullCount = (code.match(/not\s+null/gi) || []).length;
+      var hasDefaultState = /estadopaciente\s+tinyint.*default\s+1/i.test(code);
+
+      if(!hasCreateTable){
+        c2 = 1.0;
+        fb1.push("❌ <strong>Criterio 2 (1.0 / 5.0):</strong> No se incluyó la sentencia DDL <code>CREATE TABLE pacientes</code> del diseño inicial.");
+      } else if(hasPK && hasUniqueDoc && notNullCount >= 5 && hasDefaultState){
+        c2 = 5.0;
+        fb1.push("✅ <strong>Criterio 2 (5.0 / 5.0):</strong> Diseño inicial de <code>CREATE TABLE pacientes</code> riguroso: incluye <code>PRIMARY KEY AUTO_INCREMENT</code>, restricción <code>UNIQUE</code> en documento, <code>NOT NULL</code> (" + notNullCount + " columnas) y <code>EstadoPaciente DEFAULT 1</code>.");
+      } else if(hasPK && (hasUniqueDoc || notNullCount >= 4)){
+        c2 = 4.0;
+        fb1.push("⚠️ <strong>Criterio 2 (4.0 / 5.0):</strong> Incluye <code>CREATE TABLE pacientes</code> con llave primaria, pero omite <code>UNIQUE</code> en el documento o el valor por defecto <code>EstadoPaciente TINYINT(1) DEFAULT 1</code>.");
+      } else {
+        c2 = 3.0;
+        fb1.push("⚠️ <strong>Criterio 2 (3.0 / 5.0):</strong> El <code>CREATE TABLE pacientes</code> carece de restricciones de integridad (<code>AUTO_INCREMENT</code>, <code>UNIQUE</code>, <code>NOT NULL</code>).");
+      }
+
+      // Agente 2 (Ruta A): Interfaz Web + CRUD
+      var reFormTag = new RegExp("<" + "form\\b", "i");
+      var reInputTag = new RegExp("<" + "input\\b", "i");
+      var reTableTag = new RegExp("<" + "table\\b", "i");
+      var hasHtmlForm = reFormTag.test(code) && reInputTag.test(code);
+      var hasHtmlTable = reTableTag.test(code);
+      var hasInsert = /insert\s+into\s+pacientes/i.test(code);
+      var hasSelect = /select\s+.+\s+from\s+pacientes/i.test(code);
+      var hasSearchFilter = /where\s+.*(like|=\s*\?)/i.test(code);
+      var hasUpdate = /update\s+pacientes\s+set\s+(?!estadopaciente\s*=\s*0)/i.test(code);
+
+      var crudCount = (hasInsert ? 1 : 0) + (hasSelect ? 1 : 0) + (hasUpdate ? 1 : 0);
+      if(hasHtmlForm && hasHtmlTable && crudCount === 3 && hasSearchFilter){
+        c3 = 5.0;
+        fb2.push("✅ <strong>Criterio 3 (5.0 / 5.0):</strong> Interfaz Web HTML (<code>&lt;form&gt;</code> + <code>&lt;table&gt;</code>) e implementación completa de <code>INSERT</code>, <code>SELECT</code> con filtro de búsqueda y <code>UPDATE</code> de edición.");
+      } else if(hasHtmlForm && hasHtmlTable && crudCount === 3){
+        c3 = 4.0;
+        fb2.push("⚠️ <strong>Criterio 3 (4.0 / 5.0):</strong> Interfaz web y operaciones presentes, pero falta el filtro de búsqueda en el <code>SELECT</code>.");
+      } else if(crudCount >= 2 && (!hasHtmlForm || !hasHtmlTable)){
+        c3 = 3.0;
+        fb2.push("⚠️ <strong>Criterio 3 (3.0 / 5.0):</strong> Se detectaron consultas SQL/PHP pero <strong>NO se subió el código HTML de la Interfaz Web</strong> (<code>&lt;form&gt;</code> y <code>&lt;table&gt;</code>). Debe subir también su <code>index.php</code> / <code>modificar.php</code>.");
+      } else if(crudCount === 2){
+        c3 = 3.0;
+        fb2.push("⚠️ <strong>Criterio 3 (3.0 / 5.0):</strong> CRUD incompleto: solo se detectaron 2 de las 3 operaciones (verifique que estén <code>INSERT</code>, <code>SELECT</code> y <code>UPDATE</code> de modificación de datos).");
+      } else {
+        c3 = 1.0;
+        fb2.push("❌ <strong>Criterio 3 (1.0 / 5.0):</strong> No se evidencian las operaciones CRUD ni la interfaz web requerida.");
+      }
+
+      // Criterio 4 (Ruta A): Baja lógica y manejo de excepciones
+      var hasSoftDelete = /update\s+pacientes\s+set\s+estadopaciente\s*=\s*0/i.test(code);
+      var hasHardDelete = /delete\s+from\s+pacientes/i.test(code);
+      var hasTryCatch = /try\s*\{/i.test(code) && /catch\s*\(/i.test(code) && /1062/i.test(code);
+
+      if(hasHardDelete){
+        c4 = 1.0;
+        fb2.push("❌ <strong>Criterio 4 (1.0 / 5.0):</strong> Se detectó borrado físico (<code>DELETE FROM pacientes</code>). En sistemas clínicos está prohibido destruir registros; debe usar baja lógica (<code>EstadoPaciente = 0</code>).");
+      } else if(hasSoftDelete && hasTryCatch){
+        c4 = 5.0;
+        fb2.push("✅ <strong>Criterio 4 (5.0 / 5.0):</strong> Baja lógica (<code>UPDATE pacientes SET EstadoPaciente = 0</code>) y captura de excepciones SQL (<code>try/catch</code> error <code>#1062</code> documento duplicado) verificadas.");
+      } else if(hasSoftDelete){
+        c4 = 4.0;
+        fb2.push("⚠️ <strong>Criterio 4 (4.0 / 5.0):</strong> Implementa baja lógica (<code>EstadoPaciente = 0</code>), pero falta el bloque <code>try / catch (mysqli_sql_exception)</code> para controlar el error <code>1062</code> de documentos duplicados.");
+      } else {
+        c4 = 1.0;
+        fb2.push("❌ <strong>Criterio 4 (1.0 / 5.0):</strong> No se encontró la operación de baja lógica (<code>UPDATE pacientes SET EstadoPaciente = 0</code>).");
+      }
+
+      // Agente 3 (Ruta A): Consultas preparadas y XSS
+      var prepMatches = (code.match(/->prepare\s*\(/gi) || []).length;
+      var hasBindParam = /bind_param\s*\(/i.test(code);
+      var hasXss = /htmlspecialchars\s*\(/i.test(code);
+      var hasConcatSql = /values\s*\(\s*'\$|where\s+\w+\s*=\s*'\$/i.test(code) || /query\s*\(\s*"(insert|update|delete|select).*?\$/i.test(code);
+
+      if(hasConcatSql){
+        c5 = 1.0;
+        fb3.push("🚨 <strong>Criterio 5 (1.0 / 5.0):</strong> ¡Vulnerabilidad crítica de Inyección SQL! Se detectaron variables PHP concatenadas directamente dentro de cadenas SQL.");
+      } else if(prepMatches >= 3 && hasBindParam && hasXss){
+        c5 = 5.0;
+        fb3.push("✅ <strong>Criterio 5 (5.0 / 5.0):</strong> Código seguro: utiliza consultas preparadas en todas las operaciones (" + prepMatches + " llamadas a <code>prepare()</code> + <code>bind_param()</code>) y sanitiza la salida HTML con <code>htmlspecialchars()</code>.");
+      } else if(prepMatches >= 1 && hasBindParam && hasXss){
+        c5 = 4.0;
+        fb3.push("⚠️ <strong>Criterio 5 (4.0 / 5.0):</strong> Usa <code>prepare()</code> (" + prepMatches + " vez) y <code>htmlspecialchars()</code>, pero no todas las operaciones CRUD están parametrizadas.");
+      } else if(prepMatches >= 1 && hasBindParam){
+        c5 = 3.0;
+        fb3.push("⚠️ <strong>Criterio 5 (3.0 / 5.0):</strong> Usa <code>prepare()</code>, pero olvida escapar las variables mostradas en la tabla HTML con <code>htmlspecialchars()</code> (vulnerable a XSS).");
+      } else {
+        c5 = 1.0;
+        fb3.push("❌ <strong>Criterio 5 (1.0 / 5.0):</strong> No se encontró uso de consultas preparadas (<code>$mysqli->prepare()</code> y <code>bind_param()</code>).");
+      }
+
+    } else {
+      // Evaluación estricta Ruta B (HL7 FHIR R4 + SMART on FHIR)
+      var hasPatient = /"resourcetype"\s*:\s*"patient"|resourcetype\s*:\s*['"]patient['"]/i.test(code);
+      var hasIdentifier = /identifier/i.test(code);
+      var hasName = /family/i.test(code) && /given/i.test(code);
+      var hasBirthGender = /birthdate/i.test(code) && /gender/i.test(code);
+      var hasAddress = /address/i.test(code);
+
+      if(hasPatient && hasIdentifier && hasName && hasBirthGender && hasAddress){
+        c1 = 5.0;
+        fb1.push("✅ <strong>Criterio 1 (5.0 / 5.0):</strong> Recurso HL7 FHIR R4 <code>Patient</code> completo con <code>identifier</code>, <code>name (family/given)</code>, <code>gender</code>, <code>birthDate</code> y <code>address</code> conforme a la Res. 866/2021.");
+      } else if(hasPatient && hasIdentifier && hasBirthGender){
+        c1 = 4.0;
+        fb1.push("⚠️ <strong>Criterio 1 (4.0 / 5.0):</strong> Recurso <code>Patient</code> presente, pero omite <code>address</code> o la separación atómica <code>family</code> / <code>given</code>.");
+      } else if(hasPatient){
+        c1 = 3.0;
+        fb1.push("⚠️ <strong>Criterio 1 (3.0 / 5.0):</strong> Estructura <code>Patient</code> incompleta frente al Anexo Técnico de la Resolución 866 de 2021.");
+      } else {
+        c1 = 1.0;
+        fb1.push("❌ <strong>Criterio 1 (1.0 / 5.0):</strong> No se encontró un recurso válido <code>resourceType: 'Patient'</code>.");
+      }
+
+      var hasRnec = /rnec|namingsystem/i.test(code);
+      var hasDivipola = /divipola/i.test(code);
+      if(hasRnec && hasDivipola){
+        c2 = 5.0;
+        fb1.push("✅ <strong>Criterio 2 (5.0 / 5.0):</strong> Semántica normativa validada: integra <code>NamingSystem/RNEC</code> para identificación y extensión <code>DivipolaMunicipio</code> del DANE.");
+      } else if(hasRnec || hasDivipola){
+        c2 = 4.0;
+        fb1.push("⚠️ <strong>Criterio 2 (4.0 / 5.0):</strong> Incluye solo 1 de los 2 sistemas de codificación nacionales (debe incluir tanto RNEC como DIVIPOLA).");
+      } else {
+        c2 = 3.0;
+        fb1.push("⚠️ <strong>Criterio 2 (3.0 / 5.0):</strong> No utiliza las URLs de codificación de la IHCE colombiana (RNEC y DIVIPOLA).");
+      }
+
+      var reFormTagB = new RegExp("<" + "form\\b", "i");
+      var reTableTagB = new RegExp("<" + "table\\b", "i");
+      var hasWebUi = reFormTagB.test(code) && reTableTagB.test(code) && /getelementbyid|queryselector/i.test(code);
+      var hasPost = /method\s*:\s*['"]post['"]|\.create\s*\(/i.test(code);
+      var hasGet = /fetch\s*\(|\.request\s*\(/i.test(code);
+      var hasPut = /method\s*:\s*['"]put['"]|\.update\s*\(/i.test(code);
+
+      if(hasWebUi && hasPost && hasGet && hasPut){
+        c3 = 5.0;
+        fb2.push("✅ <strong>Criterio 3 (5.0 / 5.0):</strong> Interfaz Web Funcional (<code>&lt;form&gt;</code> + <code>&lt;table&gt;</code> + DOM JS) conectada a las operaciones RESTful FHIR (<code>POST</code>, <code>GET</code> y <code>PUT</code>).");
+      } else if(!hasWebUi && (hasPost || hasGet)){
+        c3 = 2.5;
+        fb2.push("❌ <strong>Criterio 3 (2.5 / 5.0):</strong> Se detectó código JSON/peticiones pero <strong>NO existe Interfaz Web HTML</strong> (<code>&lt;form&gt;</code> y <code>&lt;table&gt;</code>). En Ruta B también es obligatorio construir la interfaz web.");
+      } else if(hasWebUi && (hasPost || hasGet)){
+        c3 = 3.0;
+        fb2.push("⚠️ <strong>Criterio 3 (3.0 / 5.0):</strong> Tiene interfaz web pero faltan operaciones HTTP REST (debe implementar <code>POST</code>, <code>GET</code> y <code>PUT</code>).");
+      } else {
+        c3 = 1.0;
+        fb2.push("❌ <strong>Criterio 3 (1.0 / 5.0):</strong> No se encontraron ni la interfaz web ni las peticiones HTTP al servidor FHIR.");
+      }
+
+      var hasActiveFalse = /active\s*:\s*false|"active"\s*:\s*false/i.test(code);
+      var hasErrorHandling = /try\s*\{|\.catch\s*\(|res\.ok/i.test(code);
+      if(hasActiveFalse && hasErrorHandling){
+        c4 = 5.0;
+        fb2.push("✅ <strong>Criterio 4 (5.0 / 5.0):</strong> Inactivación lógica (<code>Patient.active = false</code>) y manejo de errores HTTP/promesas verificados.");
+      } else if(hasActiveFalse){
+        c4 = 4.0;
+        fb2.push("⚠️ <strong>Criterio 4 (4.0 / 5.0):</strong> Implementa <code>Patient.active = false</code>, pero falta manejo de errores (<code>try/catch</code> o verificación de <code>response.ok</code>).");
+      } else {
+        c4 = 1.0;
+        fb2.push("❌ <strong>Criterio 4 (1.0 / 5.0):</strong> No implementa la baja lógica del recurso (<code>Patient.active = false</code>).");
+      }
+
+      var hasOAuth = /oauth2|patient\/patient\.(read|write)/i.test(code);
+      var hasSafeDom = /textcontent|escape/i.test(code);
+      if(hasOAuth && hasSafeDom){
+        c5 = 5.0;
+        fb3.push("✅ <strong>Criterio 5 (5.0 / 5.0):</strong> Contexto SMART on FHIR (scopes OAuth2 <code>patient/Patient.read/write</code>) y renderizado seguro verificados.");
+      } else if(hasOAuth){
+        c5 = 4.0;
+        fb3.push("⚠️ <strong>Criterio 5 (4.0 / 5.0):</strong> Incluye scopes SMART on FHIR, pero manipula el DOM sin sanitizar o sin usar <code>textContent</code>.");
+      } else {
+        c5 = 2.5;
+        fb3.push("⚠️ <strong>Criterio 5 (2.5 / 5.0):</strong> No declara la configuración/scopes OAuth2 de SMART on FHIR (<code>launch/patient</code>, <code>patient/Patient.write</code>).");
+      }
+    }
+
+    // Agente 4: Evaluación Estricta de Discurso Oral (Criterio 6) y Video Demo (Criterio 7)
+    var c6 = 0.0, c7 = 0.0, fb4 = [];
+    var words = speech.trim() ? speech.trim().split(/\s+/).length : 0;
+    var keyTerms = ["866", "divipola", "crud", "prepare", "fhir", "smart", "lógica", "diccionario", "tabla", "varchar", "rnec", "unique", "date", "htmlspecialchars"];
+    var matchedTerms = keyTerms.filter(function(t){ return sl.indexOf(t) !== -1; });
+
+    if(words === 0){
+      c6 = 0.0;
+      fb4.push("❌ <strong>Criterio 6 (Discurso Oral — 0.0 / 5.0):</strong> No se ingresó ninguna transcripción ni guion del discurso oral del grupo.");
+    } else if(words >= 110 && matchedTerms.length >= 7){
+      c6 = 5.0;
+      fb4.push("✅ <strong>Criterio 6 (Discurso Oral — 5.0 / 5.0):</strong> Sustentación extensa y rigurosa (" + words + " palabras) que articula " + matchedTerms.length + " conceptos clave (" + matchedTerms.join(", ") + ").");
+    } else if(words >= 70 && matchedTerms.length >= 5){
+      c6 = 4.0;
+      fb4.push("⚠️ <strong>Criterio 6 (Discurso Oral — 4.0 / 5.0):</strong> Buen discurso técnico (" + words + " palabras, " + matchedTerms.length + " términos clave), pero para obtener 5.0 debe tener al menos 110 palabras y profundizar en más de 7 conceptos técnicos/normativos.");
+    } else if(words >= 35 && matchedTerms.length >= 3){
+      c6 = 3.0;
+      fb4.push("⚠️ <strong>Criterio 6 (Discurso Oral — 3.0 / 5.0):</strong> Transcripción breve o superficial (" + words + " palabras, solo " + matchedTerms.length + " términos clave). Se exige una explicación detallada de mínimo 110 palabras.");
+    } else {
+      c6 = 1.0;
+      fb4.push("❌ <strong>Criterio 6 (Discurso Oral — 1.0 / 5.0):</strong> Discurso insuficiente (" + words + " palabras, " + matchedTerms.length + " términos técnicos). No demuestra dominio conceptual ni normativo.");
+    }
+
+    // Evaluación estricta de Criterio 7 (Archivo de Video .mp4 / .webm obligatorio de 3 a 5 min + código funcional)
+    if(!videoMetaInfo){
+      c7 = 0.0;
+      fb4.push("❌ <strong>Criterio 7 (Video Demo — 0.0 / 5.0):</strong> ¡NO se subió ningún archivo de video (<code>.mp4</code> / <code>.webm</code>)! Sin evidencia en video de la aplicación funcionando, la calificación de este criterio es <strong>0.0 / 5.0</strong>.");
+    } else if(videoMetaInfo.durationSec < 60){
+      c7 = 1.0;
+      fb4.push("❌ <strong>Criterio 7 (Video Demo — 1.0 / 5.0):</strong> El video <code>" + videoMetaInfo.name + "</code> dura apenas " + Math.round(videoMetaInfo.durationSec) + " segundos (< 1 min). El requisito mínimo es de 3 a 5 minutos demostrando todas las operaciones.");
+    } else if(c3 < 3.0){
+      c7 = 2.0;
+      fb4.push("⚠️ <strong>Criterio 7 (Video Demo — 2.0 / 5.0):</strong> Se subió el video <code>" + videoMetaInfo.name + "</code>, pero el código entregado en el Criterio 3 no contiene una aplicación web CRUD funcional que respalde la demostración.");
+    } else if(videoMetaInfo.durationSec >= 180 && videoMetaInfo.durationSec <= 360 && c3 >= 4.0){
+      c7 = 5.0;
+      fb4.push("✅ <strong>Criterio 7 (Video Demo — 5.0 / 5.0):</strong> Video <code>" + videoMetaInfo.name + "</code> verificado (" + videoMetaInfo.sizeMB + " MB · Duración reglamentaria: " + (videoMetaInfo.durationSec/60).toFixed(1) + " min) respaldado por código CRUD funcional.");
+    } else if(videoMetaInfo.durationSec >= 120){
+      c7 = 4.0;
+      fb4.push("⚠️ <strong>Criterio 7 (Video Demo — 4.0 / 5.0):</strong> Video <code>" + videoMetaInfo.name + "</code> (" + (videoMetaInfo.durationSec/60).toFixed(1) + " min) fuera del rango estricto de 3.0 a 6.0 minutos o con observaciones menores en el código CRUD.");
+    } else {
+      c7 = 3.0;
+      fb4.push("⚠️ <strong>Criterio 7 (Video Demo — 3.0 / 5.0):</strong> Video <code>" + videoMetaInfo.name + "</code> (" + (videoMetaInfo.durationSec/60).toFixed(1) + " min) demasiado corto respecto al estándar de 3 a 5 minutos.");
+    }
+
+    var sAg1Num = (c1*0.15 + c2*0.10)/0.25;
+    var sAg2Num = (c3*0.20 + c4*0.10)/0.30;
+    var sAg3Num = c5;
+    var sAg4Num = (c6*0.15 + c7*0.10)/0.25;
+    var sAg1 = sAg1Num.toFixed(1);
+    var sAg2 = sAg2Num.toFixed(1);
+    var sAg3 = sAg3Num.toFixed(1);
+    var sAg4 = sAg4Num.toFixed(1);
+
+    // Reiniciar barras y estados visuales antes de iniciar la secuencia en vivo
+    [1,2,3,4].forEach(function(n){
+      document.getElementById("ag" + n + "-bar").style.width = "0%";
+      document.getElementById("ag" + n + "-score").style.background = "#fef08a";
+      document.getElementById("ag" + n + "-score").style.color = "#854d0e";
+      document.getElementById("ag" + n + "-score").textContent = "⏳ En cola...";
+      document.getElementById("ag" + n + "-feedback").textContent = "Esperando turno en el pipeline de evaluación...";
+    });
+    document.getElementById("ag-master-bar").style.width = "5%";
+    document.getElementById("ag-master-pct").textContent = "5%";
+    document.getElementById("ag-master-status").textContent = "🧠 Orquestador: Iniciando análisis secuencial de los 4 agentes...";
+    document.getElementById("ag-live-log").textContent = "[00:00.0] 🧠 Orquestador: Iniciando auditoría para modalidad '" + (track === "php" ? "Ruta A (PHP + MySQL)" : "Ruta B (HL7 FHIR + SMART)") + "' (" + code.length + " caracteres de código, " + words + " palabras de discurso)...";
+
+    // Paso 1: Agente 1 (250 ms)
+    animTimers.push(setTimeout(function(){
+      document.getElementById("ag1-score").textContent = "🔍 Auditando Res. 866...";
+      document.getElementById("ag1-bar").style.width = "60%";
+      document.getElementById("ag1-step").textContent = "⚙️ Ejecutando: Escaneando tipos de datos (NumeroDocumento, FechaNacimiento) y diseño inicial CREATE TABLE / FHIR...";
+      appendLog("[00:00.3] 🗄️ Agente 1 (Datos y Res. 866): Verificando tipificación atómica de NumeroDocumento y catálogos DIVIPOLA/RNEC...");
+    }, 250));
+
+    animTimers.push(setTimeout(function(){
+      document.getElementById("ag1-bar").style.width = "100%";
+      styleAgentBadge(document.getElementById("ag1-score"), sAg1Num);
+      document.getElementById("ag1-step").textContent = "✔️ Completado: Auditoría de diccionario y modelo de datos finalizada.";
+      document.getElementById("ag1-feedback").innerHTML = fb1.join("<br>");
+      document.getElementById("ag-master-bar").style.width = "28%";
+      document.getElementById("ag-master-pct").textContent = "28%";
+      CRITERIA[0].score = c1; CRITERIA[1].score = c2;
+      buildRubricDOM();
+      appendLog("[00:00.7] 🗄️ Agente 1 → Calificación asignada: " + sAg1 + " / 5.0.");
+    }, 700));
+
+    // Paso 2: Agente 2 (950 ms)
+    animTimers.push(setTimeout(function(){
+      document.getElementById("ag-master-status").textContent = "⚙️ Agente 2: Auditando Interfaz Web y operaciones CRUD / FHIR REST...";
+      document.getElementById("ag2-score").textContent = "🔍 Probando CRUD...";
+      document.getElementById("ag2-bar").style.width = "55%";
+      document.getElementById("ag2-step").textContent = "⚙️ Ejecutando: Verificando formulario web, listado con filtro, actualización y baja lógica...";
+      appendLog("[00:01.0] ⚙️ Agente 2 (Funcionalidad CRUD): Inspeccionando operaciones CREATE/POST, READ/GET, UPDATE/PUT e inactivación lógica...");
+    }, 950));
+
+    animTimers.push(setTimeout(function(){
+      document.getElementById("ag2-bar").style.width = "100%";
+      styleAgentBadge(document.getElementById("ag2-score"), sAg2Num);
+      document.getElementById("ag2-step").textContent = "✔️ Completado: Verificación de Interfaz Web y CRUD finalizada.";
+      document.getElementById("ag2-feedback").innerHTML = fb2.join("<br>");
+      document.getElementById("ag-master-bar").style.width = "55%";
+      document.getElementById("ag-master-pct").textContent = "55%";
+      CRITERIA[2].score = c3; CRITERIA[3].score = c4;
+      buildRubricDOM();
+      appendLog("[00:01.5] ⚙️ Agente 2 → Calificación asignada: " + sAg2 + " / 5.0.");
+    }, 1500));
+
+    // Paso 3: Agente 3 (1750 ms)
+    animTimers.push(setTimeout(function(){
+      document.getElementById("ag-master-status").textContent = "🛡️ Agente 3: Auditando consultas preparadas, validaciones y seguridad...";
+      document.getElementById("ag3-score").textContent = "🔍 Escaneando AST...";
+      document.getElementById("ag3-bar").style.width = "65%";
+      document.getElementById("ag3-step").textContent = "⚙️ Ejecutando: Buscando prepare(), bind_param(), htmlspecialchars() o scopes OAuth2 SMART...";
+      appendLog("[00:01.8] 🛡️ Agente 3 (Calidad y Seguridad): Analizando vulnerabilidades de inyección y sanitización del DOM...");
+    }, 1750));
+
+    animTimers.push(setTimeout(function(){
+      document.getElementById("ag3-bar").style.width = "100%";
+      styleAgentBadge(document.getElementById("ag3-score"), sAg3Num);
+      document.getElementById("ag3-step").textContent = "✔️ Completado: Auditoría de calidad de código y validaciones finalizada.";
+      document.getElementById("ag3-feedback").innerHTML = fb3.join("<br>");
+      document.getElementById("ag-master-bar").style.width = "78%";
+      document.getElementById("ag-master-pct").textContent = "78%";
+      CRITERIA[4].score = c5;
+      buildRubricDOM();
+      appendLog("[00:02.3] 🛡️ Agente 3 → Calificación asignada: " + sAg3 + " / 5.0.");
+    }, 2300));
+
+    // Paso 4: Agente 4 (2500 ms)
+    animTimers.push(setTimeout(function(){
+      document.getElementById("ag-master-status").textContent = "🎙️ Agente 4: Evaluando transcripción del discurso oral y demostración en video...";
+      document.getElementById("ag4-score").textContent = "🔍 Analizando voz/video...";
+      document.getElementById("ag4-bar").style.width = "70%";
+      document.getElementById("ag4-step").textContent = "⚙️ Ejecutando: Contando densidad terminológica (" + matchedTerms.length + " conceptos clave hallados) y fluidez...";
+      appendLog("[00:02.5] 🎙️ Agente 4 (Discurso y Demo): Evaluando argumentación sobre Res. 866/2021 y evidencia de pruebas...");
+    }, 2500));
+
+    animTimers.push(setTimeout(function(){
+      document.getElementById("ag4-bar").style.width = "100%";
+      styleAgentBadge(document.getElementById("ag4-score"), sAg4Num);
+      document.getElementById("ag4-step").textContent = "✔️ Completado: Evaluación de discurso oral y video finalizada.";
+      document.getElementById("ag4-feedback").innerHTML = fb4.join("<br>");
+      document.getElementById("ag-master-bar").style.width = "100%";
+      document.getElementById("ag-master-pct").textContent = "100%";
+      CRITERIA[5].score = c6; CRITERIA[6].score = c7;
+      buildRubricDOM();
+      var finalScore = document.getElementById("ag-total-score").textContent;
+      document.getElementById("ag-master-status").textContent = "✅ Evaluación Multi-Agente Completada — Nota Definitiva: " + finalScore;
+      appendLog("[00:03.0] 🎙️ Agente 4 → Calificación asignada: " + sAg4 + " / 5.0.");
+      appendLog("[00:03.1] 🏆 Orquestador: Rúbrica actualizada exitosamente. Nota Definitiva Ponderada = " + finalScore);
+    }, 3000));
+  };
+
+  window.agExportReport = function(){
+    var total = CRITERIA.reduce(function(acc, c){ return acc + c.score * c.weight; }, 0);
+    var report = {
+      curso: "Informática Médica (IFMER 2026-II) - Universidad del Rosario",
+      fecha: new Date().toISOString(),
+      grupo: document.getElementById("ag-grupo").value,
+      modalidad: document.getElementById("ag-track").value,
+      notaDefinitiva: Number(total.toFixed(2)),
+      criterios: CRITERIA.map(function(c){ return { id: c.id, criterio: c.title, peso: c.weight, nota: c.score }; })
+    };
+    var blob = new Blob([JSON.stringify(report, null, 2)], {type: "application/json"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "acta_autocalificacion_ifmer.json";
+    a.click();
+  };
+
+  buildRubricDOM();
+})();
+</script>
+<hr>
+</section>
+<section id="lista-de-chequeo-del-entregable-final-clase-14-sustentación-clase-15" class="level2">
+<h2 class="anchored" data-anchor-id="lista-de-chequeo-del-entregable-final-clase-14-sustentación-clase-15">📦 5. Lista de Chequeo del Entregable Final (Clase 14 → Sustentación Clase 15)</h2>
+<p>Suba un único paquete <strong><code>.zip</code></strong> (o enlace al repositorio de GitHub) acompañado de su <strong>video de demostración (3 a 5 minutos)</strong>:</p>
+<ol type="1">
+<li><strong><code>Diccionario_Normativo_Res866.xlsx</code></strong>:
+<ul>
+<li>Hoja <code>diccionario</code> con las variables del Anexo Técnico de la Resolución 866 de 2021, su tipo de dato en el diseño inicial SQL (<code>VARCHAR</code>, <code>DATE</code>, <code>TINYINT</code>) o ruta en HL7 FHIR R4, obligatoriedad y la sección de la norma que lo exige.</li>
+</ul></li>
+<li><strong>Código Fuente con Interfaz Web Funcional (según la ruta elegida por el grupo):</strong>
+<ul>
+<li><strong>Si eligió Ruta A (PHP + MySQL CRUD):</strong> <code>database.sql</code> (con el diseño inicial de la tabla <code>pacientes</code> según el diccionario de datos) + carpeta de la aplicación web (<code>index.php</code>, <code>modificar.php</code>, <code>api/conexion.php</code>, <code>api/guardar.php</code>, <code>api/actualizar.php</code>, <code>api/eliminar.php</code> con baja lógica y consultas preparadas).</li>
+<li><strong>Si eligió Ruta B (HL7 FHIR R4 + SMART on FHIR):</strong> Aplicación web funcional (<code>index.html</code>, <code>launch.html</code> y scripts JS con <code>fetch()</code> o <code>fhirclient</code>) conectada al servidor FHIR, estructura JSON del recurso <code>Patient</code> con las variables de la Resolución 866 de 2021 y manejo desde la interfaz web de las 4 operaciones REST (<code>POST</code>, <code>GET</code>, <code>PUT</code> e inactivación <code>active: false</code>).</li>
+</ul></li>
+<li><strong><code>Video_Sustentacion_GrupoXX.mp4</code> (3 a 5 min) + <code>acta_autocalificacion_ifmer.json</code></strong>:
+<ul>
+<li>Todos los integrantes deben intervenir explicando: <strong>(a)</strong> cómo aplicaron el Anexo Técnico de la Resolución 866 de 2021 en el diseño de datos, <strong>(b)</strong> demostración en vivo de las 4 operaciones funcionando desde la interfaz web, y <strong>(c)</strong> explicación técnica del código implementado (consultas preparadas en PHP/MySQL o peticiones HTTP/REST y recursos en HL7 FHIR).</li>
+</ul></li>
+</ol>
 
 
 </section>
